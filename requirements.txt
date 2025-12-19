@@ -7,3 +7,5 @@ openpyxl
 requests
 pyarrow
 PyPDF2
+transformers
+torch
