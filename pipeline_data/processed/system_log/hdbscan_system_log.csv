@@ -1,0 +1,14 @@
+Original_Log,Cleaned_Log,Cluster_ID,Category
+"2016-09-28 04:30:31, Info                  CBS    TrustedInstaller service starts successfully.",info                  cbs    trustedinstaller service starts successfully,25,system_log
+"2016-09-28 04:30:31, Info                  CSI    00000007@2016/9/27:20:30:31.462 CSI perf trace:",info                  csi            csi perf trace,25,system_log
+"2016-09-28 04:30:31, Info                  CSI    00000008 CSI Store 4991456 (0x00000000004c29e0) initialized",info                  csi     csi store   xce  initialized,25,system_log
+"2016-09-28 04:40:53, Info                  CBS    Scavenge: Starts",info                  cbs    scavenge  starts,25,system_log
+"2016-09-28 04:40:53, Info                  CBS    Scavenge: Begin CSI Store",info                  cbs    scavenge  begin csi store,25,system_log
+"2016-09-28 04:40:54, Info                  CSI    0000000b Store coherency cookie matches last scavenge cookie, skipping scavenge.",info                  csi    b store coherency cookie matches last scavenge cookie  skipping scavenge,25,system_log
+"2016-09-28 04:40:54, Info                  CSI    0000000f@2016/9/27:20:40:54.786 CSI perf trace:",info                  csi    f        csi perf trace,25,system_log
+"2016-09-28 04:40:54, Info                  CSI    00000010@2016/9/27:20:40:54.787 CSI Transaction @0x47e9e0 destroyed",info                  csi            csi transaction  xee destroyed,25,system_log
+"2016-09-29 00:00:46, Info                  CBS    TrustedInstaller service starts successfully.",info                  cbs    trustedinstaller service starts successfully,25,system_log
+"2016-09-29 00:00:46, Info                  CSI    00000007@2016/9/28:16:00:46.260 CSI perf trace:",info                  csi            csi perf trace,25,system_log
+"2016-09-29 00:00:46, Info                  CSI    00000008@2016/9/28:16:00:46.635 PopulateComponentFamiliesKey - Begin",info                  csi            populatecomponentfamilieskey   begin,25,system_log
+"2016-09-29 00:01:03, Info                  CSI    0000000a CSI Store 17159600 (0x000000000105d5b0) initialized",info                  csi    a csi store   xdb  initialized,25,system_log
+"2016-09-29 02:03:46, Info                  CSI    0000000b CSI Store 3065408 (0x00000000002ec640) initialized",info                  csi    b csi store   xec  initialized,25,system_log
