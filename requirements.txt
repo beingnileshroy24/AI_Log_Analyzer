@@ -9,3 +9,4 @@ pyarrow
 PyPDF2
 transformers
 torch
+sentence-transformers

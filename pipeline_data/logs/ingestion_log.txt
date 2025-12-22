@@ -1,0 +1,7 @@
+2025-12-22 14:07:51,068 - INFO - 🚀 Pipeline started
+2025-12-22 14:07:51,068 - INFO - ✅ Read Log File: Windows_2k.log
+2025-12-22 14:07:51,068 - INFO - ✅ Moved to staging: 66c1757a-6c27-4915-a10f-f8a791a55d7e.log
+2025-12-22 14:07:51,069 - INFO - ✅ Read Log File: Apache_2k.log
+2025-12-22 14:07:51,069 - INFO - ✅ Moved to staging: cb6eccba-8d20-43af-b885-758702a18669.log
+2025-12-22 14:07:51,072 - INFO - 🧠 Running LINE-LEVEL clustering
+2025-12-22 14:07:51,911 - INFO - 🏁 Pipeline completed successfully
