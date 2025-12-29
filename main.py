@@ -1,25 +1,8 @@
 import os
 import shutil
 import uuid
-from config import setup_directories, setup_logging, INCOMING_DIR, STAGING_DIR
-from ingestor import UniversalIngestor
-from metadata import generate_metadata_report
-from processor import run_clustering
-
-def run_pipeline():
-    # 1. Setup
-    setup_directories()
-    setup_logging()
-    
-    # 2. Ingestion
-    ingestor = UniversalIngestor(INCOMING_DIR)
-    results = {}
-    file_tracking = {}
-
-    # Check for filesimport os
-import shutil
-import uuid
 import logging
+import sys
 
 from config import (
     setup_directories,
@@ -29,10 +12,10 @@ from config import (
 )
 
 from ingestor import UniversalIngestor
-from metadata import generate_metadata_report
+from metadata import generate_metadata_report, update_master_report
 from processor import run_clustering
 
-# OPTIONAL (future-safe imports)
+# Import Large Pipeline
 try:
     from run_large_scale_pipeline import run_large_scale_pipeline
     LARGE_PIPELINE_AVAILABLE = True
@@ -40,27 +23,28 @@ except ImportError:
     LARGE_PIPELINE_AVAILABLE = False
 
 
-def run_pipeline(mode="small"):
+def run_pipeline(mode="large"):
     """
-    mode = "small"  -> line-level clustering (current processor.py)
-    mode = "large"  -> file-level summarization + embeddings + clustering
+    mode = "small"  -> line-level clustering (processor.py)
+    mode = "large"  -> file-level summarization + sorting (run_large_scale_pipeline.py)
     """
 
     # 1️⃣ Setup
     setup_directories()
     setup_logging()
-    logging.info("🚀 Pipeline started")
+    logging.info(f"🚀 Pipeline started in '{mode}' mode")
 
     # 2️⃣ Ingestion
     ingestor = UniversalIngestor(INCOMING_DIR)
     results = {}
     file_tracking = {}
 
-    files_list = os.listdir(INCOMING_DIR)
+    files_list = [f for f in os.listdir(INCOMING_DIR) 
+                  if os.path.isfile(os.path.join(INCOMING_DIR, f))]
 
     if not files_list:
-        logging.warning(f"No files found in {INCOMING_DIR}")
-
+        logging.warning(f"⚠️ No files found in {INCOMING_DIR}.")
+    
     for filename in files_list:
         source_path = os.path.join(INCOMING_DIR, filename)
 
@@ -73,11 +57,11 @@ def run_pipeline(mode="small"):
         if content is None:
             continue
 
-        # Store results
         results[filename] = content
 
         # Rename + move to staging
-        new_name = f"{uuid.uuid4()}{os.path.splitext(filename)[1]}"
+        ext = os.path.splitext(filename)[1]
+        new_name = f"{uuid.uuid4()}{ext}"
         dest_path = os.path.join(STAGING_DIR, new_name)
 
         shutil.move(source_path, dest_path)
@@ -85,16 +69,23 @@ def run_pipeline(mode="small"):
 
         logging.info(f"✅ Moved to staging: {new_name}")
 
-    # 3️⃣ Metadata
+    # 3️⃣ Initial Metadata (Status: Pending)
     if results:
         generate_metadata_report(results, file_tracking)
 
-    # 4️⃣ Intelligence layer
+    # 4️⃣ Intelligence Layer
     if mode == "large":
         if not LARGE_PIPELINE_AVAILABLE:
-            raise RuntimeError("Large-scale pipeline not available")
-        logging.info("🧠 Running LARGE-SCALE pipeline")
-        run_large_scale_pipeline()
+            logging.error("❌ Large pipeline dependencies missing.")
+            return
+        
+        # Run AI and get list of file movements
+        updates = run_large_scale_pipeline()
+        
+        # 5️⃣ Finalize Metadata
+        if updates:
+            update_master_report(updates)
+            
     else:
         logging.info("🧠 Running LINE-LEVEL clustering")
         run_clustering(STAGING_DIR)
@@ -103,40 +94,5 @@ def run_pipeline(mode="small"):
 
 
 if __name__ == "__main__":
-    """
-    Change mode here:
-    - "small" -> current behavior (safe default)
-    - "large" -> summarization + embeddings + file clustering
-    """
-    run_pipeline(mode="small")
-
-    files_list = os.listdir(INCOMING_DIR)
-    if not files_list:
-        print(f"⚠️ No files in {INCOMING_DIR}. Please paste your logs there!")
-        # We don't return here, in case you want to process API data only
-    
-    # Process local files
-    for filename in files_list:
-        source_path = os.path.join(INCOMING_DIR, filename)
-        content = ingestor.process_file(source_path)
-        
-        if content:
-            results[filename] = content
-            # Rename and Move to Staging
-            new_name = f"{uuid.uuid4()}{os.path.splitext(filename)[1]}"
-            dest_path = os.path.join(STAGING_DIR, new_name)
-            shutil.move(source_path, dest_path)
-            file_tracking[filename] = dest_path
-            print(f"   ✅ Moved to Staging: {new_name}")
-
-    # 3. Metadata Generation
-    if results:
-        generate_metadata_report(results, file_tracking)
-
-    # 4. AI Clustering
-    run_clustering(STAGING_DIR)
-
-    print("\n🏁 Pipeline Completed.")
-
-if __name__ == "__main__":
-    run_pipeline()
+    # Default to Large Scale (File Sorting) mode
+    run_pipeline(mode="large")

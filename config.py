@@ -12,11 +12,16 @@ STAGING_DIR = os.path.join(PROCESSED_DIR, "staging")
 # Cluster Categories
 CLUSTER_FOLDERS = ["agreement", "app_log", "system_log", "governance_log", "unstructured_log"]
 
+# Domain Keywords for Auto-Categorization
+DOMAIN_KEYWORDS = {
+    "agreement": ["contract", "signed", "nda", "terms", "agreement"],
+    "system_log": ["cpu", "disk", "kernel", "boot", "service", "windows", "linux", "server"],
+    "app_log": ["login", "http", "api", "json", "exception", "stacktrace", "request", "response"],
+    "governance_log": ["audit", "policy", "compliance", "gdpr", "security", "access"]
+}
+
 def setup_directories():
     """Creates the necessary folder structure."""
-    if os.path.exists(INCOMING_DIR):
-        pass
-    
     for directory in [INCOMING_DIR, LOG_DIR, PROCESSED_DIR, STAGING_DIR]:
         os.makedirs(directory, exist_ok=True)
 
@@ -30,15 +35,14 @@ def setup_logging():
     """Configures system logging."""
     log_file = os.path.join(LOG_DIR, "ingestion_log.txt")
     
-    if os.path.exists(log_file):
-        os.remove(log_file)
-
+    # Clear old log if needed, or append. Here we append.
     logging.basicConfig(
         filename=log_file,
         level=logging.INFO,
         format='%(asctime)s - %(levelname)s - %(message)s',
         force=True
     )
+    # Add console handler
     console = logging.StreamHandler()
     console.setLevel(logging.INFO)
     logging.getLogger('').addHandler(console)

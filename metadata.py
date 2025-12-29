@@ -4,15 +4,23 @@ import getpass
 from datetime import datetime
 from config import BASE_DIR
 
+REPORT_PATH = os.path.join(BASE_DIR, "file_master_report.csv")
+
 def generate_metadata_report(results, file_tracking):
     print("\n🚀 STARTING METADATA TRACKING...")
 
-    file_master_columns = [
-        'File_ID', 'Original_Filename', 'Stored_Filename', 'Source_Type', 
-        'Raw_Storage_Path', 'File_Size_KB', 'Row_Count', 'Status', 
-        'Created_On', 'Created_By'
-    ]
-    file_master_df = pd.DataFrame(columns=file_master_columns)
+    # Load existing if available to append, else create new
+    if os.path.exists(REPORT_PATH):
+        file_master_df = pd.read_csv(REPORT_PATH)
+    else:
+        file_master_columns = [
+            'File_ID', 'Original_Filename', 'Stored_Filename', 'Source_Type', 
+            'Raw_Storage_Path', 'Final_Path', 'Category', 'Cluster_ID', 'Summary',
+            'File_Size_KB', 'Row_Count', 'Status', 'Created_On', 'Created_By'
+        ]
+        file_master_df = pd.DataFrame(columns=file_master_columns)
+
+    new_entries = []
 
     for original_name, content in results.items():
         # Defaults
@@ -49,15 +57,43 @@ def generate_metadata_report(results, file_tracking):
             'Stored_Filename': stored_filename,
             'Source_Type': source,
             'Raw_Storage_Path': storage_path,
+            'Final_Path': "Pending",  # Will be updated by pipeline
+            'Category': "Pending",    # Will be updated by pipeline
+            'Cluster_ID': "N/A",
+            'Summary': "N/A",
             'File_Size_KB': file_size,
             'Row_Count': row_count,
             'Status': status,
             'Created_On': datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
             'Created_By': getpass.getuser()
         }
-        file_master_df = pd.concat([file_master_df, pd.DataFrame([entry])], ignore_index=True)
+        new_entries.append(entry)
 
-    # Save
-    report_path = os.path.join(BASE_DIR, "file_master_report.csv")
-    file_master_df.to_csv(report_path, index=False)
-    print(f"✅ Metadata Report Saved: {report_path}")
+    if new_entries:
+        file_master_df = pd.concat([file_master_df, pd.DataFrame(new_entries)], ignore_index=True)
+        file_master_df.to_csv(REPORT_PATH, index=False)
+        print(f"✅ Metadata Report Updated: {REPORT_PATH}")
+
+def update_master_report(updates):
+    """
+    Updates the master report with AI results (Category, Path, Summary).
+    """
+    if not os.path.exists(REPORT_PATH) or not updates:
+        return
+
+    print("🔄 Updating Metadata with AI Insights...")
+    df = pd.read_csv(REPORT_PATH)
+
+    for update in updates:
+        # Find row by Stored_Filename
+        mask = df['Stored_Filename'] == update['Stored_Filename']
+        
+        if mask.any():
+            df.loc[mask, 'Category'] = update['Category']
+            df.loc[mask, 'Final_Path'] = update['Final_Path']
+            df.loc[mask, 'Cluster_ID'] = update['Cluster_ID']
+            df.loc[mask, 'Summary'] = update['Summary']
+            df.loc[mask, 'Status'] = "Processed"
+
+    df.to_csv(REPORT_PATH, index=False)
+    print("✅ Master Report Finalized.")

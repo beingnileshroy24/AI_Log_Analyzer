@@ -1,41 +1,107 @@
-# run_large_scale_pipeline.py
 import os
+import shutil
 import logging
+import pandas as pd
 from summarizer import LogSummarizer
 from embedding import EmbeddingEngine
 from file_clusterer import cluster_files
-from config import STAGING_DIR, PROCESSED_DIR
+from config import STAGING_DIR, PROCESSED_DIR, DOMAIN_KEYWORDS
+
+def determine_category(text):
+    """
+    Scans the text (summary) for keywords to determine the category.
+    Returns the category with the highest keyword matches.
+    """
+    text = str(text).lower()
+    best_match = "unstructured_log"
+    highest_score = 0
+    
+    for cat, keys in DOMAIN_KEYWORDS.items():
+        score = sum(1 for term in keys if term in text)
+        if score > highest_score:
+            highest_score = score
+            best_match = cat
+            
+    return best_match
 
 def run_large_scale_pipeline():
-    logging.info("🚀 STARTING LARGE SCALE PIPELINE")
+    logging.info("🚀 STARTING LARGE SCALE PIPELINE (Summarization + Sorting)")
 
     summarizer = LogSummarizer()
     embedder = EmbeddingEngine()
 
     file_summaries = {}
+    
+    # 1️⃣ Identify files in staging
+    # Filter only files, ignore directories
+    files_to_process = [f for f in os.listdir(STAGING_DIR) 
+                        if os.path.isfile(os.path.join(STAGING_DIR, f))]
+    
+    if not files_to_process:
+        logging.warning("⚠️ No files found in staging to process.")
+        return []
 
-    # 1️⃣ Summarize files
-    for file in os.listdir(STAGING_DIR):
+    # 2️⃣ Summarize files
+    logging.info(f"🧠 Summarizing {len(files_to_process)} files...")
+    for file in files_to_process:
         path = os.path.join(STAGING_DIR, file)
-        if not os.path.isfile(path):
-            continue
+        try:
+            summary = summarizer.summarize_file(path)
+            if summary and summary.strip():
+                file_summaries[file] = summary
+        except Exception as e:
+            logging.error(f"❌ Failed to summarize {file}: {e}")
 
-        summary = summarizer.summarize_file(path)
-        if summary.strip():
-            file_summaries[file] = summary
+    if not file_summaries:
+        logging.warning("⚠️ No valid summaries generated.")
+        return []
 
-    # 2️⃣ Vectorize summaries
+    # 3️⃣ Vectorize summaries
+    logging.info("📐 Generating Embeddings...")
     summaries = list(file_summaries.values())
     embeddings = embedder.embed(summaries)
 
-    # 3️⃣ Cluster files
+    # 4️⃣ Cluster files
     clustered_df = cluster_files(file_summaries, embeddings)
 
-    # 4️⃣ Save result
+    # 5️⃣ Assign Categories & Move Files
+    logging.info("📂 Organizing files into final categories...")
+    clustered_df['Category'] = clustered_df['summary'].apply(determine_category)
+    
+    updates = [] # To send back to metadata
+
+    for index, row in clustered_df.iterrows():
+        filename = row['file_name']
+        category = row['Category']
+        
+        source_path = os.path.join(STAGING_DIR, filename)
+        dest_folder = os.path.join(PROCESSED_DIR, category)
+        dest_path = os.path.join(dest_folder, filename)
+        
+        # Ensure destination exists
+        os.makedirs(dest_folder, exist_ok=True)
+        
+        try:
+            if os.path.exists(source_path):
+                shutil.move(source_path, dest_path)
+                logging.info(f"   👉 Moved {filename} -> {category}/")
+                
+                # Record update for metadata
+                updates.append({
+                    "Stored_Filename": filename,
+                    "Category": category,
+                    "Final_Path": dest_path,
+                    "Cluster_ID": row['cluster_id'],
+                    "Summary": row['summary']
+                })
+            else:
+                logging.warning(f"   ⚠️ File missing: {filename}")
+        except Exception as e:
+            logging.error(f"   ❌ Error moving {filename}: {e}")
+
+    # 6️⃣ Save Cluster Report
     output_path = os.path.join(PROCESSED_DIR, "file_level_clusters.csv")
     clustered_df.to_csv(output_path, index=False)
-
-    logging.info(f"✅ File-level clustering saved: {output_path}")
-
-if __name__ == "__main__":
-    run_large_scale_pipeline()
+    logging.info(f"✅ Cluster Report Saved: {output_path}")
+    
+    return updates
