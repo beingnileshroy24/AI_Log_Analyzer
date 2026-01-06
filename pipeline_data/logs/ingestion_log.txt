@@ -320,3 +320,87 @@
 2025-12-29 11:44:07,465 - INFO -    👉 Moved 27f91cb4-791e-43b7-bd2a-213cb238fb94.log -> app_log/
 2025-12-29 11:44:07,470 - INFO - ✅ Cluster Report Saved: ./pipeline_data/processed/file_level_clusters.csv
 2025-12-29 11:44:07,483 - INFO - 🏁 Pipeline completed successfully
+2026-01-05 19:41:15,508 - INFO - 🚀 Pipeline started in 'large' mode
+2026-01-05 19:41:15,508 - WARNING - ⚠️ No files found in ./pipeline_data/incoming.
+2026-01-05 19:41:15,509 - INFO - 🚀 STARTING LARGE SCALE PIPELINE (Summarization + Sorting)
+2026-01-05 19:41:15,509 - INFO - Initializing Keyword Summarizer with ANN model: sentence-transformers/all-MiniLM-L6-v2
+2026-01-05 19:41:15,525 - INFO - Use pytorch device_name: mps
+2026-01-05 19:41:15,526 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-05 19:41:19,642 - INFO - Use pytorch device_name: mps
+2026-01-05 19:41:19,643 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-05 19:41:23,419 - WARNING - ⚠️ No files found in staging to process.
+2026-01-05 19:41:23,419 - INFO - 🏁 Pipeline completed successfully
+2026-01-05 19:42:53,363 - INFO - 🚀 Pipeline started in 'large' mode
+2026-01-05 19:42:53,363 - INFO - ✅ Read Log File: Windows_2k.log
+2026-01-05 19:42:53,363 - INFO - ✅ Moved to staging: c59d681d-9f33-491f-b538-71c2e90378fe.log
+2026-01-05 19:42:53,364 - INFO - ✅ Read Log File: Apache_2k.log
+2026-01-05 19:42:53,364 - INFO - ✅ Moved to staging: d41e6c90-e288-49b4-adfc-85c38130093d.log
+2026-01-05 19:42:53,371 - INFO - 🚀 STARTING LARGE SCALE PIPELINE (Summarization + Sorting)
+2026-01-05 19:42:53,371 - INFO - Initializing Keyword Summarizer with ANN model: sentence-transformers/all-MiniLM-L6-v2
+2026-01-05 19:42:53,385 - INFO - Use pytorch device_name: mps
+2026-01-05 19:42:53,385 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-05 19:42:57,622 - INFO - Use pytorch device_name: mps
+2026-01-05 19:42:57,622 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-05 19:43:01,212 - INFO - 🧠 Summarizing 2 files...
+2026-01-05 19:43:01,212 - INFO - 🧠 Extracting keywords for: c59d681d-9f33-491f-b538-71c2e90378fe.log
+2026-01-05 19:43:06,564 - INFO - ✅ Extracted 20 keywords: wcp dll, windows servicingstack_31bf3856ad364e35_6...
+2026-01-05 19:43:06,565 - INFO - 🧠 Extracting keywords for: d41e6c90-e288-49b4-adfc-85c38130093d.log
+2026-01-05 19:43:08,449 - INFO - ✅ Extracted 20 keywords: notice jk2_init, jk2_init child, mod_jk child, err...
+2026-01-05 19:43:08,449 - INFO - 📐 Generating Embeddings...
+2026-01-05 19:43:08,682 - INFO - 📂 Organizing files into final categories...
+2026-01-05 19:43:08,683 - INFO -    👉 Moved c59d681d-9f33-491f-b538-71c2e90378fe.log -> system_log/
+2026-01-05 19:43:08,684 - INFO -    👉 Moved d41e6c90-e288-49b4-adfc-85c38130093d.log -> unstructured_log/
+2026-01-05 19:43:08,685 - INFO - ✅ Cluster Report Saved: ./pipeline_data/processed/file_level_clusters.csv
+2026-01-05 19:43:08,688 - INFO - 🏁 Pipeline completed successfully
+2026-01-05 19:44:08,674 - INFO - 🚀 Pipeline started in 'large' mode
+2026-01-05 19:44:08,674 - INFO - ✅ Read Log File: Windows_2k.log
+2026-01-05 19:44:08,675 - INFO - ✅ Moved to staging: c8c26b9c-9350-4d2c-b897-1f2b7677cb37.log
+2026-01-05 19:44:08,675 - INFO - ✅ Read Log File: Apache_2k.log
+2026-01-05 19:44:08,675 - INFO - ✅ Moved to staging: e3c3e50b-0c56-4639-8532-34a81ded2062.log
+2026-01-05 19:44:08,678 - INFO - 🚀 STARTING LARGE SCALE PIPELINE (Summarization + Sorting)
+2026-01-05 19:44:08,678 - INFO - Initializing Keyword Summarizer with ANN model: sentence-transformers/all-MiniLM-L6-v2
+2026-01-05 19:44:08,691 - INFO - Use pytorch device_name: mps
+2026-01-05 19:44:08,691 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-05 19:44:12,550 - INFO - Use pytorch device_name: mps
+2026-01-05 19:44:12,550 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-05 19:44:17,171 - INFO - 🧠 Summarizing 2 files...
+2026-01-05 19:44:17,171 - INFO - 🧠 Extracting keywords for: e3c3e50b-0c56-4639-8532-34a81ded2062.log
+2026-01-05 19:44:18,940 - INFO - ✅ Extracted 20 keywords: notice jk2_init, jk2_init child, mod_jk child, err...
+2026-01-05 19:44:18,941 - INFO - 🧠 Extracting keywords for: c8c26b9c-9350-4d2c-b897-1f2b7677cb37.log
+2026-01-05 19:44:21,204 - INFO - ✅ Extracted 20 keywords: wcp dll, windows servicingstack_31bf3856ad364e35_6...
+2026-01-05 19:44:21,204 - INFO - 📐 Generating Embeddings...
+2026-01-05 19:44:21,259 - INFO - 📂 Organizing files into final categories...
+2026-01-05 19:44:21,260 - INFO -    👉 Moved e3c3e50b-0c56-4639-8532-34a81ded2062.log -> unstructured_log/
+2026-01-05 19:44:21,260 - INFO -    👉 Moved c8c26b9c-9350-4d2c-b897-1f2b7677cb37.log -> system_log/
+2026-01-05 19:44:21,260 - INFO - ✅ Cluster Report Saved: ./pipeline_data/processed/file_level_clusters.csv
+2026-01-05 19:44:21,263 - INFO - 🏁 Pipeline completed successfully
+2026-01-05 19:49:40,544 - INFO - 🚀 Pipeline started in 'large' mode
+2026-01-05 19:49:40,544 - INFO - ✅ Read Log File: Windows_2k.log
+2026-01-05 19:49:40,545 - INFO - ✅ Moved to staging: 3e972a70-2edf-489b-88a0-ffafda5c1866.log
+2026-01-05 19:49:40,545 - INFO - ✅ Read Log File: Apache_2k.log
+2026-01-05 19:49:40,545 - INFO - ✅ Moved to staging: eab51968-7c3a-4b1d-a7ec-70ce3a46c8bc.log
+2026-01-05 19:49:40,551 - INFO - 🚀 STARTING LARGE SCALE PIPELINE (Summarization + Sorting)
+2026-01-05 19:49:40,551 - INFO - Initializing Optimized Keyword Summarizer (MMR) with: sentence-transformers/all-MiniLM-L6-v2
+2026-01-05 19:49:40,564 - INFO - Use pytorch device_name: mps
+2026-01-05 19:49:40,564 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-05 19:49:45,057 - INFO - Use pytorch device_name: mps
+2026-01-05 19:49:45,057 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-05 19:49:48,778 - INFO - 🧠 Summarizing 2 files...
+2026-01-05 19:49:51,299 - INFO - ✅ Extracted Keywords: wcp dll, reboot pending, cbs_e_manifest_invalid_item 2016, windows servicingstack_31bf3856ad364e35_6...
+2026-01-05 19:49:52,722 - INFO - ✅ Extracted Keywords: notice jk2_init, child workerenv, 1851 scoreboard, error state, httpd conf, 6766, 2005 notice, index...
+2026-01-05 19:49:52,722 - INFO - 📐 Generating Embeddings...
+2026-01-05 19:49:52,780 - INFO - 📂 Organizing files into final categories...
+2026-01-05 19:49:52,781 - INFO -    👉 Moved 3e972a70-2edf-489b-88a0-ffafda5c1866.log -> system_log/
+2026-01-05 19:49:52,781 - INFO -    👉 Moved eab51968-7c3a-4b1d-a7ec-70ce3a46c8bc.log -> app_log/
+2026-01-05 19:49:52,782 - INFO - ✅ Cluster Report Saved: ./pipeline_data/processed/file_level_clusters.csv
+2026-01-05 19:49:52,785 - INFO - 🏁 Pipeline completed successfully
+2026-01-06 10:54:01,803 - INFO - 🚀 Pipeline started in 'large' mode
+2026-01-06 10:54:01,804 - WARNING - ⚠️ No files found in ./pipeline_data/incoming.
+2026-01-06 10:54:01,804 - INFO - 🚀 STARTING LARGE SCALE PIPELINE (Summarization + Sorting)
+2026-01-06 10:54:01,804 - INFO - Initializing Optimized Keyword Summarizer (MMR) with: sentence-transformers/all-MiniLM-L6-v2
+2026-01-06 10:54:01,820 - INFO - Use pytorch device_name: mps
+2026-01-06 10:54:01,820 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-06 10:54:06,356 - INFO - Use pytorch device_name: mps
+2026-01-06 10:54:06,356 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-06 10:54:10,426 - WARNING - ⚠️ No files found in staging to process.
+2026-01-06 10:54:10,426 - INFO - 🏁 Pipeline completed successfully

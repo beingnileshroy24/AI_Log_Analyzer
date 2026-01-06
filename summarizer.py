@@ -1,138 +1,85 @@
 # summarizer.py
 import os
 import logging
-from transformers import pipeline, AutoTokenizer
+import numpy as np
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+from embedding import EmbeddingEngine
 
 class LogSummarizer:
-    def __init__(self, model_name="sshleifer/distilbart-cnn-12-6", device=None, chunk_token_size=None):
+    def __init__(self, model_name="sentence-transformers/all-MiniLM-L6-v2", device=None, chunk_token_size=None):
+        logging.info(f"Initializing Optimized Keyword Summarizer (MMR) with: {model_name}")
+        self.model = EmbeddingEngine(model_name)
+
+    def _mmr(self, doc_embedding, candidate_embeddings, candidates, top_n, diversity):
         """
-        model_name: HF model for summarization
-        device: None (auto CPU) or int device id (e.g. 0) or "mps" handling is automatic by transformers
-        chunk_token_size: desired max tokens per chunk (if None, uses tokenizer.model_max_length - 64)
+        Maximal Marginal Relevance (MMR) implementation.
+        Selects keywords that are relevant to the doc but also different from each other.
+        diversity: 0.0 (most accurate) to 1.0 (most diverse)
         """
-        logging.info(f"Initializing summarizer with model: {model_name}")
-        self.model_name = model_name
-        self.tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=True)
-        self.model_max_length = getattr(self.tokenizer, "model_max_length", 1024)
-        # leave a margin for generation tokens & special tokens
-        self.margin = 64
+        word_doc_similarity = cosine_similarity(candidate_embeddings, doc_embedding)
+        word_similarity = cosine_similarity(candidate_embeddings)
 
-        if chunk_token_size is None:
-            self.chunk_token_size = max(128, min(self.model_max_length - self.margin, 800))
-        else:
-            self.chunk_token_size = min(chunk_token_size, self.model_max_length - self.margin)
+        # Initialize candidates
+        keywords_idx = [np.argmax(word_doc_similarity)]
+        candidates_idx = [i for i in range(len(candidates)) if i != keywords_idx[0]]
 
-        # device selection: transformers will choose automatically if device is None
-        pipe_kwargs = {}
-        if device is not None:
-            pipe_kwargs["device"] = device
+        for _ in range(min(top_n - 1, len(candidates) - 1)):
+            # Extract similarities for remaining candidates
+            candidate_similarities = word_doc_similarity[candidates_idx, :]
+            target_similarities = np.max(word_similarity[candidates_idx][:, keywords_idx], axis=1)
 
-        self.summarizer = pipeline(
-            "summarization",
-            model=self.model_name,
-            tokenizer=self.model_name,
-            **pipe_kwargs
-        )
+            # MMR formula: ArgMax( lambda * Sim(doc) - (1-lambda) * Sim(already_selected) )
+            mmr = (1 - diversity) * candidate_similarities.reshape(-1) - diversity * target_similarities.reshape(-1)
+            mmr_idx = candidates_idx[np.argmax(mmr)]
 
-        logging.info(f"Tokenizer model_max_length: {self.model_max_length}")
-        logging.info(f"Using chunk_token_size: {self.chunk_token_size} (margin {self.margin})")
+            keywords_idx.append(mmr_idx)
+            candidates_idx.remove(mmr_idx)
 
-    def _chunk_by_tokens(self, text):
+        return [candidates[idx] for idx in keywords_idx]
+
+    def summarize_file(self, filepath, max_length=None, min_length=None, top_n=30):
         """
-        Yield text chunks where each chunk encodes to <= self.chunk_token_size tokens.
-        We build chunks by accumulating sentences (split on newlines and punctuation) or words
-        until token budget is near exhausted.
+        Extracts diverse keywords using KeyBERT-style MMR.
         """
-        # We try to preserve line boundaries where possible (logs have meaningful lines)
-        lines = text.splitlines()
-        current_chunk_lines = []
-        current_len = 0
+        try:
+            with open(filepath, "r", encoding="utf-8", errors="ignore") as f:
+                doc = f.read()
 
-        for line in lines:
-            if not line.strip():
-                # preserve blank lines as separators
-                candidate = "\n".join(current_chunk_lines + [""])
-            else:
-                candidate = line
+            if not doc.strip():
+                return ""
 
-            # estimate token length if we add this line
-            # use tokenizer to count tokens
-            candidate_tokens = self.tokenizer.encode(line, add_special_tokens=False)
-            cand_len = len(candidate_tokens)
+            # 1. Candidate Selection (Custom Log Stopwords)
+            # We add common log noise to stopwords so the AI ignores them
+            log_stop_words = [
+                "info", "debug", "trace", "warn", "date", "time", "timestamp", 
+                "log", "file", "path", "message", "level", "thread", "class",
+                "start", "end", "completed", "running", "process", "server"
+            ]
+            
+            # Use English stopwords + our custom list
+            # We use 1-grams (words) and 2-grams (phrases like "connection refused")
+            count = CountVectorizer(ngram_range=(1, 2), stop_words="english").fit([doc])
+            all_candidates = count.get_feature_names_out()
+            
+            # Filter manually since sklearn 'stop_words' is list-only
+            candidates = [c for c in all_candidates if c.lower() not in log_stop_words]
+            
+            if not candidates:
+                return doc[:200].replace("\n", " ")
 
-            # if single line itself exceeds the chunk size, we must split it (word-based fallback)
-            if cand_len > self.chunk_token_size:
-                # flush current chunk first
-                if current_chunk_lines:
-                    yield "\n".join(current_chunk_lines)
-                    current_chunk_lines = []
-                    current_len = 0
+            # 2. Embeddings
+            doc_embedding = self.model.embed([doc])
+            candidate_embeddings = self.model.embed(candidates)
 
-                # fall back to splitting the long line by words into smaller pieces
-                words = line.split()
-                piece = []
-                piece_len = 0
-                for w in words:
-                    w_len = len(self.tokenizer.encode(w, add_special_tokens=False))
-                    if piece_len + w_len + 1 > self.chunk_token_size:
-                        if piece:
-                            yield " ".join(piece)
-                        piece = [w]
-                        piece_len = w_len
-                    else:
-                        piece.append(w)
-                        piece_len += (w_len + 1)
-                if piece:
-                    yield " ".join(piece)
-                continue
+            # 3. MMR Selection (Diversity=0.5 balances accuracy vs variety)
+            # This ensures we get specific terms (JSON, API) mixed with general terms
+            keywords = self._mmr(doc_embedding, candidate_embeddings, candidates, top_n=top_n, diversity=0.5)
 
-            # normal case: check if adding this line would overflow chunk
-            if current_len + cand_len + 1 <= self.chunk_token_size:
-                current_chunk_lines.append(line)
-                current_len += cand_len + 1
-            else:
-                # flush current chunk
-                if current_chunk_lines:
-                    yield "\n".join(current_chunk_lines)
-                # start new chunk with current line
-                current_chunk_lines = [line]
-                current_len = cand_len + 1
+            final_summary = ", ".join(keywords)
+            logging.info(f"✅ Extracted Keywords: {final_summary[:100]}...")
+            return final_summary
 
-        # flush remaining
-        if current_chunk_lines:
-            yield "\n".join(current_chunk_lines)
-
-    def summarize_file(self, filepath, max_length=150, min_length=40):
-        """
-        Summarize a file safely by chunking based on tokens.
-        Returns concatenated summary text.
-        """
-        logging.info(f"🧠 Summarizing: {os.path.basename(filepath)}")
-        with open(filepath, "r", encoding="utf-8", errors="ignore") as f:
-            text = f.read()
-
-        if not text.strip():
-            logging.warning("Empty file, returning empty summary.")
-            return ""
-
-        summaries = []
-        for i, chunk in enumerate(self._chunk_by_tokens(text)):
-            try:
-                # you can tune max_length/min_length depending on summary granularity
-                result = self.summarizer(
-                    chunk,
-                    max_length=max_length,
-                    min_length=min_length,
-                    do_sample=False
-                )
-                summary_text = result[0].get("summary_text", "").strip()
-                summaries.append(summary_text)
-                logging.info(f"  - chunk {i+1} summarized (len {len(chunk)} chars)")
-            except Exception as e:
-                logging.warning(f"⚠️ Summarization chunk failed: {e}. Skipping chunk.")
-                # optionally append a short fallback: first N chars of the chunk
-                fallback = chunk[:800].replace("\n", " ")
-                summaries.append(fallback)
-
-        final_summary = " ".join(summaries).strip()
-        return final_summary
+        except Exception as e:
+            logging.error(f"❌ Keyword extraction failed: {e}")
+            return doc[:500].replace("\n", " ")
