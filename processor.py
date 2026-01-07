@@ -4,7 +4,7 @@ import re
 import numpy as np
 import hdbscan
 from sklearn.feature_extraction.text import TfidfVectorizer
-from config import PROCESSED_DIR
+from config import PROCESSED_DIR, DOMAIN_KEYWORDS
 
 def clean_text(text):
     text = re.sub(r'\d+', '', text)
@@ -45,19 +45,16 @@ def run_clustering(staging_dir):
     X_dense = X.toarray()
 
     # 3. Clustering
-    clusterer = hdbscan.HDBSCAN(min_cluster_size=5, min_samples=2)
-    df_logs['Cluster_ID'] = clusterer.fit_predict(X_dense)
+    # Guard: HDBSCAN requires at least min_cluster_size points
+    if len(df_logs) < 5:
+        df_logs['Cluster_ID'] = -1
+    else:
+        clusterer = hdbscan.HDBSCAN(min_cluster_size=5, min_samples=2)
+        df_logs['Cluster_ID'] = clusterer.fit_predict(X_dense)
     unique_clusters = sorted(df_logs['Cluster_ID'].unique())
     print(f"✅ Clusters Found: {unique_clusters}")
 
-    # 4. Labeling
-    domain_keywords = {
-        "agreement": ["contract", "signed", "nda", "terms"],
-        "system_log": ["cpu", "disk", "kernel", "boot", "service"],
-        "app_log": ["login", "http", "api", "json", "exception"],
-        "governance_log": ["audit", "policy", "compliance", "gdpr"]
-    }
-
+    # 4. Labeling (Using centralized keywords from config)
     cluster_map = {}
     for cid in unique_clusters:
         if cid == -1:
@@ -71,7 +68,7 @@ def run_clustering(staging_dir):
 
         best_match = "app_log"
         highest_score = 0
-        for cat, keys in domain_keywords.items():
+        for cat, keys in DOMAIN_KEYWORDS.items():
             score = sum(1 for term in top_terms if term in keys)
             if score > highest_score:
                 highest_score = score

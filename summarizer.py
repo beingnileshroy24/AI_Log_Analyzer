@@ -59,7 +59,8 @@ class LogSummarizer:
             
             # Use English stopwords + our custom list
             # We use 1-grams (words) and 2-grams (phrases like "connection refused")
-            count = CountVectorizer(ngram_range=(1, 2), stop_words="english").fit([doc])
+            # OPTIMIZATION: Limit max_features to 500 to prevent OOM on large files
+            count = CountVectorizer(ngram_range=(1, 2), stop_words="english", max_features=500).fit([doc])
             all_candidates = count.get_feature_names_out()
             
             # Filter manually since sklearn 'stop_words' is list-only
@@ -69,7 +70,13 @@ class LogSummarizer:
                 return doc[:200].replace("\n", " ")
 
             # 2. Embeddings
-            doc_embedding = self.model.embed([doc])
+            # OPTIMIZATION: Sample the document if it's too long (> 100k chars)
+            if len(doc) > 100000:
+                doc_for_embedding = doc[:50000] + doc[-50000:]
+            else:
+                doc_for_embedding = doc
+
+            doc_embedding = self.model.embed([doc_for_embedding])
             candidate_embeddings = self.model.embed(candidates)
 
             # 3. MMR Selection (Diversity=0.5 balances accuracy vs variety)

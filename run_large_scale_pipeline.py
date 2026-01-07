@@ -2,6 +2,8 @@ import os
 import shutil
 import logging
 import pandas as pd
+from concurrent.futures import ThreadPoolExecutor
+from functools import partial
 from summarizer import LogSummarizer
 from embedding import EmbeddingEngine
 from file_clusterer import cluster_files
@@ -24,6 +26,16 @@ def determine_category(text):
             
     return best_match
 
+def summarize_single_file(file_path, summarizer):
+    """Helper for parallel execution"""
+    try:
+        filename = os.path.basename(file_path)
+        summary = summarizer.summarize_file(file_path)
+        return summary
+    except Exception as e:
+        logging.error(f"❌ Failed to summarize {os.path.basename(file_path)}: {e}")
+        return None
+
 def run_large_scale_pipeline():
     logging.info("🚀 STARTING LARGE SCALE PIPELINE (Summarization + Sorting)")
 
@@ -41,16 +53,28 @@ def run_large_scale_pipeline():
         logging.warning("⚠️ No files found in staging to process.")
         return []
 
-    # 2️⃣ Summarize files
-    logging.info(f"🧠 Summarizing {len(files_to_process)} files...")
-    for file in files_to_process:
-        path = os.path.join(STAGING_DIR, file)
-        try:
-            summary = summarizer.summarize_file(path)
+    # 2️⃣ Summarize files (Parallelized)
+    if len(files_to_process) > 1:
+        logging.info(f"🧠 Summarizing {len(files_to_process)} files using parallel processing...")
+        func = partial(summarize_single_file, summarizer=summarizer)
+        file_paths = [os.path.join(STAGING_DIR, f) for f in files_to_process]
+        
+        with ThreadPoolExecutor() as executor:
+            results = list(executor.map(func, file_paths))
+        
+        for filename, summary in zip(files_to_process, results):
             if summary and summary.strip():
-                file_summaries[file] = summary
-        except Exception as e:
-            logging.error(f"❌ Failed to summarize {file}: {e}")
+                file_summaries[filename] = summary
+    else:
+        # Single file optimization
+        filename = files_to_process[0]
+        logging.info(f"🧠 Summarizing single file: {filename}")
+        summary = summarizer.summarize_file(os.path.join(STAGING_DIR, filename))
+        if summary:
+            file_summaries[filename] = summary
+
+    # Cleanup staging paths that failed to summarize if any
+    # (Actually we only move successfully summarized files later or based on clustered_df)
 
     if not file_summaries:
         logging.warning("⚠️ No valid summaries generated.")

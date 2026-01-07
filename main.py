@@ -8,7 +8,8 @@ from config import (
     setup_directories,
     setup_logging,
     INCOMING_DIR,
-    STAGING_DIR
+    STAGING_DIR,
+    PROCESSED_DIR
 )
 
 from ingestor import UniversalIngestor
@@ -76,7 +77,7 @@ def run_pipeline(mode="large"):
     # 4️⃣ Intelligence Layer
     if mode == "large":
         if not LARGE_PIPELINE_AVAILABLE:
-            logging.error("❌ Large pipeline dependencies missing.")
+            logging.error("❌ Large pipeline dependencies missing. Run 'pip install hdbscan sentence-transformers'.")
             return
         
         # Run AI and get list of file movements
@@ -85,14 +86,21 @@ def run_pipeline(mode="large"):
         # 5️⃣ Finalize Metadata
         if updates:
             update_master_report(updates)
+            logging.info(f"📊 Processed {len(updates)} files in LARGE-SCALE mode.")
             
     else:
-        logging.info("🧠 Running LINE-LEVEL clustering")
+        logging.info("🧠 Running LINE-LEVEL clustering (Best for single large logs)")
         run_clustering(STAGING_DIR)
 
-    logging.info("🏁 Pipeline completed successfully")
+    logging.info("🏁 Pipeline completed. Files moved to: " + PROCESSED_DIR)
 
 
 if __name__ == "__main__":
-    # Default to Large Scale (File Sorting) mode
-    run_pipeline(mode="large")
+    # Modes:
+    # "large" -> File-level sorting (summarizes whole files then moves them)
+    # "small" -> Line-level clustering (breaks logs into patterns, saves to CSV)
+    mode = "large"
+    if len(sys.argv) > 1:
+        mode = sys.argv[1]
+    
+    run_pipeline(mode=mode)

@@ -404,3 +404,93 @@
 2026-01-06 10:54:06,356 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
 2026-01-06 10:54:10,426 - WARNING - ⚠️ No files found in staging to process.
 2026-01-06 10:54:10,426 - INFO - 🏁 Pipeline completed successfully
+2026-01-07 11:50:49,609 - INFO - 🚀 Pipeline started in 'large' mode
+2026-01-07 11:50:49,609 - WARNING - ⚠️ No files found in ./pipeline_data/incoming.
+2026-01-07 11:50:49,609 - INFO - 🚀 STARTING LARGE SCALE PIPELINE (Summarization + Sorting)
+2026-01-07 11:50:49,609 - INFO - Initializing Optimized Keyword Summarizer (MMR) with: sentence-transformers/all-MiniLM-L6-v2
+2026-01-07 11:50:49,626 - INFO - Use pytorch device_name: mps
+2026-01-07 11:50:49,626 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-07 11:50:54,122 - INFO - Use pytorch device_name: mps
+2026-01-07 11:50:54,122 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-07 11:50:58,643 - WARNING - ⚠️ No files found in staging to process.
+2026-01-07 11:50:58,643 - INFO - 🏁 Pipeline completed successfully
+2026-01-07 12:03:05,072 - INFO - 🚀 Pipeline started in 'large' mode
+2026-01-07 12:03:05,177 - INFO - ✅ Ingested CSV: client_hostname.csv
+2026-01-07 12:03:05,177 - INFO - ✅ Moved to staging: 01b56a62-670d-42b6-bfb7-07df6736b92d.csv
+2026-01-07 12:03:05,421 - INFO - ✅ Ingested CSV: eventlog.csv
+2026-01-07 12:03:05,421 - INFO - ✅ Moved to staging: 1b656263-431e-4016-81c3-f926eb8dcaa1.csv
+2026-01-07 12:03:05,426 - INFO - 🚀 STARTING LARGE SCALE PIPELINE (Summarization + Sorting)
+2026-01-07 12:03:05,426 - INFO - Initializing Optimized Keyword Summarizer (MMR) with: sentence-transformers/all-MiniLM-L6-v2
+2026-01-07 12:03:05,456 - INFO - Use pytorch device_name: mps
+2026-01-07 12:03:05,456 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-07 12:03:09,823 - INFO - Use pytorch device_name: mps
+2026-01-07 12:03:09,823 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-07 12:03:14,202 - INFO - 🧠 Summarizing 2 files...
+2026-01-07 12:14:24,414 - INFO - 🚀 Pipeline started in 'large' mode
+2026-01-07 12:14:24,414 - INFO - ✅ Read Log File: Apache_2k.log
+2026-01-07 12:14:24,414 - INFO - ✅ Moved to staging: 672870af-ee87-4765-ab1e-b55f3e3d4520.log
+2026-01-07 12:14:24,650 - INFO - ✅ Ingested CSV: eventlog.csv
+2026-01-07 12:14:24,650 - INFO - ✅ Moved to staging: 7bc9746c-fa7e-42f1-acdb-5349ecaa8a65.csv
+2026-01-07 12:14:24,654 - INFO - 🚀 STARTING LARGE SCALE PIPELINE (Summarization + Sorting)
+2026-01-07 12:14:24,654 - INFO - Initializing Optimized Keyword Summarizer (MMR) with: sentence-transformers/all-MiniLM-L6-v2
+2026-01-07 12:14:24,667 - INFO - Use pytorch device_name: mps
+2026-01-07 12:14:24,667 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-07 12:14:28,952 - INFO - Use pytorch device_name: mps
+2026-01-07 12:14:28,952 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-07 12:14:33,378 - INFO - 🧠 Summarizing 2 files...
+2026-01-07 12:14:35,570 - INFO - ✅ Extracted Keywords: notice jk2_init, child workerenv, 1851 scoreboard, error state, httpd conf, 6766, 2005 notice, index...
+2026-01-07 12:22:05,887 - INFO - 🚀 Pipeline started in 'large' mode
+2026-01-07 12:22:05,887 - INFO - ✅ Read Log File: 672870af-ee87-4765-ab1e-b55f3e3d4520.log
+2026-01-07 12:22:05,887 - INFO - ✅ Moved to staging: cffe2d49-ec53-426a-8e61-c192cdb0e006.log
+2026-01-07 12:22:05,893 - INFO - 🚀 STARTING LARGE SCALE PIPELINE (Summarization + Sorting)
+2026-01-07 12:22:05,893 - INFO - Initializing Optimized Keyword Summarizer (MMR) with: sentence-transformers/all-MiniLM-L6-v2
+2026-01-07 12:22:05,907 - INFO - Use pytorch device_name: mps
+2026-01-07 12:22:05,907 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-07 12:22:11,395 - INFO - Use pytorch device_name: mps
+2026-01-07 12:22:11,395 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-07 12:22:16,349 - INFO - 🧠 Summarizing 1 files...
+2026-01-07 12:22:17,866 - INFO - ✅ Extracted Keywords: notice jk2_init, child workerenv, 1851 scoreboard, error state, httpd conf, 6766, 2005 notice, index...
+2026-01-07 12:22:17,866 - INFO - 📐 Generating Embeddings...
+2026-01-07 12:25:52,684 - INFO - 🚀 Pipeline started in 'large' mode
+2026-01-07 12:25:52,685 - INFO - ✅ Read Log File: cffe2d49-ec53-426a-8e61-c192cdb0e006.log
+2026-01-07 12:25:52,686 - INFO - ✅ Moved to staging: 5aa33962-06ee-4ff4-b637-223abd9eacdd.log
+2026-01-07 12:25:52,694 - INFO - 🚀 STARTING LARGE SCALE PIPELINE (Summarization + Sorting)
+2026-01-07 12:25:52,694 - INFO - Initializing Optimized Keyword Summarizer (MMR) with: sentence-transformers/all-MiniLM-L6-v2
+2026-01-07 12:25:52,707 - INFO - Use pytorch device_name: mps
+2026-01-07 12:25:52,707 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-07 12:25:57,129 - INFO - Use pytorch device_name: mps
+2026-01-07 12:25:57,129 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-07 12:26:01,119 - INFO - 🧠 Summarizing single file: 5aa33962-06ee-4ff4-b637-223abd9eacdd.log
+2026-01-07 12:26:01,694 - INFO - ✅ Extracted Keywords: notice jk2_init, child workerenv, scoreboard slot, error state, httpd conf, 2005 notice, index forbi...
+2026-01-07 12:26:01,694 - INFO - 📐 Generating Embeddings...
+2026-01-07 12:26:01,865 - INFO - 📂 Organizing files into final categories...
+2026-01-07 12:26:01,867 - INFO -    👉 Moved 5aa33962-06ee-4ff4-b637-223abd9eacdd.log -> app_log/
+2026-01-07 12:26:01,868 - INFO - ✅ Cluster Report Saved: ./pipeline_data/processed/file_level_clusters.csv
+2026-01-07 12:26:01,870 - INFO - 📊 Processed 1 files in LARGE-SCALE mode.
+2026-01-07 12:26:15,482 - INFO - 🚀 Pipeline started in 'large' mode
+2026-01-07 12:26:15,482 - WARNING - ⚠️ No files found in ./pipeline_data/incoming.
+2026-01-07 12:26:15,482 - INFO - 🚀 STARTING LARGE SCALE PIPELINE (Summarization + Sorting)
+2026-01-07 12:26:15,482 - INFO - Initializing Optimized Keyword Summarizer (MMR) with: sentence-transformers/all-MiniLM-L6-v2
+2026-01-07 12:26:15,494 - INFO - Use pytorch device_name: mps
+2026-01-07 12:26:15,494 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-07 12:26:20,180 - INFO - Use pytorch device_name: mps
+2026-01-07 12:26:20,180 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-07 12:26:24,255 - WARNING - ⚠️ No files found in staging to process.
+2026-01-07 12:26:24,255 - INFO - 🏁 Pipeline completed. Files moved to: ./pipeline_data/processed
+2026-01-07 12:27:10,202 - INFO - 🚀 Pipeline started in 'large' mode
+2026-01-07 12:27:10,202 - INFO - ✅ Read Log File: 5aa33962-06ee-4ff4-b637-223abd9eacdd.log
+2026-01-07 12:27:10,203 - INFO - ✅ Moved to staging: 83d20515-916b-490f-855a-41bfc4f539f3.log
+2026-01-07 12:27:10,206 - INFO - 🚀 STARTING LARGE SCALE PIPELINE (Summarization + Sorting)
+2026-01-07 12:27:10,206 - INFO - Initializing Optimized Keyword Summarizer (MMR) with: sentence-transformers/all-MiniLM-L6-v2
+2026-01-07 12:27:10,218 - INFO - Use pytorch device_name: mps
+2026-01-07 12:27:10,218 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-07 12:27:15,998 - INFO - Use pytorch device_name: mps
+2026-01-07 12:27:15,998 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-07 12:27:20,099 - INFO - 🧠 Summarizing single file: 83d20515-916b-490f-855a-41bfc4f539f3.log
+2026-01-07 12:27:20,425 - INFO - ✅ Extracted Keywords: notice jk2_init, child workerenv, scoreboard slot, error state, httpd conf, 2005 notice, index forbi...
+2026-01-07 12:27:20,425 - INFO - 📐 Generating Embeddings...
+2026-01-07 12:27:20,447 - INFO - 📂 Organizing files into final categories...
+2026-01-07 12:27:20,448 - INFO -    👉 Moved 83d20515-916b-490f-855a-41bfc4f539f3.log -> app_log/
+2026-01-07 12:27:20,449 - INFO - ✅ Cluster Report Saved: ./pipeline_data/processed/file_level_clusters.csv
+2026-01-07 12:27:20,451 - INFO - 📊 Processed 1 files in LARGE-SCALE mode.
+2026-01-07 12:27:20,451 - INFO - 🏁 Pipeline completed. Files moved to: ./pipeline_data/processed
