@@ -2,7 +2,7 @@ import pandas as pd
 import os
 import getpass
 from datetime import datetime
-from config import BASE_DIR
+from .config import BASE_DIR
 
 REPORT_PATH = os.path.join(BASE_DIR, "file_master_report.csv")
 

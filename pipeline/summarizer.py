@@ -5,8 +5,8 @@ import numpy as np
 import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
-from embedding import EmbeddingEngine
-from ingestor import UniversalIngestor
+from .embedding import EmbeddingEngine
+from .ingestor import UniversalIngestor
 
 class LogSummarizer:
     def __init__(self, model_name="sentence-transformers/all-MiniLM-L6-v2", device=None, chunk_token_size=None):

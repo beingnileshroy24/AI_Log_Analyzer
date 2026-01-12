@@ -1,34 +1,12 @@
-2026-01-12 11:49:24,739 - INFO - 🚀 Pipeline started in 'small' mode
-2026-01-12 11:49:24,740 - INFO - ✅ Ingested CSV: audit_trail.csv
-2026-01-12 11:49:24,740 - INFO - ✅ Moved to staging: c4dbc4c5-1619-4894-ac19-653485670efb.csv
-2026-01-12 11:49:24,740 - INFO - ✅ Read Log File: app_debug.log
-2026-01-12 11:49:24,740 - INFO - ✅ Moved to staging: bbb0b75b-2ee2-487f-918f-3ffcffb61a45.log
-2026-01-12 11:49:24,740 - INFO - ✅ Read Log File: system.log
-2026-01-12 11:49:24,740 - INFO - ✅ Moved to staging: 65fb0fcb-8231-4312-8ad4-5a5e6ac0c16d.log
-2026-01-12 11:49:24,742 - INFO - 🧠 Running LINE-LEVEL clustering (Best for single large logs)
-2026-01-12 11:49:24,742 - INFO - ✅ Ingested CSV: c4dbc4c5-1619-4894-ac19-653485670efb.csv
-2026-01-12 11:49:24,742 - INFO - ✅ Read Log File: bbb0b75b-2ee2-487f-918f-3ffcffb61a45.log
-2026-01-12 11:49:24,742 - INFO - ✅ Read Log File: 65fb0fcb-8231-4312-8ad4-5a5e6ac0c16d.log
-2026-01-12 11:49:24,754 - INFO - 📊 Processed 3 files in LINE-LEVEL mode.
-2026-01-12 11:52:32,433 - INFO - 🚀 Pipeline started in 'large' mode
-2026-01-12 11:52:32,561 - INFO - ✅ Ingested CSV: CIDDS-001-external-week1.csv
-2026-01-12 11:52:32,562 - INFO - ✅ Moved to staging: 78ed6db2-3fd0-4ed2-a483-830899f9912d.csv
-2026-01-12 11:52:32,562 - INFO - ✅ Read Log File: Apache_2k.log
-2026-01-12 11:52:32,562 - INFO - ✅ Moved to staging: 3f678411-8d19-49f6-a1f3-865843d9a4ea.log
-2026-01-12 11:52:32,565 - INFO - 🚀 STARTING LARGE SCALE PIPELINE (Summarization + Sorting)
-2026-01-12 11:52:32,565 - INFO - Initializing Optimized Keyword Summarizer (MMR) with: sentence-transformers/all-MiniLM-L6-v2
-2026-01-12 11:52:32,585 - INFO - Use pytorch device_name: mps
-2026-01-12 11:52:32,585 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-01-12 11:52:37,302 - INFO - Use pytorch device_name: mps
-2026-01-12 11:52:37,303 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-01-12 11:52:41,782 - INFO - 🧠 Summarizing 2 files using parallel processing...
-2026-01-12 11:52:41,784 - INFO - ✅ Read Log File: 3f678411-8d19-49f6-a1f3-865843d9a4ea.log
-2026-01-12 11:52:41,965 - INFO - ✅ Ingested CSV: 78ed6db2-3fd0-4ed2-a483-830899f9912d.csv
-2026-01-12 11:52:42,479 - INFO - ✅ Extracted Keywords: attackdescription data, tcp openstack_net, columns date, ap normal, duration proto, 57 172, flows fl...
-2026-01-12 11:52:42,572 - INFO - ✅ Extracted Keywords: notice jk2_init, child workerenv, scoreboard slot, error state, httpd conf, 2005 notice, index forbi...
-2026-01-12 11:52:42,574 - INFO - 📐 Generating Embeddings for 2 files...
-2026-01-12 11:52:42,909 - INFO - 📂 Organizing files into final categories...
-2026-01-12 11:52:42,910 - INFO -    👉 Moved 3f678411-8d19-49f6-a1f3-865843d9a4ea.log -> app_log/
-2026-01-12 11:52:42,910 - INFO -    👉 Moved 78ed6db2-3fd0-4ed2-a483-830899f9912d.csv -> system_log/
-2026-01-12 11:52:42,911 - INFO - ✅ Cluster Report Saved: ./pipeline_data/processed/file_level_clusters.csv
-2026-01-12 11:52:42,914 - INFO - 📊 Processed 2 files in LARGE-SCALE mode.
+2026-01-12 11:58:06,092 - INFO - 🚀 Pipeline started in 'small' mode
+2026-01-12 11:58:06,093 - INFO - ✅ Ingested CSV: audit_trail.csv
+2026-01-12 11:58:06,093 - INFO - ✅ Moved to staging: 9c65d70f-b259-474a-a5d5-032195756598.csv
+2026-01-12 11:58:06,093 - INFO - ✅ Read Log File: app_debug.log
+2026-01-12 11:58:06,093 - INFO - ✅ Moved to staging: d08d2402-fc36-41f8-97be-c82af96b5b1d.log
+2026-01-12 11:58:06,093 - INFO - ✅ Read Log File: system.log
+2026-01-12 11:58:06,093 - INFO - ✅ Moved to staging: ad9ee0bd-8d7c-46a3-89a0-a0d12e9ae4b0.log
+2026-01-12 11:58:06,095 - INFO - 🧠 Running LINE-LEVEL clustering (Best for single large logs)
+2026-01-12 11:58:06,096 - INFO - ✅ Ingested CSV: 9c65d70f-b259-474a-a5d5-032195756598.csv
+2026-01-12 11:58:06,096 - INFO - ✅ Read Log File: d08d2402-fc36-41f8-97be-c82af96b5b1d.log
+2026-01-12 11:58:06,096 - INFO - ✅ Read Log File: ad9ee0bd-8d7c-46a3-89a0-a0d12e9ae4b0.log
+2026-01-12 11:58:06,108 - INFO - 📊 Processed 3 files in LINE-LEVEL mode.

@@ -4,7 +4,7 @@ import uuid
 import logging
 import sys
 
-from config import (
+from pipeline.config import (
     setup_directories,
     setup_logging,
     INCOMING_DIR,
@@ -12,13 +12,13 @@ from config import (
     PROCESSED_DIR
 )
 
-from ingestor import UniversalIngestor
-from metadata import generate_metadata_report, update_master_report
-from processor import run_clustering
+from pipeline.ingestor import UniversalIngestor
+from pipeline.metadata import generate_metadata_report, update_master_report
+from pipeline.processor import run_clustering
 
 # Import Large Pipeline
 try:
-    from run_large_scale_pipeline import run_large_scale_pipeline
+    from pipeline.run_large_scale_pipeline import run_large_scale_pipeline
     LARGE_PIPELINE_AVAILABLE = True
 except ImportError:
     LARGE_PIPELINE_AVAILABLE = False

@@ -4,10 +4,10 @@ import logging
 import pandas as pd
 from concurrent.futures import ThreadPoolExecutor
 from functools import partial
-from summarizer import LogSummarizer
-from embedding import EmbeddingEngine
-from file_clusterer import cluster_files
-from config import STAGING_DIR, PROCESSED_DIR, DOMAIN_KEYWORDS
+from .summarizer import LogSummarizer
+from .embedding import EmbeddingEngine
+from .file_clusterer import cluster_files
+from .config import STAGING_DIR, PROCESSED_DIR, DOMAIN_KEYWORDS
 
 def determine_category(text):
     """

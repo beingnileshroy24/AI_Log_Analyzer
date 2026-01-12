@@ -6,8 +6,8 @@ import hdbscan
 import shutil
 import logging
 from sklearn.feature_extraction.text import TfidfVectorizer
-from config import PROCESSED_DIR, DOMAIN_KEYWORDS
-from ingestor import UniversalIngestor
+from .config import PROCESSED_DIR, DOMAIN_KEYWORDS
+from .ingestor import UniversalIngestor
 
 def clean_text(text):
     text = re.sub(r'\d+', '', text)
