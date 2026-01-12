@@ -45,7 +45,6 @@ def run_large_scale_pipeline():
     file_summaries = {}
     
     # 1️⃣ Identify files in staging
-    # Filter only files, ignore directories
     files_to_process = [f for f in os.listdir(STAGING_DIR) 
                         if os.path.isfile(os.path.join(STAGING_DIR, f))]
     
@@ -65,23 +64,24 @@ def run_large_scale_pipeline():
         for filename, summary in zip(files_to_process, results):
             if summary and summary.strip():
                 file_summaries[filename] = summary
+            else:
+                logging.warning(f"   ⚠️ Skipping empty or failed summary for: {filename}")
     else:
         # Single file optimization
         filename = files_to_process[0]
         logging.info(f"🧠 Summarizing single file: {filename}")
         summary = summarizer.summarize_file(os.path.join(STAGING_DIR, filename))
-        if summary:
+        if summary and summary.strip():
             file_summaries[filename] = summary
-
-    # Cleanup staging paths that failed to summarize if any
-    # (Actually we only move successfully summarized files later or based on clustered_df)
+        else:
+             logging.warning(f"   ⚠️ Skipping empty or failed summary for: {filename}")
 
     if not file_summaries:
         logging.warning("⚠️ No valid summaries generated.")
         return []
 
     # 3️⃣ Vectorize summaries
-    logging.info("📐 Generating Embeddings...")
+    logging.info(f"📐 Generating Embeddings for {len(file_summaries)} files...")
     summaries = list(file_summaries.values())
     embeddings = embedder.embed(summaries)
 
@@ -102,7 +102,6 @@ def run_large_scale_pipeline():
         dest_folder = os.path.join(PROCESSED_DIR, category)
         dest_path = os.path.join(dest_folder, filename)
         
-        # Ensure destination exists
         os.makedirs(dest_folder, exist_ok=True)
         
         try:
@@ -110,7 +109,6 @@ def run_large_scale_pipeline():
                 shutil.move(source_path, dest_path)
                 logging.info(f"   👉 Moved {filename} -> {category}/")
                 
-                # Record update for metadata
                 updates.append({
                     "Stored_Filename": filename,
                     "Category": category,

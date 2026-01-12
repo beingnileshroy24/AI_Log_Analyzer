@@ -90,9 +90,12 @@ def run_pipeline(mode="large"):
             
     else:
         logging.info("🧠 Running LINE-LEVEL clustering (Best for single large logs)")
-        run_clustering(STAGING_DIR)
-
-    logging.info("🏁 Pipeline completed. Files moved to: " + PROCESSED_DIR)
+        updates = run_clustering(STAGING_DIR)
+        
+        # 5️⃣ Finalize Metadata
+        if updates:
+            update_master_report(updates)
+            logging.info(f"📊 Processed {len(updates)} files in LINE-LEVEL mode.")
 
 
 if __name__ == "__main__":

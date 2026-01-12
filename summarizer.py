@@ -2,14 +2,17 @@
 import os
 import logging
 import numpy as np
+import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from embedding import EmbeddingEngine
+from ingestor import UniversalIngestor
 
 class LogSummarizer:
     def __init__(self, model_name="sentence-transformers/all-MiniLM-L6-v2", device=None, chunk_token_size=None):
         logging.info(f"Initializing Optimized Keyword Summarizer (MMR) with: {model_name}")
         self.model = EmbeddingEngine(model_name)
+        self.ingestor = UniversalIngestor(incoming_path="") # Path not strictly needed for direct processing
 
     def _mmr(self, doc_embedding, candidate_embeddings, candidates, top_n, diversity):
         """
@@ -42,35 +45,46 @@ class LogSummarizer:
         """
         Extracts diverse keywords using KeyBERT-style MMR.
         """
+        doc_backup = ""
         try:
-            with open(filepath, "r", encoding="utf-8", errors="ignore") as f:
-                doc = f.read()
+            content = self.ingestor.process_file(filepath)
+            
+            if content is None:
+                return ""
+            
+            if isinstance(content, pd.DataFrame):
+                # Convert DataFrame to represent its structure and sample data
+                cols = ", ".join(content.columns)
+                sample = content.head(10).to_string()
+                doc = f"Table Columns: {cols}\nData Sample:\n{sample}"
+            else:
+                doc = str(content)
 
             if not doc.strip():
                 return ""
+            
+            doc_backup = doc # In case CountVectorizer fails
 
             # 1. Candidate Selection (Custom Log Stopwords)
-            # We add common log noise to stopwords so the AI ignores them
             log_stop_words = [
                 "info", "debug", "trace", "warn", "date", "time", "timestamp", 
                 "log", "file", "path", "message", "level", "thread", "class",
                 "start", "end", "completed", "running", "process", "server"
             ]
             
-            # Use English stopwords + our custom list
-            # We use 1-grams (words) and 2-grams (phrases like "connection refused")
-            # OPTIMIZATION: Limit max_features to 500 to prevent OOM on large files
-            count = CountVectorizer(ngram_range=(1, 2), stop_words="english", max_features=500).fit([doc])
-            all_candidates = count.get_feature_names_out()
+            try:
+                count = CountVectorizer(ngram_range=(1, 2), stop_words="english", max_features=500).fit([doc])
+                all_candidates = count.get_feature_names_out()
+            except ValueError:
+                # Handle cases with no valid tokens
+                return doc[:200].replace("\n", " ")
             
-            # Filter manually since sklearn 'stop_words' is list-only
             candidates = [c for c in all_candidates if c.lower() not in log_stop_words]
             
             if not candidates:
                 return doc[:200].replace("\n", " ")
 
             # 2. Embeddings
-            # OPTIMIZATION: Sample the document if it's too long (> 100k chars)
             if len(doc) > 100000:
                 doc_for_embedding = doc[:50000] + doc[-50000:]
             else:
@@ -80,7 +94,6 @@ class LogSummarizer:
             candidate_embeddings = self.model.embed(candidates)
 
             # 3. MMR Selection (Diversity=0.5 balances accuracy vs variety)
-            # This ensures we get specific terms (JSON, API) mixed with general terms
             keywords = self._mmr(doc_embedding, candidate_embeddings, candidates, top_n=top_n, diversity=0.5)
 
             final_summary = ", ".join(keywords)
@@ -89,4 +102,4 @@ class LogSummarizer:
 
         except Exception as e:
             logging.error(f"❌ Keyword extraction failed: {e}")
-            return doc[:500].replace("\n", " ")
+            return doc_backup[:500].replace("\n", " ")
