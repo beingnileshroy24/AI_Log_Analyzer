@@ -125,5 +125,39 @@ def run_large_scale_pipeline():
     output_path = os.path.join(PROCESSED_DIR, "file_level_clusters.csv")
     clustered_df.to_csv(output_path, index=False)
     logging.info(f"✅ Cluster Report Saved: {output_path}")
+
+    # 7️⃣ Indexing for RAG
+    try:
+        from .rag_engine import RAGVectorDB
+        logging.info("🧠 Indexing files into RAG Vector Store...")
+        rag_db = RAGVectorDB()
+        
+        # Index summaries
+        for filename, summary in file_summaries.items():
+            rag_db.add_summary(filename, summary)
+
+        # Index chunks (Iterate over the updates to get the Final_Path)
+        logging.info("   Start chunking and indexing full log content...")
+        for update in updates:
+            filename = update["Stored_Filename"]
+            file_path = update["Final_Path"]
+            try:
+                # Simple text chunking
+                with open(file_path, 'r', errors='ignore') as f:
+                    text = f.read()
+                
+                # Create 1000-char chunks
+                chunk_size = 1000
+                overlap = 100
+                chunks = [text[i:i+chunk_size] for i in range(0, len(text), chunk_size - overlap)]
+                
+                if chunks:
+                    rag_db.add_log_chunks(filename, chunks)
+            except Exception as e:
+                logging.warning(f"   ⚠️ Could not chunk {filename}: {e}")
+        
+        logging.info("✅ RAG Indexing Complete")
+    except Exception as e:
+        logging.error(f"❌ RAG Indexing failed: {e}")
     
     return updates

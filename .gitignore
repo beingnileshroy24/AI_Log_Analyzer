@@ -16,3 +16,10 @@ pipeline_data/logs/
 
 # Ignore the master report (optional - keep if you want to track history)
 # pipeline_data/file_master_report.csv
+
+# Vector DB
+chroma_db/
+.chroma/
+
+# Environment Variables
+.env

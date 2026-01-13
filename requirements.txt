@@ -10,3 +10,10 @@ PyPDF2
 transformers
 torch
 sentence-transformers
+chromadb
+langchain
+langchain-community
+langchain-openai
+langchain-google-genai
+python-dotenv
+pydantic-settings

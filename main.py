@@ -4,6 +4,11 @@ import uuid
 import logging
 import sys
 
+from dotenv import load_dotenv
+
+# Load environment variables from .env
+load_dotenv()
+
 from pipeline.config import (
     setup_directories,
     setup_logging,
@@ -101,9 +106,33 @@ def run_pipeline(mode="large"):
 if __name__ == "__main__":
     # Modes:
     # "large" -> File-level sorting (summarizes whole files then moves them)
-    # "small" -> Line-level clustering (breaks logs into patterns, saves to CSV)
+    # "agent" -> Interactive RAG Mode
     mode = "large"
     if len(sys.argv) > 1:
         mode = sys.argv[1]
     
-    run_pipeline(mode=mode)
+    if mode == "agent":
+        print("\n🤖 Welcome to the AI Log Analyzer Agent!")
+        print("Type 'exit' to quit.\n")
+        
+        try:
+            from pipeline.agent import LogAnalysisAgent
+            # Initialize with Google Gemini by default
+            agent = LogAnalysisAgent(model_provider="google", model_name="gemini-1.5-flash") 
+            
+            while True:
+                q = input("\nUser: ")
+                if q.lower() in ["exit", "quit"]:
+                    break
+                
+                print("Agent: Thinking...")
+                response = agent.run(q)
+                print(f"Agent: {response['output'] if isinstance(response, dict) else response}")
+                
+        except ImportError:
+            print("❌ Agent dependencies missing. Please install requirements.")
+        except Exception as e:
+            print(f"❌ Error: {e}")
+
+    else:
+        run_pipeline(mode=mode)
