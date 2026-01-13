@@ -118,7 +118,7 @@ if __name__ == "__main__":
         try:
             from pipeline.agent import LogAnalysisAgent
             # Initialize with Google Gemini by default
-            agent = LogAnalysisAgent(model_provider="google", model_name="gemini-1.5-flash") 
+            agent = LogAnalysisAgent(model_provider="google", model_name="gemini-2.5-flash") 
             
             while True:
                 q = input("\nUser: ")
