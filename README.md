@@ -1,11 +1,12 @@
 # AI Log Analyzer 🚀
 
-An intelligent, modular log analysis pipeline that uses Machine Learning (TF-IDF, HDBSCAN) and Semantic Embeddings (Sentence-Transformers) to ingest, summarize, categorize, and cluster log files automatically.
+An intelligent, modular log analysis pipeline that uses Machine Learning (TF-IDF, HDBSCAN) and Semantic Embeddings (Sentence-Transformers) to ingest, summarize, categorize, and cluster log files automatically. Now featuring an **Agentic RAG** mode for conversational log analysis.
 
 ## 🌟 Key Features
 
 *   **Universal Ingestion**: Unified engine supporting `.log`, `.txt`, `.csv`, `.xlsx`, `.pdf`, `.parquet`, and API endpoints.
 *   **Intelligent Summarization**: Uses KeyBERT-style MMR (Maximal Marginal Relevance) to extract diverse and relevant keywords from large files.
+*   **Conversational AI Agent**: Built-in RAG (Retrieval-Augmented Generation) agent that lets you chat with your logs using Google Gemini.
 *   **Hybrid Processing Modes**: Choose between file-level sorting (Best for organization) or line-level clustering (Best for pattern detection).
 *   **Metadata Auditing**: Automatically maintains a `file_master_report.csv` tracking the lifecycle of every file from ingestion to final destination.
 *   **Automated Organization**: Physically moves files into categorized folders (`app_log`, `system_log`, `governance_log`, etc.) based on AI insights.
@@ -27,7 +28,9 @@ AI_Log_Analyzer/
 │   ├── file_clusterer.py  # HDBSCAN File Grouping Logic
 │   ├── processor.py       # Line-Level Clustering Engine
 │   ├── metadata.py        # Audit Trail & CSV Reporting
-│   └── run_large_scale_pipeline.py  # Orchestrator for Large Mode
+│   ├── run_large_scale_pipeline.py  # Orchestrator for Large Mode
+│   ├── agent.py           # LangChain Agent & Tool Definitions
+│   └── rag_engine.py      # ChromaDB Vector Store & Retrieval
 ├── scripts/
 │   └── verify_pipeline.py # Automated Test Suite
 ├── pipeline_data/         # Data persistence (Auto-generated)
@@ -37,7 +40,7 @@ AI_Log_Analyzer/
 
 ---
 
-## ⚙️ Installation & Setup
+## ⚙️ Configuration & Setup
 
 1.  **Clone the Repository**
 2.  **Create a Virtual Environment** (Recommended):
@@ -49,6 +52,11 @@ AI_Log_Analyzer/
     ```bash
     pip install -r requirements.txt
     ```
+4.  **Set up Environment Variables**:
+    Create a `.env` file in the root directory and add your Google Gemini API key (required for Agent mode):
+    ```ini
+    GOOGLE_API_KEY=your_api_key_here
+    ```
 
 ---
 
@@ -58,7 +66,7 @@ AI_Log_Analyzer/
 Drop your log files or spreadsheets into the `pipeline_data/incoming/` folder.
 
 ### 2. Choose Your Mode
-The AI Log Analyzer supports two primary modes:
+The AI Log Analyzer supports three primary modes:
 
 #### **A. Large Mode (Default)**
 *Focus: File-level categorization and sorting.*
@@ -74,10 +82,18 @@ Clusters individual log lines to find common error patterns or event types acros
 python main.py small
 ```
 
+#### **C. Agent Mode (RAG)**
+*Focus: Interactive Q&A.*
+Chat with your processed logs to find specific errors, summaries, or insights.
+**Note**: You must run "Large Mode" first to index the files.
+```bash
+python main.py agent
+```
+
 ---
 
 ## 🧪 Verification
-You can run the automated verification script to ensure the pipeline is working correctly in both modes:
+You can run the automated verification script to ensure the pipeline is working correctly:
 ```bash
 python scripts/verify_pipeline.py
 ```
