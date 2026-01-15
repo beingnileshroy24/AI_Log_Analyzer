@@ -9,7 +9,7 @@ from langchain.memory import ConversationBufferMemory
 from .rag_engine import RAGVectorDB
 
 class LogAnalysisAgent:
-    def __init__(self, model_provider="google", model_name="gemini-1.5-flash"):
+    def __init__(self, model_provider="google", model_name="gemini-2.5-flash"):
         self.rag_db = RAGVectorDB()
         self.llm = self._setup_llm(model_provider, model_name)
         self.memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
@@ -22,7 +22,7 @@ class LogAnalysisAgent:
                     logging.warning("⚠️ GOOGLE_API_KEY not found. Agent functions may fail.")
                  return ChatGoogleGenerativeAI(model=model_name, temperature=0)
             else:
-                 return ChatGoogleGenerativeAI(model="gemini-1.5-flash", temperature=0)
+                 return ChatGoogleGenerativeAI(model="gemini-2.5-flash", temperature=0)
         except Exception as e:
             logging.error(f"❌ Failed to initialize LLM: {e}")
             return None

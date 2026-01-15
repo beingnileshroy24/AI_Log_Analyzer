@@ -65,12 +65,23 @@ class RAGVectorDB:
             # Let's use file_name + index for determinism + easy updates
             ids = [f"chunk_{file_name}_{i}" for i in range(len(chunks))]
 
-            self.chunk_collection.upsert(
-                documents=chunks,
-                metadatas=metadatas,
-                ids=ids
-            )
-            logging.info(f"   Indexed {len(chunks)} chunks for {file_name}")
+            # Batch the upserts to avoid hitting max batch size limits (e.g. 5461)
+            batch_size = 5000
+            total_chunks = len(chunks)
+
+            for i in range(0, total_chunks, batch_size):
+                batch_chunks = chunks[i : i + batch_size]
+                batch_metadatas = metadatas[i : i + batch_size]
+                batch_ids = ids[i : i + batch_size]
+                
+                self.chunk_collection.upsert(
+                    documents=batch_chunks,
+                    metadatas=batch_metadatas,
+                    ids=batch_ids
+                )
+                logging.info(f"   Indexed batch {i//batch_size + 1} ({len(batch_chunks)} chunks) for {file_name}")
+
+            logging.info(f"   Indexed total {len(chunks)} chunks for {file_name}")
         except Exception as e:
             logging.error(f"❌ Failed to index chunks for {file_name}: {e}")
 

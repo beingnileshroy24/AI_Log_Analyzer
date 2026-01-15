@@ -96,7 +96,18 @@ class LogSummarizer:
             # 3. MMR Selection (Diversity=0.5 balances accuracy vs variety)
             keywords = self._mmr(doc_embedding, candidate_embeddings, candidates, top_n=top_n, diversity=0.5)
 
-            final_summary = ", ".join(keywords)
+            keyword_summary = ", ".join(keywords)
+            
+            # --- NEW: Add Entry Count Visibility ---
+            entry_count = 0
+            if isinstance(content, pd.DataFrame):
+                entry_count = len(content)
+            else:
+                entry_count = len(str(content).splitlines())
+            
+            final_summary = f"Total Entries: {entry_count}. Keywords: {keyword_summary}"
+            # ---------------------------------------
+
             logging.info(f"✅ Extracted Keywords: {final_summary[:100]}...")
             return final_summary
 

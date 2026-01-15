@@ -12,10 +12,10 @@ pipeline_data/incoming/
 pipeline_data/processed/
 
 # Ignore system execution logs
-pipeline_data/logs/
+pipeline_data/
 
 # Ignore the master report (optional - keep if you want to track history)
-# pipeline_data/file_master_report.csv
+pipeline_data/file_master_report.csv
 
 # Vector DB
 chroma_db/

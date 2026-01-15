@@ -146,3 +146,85 @@ For further information visit https://errors.pydantic.dev/2.12/u/import-error
 2026-01-13 20:02:25,326 - INFO -    Indexed 189 chunks for e2eea502-70bc-4f6f-8eb3-b429ba03fc01.log
 2026-01-13 20:02:25,326 - INFO - ✅ RAG Indexing Complete
 2026-01-13 20:02:25,333 - INFO - 📊 Processed 4 files in LARGE-SCALE mode.
+2026-01-15 14:05:13,605 - INFO - 🚀 Pipeline started in 'large' mode
+2026-01-15 14:05:13,605 - INFO - ✅ Read Log File: 4cb95f91-ba53-485f-a0d5-07b762ad3d53.log
+2026-01-15 14:05:13,605 - INFO - ✅ Moved to staging: cff62d27-3174-4917-afe9-f4c0ed603cb5.log
+2026-01-15 14:05:13,606 - INFO - ✅ Read Log File: 0e0c40c6-980f-438a-bd7d-e156652bb2be.log
+2026-01-15 14:05:13,606 - INFO - ✅ Moved to staging: 39e18926-9902-4df8-99eb-9770e56cdee0.log
+2026-01-15 14:05:13,722 - INFO - ✅ Ingested CSV: 54c9c14a-8c5a-4f81-ac61-1ab067c972a9.csv
+2026-01-15 14:05:13,722 - INFO - ✅ Moved to staging: c410c75c-5db2-4f08-aebe-347e936173d7.csv
+2026-01-15 14:05:13,723 - INFO - ✅ Read Log File: 202b4c9a-9df0-48af-97c4-dd9fce1e717c.log
+2026-01-15 14:05:13,723 - INFO - ✅ Moved to staging: 3468909e-4997-4a9d-9b92-d530e4e0d50a.log
+2026-01-15 14:05:13,723 - INFO - ✅ Read Log File: 4d63acd4-47c0-47e1-acfe-ba9e7f20442b.log
+2026-01-15 14:05:13,723 - INFO - ✅ Moved to staging: 0abcd59b-3a60-4521-bd89-8d1db3bfc457.log
+2026-01-15 14:05:13,723 - INFO - ✅ Read Log File: 10a5e017-574e-4932-bd74-97daadad1491.log
+2026-01-15 14:05:13,723 - INFO - ✅ Moved to staging: 83176d8d-ffb8-4a1d-8a0b-b23090d792e4.log
+2026-01-15 14:05:13,723 - INFO - ✅ Read Log File: e2eea502-70bc-4f6f-8eb3-b429ba03fc01.log
+2026-01-15 14:05:13,723 - INFO - ✅ Moved to staging: 7882e849-849b-46ea-afaa-d76aa155f57f.log
+2026-01-15 14:05:13,724 - INFO - ✅ Read Log File: fc7671ec-0c2d-49df-8fcb-ceb06a92823d.log
+2026-01-15 14:05:13,724 - INFO - ✅ Moved to staging: 1562db33-98bd-477a-9830-df0232d1cd1d.log
+2026-01-15 14:05:13,724 - INFO - ✅ Read Log File: 1c60dfaa-3a54-4763-b25a-a519a16d20cd.log
+2026-01-15 14:05:13,724 - INFO - ✅ Moved to staging: d8f1de86-a631-4b9a-9241-cd6568911bfa.log
+2026-01-15 14:05:13,732 - INFO - 🚀 STARTING LARGE SCALE PIPELINE (Summarization + Sorting)
+2026-01-15 14:05:13,732 - INFO - Initializing Optimized Keyword Summarizer (MMR) with: sentence-transformers/all-MiniLM-L6-v2
+2026-01-15 14:05:13,745 - INFO - Use pytorch device_name: mps
+2026-01-15 14:05:13,745 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-15 14:05:17,821 - INFO - Use pytorch device_name: mps
+2026-01-15 14:05:17,821 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-15 14:05:21,625 - INFO - 🧠 Summarizing 9 files using parallel processing...
+2026-01-15 14:05:21,626 - INFO - ✅ Read Log File: 83176d8d-ffb8-4a1d-8a0b-b23090d792e4.log
+2026-01-15 14:05:21,626 - INFO - ✅ Read Log File: 0abcd59b-3a60-4521-bd89-8d1db3bfc457.log
+2026-01-15 14:05:21,644 - INFO - ✅ Read Log File: 7882e849-849b-46ea-afaa-d76aa155f57f.log
+2026-01-15 14:05:21,657 - INFO - ✅ Read Log File: 1562db33-98bd-477a-9830-df0232d1cd1d.log
+2026-01-15 14:05:21,678 - INFO - ✅ Read Log File: 39e18926-9902-4df8-99eb-9770e56cdee0.log
+2026-01-15 14:05:21,683 - INFO - ✅ Read Log File: d8f1de86-a631-4b9a-9241-cd6568911bfa.log
+2026-01-15 14:05:21,719 - INFO - ✅ Read Log File: cff62d27-3174-4917-afe9-f4c0ed603cb5.log
+2026-01-15 14:05:21,744 - INFO - ✅ Read Log File: 3468909e-4997-4a9d-9b92-d530e4e0d50a.log
+2026-01-15 14:05:22,496 - INFO - ✅ Ingested CSV: c410c75c-5db2-4f08-aebe-347e936173d7.csv
+2026-01-15 14:05:23,075 - INFO - ✅ Extracted Keywords: Total Entries: 172838. Keywords: attackdescription data, tcp openstack_net, columns date, ap normal,...
+2026-01-15 14:05:23,462 - INFO - ✅ Extracted Keywords: Total Entries: 2000. Keywords: notice jk2_init, child workerenv, scoreboard slot, error state, httpd...
+2026-01-15 14:05:23,463 - INFO - ✅ Extracted Keywords: Total Entries: 2000. Keywords: notice jk2_init, child workerenv, scoreboard slot, error state, httpd...
+2026-01-15 14:05:23,463 - INFO - ✅ Extracted Keywords: Total Entries: 2000. Keywords: notice jk2_init, child workerenv, scoreboard slot, error state, httpd...
+2026-01-15 14:05:23,466 - INFO - ✅ Extracted Keywords: Total Entries: 2000. Keywords: notice jk2_init, child workerenv, scoreboard slot, error state, httpd...
+2026-01-15 14:05:23,476 - INFO - ✅ Extracted Keywords: Total Entries: 8092. Keywords: airportprocesscommand 466, faulted count, apple main, grunloop checki...
+2026-01-15 14:05:23,478 - INFO - ✅ Extracted Keywords: Total Entries: 8092. Keywords: airportprocesscommand 466, faulted count, apple main, grunloop checki...
+2026-01-15 14:05:23,479 - INFO - ✅ Extracted Keywords: Total Entries: 8092. Keywords: airportprocesscommand 466, faulted count, apple main, grunloop checki...
+2026-01-15 14:05:23,480 - INFO - ✅ Extracted Keywords: Total Entries: 8092. Keywords: airportprocesscommand 466, faulted count, apple main, grunloop checki...
+2026-01-15 14:05:23,480 - INFO - 📐 Generating Embeddings for 9 files...
+2026-01-15 14:05:23,619 - INFO - 📂 Organizing files into final categories...
+2026-01-15 14:05:23,621 - INFO -    👉 Moved 0abcd59b-3a60-4521-bd89-8d1db3bfc457.log -> app_log/
+2026-01-15 14:05:23,621 - INFO -    👉 Moved 83176d8d-ffb8-4a1d-8a0b-b23090d792e4.log -> app_log/
+2026-01-15 14:05:23,621 - INFO -    👉 Moved 7882e849-849b-46ea-afaa-d76aa155f57f.log -> app_log/
+2026-01-15 14:05:23,621 - INFO -    👉 Moved 1562db33-98bd-477a-9830-df0232d1cd1d.log -> system_log/
+2026-01-15 14:05:23,621 - INFO -    👉 Moved c410c75c-5db2-4f08-aebe-347e936173d7.csv -> system_log/
+2026-01-15 14:05:23,621 - INFO -    👉 Moved 39e18926-9902-4df8-99eb-9770e56cdee0.log -> system_log/
+2026-01-15 14:05:23,622 - INFO -    👉 Moved d8f1de86-a631-4b9a-9241-cd6568911bfa.log -> system_log/
+2026-01-15 14:05:23,622 - INFO -    👉 Moved 3468909e-4997-4a9d-9b92-d530e4e0d50a.log -> system_log/
+2026-01-15 14:05:23,622 - INFO -    👉 Moved cff62d27-3174-4917-afe9-f4c0ed603cb5.log -> app_log/
+2026-01-15 14:05:23,623 - INFO - ✅ Cluster Report Saved: ./pipeline_data/processed/file_level_clusters.csv
+2026-01-15 14:05:23,942 - INFO - 🧠 Indexing files into RAG Vector Store...
+2026-01-15 14:05:23,942 - INFO - 💾 Initializing RAG Vector DB at ./chroma_db
+2026-01-15 14:05:23,953 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-01-15 14:05:24,022 - INFO - Use pytorch device_name: mps
+2026-01-15 14:05:24,022 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-15 14:05:27,963 - INFO -    Indexed summary for 0abcd59b-3a60-4521-bd89-8d1db3bfc457.log
+2026-01-15 14:05:27,980 - INFO -    Indexed summary for 83176d8d-ffb8-4a1d-8a0b-b23090d792e4.log
+2026-01-15 14:05:27,996 - INFO -    Indexed summary for 7882e849-849b-46ea-afaa-d76aa155f57f.log
+2026-01-15 14:05:28,027 - INFO -    Indexed summary for 1562db33-98bd-477a-9830-df0232d1cd1d.log
+2026-01-15 14:05:28,055 - INFO -    Indexed summary for c410c75c-5db2-4f08-aebe-347e936173d7.csv
+2026-01-15 14:05:28,073 - INFO -    Indexed summary for 39e18926-9902-4df8-99eb-9770e56cdee0.log
+2026-01-15 14:05:28,092 - INFO -    Indexed summary for d8f1de86-a631-4b9a-9241-cd6568911bfa.log
+2026-01-15 14:05:28,110 - INFO -    Indexed summary for 3468909e-4997-4a9d-9b92-d530e4e0d50a.log
+2026-01-15 14:05:28,125 - INFO -    Indexed summary for cff62d27-3174-4917-afe9-f4c0ed603cb5.log
+2026-01-15 14:05:28,125 - INFO -    Start chunking and indexing full log content...
+2026-01-15 14:05:29,330 - INFO -    Indexed 189 chunks for 0abcd59b-3a60-4521-bd89-8d1db3bfc457.log
+2026-01-15 14:05:30,434 - INFO -    Indexed 189 chunks for 83176d8d-ffb8-4a1d-8a0b-b23090d792e4.log
+2026-01-15 14:05:31,545 - INFO -    Indexed 189 chunks for 7882e849-849b-46ea-afaa-d76aa155f57f.log
+2026-01-15 14:05:43,414 - INFO -    Indexed 2039 chunks for 1562db33-98bd-477a-9830-df0232d1cd1d.log
+2026-01-15 14:07:57,812 - ERROR - ❌ Failed to index chunks for c410c75c-5db2-4f08-aebe-347e936173d7.csv: ValueError: Batch size of 24567 is greater than max batch size of 5461
+2026-01-15 14:08:09,636 - INFO -    Indexed 2039 chunks for 39e18926-9902-4df8-99eb-9770e56cdee0.log
+2026-01-15 14:08:21,551 - INFO -    Indexed 2039 chunks for d8f1de86-a631-4b9a-9241-cd6568911bfa.log
+2026-01-15 14:08:33,405 - INFO -    Indexed 2039 chunks for 3468909e-4997-4a9d-9b92-d530e4e0d50a.log
+2026-01-15 14:08:34,517 - INFO -    Indexed 189 chunks for cff62d27-3174-4917-afe9-f4c0ed603cb5.log
+2026-01-15 14:08:34,518 - INFO - ✅ RAG Indexing Complete
+2026-01-15 14:08:34,527 - INFO - 📊 Processed 9 files in LARGE-SCALE mode.
