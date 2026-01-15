@@ -6,7 +6,8 @@ load_dotenv()
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.agents import initialize_agent, AgentType, Tool
 from langchain.memory import ConversationBufferMemory
-from .rag_engine import RAGVectorDB
+from ..models.rag_engine import RAGVectorDB
+from .tools.registry import get_agent_tools
 
 class LogAnalysisAgent:
     def __init__(self, model_provider="google", model_name="gemini-2.5-flash"):
@@ -28,6 +29,7 @@ class LogAnalysisAgent:
             return None
 
     def _setup_agent(self):
+        # Base Tools (RAG)
         tools = [
             Tool(
                 name="SearchLogSummaries",
@@ -40,6 +42,9 @@ class LogAnalysisAgent:
                 description="Useful for finding specific error messages, stack traces, or detailed events within the logs. Input should be a specific search query."
             )
         ]
+        
+        # Add Advanced Analysis Tools
+        tools.extend(get_agent_tools())
 
         return initialize_agent(
             tools, 

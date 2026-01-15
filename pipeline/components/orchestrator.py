@@ -4,10 +4,10 @@ import logging
 import pandas as pd
 from concurrent.futures import ThreadPoolExecutor
 from functools import partial
-from .summarizer import LogSummarizer
-from .embedding import EmbeddingEngine
-from .file_clusterer import cluster_files
-from .config import STAGING_DIR, PROCESSED_DIR, DOMAIN_KEYWORDS
+from ..models.summarizer import LogSummarizer
+from ..models.embedding import EmbeddingEngine
+from .clustering import cluster_files
+from ..config.settings import STAGING_DIR, PROCESSED_DIR, DOMAIN_KEYWORDS
 
 def determine_category(text):
     """
@@ -128,7 +128,7 @@ def run_large_scale_pipeline():
 
     # 7️⃣ Indexing for RAG
     try:
-        from .rag_engine import RAGVectorDB
+        from ..models.rag_engine import RAGVectorDB
         logging.info("🧠 Indexing files into RAG Vector Store...")
         rag_db = RAGVectorDB()
         

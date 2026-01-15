@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 # Load environment variables from .env
 load_dotenv()
 
-from pipeline.config import (
+from pipeline.config.settings import (
     setup_directories,
     setup_logging,
     INCOMING_DIR,
@@ -17,13 +17,13 @@ from pipeline.config import (
     PROCESSED_DIR
 )
 
-from pipeline.ingestor import UniversalIngestor
-from pipeline.metadata import generate_metadata_report, update_master_report
-from pipeline.processor import run_clustering
+from pipeline.core.ingestor import UniversalIngestor
+from pipeline.core.metadata import generate_metadata_report, update_master_report
+from pipeline.components.processor import run_clustering
 
 # Import Large Pipeline
 try:
-    from pipeline.run_large_scale_pipeline import run_large_scale_pipeline
+    from pipeline.components.orchestrator import run_large_scale_pipeline
     LARGE_PIPELINE_AVAILABLE = True
 except ImportError:
     LARGE_PIPELINE_AVAILABLE = False
@@ -116,7 +116,7 @@ if __name__ == "__main__":
         print("Type 'exit' to quit.\n")
         
         try:
-            from pipeline.agent import LogAnalysisAgent
+            from pipeline.agent.core import LogAnalysisAgent
             # Initialize with Google Gemini by default
             agent = LogAnalysisAgent(model_provider="google", model_name="gemini-2.5-flash") 
             

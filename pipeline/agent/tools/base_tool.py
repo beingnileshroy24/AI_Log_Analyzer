@@ -1,0 +1,63 @@
+import os
+import pandas as pd
+from ...core.metadata import REPORT_PATH
+from ...core.ingestor import UniversalIngestor
+
+class BaseLogTool:
+    def __init__(self):
+        self.report_path = REPORT_PATH
+        self.ingestor = UniversalIngestor(incoming_path="") 
+
+    def _resolve_path(self, filename):
+        """
+        Finds the actual file path using the master report.
+        """
+        if not os.path.exists(self.report_path):
+            return None, "Metadata report not found. Has the pipeline run?"
+
+        try:
+            df = pd.read_csv(self.report_path)
+            if df.empty:
+                return None, "Metadata report is empty."
+
+            # 1. Try exact match on Original_Filename
+            match = df[df['Original_Filename'] == filename]
+            
+            # 2. If no exact match, try fuzzy/contains
+            if match.empty:
+                match = df[df['Original_Filename'].str.contains(filename, case=False, na=False)]
+            
+            if match.empty:
+                return None, f"File '{filename}' not found in metadata records."
+            
+            # Get the most recent entry if multiple matches
+            row = match.iloc[-1]
+            final_path = row['Final_Path']
+            raw_path = row['Raw_Storage_Path']
+            
+            # Prefer Final_Path (processed), then Raw_Storage_Path (staging)
+            if pd.notna(final_path) and final_path != "Pending" and os.path.exists(final_path):
+                return final_path, None
+            elif pd.notna(raw_path) and raw_path != "N/A" and os.path.exists(raw_path):
+                return raw_path, None
+            else:
+                return None, f"File record found for '{filename}', but the file object is missing from disk."
+                
+        except Exception as e:
+            return None, f"Error reading metadata: {e}"
+
+    def _get_content(self, filename):
+        """
+        Helper to resolve path and get content in one step.
+        """
+        filepath, error = self._resolve_path(filename)
+        if error:
+            return None, error
+        
+        try:
+            content = self.ingestor.process_file(filepath)
+            if content is None:
+                return None, "Could not read file content."
+            return content, None
+        except Exception as e:
+            return None, f"Error reading file: {e}"
