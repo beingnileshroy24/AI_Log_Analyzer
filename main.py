@@ -117,8 +117,20 @@ if __name__ == "__main__":
         
         try:
             from pipeline.agent.core import LogAnalysisAgent
-            # Initialize with Google Gemini by default
-            agent = LogAnalysisAgent(model_provider="google", model_name="gemini-2.5-flash") 
+            
+            # Default to Google
+            provider = "google"
+            model = "gemini-2.5-flash"
+            
+            # Simple CLI argument parsing for provider override (e.g. "python main.py agent --openai")
+            if "--openai" in sys.argv:
+                provider = "openai"
+                model = "gpt-4o-mini"
+                print(f"🔄 Switching provider to OpenAI ({model})")
+
+            agent = LogAnalysisAgent(model_provider=provider, model_name=model) 
+            
+            print(f"💬 Agent initialized ({provider}). Ready to chat!")
             
             while True:
                 q = input("\nUser: ")

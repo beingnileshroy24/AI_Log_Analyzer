@@ -17,3 +17,4 @@ langchain-openai
 langchain-google-genai
 python-dotenv
 pydantic-settings
+langgraph

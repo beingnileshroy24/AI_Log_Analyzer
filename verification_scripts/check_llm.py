@@ -33,5 +33,20 @@ def check_llm():
     except Exception as e:
         print(f"\n❌ FAILURE: {e}")
 
+    print("\n🔍 Checking OpenAI API...")
+    openai_key = os.getenv("OPENAI_API_KEY")
+    if not openai_key:
+        print("⚠️ Skipped: OPENAI_API_KEY not found.")
+    else:
+        try:
+            from langchain_openai import ChatOpenAI
+            llm_oa = ChatOpenAI(model="gpt-4o-mini", temperature=0)
+            print("  ✅ Model Initialized (gpt-4o-mini)")
+            print("  ⏳ Sending test prompt...", end=" ")
+            response = llm_oa.invoke("Hello, check.")
+            print(f"✅ Response received: {response.content}")
+        except Exception as e:
+            print(f"❌ OpenAI Check Failed: {e}")
+
 if __name__ == "__main__":
     check_llm()

@@ -1,4 +1,4 @@
-from langchain.agents import Tool
+from langchain_core.tools import Tool
 from .stats_tool import LogStatisticsTool
 from .time_tool import TimeAnalysisTool
 from .pattern_tool import PatternMatchingTool

@@ -6,7 +6,7 @@ An intelligent, modular log analysis pipeline that uses Machine Learning (TF-IDF
 
 * **Universal Ingestion**: Unified engine supporting `.log`, `.txt`, `.csv`, `.xlsx`, `.pdf`, `.parquet`, and API endpoints.
 * **Intelligent Summarization**: Uses KeyBERT-style MMR (Maximal Marginal Relevance) to extract diverse and relevant keywords from large files.
-* **Conversational AI Agent**: Built-in RAG (Retrieval-Augmented Generation) agent that lets you chat with your logs using Google Gemini.
+* **Conversational AI Agent**: Powered by **LangGraph**, providing a robust, event-driven architecture that supports complex reasoning cycles and state persistence. Chats with your logs using Google Gemini or OpenAI.
 * **Specialized Analysis Tools**:
   * **Statistics**: Detect and count duplicate log entries.
   * **Time Analysis**: Determine time range, duration, and peak activity hours.
@@ -71,8 +71,9 @@ AI_Log_Analyzer/
 4. **Set up Environment Variables**:
    Create a `.env` file in the root directory and add your Google Gemini API key (required for Agent mode):
    ```ini
-   GOOGLE_API_KEY=your_api_key_here
-   ```
+    GOOGLE_API_KEY=your_api_key_here
+    OPENAI_API_KEY=sk-... (Optional: For backup)
+    ```
 
 ---
 
@@ -112,6 +113,9 @@ Chat with your processed logs to find specific errors, summaries, or insights.
 
 ```bash
 python main.py agent
+
+# Use OpenAI Backup (gpt-4o-mini)
+python main.py agent --openai
 ```
 
 ---
