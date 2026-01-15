@@ -1,40 +1,56 @@
 # AI Log Analyzer 🚀
 
-An intelligent, modular log analysis pipeline that uses Machine Learning (TF-IDF, HDBSCAN) and Semantic Embeddings (Sentence-Transformers) to ingest, summarize, categorize, and cluster log files automatically. Now featuring an **Agentic RAG** mode for conversational log analysis.
+An intelligent, modular log analysis pipeline that uses Machine Learning (TF-IDF, HDBSCAN) and Semantic Embeddings (Sentence-Transformers) to ingest, summarize, categorize, and cluster log files automatically. Now featuring an **Agentic RAG** mode for conversational log analysis, capable of performing advanced statistical and temporal analysis.
 
 ## 🌟 Key Features
 
 *   **Universal Ingestion**: Unified engine supporting `.log`, `.txt`, `.csv`, `.xlsx`, `.pdf`, `.parquet`, and API endpoints.
 *   **Intelligent Summarization**: Uses KeyBERT-style MMR (Maximal Marginal Relevance) to extract diverse and relevant keywords from large files.
 *   **Conversational AI Agent**: Built-in RAG (Retrieval-Augmented Generation) agent that lets you chat with your logs using Google Gemini.
+*   **Specialized Analysis Tools**:
+    *   **Statistics**: Detect and count duplicate log entries.
+    *   **Time Analysis**: Determine time range, duration, and peak activity hours.
+    *   **Pattern Matching**: Extract IP addresses, Emails, URLs, and Error Codes.
 *   **Hybrid Processing Modes**: Choose between file-level sorting (Best for organization) or line-level clustering (Best for pattern detection).
 *   **Metadata Auditing**: Automatically maintains a `file_master_report.csv` tracking the lifecycle of every file from ingestion to final destination.
-*   **Automated Organization**: Physically moves files into categorized folders (`app_log`, `system_log`, `governance_log`, etc.) based on AI insights.
 
 ---
 
 ## 📂 Project Structure
 
-The project is organized into a modular package for better maintainability:
+The project has been reorganized into specialized submodules:
 
 ```text
 AI_Log_Analyzer/
-├── main.py                # Main Entry Point
-├── pipeline/              # Core Logic Package
-│   ├── config.py          # System Configuration and Keywords
-│   ├── ingestor.py        # Universal File Ingestion Engine
-│   ├── summarizer.py      # Semantic Keyword Extraction (MMR)
-│   ├── embedding.py       # Sentence-Transformer Integration
-│   ├── file_clusterer.py  # HDBSCAN File Grouping Logic
-│   ├── processor.py       # Line-Level Clustering Engine
-│   ├── metadata.py        # Audit Trail & CSV Reporting
-│   ├── run_large_scale_pipeline.py  # Orchestrator for Large Mode
-│   ├── agent.py           # LangChain Agent & Tool Definitions
-│   └── rag_engine.py      # ChromaDB Vector Store & Retrieval
-├── scripts/
-│   └── verify_pipeline.py # Automated Test Suite
-├── pipeline_data/         # Data persistence (Auto-generated)
-├── requirements.txt       # Dependencies
+├── main.py                     # Main Entry Point
+├── pipeline/                   # Core Logic Package
+│   ├── config/
+│   │   ├── settings.py         # System Configuration and Keywords
+│   ├── core/
+│   │   ├── ingestor.py         # Universal File Ingestion Engine
+│   │   ├── metadata.py         # Audit Trail & CSV Reporting
+│   ├── models/
+│   │   ├── summarizer.py       # Semantic Keyword Extraction (MMR)
+│   │   ├── embedding.py        # Sentence-Transformer Integration
+│   │   ├── rag_engine.py       # Vector DB & Retrieval
+│   ├── components/
+│   │   ├── orchestrator.py     # Batch Processing Logic ("Large Mode")
+│   │   ├── clustering.py       # File Grouping Logic (HDBSCAN)
+│   │   ├── processor.py        # Line-Level Clustering Engine ("Small Mode")
+│   └── agent/
+│       ├── core.py             # Agent Logic
+│       └── tools/              # Agent Capabilities
+│           ├── registry.py     # Tool Loader
+│           ├── stats_tool.py   # Dup Detection
+│           ├── time_tool.py    # Time Analysis
+│           └── pattern_tool.py # Regex Extractor
+├── verification_scripts/       # System Health Checks
+│   ├── check_pipeline.py       # Python Import Checks
+│   ├── check_rag.py            # Vector DB Tests
+│   ├── check_agent.py          # Agent Tool Tests
+│   └── check_llm.py            # API Connectivity Tests
+├── pipeline_data/              # Data persistence (Auto-generated)
+├── requirements.txt            # Dependencies
 └── README.md
 ```
 
@@ -93,10 +109,22 @@ python main.py agent
 ---
 
 ## 🧪 Verification
-You can run the automated verification script to ensure the pipeline is working correctly:
+
+This project comes with a dedicated suite of scripts to verify each component works correctly on your machine.
+
+### Run All Checks
 ```bash
-python scripts/verify_pipeline.py
+python verification_scripts/check_pipeline.py && \
+python verification_scripts/check_rag.py && \
+python verification_scripts/check_agent.py && \
+python verification_scripts/check_llm.py
 ```
+
+### Run Individual Checks
+*   **Pipeline Structure**: `python verification_scripts/check_pipeline.py`
+*   **Vector Database**: `python verification_scripts/check_rag.py`
+*   **Agent Tools**: `python verification_scripts/check_agent.py`
+*   **Gemini Connection**: `python verification_scripts/check_llm.py`
 
 ---
 
