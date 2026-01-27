@@ -50,12 +50,16 @@ class LogSummarizer:
             # ingestor.process_file now returns (content, file_type)
             result = self.ingestor.process_file(filepath)
             if result is None:
+                logging.error(f"❌ Ingestor returned None for {filepath}")
                 return ""
                 
-            content, _ = result # We only need content here
+            content, file_type = result # We only need content here
             
             if content is None:
+                logging.error(f"❌ Content is None for {filepath}")
                 return ""
+            
+            logging.info(f"✅ Summarizer received content of type: {type(content)}")
             
             if isinstance(content, pd.DataFrame):
                 # Convert DataFrame to represent its structure and sample data

@@ -19,17 +19,21 @@ def setup_test():
         shutil.rmtree(PROCESSED_DIR)
     os.makedirs(PROCESSED_DIR, exist_ok=True)
 
-    # Create a Fake CSV Log
-    csv_content = """timestamp,level,message,service
-2024-01-27 10:00:00,INFO,System initialized,auth-service
-2024-01-27 10:01:00,ERROR,Database connection failed,db-service
-2024-01-27 10:02:00,WARNING,Retrying connection,db-service
-2024-01-27 10:05:00,INFO,Connection established,db-service
+    report_path = os.path.join(BASE_DIR, "pipeline_data", "file_master_report.csv")
+    if os.path.exists(report_path):
+        os.remove(report_path)
+        print("🗑️ Removed old metadata report.")
+
+    # Create a Fake Network Log CSV (Simulating CIDDS/IDs)
+    csv_content = """Date first seen,Duration,Proto,Src IP,Dst IP,Packets,Bytes,Flags
+2024-01-27 10:00:00,0.42,TCP,192.168.1.50,192.168.1.1,5,450,A
+2024-01-27 10:01:00,1.20,UDP,10.0.0.5,8.8.8.8,1,80,
+2024-01-27 10:02:00,0.05,TCP,192.168.1.100,10.10.10.10,20,1500,S
 """
-    with open(os.path.join(INCOMING_DIR, "server_log.csv"), "w") as f:
+    with open(os.path.join(INCOMING_DIR, "network_traffic.csv"), "w") as f:
         f.write(csv_content)
 
-    print("✅ Created test file: server_log.csv")
+    print("✅ Created test file: network_traffic.csv")
 
 def verify_results():
     print("\n🔍 Verifying results...")
@@ -42,16 +46,16 @@ def verify_results():
         print(df[['Original_Filename', 'Category', 'Summary']].to_string())
         
         # LOGIC CHECK: 
-        # - server_log.csv MUST be in report
-        # - Category should be 'log' or 'app_log' or similar (not just 'structured_data' skipped)
+        # - network_traffic.csv MUST be in report
+        # - Category should be 'log' or 'network_log'
         
-        match = df[df['Original_Filename'].str.contains('server_log.csv')]
+        match = df[df['Original_Filename'].str.contains('network_traffic.csv')]
         if not match.empty:
             print("✅ PASS: CSV Log file is tracked in metadata")
             print(f"   Category: {match.iloc[0]['Category']}")
             
             summary = match.iloc[0]['Summary']
-            if "Database connection failed" in summary or "Keywords" in summary:
+            if "192.168.1.50" in summary or "Proto" in summary or "Keywords" in summary:
                  print("✅ PASS: Content was summarized (AI pipeline ran)")
             else:
                  print("❌ FAIL: Content summary missing or empty")

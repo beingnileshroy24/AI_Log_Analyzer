@@ -104,11 +104,30 @@ class UniversalIngestor:
                     # But keep "structured_data" if confidence is low on log?
                     # actually, if it's a log, we want file_type="log" so main.py routes it to staging.
                     
-                    # Override file_type if it was just "structured_data" but now we know better
-                    if file_type == "structured_data":
-                        if classification_type in ["log", "system_log", "error_log", "application_log"]:
+                    
+                    # 🚀 Aggressive Heuristic: Check columns for Log signals
+                    # If columns have 'timestamp', 'date', 'level', 'ip', etc., it IS a log.
+                    is_log_csv = False
+                    if isinstance(content, pd.DataFrame):
+                        columns = [c.lower() for c in content.columns]
+                        log_indicators = ["timestamp", "date", "time", "level", "severity", "msg", "message", 
+                                          "src ip", "dst ip", "source", "destination", "proto", "protocol", "ip"]
+                        
+                        if any(ind in col for col in columns for ind in log_indicators):
+                            is_log_csv = True
+                            logging.info(f"   ⚡ Fast-path: CSV columns indicate Log content")
+
+                    if is_log_csv:
+                        file_type = "log"
+                    elif file_type == "structured_data":
+                        log_types = [
+                            "log", "system_log", "error_log", "application_log",
+                            "network_log", "security_log", "server_log", "audit_log"
+                        ]
+                        
+                        if classification_type in log_types:
                             file_type = "log"
-                            logging.info(f"   📊 Structured data identified as LOG (confidence: {confidence:.2f})")
+                            logging.info(f"   📊 Structured data identified as LOG ({classification_type}) (confidence: {confidence:.2f})")
                         else:
                             # It's a structured report/invoice/etc
                             file_type = classification_type

@@ -31,9 +31,13 @@ class FileTypeClassifier:
         # Document categories for classification
         self.categories = [
             "log file",
-            "system log",  # Added for better precision
-            "error log",   # Added for better precision
-            "application log", # Added for better precision
+            "system log",
+            "error log",
+            "application log",
+            "network log",     # CIDDS/Traffic logs
+            "security log",    # IDS/Firewall logs
+            "server log",      # Web server logs
+            "audit log",       # Database/Compliance logs
             "curriculum vitae",
             "resume",
             "invoice",
@@ -48,7 +52,7 @@ class FileTypeClassifier:
             self._initialize_model()
         else:
             logging.warning("⚠️ Transformers not available. Using fallback classification.")
-    
+
     def _initialize_model(self):
         """Load the Hugging Face model for classification."""
         try:
@@ -151,7 +155,7 @@ class FileTypeClassifier:
         else:
             # Generic: replace spaces with underscores
             return category.replace(" ", "_").lower()
-    
+
     def _classify_with_fallback(self, content: str, filename: str) -> Tuple[str, float]:
         """
         Fallback classification using heuristics when AI is unavailable.
@@ -159,9 +163,14 @@ class FileTypeClassifier:
         """
         content_lower = content[:2000].lower() if content else ""
         
-        # Log file indicators
-        log_keywords = ["error", "warning", "info", "debug", "exception", "stacktrace", 
-                       "timestamp", "kernel", "system", "service"]
+        # Log file indicators (Expanded for CSV/PDF logs)
+        log_keywords = [
+            "error", "warning", "info", "debug", "exception", "stacktrace", 
+            "timestamp", "kernel", "system", "service", 
+            "src_ip", "dst_ip", "source ip", "destination ip", "protocol", "packet", # Network logs
+            "src ip", "dst ip", "proto", "flags", "duration", "bytes", # Common CIDDS columns
+            "user_id", "session_id", "access_log", "auth_failed" # Auth logs
+        ]
         
         # CV/Resume indicators
         cv_keywords = ["curriculum vitae", "education", "work experience", "skills", 
