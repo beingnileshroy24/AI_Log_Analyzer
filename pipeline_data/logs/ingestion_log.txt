@@ -427,3 +427,12 @@ For further information visit https://errors.pydantic.dev/2.12/u/import-error
 2026-01-15 15:55:43,089 - INFO -    Indexed total 2039 chunks for 77d44bdb-ef6b-490b-a973-15cafb93c59e.log
 2026-01-15 15:55:43,089 - INFO - ✅ RAG Indexing Complete
 2026-01-15 15:55:43,100 - INFO - 📊 Processed 9 files in LARGE-SCALE mode.
+2026-01-19 12:12:43,562 - INFO - 🚀 Pipeline started in 'large' mode
+2026-01-19 12:12:43,562 - WARNING - ⚠️ No files found in ./pipeline_data/incoming.
+2026-01-19 12:12:43,562 - INFO - 🚀 STARTING LARGE SCALE PIPELINE (Summarization + Sorting)
+2026-01-19 12:12:43,562 - INFO - Initializing Optimized Keyword Summarizer (MMR) with: sentence-transformers/all-MiniLM-L6-v2
+2026-01-19 12:12:43,575 - INFO - Use pytorch device_name: mps
+2026-01-19 12:12:43,575 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-19 12:12:55,171 - INFO - Use pytorch device_name: mps
+2026-01-19 12:12:55,172 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-19 12:13:00,410 - WARNING - ⚠️ No files found in staging to process.

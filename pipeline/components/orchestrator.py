@@ -12,19 +12,50 @@ from ..config.settings import STAGING_DIR, PROCESSED_DIR, DOMAIN_KEYWORDS
 def determine_category(text):
     """
     Scans the text (summary) for keywords to determine the category.
-    Returns the category with the highest keyword matches.
+    If no domain keywords match, extracts the most significant keyword to create a new category.
     """
     text = str(text).lower()
-    best_match = "unstructured_log"
+    best_match = None
     highest_score = 0
     
+    # 1. Try Strict Domain Matching
     for cat, keys in DOMAIN_KEYWORDS.items():
         score = sum(1 for term in keys if term in text)
         if score > highest_score:
             highest_score = score
             best_match = cat
             
-    return best_match
+    if best_match:
+        return best_match
+
+    # 2. Dynamic Category Extraction (Fallback)
+    # The summary format is typically "Total Entries: N. Keywords: k1, k2, k3..."
+    try:
+        import re
+        # Focus on the part after "keywords:" if present
+        if "keywords:" in text:
+            relevant_text = text.split("keywords:")[-1]
+        else:
+            relevant_text = text
+
+        # Extract potential category names (alphanumeric, >3 chars)
+        words = re.findall(r'[a-z]{3,}', relevant_text)
+        
+        # Stopwords specific to category naming
+        stop_words = {
+            "total", "entries", "keywords", "summary", "unknown", "file", "log", 
+            "data", "text", "error", "info", "warn", "fail", "failed", "sample"
+        }
+        
+        for w in words:
+            if w not in stop_words:
+                # Use this word as the new category (e.g., "firewall", "postgres")
+                return w 
+                
+    except Exception as e:
+        logging.warning(f"⚠️ Dynamic category extraction failed: {e}")
+
+    return "unstructured_log"
 
 def summarize_single_file(file_path, summarizer):
     """Helper for parallel execution"""

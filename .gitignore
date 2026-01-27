@@ -20,6 +20,7 @@ pipeline_data/file_master_report.csv
 # Vector DB
 chroma_db/
 .chroma/
+tmp_test_db/
 
 # Environment Variables
 .env
