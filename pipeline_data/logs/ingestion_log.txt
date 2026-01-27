@@ -436,3 +436,439 @@ For further information visit https://errors.pydantic.dev/2.12/u/import-error
 2026-01-19 12:12:55,171 - INFO - Use pytorch device_name: mps
 2026-01-19 12:12:55,172 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
 2026-01-19 12:13:00,410 - WARNING - ⚠️ No files found in staging to process.
+2026-01-27 11:57:34,572 - INFO - 🚀 Pipeline started in 'large' mode
+2026-01-27 11:57:34,573 - INFO - ✅ Read Log File: 374eac85-4ca0-4024-bd7d-2dc244c53c18.log
+2026-01-27 11:57:34,574 - INFO - ✅ Moved to staging: f0622116-2be8-4c89-82ae-bff91e233d8d.log
+2026-01-27 11:57:34,574 - INFO - ✅ Read Log File: db74938e-2fc1-4bec-9a40-786b3a0a955c.log
+2026-01-27 11:57:34,574 - INFO - ✅ Moved to staging: c575e630-b662-44b6-87ef-308139b87224.log
+2026-01-27 11:57:34,575 - INFO - ✅ Read Log File: 30f689ae-340e-4fbd-906a-f7eeac4014dd.log
+2026-01-27 11:57:34,576 - INFO - ✅ Moved to staging: e2fd9c9a-8228-40cc-a1fa-a73f4ee0d488.log
+2026-01-27 11:57:34,697 - INFO - ✅ Ingested CSV: ff7847e3-7201-4a22-807f-0bf840e67475.csv
+2026-01-27 11:57:34,697 - INFO - ✅ Moved to staging: 46563933-f49c-4eed-a190-6c30642ebda4.csv
+2026-01-27 11:57:34,699 - INFO - ✅ Read Log File: 6c54f02c-a85a-40cc-91e4-8a6331d5b7b0.log
+2026-01-27 11:57:34,699 - INFO - ✅ Moved to staging: bf5c0018-8523-4925-a5f4-b8410f750305.log
+2026-01-27 11:57:34,699 - INFO - ✅ Read Log File: 3b4c05c9-d4cd-4d46-a193-64b1b97e4305.log
+2026-01-27 11:57:34,699 - INFO - ✅ Moved to staging: 88c83b92-b1cf-4d17-98ea-4f5c71afff08.log
+2026-01-27 11:57:34,700 - INFO - ✅ Read Log File: 12ec0ff3-c58b-4890-9110-9cdf61951e8a.log
+2026-01-27 11:57:34,700 - INFO - ✅ Moved to staging: 9f411f78-2c84-40c5-aeb9-3e2492b22206.log
+2026-01-27 11:57:34,701 - INFO - ✅ Read Log File: f0c454df-216f-423f-a7af-140c99aaf16b.log
+2026-01-27 11:57:34,701 - INFO - ✅ Moved to staging: 7b695484-c967-47c8-94e2-85e9deb5dadf.log
+2026-01-27 11:57:34,702 - INFO - ✅ Read Log File: 77d44bdb-ef6b-490b-a973-15cafb93c59e.log
+2026-01-27 11:57:34,702 - INFO - ✅ Moved to staging: 445c4d83-ac7c-4fec-ab9c-c5345379f3d3.log
+2026-01-27 11:57:34,718 - INFO - 🚀 STARTING LARGE SCALE PIPELINE (Summarization + Sorting)
+2026-01-27 11:57:34,718 - INFO - Initializing Optimized Keyword Summarizer (MMR) with: sentence-transformers/all-MiniLM-L6-v2
+2026-01-27 11:57:34,740 - INFO - Use pytorch device_name: mps
+2026-01-27 11:57:34,740 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-27 11:57:39,503 - INFO - Use pytorch device_name: mps
+2026-01-27 11:57:39,504 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-27 11:57:43,369 - INFO - 🧠 Summarizing 9 files using parallel processing...
+2026-01-27 11:57:43,371 - INFO - ✅ Read Log File: 88c83b92-b1cf-4d17-98ea-4f5c71afff08.log
+2026-01-27 11:57:43,371 - INFO - ✅ Read Log File: f0622116-2be8-4c89-82ae-bff91e233d8d.log
+2026-01-27 11:57:43,371 - INFO - ✅ Read Log File: e2fd9c9a-8228-40cc-a1fa-a73f4ee0d488.log
+2026-01-27 11:57:43,372 - INFO - ✅ Read Log File: 9f411f78-2c84-40c5-aeb9-3e2492b22206.log
+2026-01-27 11:57:43,388 - INFO - ✅ Read Log File: 445c4d83-ac7c-4fec-ab9c-c5345379f3d3.log
+2026-01-27 11:57:43,401 - INFO - ✅ Read Log File: 7b695484-c967-47c8-94e2-85e9deb5dadf.log
+2026-01-27 11:57:43,434 - INFO - ✅ Read Log File: bf5c0018-8523-4925-a5f4-b8410f750305.log
+2026-01-27 11:57:43,440 - INFO - ✅ Read Log File: c575e630-b662-44b6-87ef-308139b87224.log
+2026-01-27 11:57:44,166 - INFO - ✅ Ingested CSV: 46563933-f49c-4eed-a190-6c30642ebda4.csv
+2026-01-27 11:57:44,778 - INFO - ✅ Extracted Keywords: Total Entries: 172838. Keywords: attackdescription data, tcp openstack_net, columns date, ap normal,...
+2026-01-27 11:57:45,175 - INFO - ✅ Extracted Keywords: Total Entries: 2000. Keywords: notice jk2_init, child workerenv, scoreboard slot, error state, httpd...
+2026-01-27 11:57:45,176 - INFO - ✅ Extracted Keywords: Total Entries: 2000. Keywords: notice jk2_init, child workerenv, scoreboard slot, error state, httpd...
+2026-01-27 11:57:45,176 - INFO - ✅ Extracted Keywords: Total Entries: 2000. Keywords: notice jk2_init, child workerenv, scoreboard slot, error state, httpd...
+2026-01-27 11:57:45,179 - INFO - ✅ Extracted Keywords: Total Entries: 2000. Keywords: notice jk2_init, child workerenv, scoreboard slot, error state, httpd...
+2026-01-27 11:57:45,189 - INFO - ✅ Extracted Keywords: Total Entries: 8092. Keywords: airportprocesscommand 466, faulted count, apple main, grunloop checki...
+2026-01-27 11:57:45,190 - INFO - ✅ Extracted Keywords: Total Entries: 8092. Keywords: airportprocesscommand 466, faulted count, apple main, grunloop checki...
+2026-01-27 11:57:45,192 - INFO - ✅ Extracted Keywords: Total Entries: 8092. Keywords: airportprocesscommand 466, faulted count, apple main, grunloop checki...
+2026-01-27 11:57:45,193 - INFO - ✅ Extracted Keywords: Total Entries: 8092. Keywords: airportprocesscommand 466, faulted count, apple main, grunloop checki...
+2026-01-27 11:57:45,194 - INFO - 📐 Generating Embeddings for 9 files...
+2026-01-27 11:57:45,244 - INFO - 📂 Organizing files into final categories...
+2026-01-27 11:57:45,245 - INFO -    👉 Moved 9f411f78-2c84-40c5-aeb9-3e2492b22206.log -> system_log/
+2026-01-27 11:57:45,245 - INFO -    👉 Moved e2fd9c9a-8228-40cc-a1fa-a73f4ee0d488.log -> system_log/
+2026-01-27 11:57:45,245 - INFO -    👉 Moved f0622116-2be8-4c89-82ae-bff91e233d8d.log -> app_log/
+2026-01-27 11:57:45,245 - INFO -    👉 Moved 88c83b92-b1cf-4d17-98ea-4f5c71afff08.log -> app_log/
+2026-01-27 11:57:45,245 - INFO -    👉 Moved 445c4d83-ac7c-4fec-ab9c-c5345379f3d3.log -> system_log/
+2026-01-27 11:57:45,245 - INFO -    👉 Moved bf5c0018-8523-4925-a5f4-b8410f750305.log -> system_log/
+2026-01-27 11:57:45,245 - INFO -    👉 Moved 7b695484-c967-47c8-94e2-85e9deb5dadf.log -> app_log/
+2026-01-27 11:57:45,245 - INFO -    👉 Moved c575e630-b662-44b6-87ef-308139b87224.log -> app_log/
+2026-01-27 11:57:45,246 - INFO -    👉 Moved 46563933-f49c-4eed-a190-6c30642ebda4.csv -> system_log/
+2026-01-27 11:57:45,246 - INFO - ✅ Cluster Report Saved: ./pipeline_data/processed/file_level_clusters.csv
+2026-01-27 11:57:45,952 - INFO - 🧠 Indexing files into RAG Vector Store...
+2026-01-27 11:57:45,952 - INFO - 💾 Initializing RAG Vector DB at ./chroma_db
+2026-01-27 11:57:45,963 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-01-27 11:57:46,315 - INFO - Use pytorch device_name: mps
+2026-01-27 11:57:46,315 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-27 11:57:50,324 - INFO -    Indexed summary for 9f411f78-2c84-40c5-aeb9-3e2492b22206.log
+2026-01-27 11:57:50,343 - INFO -    Indexed summary for e2fd9c9a-8228-40cc-a1fa-a73f4ee0d488.log
+2026-01-27 11:57:50,374 - INFO -    Indexed summary for f0622116-2be8-4c89-82ae-bff91e233d8d.log
+2026-01-27 11:57:50,390 - INFO -    Indexed summary for 88c83b92-b1cf-4d17-98ea-4f5c71afff08.log
+2026-01-27 11:57:50,409 - INFO -    Indexed summary for 445c4d83-ac7c-4fec-ab9c-c5345379f3d3.log
+2026-01-27 11:57:50,428 - INFO -    Indexed summary for bf5c0018-8523-4925-a5f4-b8410f750305.log
+2026-01-27 11:57:50,444 - INFO -    Indexed summary for 7b695484-c967-47c8-94e2-85e9deb5dadf.log
+2026-01-27 11:57:50,460 - INFO -    Indexed summary for c575e630-b662-44b6-87ef-308139b87224.log
+2026-01-27 11:57:50,489 - INFO -    Indexed summary for 46563933-f49c-4eed-a190-6c30642ebda4.csv
+2026-01-27 11:57:50,489 - INFO -    Start chunking and indexing full log content...
+2026-01-27 11:58:03,205 - INFO -    Indexed batch 1 (2039 chunks) for 9f411f78-2c84-40c5-aeb9-3e2492b22206.log
+2026-01-27 11:58:03,205 - INFO -    Indexed total 2039 chunks for 9f411f78-2c84-40c5-aeb9-3e2492b22206.log
+2026-01-27 11:58:14,727 - INFO -    Indexed batch 1 (2039 chunks) for e2fd9c9a-8228-40cc-a1fa-a73f4ee0d488.log
+2026-01-27 11:58:14,727 - INFO -    Indexed total 2039 chunks for e2fd9c9a-8228-40cc-a1fa-a73f4ee0d488.log
+2026-01-27 11:58:15,846 - INFO -    Indexed batch 1 (189 chunks) for f0622116-2be8-4c89-82ae-bff91e233d8d.log
+2026-01-27 11:58:15,846 - INFO -    Indexed total 189 chunks for f0622116-2be8-4c89-82ae-bff91e233d8d.log
+2026-01-27 11:58:16,879 - INFO -    Indexed batch 1 (189 chunks) for 88c83b92-b1cf-4d17-98ea-4f5c71afff08.log
+2026-01-27 11:58:16,879 - INFO -    Indexed total 189 chunks for 88c83b92-b1cf-4d17-98ea-4f5c71afff08.log
+2026-01-27 11:58:29,018 - INFO -    Indexed batch 1 (2039 chunks) for 445c4d83-ac7c-4fec-ab9c-c5345379f3d3.log
+2026-01-27 11:58:29,018 - INFO -    Indexed total 2039 chunks for 445c4d83-ac7c-4fec-ab9c-c5345379f3d3.log
+2026-01-27 11:58:41,242 - INFO -    Indexed batch 1 (2039 chunks) for bf5c0018-8523-4925-a5f4-b8410f750305.log
+2026-01-27 11:58:41,242 - INFO -    Indexed total 2039 chunks for bf5c0018-8523-4925-a5f4-b8410f750305.log
+2026-01-27 11:58:42,337 - INFO -    Indexed batch 1 (189 chunks) for 7b695484-c967-47c8-94e2-85e9deb5dadf.log
+2026-01-27 11:58:42,337 - INFO -    Indexed total 189 chunks for 7b695484-c967-47c8-94e2-85e9deb5dadf.log
+2026-01-27 11:58:43,365 - INFO -    Indexed batch 1 (189 chunks) for c575e630-b662-44b6-87ef-308139b87224.log
+2026-01-27 11:58:43,365 - INFO -    Indexed total 189 chunks for c575e630-b662-44b6-87ef-308139b87224.log
+2026-01-27 11:59:12,052 - INFO -    Indexed batch 1 (5000 chunks) for 46563933-f49c-4eed-a190-6c30642ebda4.csv
+2026-01-27 11:59:40,587 - INFO -    Indexed batch 2 (5000 chunks) for 46563933-f49c-4eed-a190-6c30642ebda4.csv
+2026-01-27 12:00:09,163 - INFO -    Indexed batch 3 (5000 chunks) for 46563933-f49c-4eed-a190-6c30642ebda4.csv
+2026-01-27 12:00:37,983 - INFO -    Indexed batch 4 (5000 chunks) for 46563933-f49c-4eed-a190-6c30642ebda4.csv
+2026-01-27 12:01:05,079 - INFO -    Indexed batch 5 (4567 chunks) for 46563933-f49c-4eed-a190-6c30642ebda4.csv
+2026-01-27 12:01:05,079 - INFO -    Indexed total 24567 chunks for 46563933-f49c-4eed-a190-6c30642ebda4.csv
+2026-01-27 12:01:05,080 - INFO - ✅ RAG Indexing Complete
+2026-01-27 12:01:05,095 - INFO - 📊 Processed 9 files in LARGE-SCALE mode.
+2026-01-27 13:43:33,855 - INFO - 🚀 Pipeline started in 'large' mode
+2026-01-27 13:43:33,905 - INFO - ✅ Parsed PDF: SwattikMondal_BasisCV.pdf
+2026-01-27 13:43:33,905 - INFO - ✅ Moved to staging: 7fde701d-12ca-4a88-8196-e6decce99d63.pdf
+2026-01-27 13:43:33,911 - INFO - 🚀 STARTING LARGE SCALE PIPELINE (Summarization + Sorting)
+2026-01-27 13:43:33,911 - INFO - Initializing Optimized Keyword Summarizer (MMR) with: sentence-transformers/all-MiniLM-L6-v2
+2026-01-27 13:43:33,932 - INFO - Use pytorch device_name: mps
+2026-01-27 13:43:33,932 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-27 13:43:37,963 - INFO - Use pytorch device_name: mps
+2026-01-27 13:43:37,963 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-27 13:43:41,575 - INFO - 🧠 Summarizing single file: 7fde701d-12ca-4a88-8196-e6decce99d63.pdf
+2026-01-27 13:43:41,625 - INFO - ✅ Parsed PDF: 7fde701d-12ca-4a88-8196-e6decce99d63.pdf
+2026-01-27 13:43:42,148 - INFO - ✅ Extracted Keywords: Total Entries: 94. Keywords: sap kernel, mondal kolkata, swattik, regarding telecom, organization wi...
+2026-01-27 13:43:42,149 - INFO - 📐 Generating Embeddings for 1 files...
+2026-01-27 13:43:42,187 - INFO - 📂 Organizing files into final categories...
+2026-01-27 13:43:42,189 - INFO -    👉 Moved 7fde701d-12ca-4a88-8196-e6decce99d63.pdf -> system_log/
+2026-01-27 13:43:42,190 - INFO - ✅ Cluster Report Saved: ./pipeline_data/processed/file_level_clusters.csv
+2026-01-27 13:43:42,575 - INFO - 🧠 Indexing files into RAG Vector Store...
+2026-01-27 13:43:42,575 - INFO - 💾 Initializing RAG Vector DB at ./chroma_db
+2026-01-27 13:43:42,585 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-01-27 13:43:42,654 - INFO - Use pytorch device_name: mps
+2026-01-27 13:43:42,654 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-27 13:43:46,358 - INFO -    Indexed summary for 7fde701d-12ca-4a88-8196-e6decce99d63.pdf
+2026-01-27 13:43:46,359 - INFO -    Start chunking and indexing full log content...
+2026-01-27 13:43:48,857 - INFO -    Indexed batch 1 (291 chunks) for 7fde701d-12ca-4a88-8196-e6decce99d63.pdf
+2026-01-27 13:43:48,857 - INFO -    Indexed total 291 chunks for 7fde701d-12ca-4a88-8196-e6decce99d63.pdf
+2026-01-27 13:43:48,857 - INFO - ✅ RAG Indexing Complete
+2026-01-27 13:43:48,862 - INFO - 📊 Processed 1 files in LARGE-SCALE mode.
+2026-01-27 13:48:09,501 - INFO - 🚀 Pipeline started in 'large' mode
+2026-01-27 13:48:09,512 - INFO - ✅ Ingested CSV: weblog.csv
+2026-01-27 13:48:09,512 - INFO - ✅ Moved to staging: 13e707d5-55e9-4f70-8486-50c9de41a993.csv
+2026-01-27 13:48:09,516 - INFO - 🚀 STARTING LARGE SCALE PIPELINE (Summarization + Sorting)
+2026-01-27 13:48:09,516 - INFO - Initializing Optimized Keyword Summarizer (MMR) with: sentence-transformers/all-MiniLM-L6-v2
+2026-01-27 13:48:09,530 - INFO - Use pytorch device_name: mps
+2026-01-27 13:48:09,531 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-27 13:48:13,488 - INFO - Use pytorch device_name: mps
+2026-01-27 13:48:13,488 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-27 13:48:17,100 - INFO - 🧠 Summarizing single file: 13e707d5-55e9-4f70-8486-50c9de41a993.csv
+2026-01-27 13:48:17,110 - INFO - ✅ Ingested CSV: 13e707d5-55e9-4f70-8486-50c9de41a993.csv
+2026-01-27 13:48:17,478 - INFO - ✅ Extracted Keywords: Total Entries: 16007. Keywords: table columns, time url, process php, chart min, 19 profile, sample ...
+2026-01-27 13:48:17,478 - INFO - 📐 Generating Embeddings for 1 files...
+2026-01-27 13:48:17,504 - INFO - 📂 Organizing files into final categories...
+2026-01-27 13:48:17,505 - INFO -    👉 Moved 13e707d5-55e9-4f70-8486-50c9de41a993.csv -> app_log/
+2026-01-27 13:48:17,506 - INFO - ✅ Cluster Report Saved: ./pipeline_data/processed/file_level_clusters.csv
+2026-01-27 13:48:17,823 - INFO - 🧠 Indexing files into RAG Vector Store...
+2026-01-27 13:48:17,823 - INFO - 💾 Initializing RAG Vector DB at ./chroma_db
+2026-01-27 13:48:17,832 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-01-27 13:48:17,901 - INFO - Use pytorch device_name: mps
+2026-01-27 13:48:17,901 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-27 13:48:21,611 - INFO -    Indexed summary for 13e707d5-55e9-4f70-8486-50c9de41a993.csv
+2026-01-27 13:48:21,611 - INFO -    Start chunking and indexing full log content...
+2026-01-27 13:48:30,864 - INFO -    Indexed batch 1 (1222 chunks) for 13e707d5-55e9-4f70-8486-50c9de41a993.csv
+2026-01-27 13:48:30,865 - INFO -    Indexed total 1222 chunks for 13e707d5-55e9-4f70-8486-50c9de41a993.csv
+2026-01-27 13:48:30,865 - INFO - ✅ RAG Indexing Complete
+2026-01-27 13:48:30,869 - INFO - 📊 Processed 1 files in LARGE-SCALE mode.
+2026-01-27 14:07:28,577 - INFO - 🚀 Pipeline started in 'large' mode
+2026-01-27 14:07:28,623 - INFO - ✅ Parsed PDF: 7fde701d-12ca-4a88-8196-e6decce99d63.pdf
+2026-01-27 14:07:28,655 - INFO - 🤖 Loading file classifier: facebook/bart-large-mnli on CPU...
+2026-01-27 14:08:29,114 - INFO - ✅ File classifier loaded successfully on CPU
+2026-01-27 14:08:29,114 - INFO - ✅ File classifier initialized
+2026-01-27 14:08:36,034 - INFO -    📋 Classified as: contract (confidence: 0.21)
+2026-01-27 14:08:36,034 - INFO -    🎯 File type identified: contract (confidence: 0.21)
+2026-01-27 14:08:36,035 - INFO - 📄 Document moved to contract/ folder: f520a585-52d4-4af3-a516-056821b54a36.pdf
+2026-01-27 14:08:36,036 - INFO - ✅ Read text file: c575e630-b662-44b6-87ef-308139b87224.log
+2026-01-27 14:08:41,483 - INFO -    📋 Classified as: log (confidence: 0.25)
+2026-01-27 14:08:41,484 - INFO -    🎯 File type identified: log (confidence: 0.25)
+2026-01-27 14:08:41,484 - INFO - ✅ Log file moved to staging: 7943ff24-a18d-4316-b4c2-844a7f1289b6.log
+2026-01-27 14:08:41,501 - INFO - 🧠 Processing 1 log files through AI pipeline...
+2026-01-27 14:08:41,502 - INFO - 🚀 STARTING LARGE SCALE PIPELINE (Summarization + Sorting)
+2026-01-27 14:08:41,502 - INFO - Initializing Optimized Keyword Summarizer (MMR) with: sentence-transformers/all-MiniLM-L6-v2
+2026-01-27 14:08:41,562 - INFO - Use pytorch device_name: mps
+2026-01-27 14:08:41,562 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-27 14:08:45,681 - INFO - Use pytorch device_name: mps
+2026-01-27 14:08:45,681 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-27 14:08:49,454 - INFO - 🧠 Summarizing single file: 7943ff24-a18d-4316-b4c2-844a7f1289b6.log
+2026-01-27 14:08:49,454 - INFO - ✅ Read text file: 7943ff24-a18d-4316-b4c2-844a7f1289b6.log
+2026-01-27 14:08:49,454 - INFO - ✅ File classifier initialized
+2026-01-27 14:08:54,776 - INFO -    📋 Classified as: log (confidence: 0.25)
+2026-01-27 14:08:54,776 - INFO -    🎯 File type identified: log (confidence: 0.25)
+2026-01-27 14:08:55,340 - INFO - ✅ Extracted Keywords: Total Entries: 1. Keywords: notice jk2_init, child workerenv, scoreboard sun, error state, directory...
+2026-01-27 14:08:55,340 - INFO - 📐 Generating Embeddings for 1 files...
+2026-01-27 14:08:55,368 - INFO - 📂 Organizing files into final categories...
+2026-01-27 14:08:55,370 - INFO -    👉 Moved 7943ff24-a18d-4316-b4c2-844a7f1289b6.log -> app_log/
+2026-01-27 14:08:55,371 - INFO - ✅ Cluster Report Saved: ./pipeline_data/processed/file_level_clusters.csv
+2026-01-27 14:08:55,788 - INFO - 🧠 Indexing files into RAG Vector Store...
+2026-01-27 14:08:55,788 - INFO - 💾 Initializing RAG Vector DB at ./chroma_db
+2026-01-27 14:08:55,798 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-01-27 14:08:55,866 - INFO - Use pytorch device_name: mps
+2026-01-27 14:08:55,866 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-27 14:09:00,032 - INFO -    Indexed summary for 7943ff24-a18d-4316-b4c2-844a7f1289b6.log
+2026-01-27 14:09:00,032 - INFO -    Start chunking and indexing full log content...
+2026-01-27 14:09:01,807 - INFO -    Indexed batch 1 (189 chunks) for 7943ff24-a18d-4316-b4c2-844a7f1289b6.log
+2026-01-27 14:09:01,808 - INFO -    Indexed total 189 chunks for 7943ff24-a18d-4316-b4c2-844a7f1289b6.log
+2026-01-27 14:09:01,808 - INFO - ✅ RAG Indexing Complete
+2026-01-27 14:09:01,821 - INFO - 📊 Processed 1 log files in LARGE-SCALE mode.
+2026-01-27 14:09:01,821 - INFO - ✅ Classified and stored 1 documents:
+2026-01-27 14:09:01,821 - INFO -    • 7fde701d-12ca-4a88-8196-e6decce99d63.pdf → contract/
+2026-01-27 14:10:50,967 - INFO - 🚀 Pipeline started in 'large' mode
+2026-01-27 14:10:51,040 - INFO - ✅ Parsed PDF: NILESH ROY FINAL CV-20251208143247.pdf
+2026-01-27 14:10:51,074 - INFO - 🤖 Loading file classifier: facebook/bart-large-mnli on CPU...
+2026-01-27 14:10:52,163 - INFO - ✅ File classifier loaded successfully on CPU
+2026-01-27 14:10:52,163 - INFO - ✅ File classifier initialized
+2026-01-27 14:10:59,137 - INFO -    📋 Classified as: cv (confidence: 0.30)
+2026-01-27 14:10:59,137 - INFO -    🎯 File type identified: cv (confidence: 0.30)
+2026-01-27 14:10:59,137 - INFO - 📄 Document moved to cv/ folder: 01178900-5cf9-4aba-af2d-9a4b2175c2e5.pdf
+2026-01-27 14:10:59,145 - INFO - ℹ️ No log files to process through AI pipeline.
+2026-01-27 14:10:59,145 - INFO - ✅ Classified and stored 1 documents:
+2026-01-27 14:10:59,145 - INFO -    • NILESH ROY FINAL CV-20251208143247.pdf → cv/
+2026-01-27 14:16:02,035 - INFO - 🚀 Pipeline started in 'large' mode
+2026-01-27 14:16:02,036 - INFO - ✅ Read text file: john_doe_cv.txt
+2026-01-27 14:16:02,067 - INFO - 🤖 Loading file classifier: facebook/bart-large-mnli on CPU...
+2026-01-27 14:16:03,242 - INFO - ✅ File classifier loaded successfully on CPU
+2026-01-27 14:16:03,242 - INFO - ✅ File classifier initialized
+2026-01-27 14:16:06,619 - INFO -    📋 Classified as: cv (confidence: 0.87)
+2026-01-27 14:16:06,619 - INFO -    🎯 File type identified: cv (confidence: 0.87)
+2026-01-27 14:16:06,620 - INFO - 📄 Document moved to cv/ folder: 7231d7dd-178e-4704-97f6-e393478a0ab5.txt
+2026-01-27 14:16:06,620 - INFO - ✅ Read text file: app_error.log
+2026-01-27 14:16:08,169 - INFO -    📋 Classified as: report (confidence: 0.31)
+2026-01-27 14:16:08,170 - INFO -    🎯 File type identified: report (confidence: 0.31)
+2026-01-27 14:16:08,170 - INFO - 📄 Document moved to report/ folder: 20424422-6d42-403a-9fe6-c51a3a76891b.log
+2026-01-27 14:16:08,177 - INFO - ℹ️ No log files to process through AI pipeline.
+2026-01-27 14:16:08,177 - INFO - ✅ Classified and stored 2 documents:
+2026-01-27 14:16:08,177 - INFO -    • john_doe_cv.txt → cv/
+2026-01-27 14:16:08,177 - INFO -    • app_error.log → report/
+2026-01-27 14:17:35,065 - INFO - 🚀 Pipeline started in 'large' mode
+2026-01-27 14:17:35,065 - INFO - ✅ Read text file: john_doe_cv.txt
+2026-01-27 14:17:35,097 - INFO - 🤖 Loading file classifier: facebook/bart-large-mnli on CPU...
+2026-01-27 14:17:36,226 - INFO - ✅ File classifier loaded successfully on CPU
+2026-01-27 14:17:36,226 - INFO - ✅ File classifier initialized
+2026-01-27 14:17:39,378 - INFO -    📋 Classified as: cv (confidence: 0.87)
+2026-01-27 14:17:39,378 - INFO -    🎯 File type identified: cv (confidence: 0.87)
+2026-01-27 14:17:39,379 - INFO - 📄 Document moved to cv/ folder: 9a4ecf55-99d6-4a7d-a92f-04be50f008ac.txt
+2026-01-27 14:17:39,379 - INFO - ✅ Read text file: app_error.log
+2026-01-27 14:17:39,379 - INFO -    ⚡ Fast-path: Identified as log based on extension & content
+2026-01-27 14:17:39,379 - INFO -    🎯 File type identified: log (confidence: 1.00)
+2026-01-27 14:17:39,379 - INFO - ✅ Log file moved to staging: f8bb5b3a-3458-4748-89e1-c7ddce237e92.log
+2026-01-27 14:17:39,390 - INFO - 🧠 Processing 1 log files through AI pipeline...
+2026-01-27 14:17:39,390 - INFO - 🚀 STARTING LARGE SCALE PIPELINE (Summarization + Sorting)
+2026-01-27 14:17:39,390 - INFO - Initializing Optimized Keyword Summarizer (MMR) with: sentence-transformers/all-MiniLM-L6-v2
+2026-01-27 14:17:39,429 - INFO - Use pytorch device_name: mps
+2026-01-27 14:17:39,429 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-27 14:17:43,369 - INFO - Use pytorch device_name: mps
+2026-01-27 14:17:43,369 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-27 14:17:47,219 - INFO - 🧠 Summarizing single file: f8bb5b3a-3458-4748-89e1-c7ddce237e92.log
+2026-01-27 14:17:47,219 - INFO - ✅ Read text file: f8bb5b3a-3458-4748-89e1-c7ddce237e92.log
+2026-01-27 14:17:47,220 - INFO - ✅ File classifier initialized
+2026-01-27 14:17:47,220 - INFO -    ⚡ Fast-path: Identified as log based on extension & content
+2026-01-27 14:17:47,220 - INFO -    🎯 File type identified: log (confidence: 1.00)
+2026-01-27 14:17:47,485 - INFO - ✅ Extracted Keywords: Total Entries: 1. Keywords: failed connectionrefusederror, myclass java, error database, nullpointer...
+2026-01-27 14:17:47,485 - INFO - 📐 Generating Embeddings for 1 files...
+2026-01-27 14:17:47,507 - INFO - 📂 Organizing files into final categories...
+2026-01-27 14:17:47,509 - INFO -    👉 Moved f8bb5b3a-3458-4748-89e1-c7ddce237e92.log -> app_log/
+2026-01-27 14:17:47,509 - INFO - ✅ Cluster Report Saved: ./pipeline_data/processed/file_level_clusters.csv
+2026-01-27 14:17:47,836 - INFO - 🧠 Indexing files into RAG Vector Store...
+2026-01-27 14:17:47,836 - INFO - 💾 Initializing RAG Vector DB at ./chroma_db
+2026-01-27 14:17:47,847 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-01-27 14:17:47,914 - INFO - Use pytorch device_name: mps
+2026-01-27 14:17:47,915 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-27 14:17:51,991 - INFO -    Indexed summary for f8bb5b3a-3458-4748-89e1-c7ddce237e92.log
+2026-01-27 14:17:51,991 - INFO -    Start chunking and indexing full log content...
+2026-01-27 14:17:52,560 - INFO -    Indexed batch 1 (1 chunks) for f8bb5b3a-3458-4748-89e1-c7ddce237e92.log
+2026-01-27 14:17:52,560 - INFO -    Indexed total 1 chunks for f8bb5b3a-3458-4748-89e1-c7ddce237e92.log
+2026-01-27 14:17:52,560 - INFO - ✅ RAG Indexing Complete
+2026-01-27 14:17:52,564 - INFO - 📊 Processed 1 log files in LARGE-SCALE mode.
+2026-01-27 14:17:52,564 - INFO - ✅ Classified and stored 1 documents:
+2026-01-27 14:17:52,564 - INFO -    • john_doe_cv.txt → cv/
+2026-01-27 14:22:50,349 - INFO - 🚀 Pipeline started in 'large' mode
+2026-01-27 14:22:50,358 - INFO - ✅ Ingested CSV: weblog.csv
+2026-01-27 14:22:50,358 - ERROR - ❌ Ingestion failed for weblog.csv: The truth value of a DataFrame is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2026-01-27 14:22:50,377 - INFO - ✅ Parsed PDF: Nilesh_Payslip_November  2025.pdf
+2026-01-27 14:22:50,410 - INFO - 🤖 Loading file classifier: facebook/bart-large-mnli on CPU...
+2026-01-27 14:22:51,387 - INFO - ✅ File classifier loaded successfully on CPU
+2026-01-27 14:22:51,387 - INFO - ✅ File classifier initialized
+2026-01-27 14:23:00,513 - INFO -    📋 Classified as: report (confidence: 0.42)
+2026-01-27 14:23:00,514 - INFO -    🎯 File type identified: report (confidence: 0.42)
+2026-01-27 14:23:00,514 - INFO - 📄 Document moved to report/ folder: 0ba2c4ff-a2bc-40c9-9c71-8e52c8a506fb.pdf
+2026-01-27 14:23:00,647 - INFO - ✅ Parsed PDF: NILESH ROY FINAL CV-20251208143247.pdf
+2026-01-27 14:23:07,796 - INFO -    📋 Classified as: cv (confidence: 0.24)
+2026-01-27 14:23:07,797 - INFO -    🎯 File type identified: cv (confidence: 0.24)
+2026-01-27 14:23:07,797 - INFO - 📄 Document moved to cv/ folder: ea931c59-4adb-43f3-b24f-d50921fffe5c.pdf
+2026-01-27 14:23:07,801 - INFO - ℹ️ No log files to process through AI pipeline.
+2026-01-27 14:23:07,801 - INFO - ✅ Classified and stored 2 documents:
+2026-01-27 14:23:07,801 - INFO -    • Nilesh_Payslip_November  2025.pdf → report/
+2026-01-27 14:23:07,801 - INFO -    • NILESH ROY FINAL CV-20251208143247.pdf → cv/
+2026-01-27 14:24:46,641 - INFO - 🚀 Pipeline started in 'large' mode
+2026-01-27 14:24:46,660 - INFO - ✅ Parsed PDF: 0ba2c4ff-a2bc-40c9-9c71-8e52c8a506fb.pdf
+2026-01-27 14:24:46,691 - INFO - 🤖 Loading file classifier: facebook/bart-large-mnli on CPU...
+2026-01-27 14:24:47,861 - INFO - ✅ File classifier loaded successfully on CPU
+2026-01-27 14:24:47,861 - INFO - ✅ File classifier initialized
+2026-01-27 14:24:57,024 - INFO -    📋 Classified as: report (confidence: 0.42)
+2026-01-27 14:24:57,024 - INFO -    🎯 File type identified: report (confidence: 0.42)
+2026-01-27 14:24:57,024 - INFO - 📄 Document moved to report/ folder: 3a505ac5-a954-49b7-a6c2-d30fc1348089.pdf
+2026-01-27 14:24:57,026 - INFO - ✅ Read text file: ai.log
+2026-01-27 14:25:06,607 - INFO -    📋 Classified as: log (confidence: 0.22)
+2026-01-27 14:25:06,608 - INFO -    🎯 File type identified: log (confidence: 0.22)
+2026-01-27 14:25:06,608 - INFO - ✅ Log file moved to staging: c90f4de8-13c5-447b-9e46-d11b475002c2.log
+2026-01-27 14:25:06,618 - INFO - ✅ Ingested CSV: weblog.csv
+2026-01-27 14:25:06,618 - ERROR - ❌ Ingestion failed for weblog.csv: The truth value of a DataFrame is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2026-01-27 14:25:06,752 - INFO - ✅ Parsed PDF: ea931c59-4adb-43f3-b24f-d50921fffe5c.pdf
+2026-01-27 14:25:13,866 - INFO -    📋 Classified as: cv (confidence: 0.24)
+2026-01-27 14:25:13,866 - INFO -    🎯 File type identified: cv (confidence: 0.24)
+2026-01-27 14:25:13,867 - INFO - 📄 Document moved to cv/ folder: 38885c3f-4604-4f47-9c8e-169a84d0cc76.pdf
+2026-01-27 14:25:13,868 - INFO - ✅ Read text file: Apache_2k.log
+2026-01-27 14:25:21,854 - INFO -    📋 Classified as: log (confidence: 0.23)
+2026-01-27 14:25:21,855 - INFO -    🎯 File type identified: log (confidence: 0.23)
+2026-01-27 14:25:21,855 - INFO - ✅ Log file moved to staging: 39bacb11-99fd-4290-9cdb-cc5bb1c13642.log
+2026-01-27 14:25:21,862 - INFO - 🧠 Processing 2 log files through AI pipeline...
+2026-01-27 14:25:21,862 - INFO - 🚀 STARTING LARGE SCALE PIPELINE (Summarization + Sorting)
+2026-01-27 14:25:21,862 - INFO - Initializing Optimized Keyword Summarizer (MMR) with: sentence-transformers/all-MiniLM-L6-v2
+2026-01-27 14:25:21,883 - INFO - Use pytorch device_name: mps
+2026-01-27 14:25:21,884 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-27 14:25:26,205 - INFO - Use pytorch device_name: mps
+2026-01-27 14:25:26,205 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-27 14:25:29,865 - INFO - 🧠 Summarizing 2 files using parallel processing...
+2026-01-27 14:25:29,865 - INFO - ✅ Read text file: 39bacb11-99fd-4290-9cdb-cc5bb1c13642.log
+2026-01-27 14:25:29,865 - INFO - ✅ File classifier initialized
+2026-01-27 14:25:29,867 - INFO - ✅ Read text file: c90f4de8-13c5-447b-9e46-d11b475002c2.log
+2026-01-27 14:25:43,355 - INFO -    📋 Classified as: log (confidence: 0.23)
+2026-01-27 14:25:43,356 - INFO -    🎯 File type identified: log (confidence: 0.23)
+2026-01-27 14:25:44,135 - INFO - ✅ Extracted Keywords: Total Entries: 1. Keywords: notice jk2_init, child workerenv, scoreboard sun, error state, directory...
+2026-01-27 14:25:44,834 - INFO -    📋 Classified as: log (confidence: 0.22)
+2026-01-27 14:25:44,835 - INFO -    🎯 File type identified: log (confidence: 0.22)
+2026-01-27 14:25:45,342 - INFO - ✅ Extracted Keywords: Total Entries: 1. Keywords: apple airportd, faulted count, grunloop checkin, scan offloads, lastslee...
+2026-01-27 14:25:45,343 - INFO - 📐 Generating Embeddings for 2 files...
+2026-01-27 14:25:45,387 - INFO - 📂 Organizing files into final categories...
+2026-01-27 14:25:45,391 - INFO -    👉 Moved 39bacb11-99fd-4290-9cdb-cc5bb1c13642.log -> app_log/
+2026-01-27 14:25:45,391 - INFO -    👉 Moved c90f4de8-13c5-447b-9e46-d11b475002c2.log -> system_log/
+2026-01-27 14:25:45,392 - INFO - ✅ Cluster Report Saved: ./pipeline_data/processed/file_level_clusters.csv
+2026-01-27 14:25:45,725 - INFO - 🧠 Indexing files into RAG Vector Store...
+2026-01-27 14:25:45,725 - INFO - 💾 Initializing RAG Vector DB at ./chroma_db
+2026-01-27 14:25:45,736 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-01-27 14:25:45,809 - INFO - Use pytorch device_name: mps
+2026-01-27 14:25:45,809 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-27 14:25:49,899 - INFO -    Indexed summary for 39bacb11-99fd-4290-9cdb-cc5bb1c13642.log
+2026-01-27 14:25:49,930 - INFO -    Indexed summary for c90f4de8-13c5-447b-9e46-d11b475002c2.log
+2026-01-27 14:25:49,930 - INFO -    Start chunking and indexing full log content...
+2026-01-27 14:25:51,637 - INFO -    Indexed batch 1 (189 chunks) for 39bacb11-99fd-4290-9cdb-cc5bb1c13642.log
+2026-01-27 14:25:51,637 - INFO -    Indexed total 189 chunks for 39bacb11-99fd-4290-9cdb-cc5bb1c13642.log
+2026-01-27 14:26:05,057 - INFO -    Indexed batch 1 (2039 chunks) for c90f4de8-13c5-447b-9e46-d11b475002c2.log
+2026-01-27 14:26:05,057 - INFO -    Indexed total 2039 chunks for c90f4de8-13c5-447b-9e46-d11b475002c2.log
+2026-01-27 14:26:05,058 - INFO - ✅ RAG Indexing Complete
+2026-01-27 14:26:05,062 - INFO - 📊 Processed 2 log files in LARGE-SCALE mode.
+2026-01-27 14:26:05,062 - INFO - ✅ Classified and stored 2 documents:
+2026-01-27 14:26:05,062 - INFO -    • 0ba2c4ff-a2bc-40c9-9c71-8e52c8a506fb.pdf → report/
+2026-01-27 14:26:05,062 - INFO -    • ea931c59-4adb-43f3-b24f-d50921fffe5c.pdf → cv/
+2026-01-27 14:30:40,874 - INFO - 🚀 Pipeline started in 'large' mode
+2026-01-27 14:30:40,875 - INFO - ✅ Ingested CSV: server_log.csv
+2026-01-27 14:30:40,909 - INFO - 🤖 Loading file classifier: facebook/bart-large-mnli on CPU...
+2026-01-27 14:30:42,056 - INFO - ✅ File classifier loaded successfully on CPU
+2026-01-27 14:30:42,056 - INFO - ✅ File classifier initialized
+2026-01-27 14:30:46,534 - INFO -    📋 Classified as: log (confidence: 0.37)
+2026-01-27 14:30:46,534 - INFO -    📊 Structured data identified as LOG (confidence: 0.37)
+2026-01-27 14:30:46,534 - INFO -    🎯 Final File type: log
+2026-01-27 14:30:46,534 - INFO - ✅ Log file moved to staging: e194d65f-9192-44d6-9461-5c05598290a7.csv
+2026-01-27 14:30:46,537 - INFO - 🧠 Processing 1 log files through AI pipeline...
+2026-01-27 14:30:46,537 - INFO - 🚀 STARTING LARGE SCALE PIPELINE (Summarization + Sorting)
+2026-01-27 14:30:46,537 - INFO - Initializing Optimized Keyword Summarizer (MMR) with: sentence-transformers/all-MiniLM-L6-v2
+2026-01-27 14:30:46,554 - INFO - Use pytorch device_name: mps
+2026-01-27 14:30:46,554 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-27 14:30:50,716 - INFO - Use pytorch device_name: mps
+2026-01-27 14:30:50,716 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-27 14:30:54,655 - INFO - 🧠 Summarizing single file: e194d65f-9192-44d6-9461-5c05598290a7.csv
+2026-01-27 14:30:54,656 - INFO - ✅ Ingested CSV: e194d65f-9192-44d6-9461-5c05598290a7.csv
+2026-01-27 14:30:54,656 - INFO - ✅ File classifier initialized
+2026-01-27 14:30:56,707 - INFO -    📋 Classified as: log (confidence: 0.37)
+2026-01-27 14:30:56,707 - INFO -    📊 Structured data identified as LOG (confidence: 0.37)
+2026-01-27 14:30:56,707 - INFO -    🎯 Final File type: log
+2026-01-27 14:30:57,510 - INFO - ✅ Extracted Keywords: Total Entries: 4. Keywords: columns timestamp, retrying connection, service data, error database, le...
+2026-01-27 14:30:57,511 - INFO - 📐 Generating Embeddings for 1 files...
+2026-01-27 14:30:57,548 - INFO - 📂 Organizing files into final categories...
+2026-01-27 14:30:57,549 - INFO -    👉 Moved e194d65f-9192-44d6-9461-5c05598290a7.csv -> system_log/
+2026-01-27 14:30:57,549 - INFO - ✅ Cluster Report Saved: ./pipeline_data/processed/file_level_clusters.csv
+2026-01-27 14:30:57,837 - INFO - 🧠 Indexing files into RAG Vector Store...
+2026-01-27 14:30:57,837 - INFO - 💾 Initializing RAG Vector DB at ./chroma_db
+2026-01-27 14:30:57,846 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-01-27 14:30:57,879 - INFO - Use pytorch device_name: mps
+2026-01-27 14:30:57,879 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-27 14:31:02,023 - INFO -    Indexed summary for e194d65f-9192-44d6-9461-5c05598290a7.csv
+2026-01-27 14:31:02,024 - INFO -    Start chunking and indexing full log content...
+2026-01-27 14:31:02,394 - INFO -    Indexed batch 1 (1 chunks) for e194d65f-9192-44d6-9461-5c05598290a7.csv
+2026-01-27 14:31:02,394 - INFO -    Indexed total 1 chunks for e194d65f-9192-44d6-9461-5c05598290a7.csv
+2026-01-27 14:31:02,394 - INFO - ✅ RAG Indexing Complete
+2026-01-27 14:31:02,399 - INFO - 📊 Processed 1 log files in LARGE-SCALE mode.
+2026-01-27 14:32:07,598 - INFO - 🚀 Pipeline started in 'large' mode
+2026-01-27 14:32:07,606 - INFO - ✅ Ingested CSV: weblog.csv
+2026-01-27 14:32:07,639 - INFO - 🤖 Loading file classifier: facebook/bart-large-mnli on CPU...
+2026-01-27 14:32:08,693 - INFO - ✅ File classifier loaded successfully on CPU
+2026-01-27 14:32:08,693 - INFO - ✅ File classifier initialized
+2026-01-27 14:32:14,649 - INFO -    📋 Classified as: other_document (confidence: 0.29)
+2026-01-27 14:32:14,650 - INFO -    📊 Structured data identified as other_document (confidence: 0.29)
+2026-01-27 14:32:14,650 - INFO -    🎯 Final File type: other_document
+2026-01-27 14:32:14,650 - INFO - 📄 Document moved to other_document/ folder: f350a673-da0f-45f8-a8c4-cdca696aaa2a.csv
+2026-01-27 14:32:14,673 - INFO - ✅ Parsed PDF: Nilesh_Payslip_November  2025.pdf
+2026-01-27 14:32:21,479 - INFO -    📋 Classified as: report (confidence: 0.42)
+2026-01-27 14:32:21,480 - INFO -    🎯 Final File type: report
+2026-01-27 14:32:21,480 - INFO - 📄 Document moved to report/ folder: 5e98cf02-1e66-4b79-9a84-8dfab826f212.pdf
+2026-01-27 14:32:21,622 - INFO - ✅ Parsed PDF: NILESH ROY FINAL CV-20251208143247.pdf
+2026-01-27 14:32:29,097 - INFO -    📋 Classified as: cv (confidence: 0.24)
+2026-01-27 14:32:29,097 - INFO -    🎯 Final File type: cv
+2026-01-27 14:32:29,098 - INFO - 📄 Document moved to cv/ folder: da86bd6e-0931-40f8-8a76-260558718ec7.pdf
+2026-01-27 14:32:29,102 - INFO - ℹ️ No log files to process through AI pipeline.
+2026-01-27 14:32:29,102 - INFO - ✅ Classified and stored 3 documents:
+2026-01-27 14:32:29,102 - INFO -    • weblog.csv → other_document/
+2026-01-27 14:32:29,102 - INFO -    • Nilesh_Payslip_November  2025.pdf → report/
+2026-01-27 14:32:29,102 - INFO -    • NILESH ROY FINAL CV-20251208143247.pdf → cv/
+2026-01-27 14:34:25,251 - INFO - 🚀 Pipeline started in 'large' mode
+2026-01-27 14:34:25,254 - INFO - ✅ Ingested CSV: server_log.csv
+2026-01-27 14:34:25,285 - INFO - 🤖 Loading file classifier: facebook/bart-large-mnli on CPU...
+2026-01-27 14:34:26,354 - INFO - ✅ File classifier loaded successfully on CPU
+2026-01-27 14:34:26,354 - INFO - ✅ File classifier initialized
+2026-01-27 14:34:30,444 - INFO -    📋 Classified as: log (confidence: 0.37)
+2026-01-27 14:34:30,444 - INFO -    📊 Structured data identified as LOG (confidence: 0.37)
+2026-01-27 14:34:30,444 - INFO -    🎯 Final File type: log
+2026-01-27 14:34:30,445 - INFO - ✅ Log file moved to staging: c1a9d482-1a29-4003-bf9e-ea0cbf475dee.csv
+2026-01-27 14:34:30,451 - INFO - 🧠 Processing 1 log files through AI pipeline...
+2026-01-27 14:34:30,451 - INFO - 🚀 STARTING LARGE SCALE PIPELINE (Summarization + Sorting)
+2026-01-27 14:34:30,451 - INFO - Initializing Optimized Keyword Summarizer (MMR) with: sentence-transformers/all-MiniLM-L6-v2
+2026-01-27 14:34:30,451 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-27 14:34:30,468 - INFO - Use pytorch device_name: mps
+2026-01-27 14:34:30,468 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-27 14:34:34,552 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-27 14:34:34,553 - INFO - 🧠 Summarizing single file: c1a9d482-1a29-4003-bf9e-ea0cbf475dee.csv
+2026-01-27 14:34:34,553 - INFO - ✅ Ingested CSV: c1a9d482-1a29-4003-bf9e-ea0cbf475dee.csv
+2026-01-27 14:34:34,553 - INFO - ✅ File classifier initialized
+2026-01-27 14:34:36,657 - INFO -    📋 Classified as: log (confidence: 0.37)
+2026-01-27 14:34:36,657 - INFO -    📊 Structured data identified as LOG (confidence: 0.37)
+2026-01-27 14:34:36,657 - INFO -    🎯 Final File type: log
+2026-01-27 14:34:37,165 - INFO - ✅ Extracted Keywords: Total Entries: 4. Keywords: columns timestamp, retrying connection, service data, error database, le...
+2026-01-27 14:34:37,166 - INFO - 📐 Generating Embeddings for 1 files...
+2026-01-27 14:34:37,255 - INFO - 📂 Organizing files into final categories...
+2026-01-27 14:34:37,256 - INFO -    👉 Moved c1a9d482-1a29-4003-bf9e-ea0cbf475dee.csv -> system_log/
+2026-01-27 14:34:37,256 - INFO - ✅ Cluster Report Saved: ./pipeline_data/processed/file_level_clusters.csv
+2026-01-27 14:34:37,587 - INFO - 🧠 Indexing files into RAG Vector Store...
+2026-01-27 14:34:37,587 - INFO - 💾 Initializing RAG Vector DB at ./chroma_db
+2026-01-27 14:34:37,598 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-01-27 14:34:37,665 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-27 14:34:37,710 - INFO -    Indexed summary for c1a9d482-1a29-4003-bf9e-ea0cbf475dee.csv
+2026-01-27 14:34:37,710 - INFO -    Start chunking and indexing full log content...
+2026-01-27 14:34:38,035 - INFO -    Indexed batch 1 (1 chunks) for c1a9d482-1a29-4003-bf9e-ea0cbf475dee.csv
+2026-01-27 14:34:38,035 - INFO -    Indexed total 1 chunks for c1a9d482-1a29-4003-bf9e-ea0cbf475dee.csv
+2026-01-27 14:34:38,035 - INFO - ✅ RAG Indexing Complete
+2026-01-27 14:34:38,038 - INFO - 📊 Processed 1 log files in LARGE-SCALE mode.

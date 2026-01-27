@@ -47,7 +47,12 @@ class LogSummarizer:
         """
         doc_backup = ""
         try:
-            content = self.ingestor.process_file(filepath)
+            # ingestor.process_file now returns (content, file_type)
+            result = self.ingestor.process_file(filepath)
+            if result is None:
+                return ""
+                
+            content, _ = result # We only need content here
             
             if content is None:
                 return ""

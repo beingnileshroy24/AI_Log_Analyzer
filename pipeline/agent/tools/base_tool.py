@@ -55,7 +55,13 @@ class BaseLogTool:
             return None, error
         
         try:
-            content = self.ingestor.process_file(filepath)
+            # ingestor.process_file returns (content, file_type)
+            result = self.ingestor.process_file(filepath)
+            if result is None:
+                return None, "System error: Ingestor returned None."
+                
+            content, _ = result
+            
             if content is None:
                 return None, "Could not read file content."
             return content, None

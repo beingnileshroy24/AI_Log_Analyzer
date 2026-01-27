@@ -12,7 +12,16 @@ STAGING_DIR = os.path.join(PROCESSED_DIR, "staging")
 # Cluster Categories
 CLUSTER_FOLDERS = ["agreement", "app_log", "system_log", "governance_log", "unstructured_log"]
 
-# Domain Keywords for Auto-Categorization
+# Document Type Categories (for non-log files)
+DOCUMENT_TYPES = {
+    "cv": ["curriculum vitae", "cv", "education", "work experience", "skills"],
+    "resume": ["resume", "professional summary", "employment history", "qualifications"],
+    "invoice": ["invoice", "bill", "payment", "amount due", "total"],
+    "report": ["report", "analysis", "findings", "conclusion", "executive summary"],
+    "contract": ["contract", "agreement", "terms and conditions", "parties"],
+}
+
+# Domain Keywords for Auto-Categorization (Log files)
 DOMAIN_KEYWORDS = {
     "agreement": ["contract", "signed", "nda", "terms", "agreement"],
     "system_log": ["cpu", "disk", "kernel", "boot", "service", "windows", "linux", "server"],

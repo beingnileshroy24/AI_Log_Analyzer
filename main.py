@@ -40,10 +40,14 @@ def run_pipeline(mode="large"):
     setup_logging()
     logging.info(f"🚀 Pipeline started in '{mode}' mode")
 
-    # 2️⃣ Ingestion
+    # 2️⃣ Ingestion with File Type Detection
     ingestor = UniversalIngestor(INCOMING_DIR)
     results = {}
     file_tracking = {}
+    
+    # Separate log files from documents
+    log_files = {}
+    document_files = {}  # For CVs, resumes, invoices, etc.
 
     files_list = [f for f in os.listdir(INCOMING_DIR) 
                   if os.path.isfile(os.path.join(INCOMING_DIR, f))]
@@ -55,7 +59,8 @@ def run_pipeline(mode="large"):
         source_path = os.path.join(INCOMING_DIR, filename)
 
         try:
-            content = ingestor.process_file(source_path)
+            # Get content AND file type from ingestor
+            content, file_type = ingestor.process_file(source_path)
         except Exception as e:
             logging.error(f"❌ Ingestion failed for {filename}: {e}")
             continue
@@ -65,42 +70,86 @@ def run_pipeline(mode="large"):
 
         results[filename] = content
 
-        # Rename + move to staging
+        # Route based on file type
         ext = os.path.splitext(filename)[1]
         new_name = f"{uuid.uuid4()}{ext}"
-        dest_path = os.path.join(STAGING_DIR, new_name)
-
-        shutil.move(source_path, dest_path)
-        file_tracking[filename] = dest_path
-
-        logging.info(f"✅ Moved to staging: {new_name}")
+        
+        if file_type == "log":
+            # Log files: move to staging for AI processing
+            dest_path = os.path.join(STAGING_DIR, new_name)
+            shutil.move(source_path, dest_path)
+            file_tracking[filename] = dest_path
+            log_files[new_name] = content
+            logging.info(f"✅ Log file moved to staging: {new_name}")
+            
+        elif file_type in ["cv", "resume", "invoice", "report", "contract", "other_document"]:
+            # Documents: create folder and move directly (bypass AI processing)
+            dest_folder = os.path.join(PROCESSED_DIR, file_type)
+            os.makedirs(dest_folder, exist_ok=True)
+            dest_path = os.path.join(dest_folder, new_name)
+            
+            shutil.move(source_path, dest_path)
+            document_files[filename] = {
+                "type": file_type,
+                "path": dest_path,
+                "new_name": new_name
+            }
+            logging.info(f"📄 Document moved to {file_type}/ folder: {new_name}")
+            
+        elif file_type == "structured_data":
+            # Structured data: move to a separate folder
+            dest_folder = os.path.join(PROCESSED_DIR, "structured_data")
+            os.makedirs(dest_folder, exist_ok=True)
+            dest_path = os.path.join(dest_folder, new_name)
+            
+            shutil.move(source_path, dest_path)
+            logging.info(f"📊 Structured data moved: {new_name}")
+        else:
+            # Unknown/unsupported: move to staging as fallback
+            dest_path = os.path.join(STAGING_DIR, new_name)
+            shutil.move(source_path, dest_path)
+            file_tracking[filename] = dest_path
+            log_files[new_name] = content
+            logging.info(f"⚠️ Unknown type moved to staging: {new_name}")
 
     # 3️⃣ Initial Metadata (Status: Pending)
     if results:
         generate_metadata_report(results, file_tracking)
 
-    # 4️⃣ Intelligence Layer
+    # 4️⃣ Intelligence Layer (ONLY for log files)
     if mode == "large":
         if not LARGE_PIPELINE_AVAILABLE:
             logging.error("❌ Large pipeline dependencies missing. Run 'pip install hdbscan sentence-transformers'.")
             return
         
-        # Run AI and get list of file movements
-        updates = run_large_scale_pipeline()
-        
-        # 5️⃣ Finalize Metadata
-        if updates:
-            update_master_report(updates)
-            logging.info(f"📊 Processed {len(updates)} files in LARGE-SCALE mode.")
+        if log_files:
+            # Run AI only on log files
+            logging.info(f"🧠 Processing {len(log_files)} log files through AI pipeline...")
+            updates = run_large_scale_pipeline()
+            
+            # 5️⃣ Finalize Metadata
+            if updates:
+                update_master_report(updates)
+                logging.info(f"📊 Processed {len(updates)} log files in LARGE-SCALE mode.")
+        else:
+            logging.info("ℹ️ No log files to process through AI pipeline.")
+            
+        # Report on documents
+        if document_files:
+            logging.info(f"✅ Classified and stored {len(document_files)} documents:")
+            for orig_name, info in document_files.items():
+                logging.info(f"   • {orig_name} → {info['type']}/")
             
     else:
         logging.info("🧠 Running LINE-LEVEL clustering (Best for single large logs)")
-        updates = run_clustering(STAGING_DIR)
-        
-        # 5️⃣ Finalize Metadata
-        if updates:
-            update_master_report(updates)
-            logging.info(f"📊 Processed {len(updates)} files in LINE-LEVEL mode.")
+        if log_files:
+            updates = run_clustering(STAGING_DIR)
+            
+            # 5️⃣ Finalize Metadata
+            if updates:
+                update_master_report(updates)
+                logging.info(f"📊 Processed {len(updates)} files in LINE-LEVEL mode.")
+
 
 
 if __name__ == "__main__":
