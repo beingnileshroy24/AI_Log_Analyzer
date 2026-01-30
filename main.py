@@ -195,5 +195,50 @@ if __name__ == "__main__":
         except Exception as e:
             print(f"❌ Error: {e}")
 
+    elif mode == "scan":
+        print("\n🛡️ Starting Offline Vulnerability Scan... (No AI/API usage)\n")
+        from pipeline.models.vulnerability_scanner import VulnerabilityScanner
+        from pipeline.config.settings import PROCESSED_DIR, STAGING_DIR, DOCUMENT_TYPES
+
+        scanner = VulnerabilityScanner()
+        scanned_count = 0
+        issues_found = 0
+        
+        # Directories to scan
+        scan_dirs = [PROCESSED_DIR, STAGING_DIR]
+        
+        for directory in scan_dirs:
+            if not os.path.exists(directory):
+                continue
+                
+            print(f"📂 Scanning directory: {directory}")
+            for root, _, files in os.walk(directory):
+                # Skip known document folders
+                if any(doc_type in root for doc_type in DOCUMENT_TYPES.keys()):
+                    continue
+
+                for file in files:
+                    if file.startswith('.'): continue
+                    
+                    file_path = os.path.join(root, file)
+                    try:
+                        findings = scanner.scan_file(file_path)
+                        scanned_count += 1
+                        
+                        if findings:
+                            issues_found += len(findings)
+                            print(f"\n⚠️  {file}")
+                            for f in findings:
+                                print(f"   - [{f['type']}] Line {f['line']}: {f['content'][:100]}...")
+                    except Exception as e:
+                        print(f"❌ Error scanning {file}: {e}")
+        
+        print("\n" + "="*50)
+        if issues_found:
+             print(f"❌ Scan Complete. Found {issues_found} potential vulnerabilities across {scanned_count} files.")
+        else:
+             print(f"✅ Scan Complete. No vulnerabilities found in {scanned_count} files.")
+        print("="*50 + "\n")
+
     else:
         run_pipeline(mode=mode)

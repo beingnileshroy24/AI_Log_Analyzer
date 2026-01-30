@@ -13,6 +13,9 @@ from .tools.registry import get_agent_tools
 from langgraph.prebuilt import create_react_agent
 from langgraph.checkpoint.memory import MemorySaver
 
+from ..models.vulnerability_scanner import VulnerabilityScanner
+from ..config.settings import PROCESSED_DIR, DOCUMENT_TYPES
+
 class LogAnalysisAgent:
     def __init__(self, model_provider="google", model_name="gemini-2.5-flash"):
         self.rag_db = RAGVectorDB()
@@ -22,6 +25,7 @@ class LogAnalysisAgent:
         self.memory = MemorySaver()
         self.thread_id = str(uuid.uuid4()) # Unique ID for this session
         
+        self.scanner = VulnerabilityScanner()
         self.agent_executor = self._setup_agent()
 
     def _setup_llm(self, provider, model_name):
@@ -69,6 +73,11 @@ class LogAnalysisAgent:
                 name="SearchLogDetails",
                 func=self.search_chunks,
                 description="Useful for finding specific error messages, stack traces, or detailed events within the logs. Input should be a specific search query."
+            ),
+            Tool(
+                name="ScanLogsForVulnerabilities",
+                func=self.scan_log_vulnerabilities,
+                description="Scans all processed log files for security vulnerabilities like SQL Injection, XSS, and Brute Force attacks. Returns a report of findings."
             )
         ]
         
@@ -106,6 +115,85 @@ class LogAnalysisAgent:
             formatted.append(f"File: {filename}\nContent: {doc}")
         
         return "\n---\n".join(formatted)
+
+    def scan_log_vulnerabilities(self, _input=""):
+        """
+        Scans all files in PROCESSED_DIR (excluding docs) for vulnerabilities.
+        Input argument is ignored but required for Tool compatibility.
+        """
+        if not os.path.exists(PROCESSED_DIR):
+            return "No processed logs found to scan."
+
+        all_findings = []
+        scanned_count = 0
+        
+        # Walk through processed directory
+        for root, dirs, files in os.walk(PROCESSED_DIR):
+            # Skip document folders
+            if any(doc_type in root for doc_type in DOCUMENT_TYPES.keys()):
+                continue
+                
+            for file in files:
+                file_path = os.path.join(root, file)
+                
+                # Only scan likely log files / text files
+                # Skip system files or known binaries if any
+                if file.startswith('.'): continue
+                
+                try:
+                    findings = self.scanner.scan_file(file_path)
+                    
+                    if findings:
+                        for finding in findings:
+                            # Add filename to finding for context
+                            finding['file'] = file
+                            all_findings.append(finding)
+                    scanned_count += 1
+                except Exception as e:
+                    logging.warning(f"Could not scan {file}: {e}")
+
+        if not all_findings:
+            return f"Scanned {scanned_count} files. ✅ No vulnerabilities found."
+
+        MAX_FINDINGS_PER_FILE = 5
+        MAX_TOTAL_FINDINGS = 20
+        
+        # Group by File
+        from collections import defaultdict
+        grouped = defaultdict(list)
+        for f in all_findings:
+            grouped[f['file']].append(f)
+            
+        report = [f"⚠️ Found {len(all_findings)} vulnerabilities across {scanned_count} scanned files."]
+        
+        if len(all_findings) > MAX_TOTAL_FINDINGS:
+            report.append(f"🔴 Note: Report truncated. Only showing first {MAX_TOTAL_FINDINGS} issues.\n")
+            
+        total_reported = 0
+            
+        for filename, issues in grouped.items():
+            if total_reported >= MAX_TOTAL_FINDINGS:
+                break
+                
+            report.append(f"File: {filename}")
+            
+            # Limit per file
+            truncated = False
+            if len(issues) > MAX_FINDINGS_PER_FILE:
+                issues = issues[:MAX_FINDINGS_PER_FILE]
+                truncated = True
+                
+            for issue in issues:
+                if total_reported >= MAX_TOTAL_FINDINGS:
+                    break
+                report.append(f"  - [{issue['type']}] Line {issue['line']}: {issue['content']}")
+                total_reported += 1
+                
+            if truncated:
+                report.append(f"  ... and {len(grouped[filename]) - MAX_FINDINGS_PER_FILE} more in this file.")
+            report.append("")
+            
+        return "\n".join(report)
 
     def run(self, user_input):
         if not self.llm:
