@@ -5,6 +5,8 @@ An intelligent, modular log analysis pipeline that uses Machine Learning (TF-IDF
 ## 🌟 Key Features
 
 * **Universal Ingestion**: Unified engine supporting `.log`, `.txt`, `.csv`, `.xlsx`, `.pdf`, `.parquet`, and API endpoints.
+* **Intelligent Routing**: Automatically classifies and routes documents (CVs, Invoices, Contracts) to dedicated folders, bypassing the AI log pipeline when necessary.
+* **Vulnerability Scanning**: Offline, regex-based scanner to detect common security threats like SQL Injection, XSS, and Path Traversal in log files.
 * **Intelligent Summarization**: Uses KeyBERT-style MMR (Maximal Marginal Relevance) to extract diverse and relevant keywords from large files.
 * **Conversational AI Agent**: Powered by **LangGraph**, providing a robust, event-driven architecture that supports complex reasoning cycles and state persistence. Chats with your logs using Google Gemini or OpenAI.
 * **Specialized Analysis Tools**:
@@ -33,6 +35,7 @@ AI_Log_Analyzer/
 │   │   ├── summarizer.py       # Semantic Keyword Extraction (MMR)
 │   │   ├── embedding.py        # Sentence-Transformer Integration
 │   │   ├── rag_engine.py       # Vector DB & Retrieval
+│   │   └── vulnerability_scanner.py # Regex Security Scanner
 │   ├── components/
 │   │   ├── orchestrator.py     # Batch Processing Logic ("Large Mode")
 │   │   ├── clustering.py       # File Grouping Logic (HDBSCAN)
@@ -48,7 +51,9 @@ AI_Log_Analyzer/
 │   ├── check_pipeline.py       # Python Import Checks
 │   ├── check_rag.py            # Vector DB Tests
 │   ├── check_agent.py          # Agent Tool Tests
-│   └── check_llm.py            # API Connectivity Tests
+│   ├── check_llm.py            # API Connectivity Tests
+│   ├── verify_agent_capabilities.py # End-to-end Agent Test
+│   └── test_vuln_scanner.py     # Security Scanner Test
 ├── pipeline_data/              # Data persistence (Auto-generated)
 ├── requirements.txt            # Dependencies
 └── README.md
@@ -112,10 +117,16 @@ Chat with your processed logs to find specific errors, summaries, or insights.
 **Note**: You must run "Large Mode" first to index the files.
 
 ```bash
-python main.py agent
-
-# Use OpenAI Backup (gpt-4o-mini)
 python main.py agent --openai
+```
+
+#### **D. Scan Mode**
+
+*Focus: Security auditing.*
+Scans processed and staged logs for common vulnerability patterns (SQLi, XSS, etc.) without requiring AI/API interaction.
+
+```bash
+python main.py scan
 ```
 
 ---
@@ -139,6 +150,8 @@ python verification_scripts/check_llm.py
 * **Vector Database**: `python verification_scripts/check_rag.py`
 * **Agent Tools**: `python verification_scripts/check_agent.py`
 * **Gemini Connection**: `python verification_scripts/check_llm.py`
+* **Agent Capabilities**: `python verification_scripts/verify_agent_capabilities.py`
+* **Security Scanner**: `python verification_scripts/test_vuln_scanner.py`
 
 ---
 
