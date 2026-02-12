@@ -53,20 +53,10 @@ class LogSummarizer:
                 logging.error(f"❌ Ingestor returned None for {filepath}")
                 return ""
                 
-            content, file_type = result 
-            return self.summarize_content(content, top_n=top_n)
-
-        except Exception as e:
-            logging.error(f"❌ File summarization failed for {filepath}: {e}")
-            return ""
-
-    def summarize_content(self, content, top_n=30):
-        """
-        Summarizes raw content (string or DataFrame).
-        """
-        doc_backup = ""
-        try:
+            content, file_type = result # We only need content here
+            
             if content is None:
+                logging.error(f"❌ Content is None for {filepath}")
                 return ""
             
             logging.info(f"✅ Summarizer received content of type: {type(content)}")
