@@ -39,7 +39,7 @@ def run_test():
         
         print(f"✅ Extracted {len(events)} events.")
         for e in events:
-            print(f"   - [{e['level']}] {e['type']}: {e['message'][:50]}...")
+            print(f"   - [{e['LogEntryType']}] {e['LogMessage'][:50]}...")
             
         # 4. Insert into DB
         print("\nInserting into DB...")
@@ -47,7 +47,7 @@ def run_test():
         
         # 5. Query DB
         print("\nQuerying DB...")
-        stored_events = get_events(filename=dummy_file, limit=10)
+        stored_events = get_events(file_id=dummy_file, limit=10)
         
         if len(stored_events) == len(events):
             print(f"✅ Successfully retrieved {len(stored_events)} events from DB.")
@@ -55,8 +55,8 @@ def run_test():
             print(f"❌ Mismatch! Stored: {len(stored_events)}, Expected: {len(events)}")
             
         # Check specific types
-        vulns = [e for e in stored_events if e['level'] == 'VULNERABILITY']
-        errors = [e for e in stored_events if e['level'] == 'ERROR']
+        vulns = [e for e in stored_events if e['LogEntryType'] == 'Vulnerability']
+        errors = [e for e in stored_events if e['LogEntryType'] == 'ERROR']
         
         print(f"   Found {len(vulns)} Vulnerabilities (Expected >= 2 approx)")
         print(f"   Found {len(errors)} Errors (Expected >= 1)")

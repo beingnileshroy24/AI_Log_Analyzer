@@ -46,21 +46,18 @@ class LogParser:
                         continue
                     
                     # 1. Check for Vulnerabilities (Security)
-                    # The scanner returns list of dicts: {"type": "SQLi", "line": line_idx, "content": ...}
-                    vulns = self.vuln_scanner.scan_text(line) # scan_text scans a block, but works for line too
+                    vulns = self.vuln_scanner.scan_text(line) 
                     
                     if vulns:
                         for v in vulns:
                             events.append({
-                                "filename": filename,
-                                "timestamp": self.extract_timestamp(line),
-                                "level": "VULNERABILITY",
-                                "type": v['type'],
-                                "message": line[:500], # Truncate long lines in DB
-                                "line_number": line_idx
+                                "FileID": filename,
+                                "LogEntryType": "Vulnerability",
+                                "LogMessage": f"[{v['type']}] {line[:1000]}",
+                                "Resolution": "",
+                                "ReferenceURL": "",
+                                "LoggedOn": self.extract_timestamp(line),
                             })
-                        # If vulnerable, we might still want to check if it's an error, but usually vuln is specific enough.
-                        # Let's continue to next line to avoid double counting if regex overlap (unlikely but safe)
                         continue
 
                     # 2. Check for Errors/Warnings
@@ -72,12 +69,12 @@ class LogParser:
                     
                     if current_level:
                         events.append({
-                            "filename": filename,
-                            "timestamp": self.extract_timestamp(line),
-                            "level": current_level,
-                            "type": "Log Event", # Generic type for grep matches
-                            "message": line[:500],
-                            "line_number": line_idx
+                            "FileID": filename,
+                            "LogEntryType": current_level, # ERROR or WARN
+                            "LogMessage": line[:1000],
+                            "Resolution": "",
+                            "ReferenceURL": "",
+                            "LoggedOn": self.extract_timestamp(line),
                         })
 
         except Exception as e:

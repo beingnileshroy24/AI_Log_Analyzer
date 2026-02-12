@@ -1,6 +1,8 @@
 import sqlite3
 import logging
 import os
+import getpass
+from datetime import datetime
 from typing import List, Dict, Any
 
 # DB Path
@@ -11,40 +13,41 @@ def get_connection():
     return sqlite3.connect(DB_PATH)
 
 def init_db():
-    """Initializes the SQLite database with the log_events table."""
+    """Initializes the SQLite database with the Log_extraction table."""
     try:
         conn = get_connection()
         cursor = conn.cursor()
         
+        # New Table Schema
         cursor.execute("""
-            CREATE TABLE IF NOT EXISTS log_events (
+            CREATE TABLE IF NOT EXISTS Log_extraction (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
-                filename TEXT,
-                timestamp TEXT,
-                level TEXT,
-                type TEXT,
-                message TEXT,
-                line_number INTEGER,
-                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                FileID TEXT,
+                LogEntryType TEXT,
+                LogMessage TEXT,
+                Resolution TEXT,
+                ReferenceURL TEXT,
+                LoggedOn TEXT,
+                CreatedBy TEXT,
+                CreatedOn TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                UpdatedBy TEXT,
+                UpdatedOn TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             )
         """)
         
-        # Index for faster querying
-        cursor.execute("CREATE INDEX IF NOT EXISTS idx_filename ON log_events (filename)")
-        cursor.execute("CREATE INDEX IF NOT EXISTS idx_level ON log_events (level)")
+        # Index on FileID and LogEntryType
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_FileID ON Log_extraction (FileID)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_LogEntryType ON Log_extraction (LogEntryType)")
         
         conn.commit()
         conn.close()
-        logging.info(f"✅ Database initialized at {DB_PATH}")
+        logging.info(f"✅ Database initialized with Log_extraction at {DB_PATH}")
     except Exception as e:
         logging.error(f"❌ Failed to initialize database: {e}")
 
 def insert_log_events(events: List[Dict[str, Any]]):
     """
-    Batch inserts log events into the database.
-    
-    Args:
-        events: List of dicts with keys: filename, timestamp, level, type, message, line_number
+    Batch inserts log events into Log_extraction.
     """
     if not events:
         return
@@ -54,18 +57,25 @@ def insert_log_events(events: List[Dict[str, Any]]):
         cursor = conn.cursor()
         
         query = """
-            INSERT INTO log_events (filename, timestamp, level, type, message, line_number)
-            VALUES (?, ?, ?, ?, ?, ?)
+            INSERT INTO Log_extraction (
+                FileID, LogEntryType, LogMessage, Resolution, ReferenceURL, 
+                LoggedOn, CreatedBy, UpdatedBy
+            )
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
         """
+        
+        current_user = getpass.getuser()
         
         data_to_insert = [
             (
-                e.get("filename"),
-                e.get("timestamp"),
-                e.get("level"),
-                e.get("type"),
-                e.get("message"),
-                e.get("line_number")
+                e.get("FileID"),
+                e.get("LogEntryType"),
+                e.get("LogMessage"),
+                e.get("Resolution", None),
+                e.get("ReferenceURL", None),
+                e.get("LoggedOn"), # Original timestamp from log
+                current_user,      # CreatedBy
+                current_user       # UpdatedBy
             )
             for e in events
         ]
@@ -73,29 +83,29 @@ def insert_log_events(events: List[Dict[str, Any]]):
         cursor.executemany(query, data_to_insert)
         conn.commit()
         conn.close()
-        logging.info(f"💾 Saved {len(events)} events to database.")
+        logging.info(f"💾 Saved {len(events)} events to Log_extraction.")
     except Exception as e:
         logging.error(f"❌ Failed to save events to database: {e}")
 
-def get_events(filename: str = None, level: str = None, limit: int = 100):
+def get_events(file_id: str = None, entry_type: str = None, limit: int = 100):
     """Retrieve events with optional filters."""
     try:
         conn = get_connection()
         conn.row_factory = sqlite3.Row
         cursor = conn.cursor()
         
-        query = "SELECT * FROM log_events WHERE 1=1"
+        query = "SELECT * FROM Log_extraction WHERE 1=1"
         params = []
         
-        if filename:
-            query += " AND filename = ?"
-            params.append(filename)
+        if file_id:
+            query += " AND FileID = ?"
+            params.append(file_id)
             
-        if level:
-            query += " AND level = ?"
-            params.append(level)
+        if entry_type:
+            query += " AND LogEntryType = ?"
+            params.append(entry_type)
             
-        query += " ORDER BY created_at DESC LIMIT ?"
+        query += " ORDER BY CreatedOn DESC LIMIT ?"
         params.append(limit)
         
         cursor.execute(query, params)
