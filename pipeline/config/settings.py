@@ -9,6 +9,9 @@ LOG_DIR = os.path.join(BASE_DIR, "logs")
 PROCESSED_DIR = os.path.join(BASE_DIR, "processed")
 STAGING_DIR = os.path.join(PROCESSED_DIR, "staging")
 
+# Allowed Extensions
+ALLOWED_EXTENSIONS = {".pdf", ".csv", ".log"}
+
 # Cluster Categories
 CLUSTER_FOLDERS = ["agreement", "app_log", "system_log", "governance_log", "unstructured_log"]
 

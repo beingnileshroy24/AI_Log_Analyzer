@@ -57,11 +57,29 @@ def determine_category(text):
 
     return "unstructured_log"
 
+from .log_extractor import LogExtractor
+
 def summarize_single_file(file_path, summarizer):
     """Helper for parallel execution"""
     try:
         filename = os.path.basename(file_path)
-        summary = summarizer.summarize_file(file_path)
+        
+        # 1. Ingest
+        content, file_type = summarizer.ingestor.process_file(file_path)
+        
+        # 2. Handle Image/Binary Placeholders
+        if content == "IMAGE_FILE_PENDING_EXTRACTION":
+            logging.info(f"🖼️ Detected Image in Orchestrator: {filename}. invoking Vision LLM...")
+            extractor = LogExtractor() # Initialize separately per thread (or pass in if expensive)
+            content = extractor._process_image_content(file_path)
+            if not content:
+                content = "Image file containing no extractable text."
+        
+        elif content == "BINARY_FILE_PENDING_EXTRACTION":
+             content = "Binary file. No text extraction available."
+
+        # 3. Summarize
+        summary = summarizer.summarize_content(content)
         return summary
     except Exception as e:
         logging.error(f"❌ Failed to summarize {os.path.basename(file_path)}: {e}")
@@ -101,7 +119,7 @@ def run_large_scale_pipeline():
         # Single file optimization
         filename = files_to_process[0]
         logging.info(f"🧠 Summarizing single file: {filename}")
-        summary = summarizer.summarize_file(os.path.join(STAGING_DIR, filename))
+        summary = summarize_single_file(os.path.join(STAGING_DIR, filename), summarizer)
         if summary and summary.strip():
             file_summaries[filename] = summary
         else:
@@ -169,14 +187,31 @@ def run_large_scale_pipeline():
 
         # Index chunks (Iterate over the updates to get the Final_Path)
         logging.info("   Start chunking and indexing full log content...")
+        
+        # Reuse Ingestor to identify types cleanly? Or just check extension manually again.
+        # Simple manual check is faster than re-init ingestor.
+        image_exts = ['png', 'jpg', 'jpeg', 'webp', 'bmp', 'tiff', 'gif']
+        
         for update in updates:
             filename = update["Stored_Filename"]
             file_path = update["Final_Path"]
+            ext = filename.split('.')[-1].lower()
+            text = ""
+            
             try:
-                # Simple text chunking
-                with open(file_path, 'r', errors='ignore') as f:
-                    text = f.read()
+                if ext in image_exts:
+                     logging.info(f"   🖼️ Extracting text from image for RAG: {filename}")
+                     extractor = LogExtractor()
+                     text = extractor._process_image_content(file_path)
+                else:
+                    # Simple text chunking
+                    with open(file_path, 'r', errors='ignore') as f:
+                        text = f.read()
                 
+                if not text:
+                    logging.warning(f"   ⚠️ No text extractable from {filename}")
+                    continue
+
                 # Create 1000-char chunks
                 chunk_size = 1000
                 overlap = 100

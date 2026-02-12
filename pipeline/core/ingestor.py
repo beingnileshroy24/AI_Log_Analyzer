@@ -6,6 +6,7 @@ import requests
 import imaplib
 import email
 from typing import Tuple, Optional
+from ..config.settings import ALLOWED_EXTENSIONS
 
 class UniversalIngestor:
     def __init__(self, incoming_path):
@@ -37,50 +38,38 @@ class UniversalIngestor:
             - file_type: The identified type ("log", "cv", "resume", "invoice", etc.)
         """
         filename = os.path.basename(filepath)
-        ext = filename.split('.')[-1].lower()
+        ext = os.path.splitext(filename)[1].lower()
         content = None
         file_type = "unknown"
 
         try:
+            # --- VALIDATE EXTENSION ---
+            if ext not in ALLOWED_EXTENSIONS:
+                logging.warning(f"⚠️ Skipped unsupported file: {filename}")
+                return None, "unsupported"
+
             # --- STRUCTURED DATA ---
-            if ext == 'csv':
+            if ext == '.csv':
                 df = pd.read_csv(filepath)
                 logging.info(f"✅ Ingested CSV: {filename}")
                 content = df
                 file_type = "structured_data"
-                
-            elif ext in ['xlsx', 'xls']:
-                df = pd.read_excel(filepath)
-                logging.info(f"✅ Ingested Excel: {filename}")
-                content = df
-                file_type = "structured_data"
-                
-            elif ext == 'parquet':
-                df = pd.read_parquet(filepath)
-                logging.info(f"✅ Ingested Parquet: {filename}")
-                content = df
-                file_type = "structured_data"
             
             # --- UNSTRUCTURED DATA (TEXT/LOGS) ---
-            elif ext in ['txt', 'log']:
+            elif ext == '.log':
                 with open(filepath, 'r', encoding='utf-8', errors='replace') as f:
                     content = f.read()
-                logging.info(f"✅ Read text file: {filename}")
-                # Will classify below
+                logging.info(f"✅ Read log file: {filename}")
                 
-            elif ext == 'pdf':
+            elif ext == '.pdf':
                 with open(filepath, 'rb') as f:
                     reader = PyPDF2.PdfReader(f)
                     content = " ".join([page.extract_text() for page in reader.pages if page.extract_text()])
                 logging.info(f"✅ Parsed PDF: {filename}")
-                # Will classify below
-
-            else:
-                logging.warning(f"⚠️ Skipped unsupported file: {filename}")
-                return None, "unsupported"
 
         except Exception as e:
             logging.error(f"❌ Failed to process {filename}: {str(e)}")
+            # Even if it fails, don't break the pipeline, just mark as error
             return None, "error"
 
         # --- AI-POWERED FILE TYPE CLASSIFICATION ---
