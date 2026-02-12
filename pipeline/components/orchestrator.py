@@ -6,6 +6,8 @@ from concurrent.futures import ThreadPoolExecutor
 from functools import partial
 from ..models.summarizer import LogSummarizer
 from ..models.embedding import EmbeddingEngine
+from ..models.log_parser import LogParser
+from ..core.database import init_db, insert_log_events
 from .clustering import cluster_files
 from ..config.settings import STAGING_DIR, PROCESSED_DIR, DOMAIN_KEYWORDS
 
@@ -69,6 +71,10 @@ def summarize_single_file(file_path, summarizer):
 
 def run_large_scale_pipeline():
     logging.info("🚀 STARTING LARGE SCALE PIPELINE (Summarization + Sorting)")
+
+    # Initialize DB and Parser
+    init_db()
+    parser = LogParser()
 
     summarizer = LogSummarizer()
     embedder = EmbeddingEngine()
@@ -172,6 +178,17 @@ def run_large_scale_pipeline():
         for update in updates:
             filename = update["Stored_Filename"]
             file_path = update["Final_Path"]
+
+            # 1. Parse and Log Events (DB)
+            try:
+                events = parser.parse_file(file_path)
+                if events:
+                    insert_log_events(events)
+                    logging.info(f"   💾 Extracted {len(events)} events from {filename}")
+            except Exception as e:
+                logging.warning(f"   ⚠️ Event extraction failed for {filename}: {e}")
+
+            # 2. RAG Chunking
             try:
                 # Simple text chunking
                 with open(file_path, 'r', errors='ignore') as f:
