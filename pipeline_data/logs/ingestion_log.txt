@@ -1415,3 +1415,149 @@ For further information visit https://errors.pydantic.dev/2.12/u/import-error
 2026-02-10 12:05:19,305 - INFO - ✅ Classified and stored 2 documents:
 2026-02-10 12:05:19,305 - INFO -    • 17a3eca5-409b-46f6-9abf-bb708ad9a9d2.pdf → report/
 2026-02-10 12:05:19,305 - INFO -    • 029b3609-0a45-44e8-bbca-2122c5dd08b4.pdf → cv/
+2026-02-12 15:07:32,879 - INFO - 💾 Initializing RAG Vector DB at ./chroma_db
+2026-02-12 15:07:32,892 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-02-12 15:07:33,007 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-12 15:07:33,039 - INFO - Use pytorch device_name: mps
+2026-02-12 15:07:33,039 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-12 15:07:37,692 - INFO - 🤖 Agent initialized successfully.
+2026-02-12 15:07:47,640 - INFO - 💾 Initializing RAG Vector DB at ./chroma_db
+2026-02-12 15:07:47,653 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-02-12 15:07:47,832 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-12 15:07:47,868 - INFO - Use pytorch device_name: mps
+2026-02-12 15:07:47,868 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-12 15:07:52,885 - INFO - 🤖 Agent initialized successfully.
+2026-02-12 15:07:57,791 - INFO - 💾 Initializing RAG Vector DB at ./chroma_db
+2026-02-12 15:07:57,799 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-02-12 15:07:57,846 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-12 15:07:57,866 - INFO - Use pytorch device_name: mps
+2026-02-12 15:07:57,866 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-12 15:08:02,361 - INFO - 🤖 Agent initialized successfully.
+2026-02-12 15:08:09,692 - INFO - 💾 Initializing RAG Vector DB at ./chroma_db
+2026-02-12 15:08:09,697 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-02-12 15:08:09,734 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-12 15:08:09,749 - INFO - Use pytorch device_name: mps
+2026-02-12 15:08:09,749 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-12 15:08:14,164 - INFO - 🤖 Agent initialized successfully.
+2026-02-12 15:08:17,875 - INFO - 💾 Initializing RAG Vector DB at ./chroma_db
+2026-02-12 15:08:17,881 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-02-12 15:08:17,918 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-12 15:08:17,932 - INFO - Use pytorch device_name: mps
+2026-02-12 15:08:17,932 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-12 15:08:22,468 - INFO - 🤖 Agent initialized successfully.
+2026-02-12 15:08:23,006 - INFO - ✅ File uploaded: test_log.txt -> ./pipeline_data/incoming/c6a488fe-52e3-4696-a446-eb8a2ecbc536.txt
+2026-02-12 15:08:23,006 - INFO - ✅ Read text file: c6a488fe-52e3-4696-a446-eb8a2ecbc536.txt
+2026-02-12 15:08:23,054 - INFO - 🤖 Loading file classifier: facebook/bart-large-mnli on CPU...
+2026-02-12 15:08:24,738 - INFO - ✅ File classifier loaded successfully on CPU
+2026-02-12 15:08:24,739 - INFO - ✅ File classifier initialized
+2026-02-12 15:08:38,712 - INFO -    📋 Classified as: log (confidence: 0.37)
+2026-02-12 15:08:38,714 - INFO -    🎯 Final File type: log
+2026-02-12 15:08:38,749 - INFO - ✅ No vulnerabilities found in ./pipeline_data/processed/file_level_clusters.csv
+2026-02-12 15:18:53,778 - INFO - 💾 Initializing RAG Vector DB at ./chroma_db
+2026-02-12 15:18:53,792 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-02-12 15:18:53,892 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-12 15:18:53,934 - INFO - Use pytorch device_name: mps
+2026-02-12 15:18:53,934 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-12 15:18:58,598 - INFO - 🤖 Agent initialized successfully.
+2026-02-12 15:40:37,605 - INFO - 🚀 Pipeline started in 'large' mode
+2026-02-12 15:40:37,606 - INFO - ✅ Read text file: bfa38f77-9ffe-41d8-8f17-f50ce023d260.log
+2026-02-12 15:40:37,670 - INFO - 🤖 Loading file classifier: facebook/bart-large-mnli on CPU...
+2026-02-12 15:40:38,866 - INFO - ✅ File classifier loaded successfully on CPU
+2026-02-12 15:40:38,866 - INFO - ✅ File classifier initialized
+2026-02-12 15:41:00,350 - INFO -    📋 Classified as: log (confidence: 0.18)
+2026-02-12 15:41:00,351 - INFO -    🎯 Final File type: log
+2026-02-12 15:41:00,351 - INFO - ✅ Log file moved to staging: 4550b021-8c97-4fd0-ad99-14fb4134afbb.log
+2026-02-12 15:41:00,351 - INFO - ✅ Read text file: c6a488fe-52e3-4696-a446-eb8a2ecbc536.txt
+2026-02-12 15:41:01,679 - INFO -    📋 Classified as: log (confidence: 0.37)
+2026-02-12 15:41:01,679 - INFO -    🎯 Final File type: log
+2026-02-12 15:41:01,680 - INFO - ✅ Log file moved to staging: b1057de0-d8ef-4cb8-8dee-fd0a245744f3.txt
+2026-02-12 15:41:01,695 - INFO - ✅ Ingested CSV: f1fe7add-c1cc-43d8-bffb-5fa234167ad3.csv
+2026-02-12 15:41:09,753 - INFO -    📋 Classified as: other_document (confidence: 0.21)
+2026-02-12 15:41:09,753 - INFO -    ⚡ Fast-path: CSV columns indicate Log content
+2026-02-12 15:41:09,753 - INFO -    🎯 Final File type: log
+2026-02-12 15:41:09,753 - INFO - ✅ Log file moved to staging: 6e543cfb-470a-4c6f-ab83-6ae900b526ea.csv
+2026-02-12 15:41:10,161 - INFO - ✅ Ingested CSV: 3f3ccdcc-ece8-4c9a-a53e-dd81a38c57b0.csv
+2026-02-12 15:41:48,365 - INFO -    📋 Classified as: other_document (confidence: 0.11)
+2026-02-12 15:41:48,367 - INFO -    ⚡ Fast-path: CSV columns indicate Log content
+2026-02-12 15:41:48,367 - INFO -    🎯 Final File type: log
+2026-02-12 15:41:48,367 - INFO - ✅ Log file moved to staging: b0e8f4a7-215a-4039-b859-89e16f9156da.csv
+2026-02-12 15:41:49,126 - INFO - ✅ Parsed PDF: 1695a84b-9d9d-4e18-b154-8f9934868cec.pdf
+2026-02-12 15:42:02,360 - INFO -    📋 Classified as: other_document (confidence: 0.25)
+2026-02-12 15:42:02,360 - INFO -    🎯 Final File type: other_document
+2026-02-12 15:42:02,361 - INFO - 📄 Document moved to other_document/ folder: 371a1226-9ef9-4b5d-845b-2ecb1d0f8ea7.pdf
+2026-02-12 15:42:02,373 - INFO - 🧠 Processing 4 log files through AI pipeline...
+2026-02-12 15:42:02,373 - INFO - 🚀 STARTING LARGE SCALE PIPELINE (Summarization + Sorting)
+2026-02-12 15:42:02,373 - INFO - Initializing Optimized Keyword Summarizer (MMR) with: sentence-transformers/all-MiniLM-L6-v2
+2026-02-12 15:42:02,373 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-12 15:42:02,459 - INFO - Use pytorch device_name: mps
+2026-02-12 15:42:02,459 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-12 15:42:06,836 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-12 15:42:06,836 - INFO - 🧠 Summarizing 4 files using parallel processing...
+2026-02-12 15:42:06,837 - INFO - ✅ Read text file: b1057de0-d8ef-4cb8-8dee-fd0a245744f3.txt
+2026-02-12 15:42:06,837 - INFO - ✅ File classifier initialized
+2026-02-12 15:42:06,838 - INFO - ✅ Read text file: 4550b021-8c97-4fd0-ad99-14fb4134afbb.log
+2026-02-12 15:42:06,847 - INFO - ✅ Ingested CSV: 6e543cfb-470a-4c6f-ab83-6ae900b526ea.csv
+2026-02-12 15:42:07,290 - INFO - ✅ Ingested CSV: b0e8f4a7-215a-4039-b859-89e16f9156da.csv
+2026-02-12 15:42:14,413 - INFO -    📋 Classified as: log (confidence: 0.37)
+2026-02-12 15:42:14,413 - INFO -    🎯 Final File type: log
+2026-02-12 15:42:14,413 - INFO - ✅ Summarizer received content of type: <class 'str'>
+2026-02-12 15:42:16,276 - INFO - ✅ Extracted Keywords: Total Entries: 1. Keywords: failed 192, 2023 10, 168 50, 00 error, connection, connection failed, 19...
+2026-02-12 15:42:42,302 - INFO -    📋 Classified as: other_document (confidence: 0.21)
+2026-02-12 15:42:42,310 - INFO -    ⚡ Fast-path: CSV columns indicate Log content
+2026-02-12 15:42:42,310 - INFO -    🎯 Final File type: log
+2026-02-12 15:42:42,312 - INFO - ✅ Summarizer received content of type: <class 'pandas.core.frame.DataFrame'>
+2026-02-12 15:42:43,693 - INFO - ✅ Extracted Keywords: Total Entries: 16007. Keywords: table columns, time url, process php, chart min, 19 profile, sample ...
+2026-02-12 15:43:01,657 - INFO -    📋 Classified as: log (confidence: 0.18)
+2026-02-12 15:43:01,660 - INFO -    🎯 Final File type: log
+2026-02-12 15:43:01,660 - INFO - ✅ Summarizer received content of type: <class 'str'>
+2026-02-12 15:43:02,601 - INFO - ✅ Extracted Keywords: Total Entries: 2000. Keywords: notice jk2_init, child workerenv, scoreboard slot, error state, httpd...
+2026-02-12 15:43:09,399 - INFO -    📋 Classified as: other_document (confidence: 0.11)
+2026-02-12 15:43:09,400 - INFO -    ⚡ Fast-path: CSV columns indicate Log content
+2026-02-12 15:43:09,400 - INFO -    🎯 Final File type: log
+2026-02-12 15:43:09,400 - INFO - ✅ Summarizer received content of type: <class 'pandas.core.frame.DataFrame'>
+2026-02-12 15:43:10,023 - INFO - ✅ Extracted Keywords: Total Entries: 158184. Keywords: error svchost, 1mkmtvpm logging, tiledatalayer database, country re...
+2026-02-12 15:43:10,111 - INFO - 📐 Generating Embeddings for 4 files...
+2026-02-12 15:43:10,373 - INFO - 📂 Organizing files into final categories...
+2026-02-12 15:43:10,380 - INFO -    👉 Moved 6e543cfb-470a-4c6f-ab83-6ae900b526ea.csv -> app_log/
+2026-02-12 15:43:10,380 - INFO -    👉 Moved b1057de0-d8ef-4cb8-8dee-fd0a245744f3.txt -> connection/
+2026-02-12 15:43:10,380 - INFO -    👉 Moved 4550b021-8c97-4fd0-ad99-14fb4134afbb.log -> app_log/
+2026-02-12 15:43:10,380 - INFO -    👉 Moved b0e8f4a7-215a-4039-b859-89e16f9156da.csv -> system_log/
+2026-02-12 15:43:10,386 - INFO - ✅ Cluster Report Saved: ./pipeline_data/processed/file_level_clusters.csv
+2026-02-12 15:43:11,078 - INFO - 🧠 Indexing files into RAG Vector Store...
+2026-02-12 15:43:11,078 - INFO - 💾 Initializing RAG Vector DB at ./chroma_db
+2026-02-12 15:43:11,097 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-02-12 15:43:11,195 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-12 15:43:11,265 - INFO -    Indexed summary for 6e543cfb-470a-4c6f-ab83-6ae900b526ea.csv
+2026-02-12 15:43:11,422 - INFO -    Indexed summary for b1057de0-d8ef-4cb8-8dee-fd0a245744f3.txt
+2026-02-12 15:43:11,463 - INFO -    Indexed summary for 4550b021-8c97-4fd0-ad99-14fb4134afbb.log
+2026-02-12 15:43:11,659 - INFO -    Indexed summary for b0e8f4a7-215a-4039-b859-89e16f9156da.csv
+2026-02-12 15:43:11,659 - INFO -    Start chunking and indexing full log content...
+2026-02-12 15:43:23,521 - INFO -    Indexed batch 1 (1222 chunks) for 6e543cfb-470a-4c6f-ab83-6ae900b526ea.csv
+2026-02-12 15:43:23,521 - INFO -    Indexed total 1222 chunks for 6e543cfb-470a-4c6f-ab83-6ae900b526ea.csv
+2026-02-12 15:43:23,542 - INFO -    Indexed batch 1 (1 chunks) for b1057de0-d8ef-4cb8-8dee-fd0a245744f3.txt
+2026-02-12 15:43:23,542 - INFO -    Indexed total 1 chunks for b1057de0-d8ef-4cb8-8dee-fd0a245744f3.txt
+2026-02-12 15:43:25,197 - INFO -    Indexed batch 1 (189 chunks) for 4550b021-8c97-4fd0-ad99-14fb4134afbb.log
+2026-02-12 15:43:25,197 - INFO -    Indexed total 189 chunks for 4550b021-8c97-4fd0-ad99-14fb4134afbb.log
+2026-02-12 15:44:18,113 - INFO -    Indexed batch 1 (5000 chunks) for b0e8f4a7-215a-4039-b859-89e16f9156da.csv
+2026-02-12 15:45:04,149 - INFO -    Indexed batch 2 (5000 chunks) for b0e8f4a7-215a-4039-b859-89e16f9156da.csv
+2026-02-12 15:45:55,738 - INFO -    Indexed batch 3 (5000 chunks) for b0e8f4a7-215a-4039-b859-89e16f9156da.csv
+2026-02-12 15:46:44,406 - INFO -    Indexed batch 4 (5000 chunks) for b0e8f4a7-215a-4039-b859-89e16f9156da.csv
+2026-02-12 15:47:32,574 - INFO -    Indexed batch 5 (5000 chunks) for b0e8f4a7-215a-4039-b859-89e16f9156da.csv
+2026-02-12 15:48:24,771 - INFO -    Indexed batch 6 (5000 chunks) for b0e8f4a7-215a-4039-b859-89e16f9156da.csv
+2026-02-12 15:49:15,139 - INFO -    Indexed batch 7 (5000 chunks) for b0e8f4a7-215a-4039-b859-89e16f9156da.csv
+2026-02-12 15:50:11,822 - INFO -    Indexed batch 8 (5000 chunks) for b0e8f4a7-215a-4039-b859-89e16f9156da.csv
+2026-02-12 15:50:59,194 - INFO -    Indexed batch 9 (5000 chunks) for b0e8f4a7-215a-4039-b859-89e16f9156da.csv
+2026-02-12 15:51:50,263 - INFO -    Indexed batch 10 (5000 chunks) for b0e8f4a7-215a-4039-b859-89e16f9156da.csv
+2026-02-12 15:52:40,470 - INFO -    Indexed batch 11 (5000 chunks) for b0e8f4a7-215a-4039-b859-89e16f9156da.csv
+2026-02-12 15:53:29,489 - INFO -    Indexed batch 12 (5000 chunks) for b0e8f4a7-215a-4039-b859-89e16f9156da.csv
+2026-02-12 15:54:19,695 - INFO -    Indexed batch 13 (5000 chunks) for b0e8f4a7-215a-4039-b859-89e16f9156da.csv
+2026-02-12 15:55:04,329 - INFO -    Indexed batch 14 (5000 chunks) for b0e8f4a7-215a-4039-b859-89e16f9156da.csv
+2026-02-12 15:55:49,059 - INFO -    Indexed batch 15 (5000 chunks) for b0e8f4a7-215a-4039-b859-89e16f9156da.csv
+2026-02-12 15:56:33,311 - INFO -    Indexed batch 16 (5000 chunks) for b0e8f4a7-215a-4039-b859-89e16f9156da.csv
+2026-02-12 15:57:18,038 - INFO -    Indexed batch 17 (5000 chunks) for b0e8f4a7-215a-4039-b859-89e16f9156da.csv
+2026-02-12 15:57:22,179 - INFO -    Indexed batch 18 (456 chunks) for b0e8f4a7-215a-4039-b859-89e16f9156da.csv
+2026-02-12 15:57:22,180 - INFO -    Indexed total 85456 chunks for b0e8f4a7-215a-4039-b859-89e16f9156da.csv
+2026-02-12 15:57:22,282 - INFO - ✅ RAG Indexing Complete
+2026-02-12 15:57:22,964 - INFO - 📊 Processed 4 log files in LARGE-SCALE mode.
+2026-02-12 15:57:22,964 - INFO - ✅ Classified and stored 1 documents:
+2026-02-12 15:57:22,964 - INFO -    • 1695a84b-9d9d-4e18-b154-8f9934868cec.pdf → other_document/

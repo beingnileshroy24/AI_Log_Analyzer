@@ -18,3 +18,9 @@ langchain-google-genai
 python-dotenv
 pydantic-settings
 langgraph
+fastapi
+uvicorn
+python-multipart
+fastapi
+uvicorn
+python-multipart
