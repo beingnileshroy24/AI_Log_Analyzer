@@ -7,7 +7,8 @@ from functools import partial
 from ..models.summarizer import LogSummarizer
 from ..models.embedding import EmbeddingEngine
 from ..models.log_parser import LogParser
-from ..core.database import init_db, insert_log_events
+from ..models.vulnerability_analyzer import VulnerabilityAnalyzer
+from ..core.database import init_db, insert_log_events, insert_vulnerability_analysis
 from .clustering import cluster_files
 from ..config.settings import STAGING_DIR, PROCESSED_DIR, DOMAIN_KEYWORDS
 
@@ -162,6 +163,25 @@ def run_large_scale_pipeline():
     output_path = os.path.join(PROCESSED_DIR, "file_level_clusters.csv")
     clustered_df.to_csv(output_path, index=False)
     logging.info(f"✅ Cluster Report Saved: {output_path}")
+    
+    # 6.5️⃣ Index File Metadata into Vector DB
+    try:
+        from ..models.rag_engine import RAGVectorDB
+        rag_db_meta = RAGVectorDB()
+        
+        for update in updates:
+            metadata_dict = {
+                'Original_Filename': update.get('Stored_Filename', ''),
+                'Stored_Filename': update.get('Stored_Filename', ''),
+                'Category': update.get('Category', ''),
+                'Summary': update.get('Summary', ''),
+                'Status': 'Processed'
+            }
+            rag_db_meta.add_file_metadata(update['Stored_Filename'], metadata_dict)
+        
+        logging.info("✅ File metadata indexed into Vector DB")
+    except Exception as e:
+        logging.warning(f"⚠️ Failed to index file metadata: {e}")
 
     # 7️⃣ Indexing for RAG
     try:
@@ -179,12 +199,42 @@ def run_large_scale_pipeline():
             filename = update["Stored_Filename"]
             file_path = update["Final_Path"]
 
-            # 1. Parse and Log Events (DB)
+            # 1. Parse and Log Events with Vulnerability Separation
             try:
-                events = parser.parse_file(file_path)
-                if events:
-                    insert_log_events(events)
-                    logging.info(f"   💾 Extracted {len(events)} events from {filename}")
+                result = parser.parse_file_with_vulns(file_path)
+                vulnerabilities = result["vulnerabilities"]
+                regular_events = result["events"]
+                
+                # Insert regular events (errors, warnings) into DB
+                if regular_events:
+                    insert_log_events(regular_events)
+                    logging.info(f"   💾 Extracted {len(regular_events)} events from {filename}")
+                    
+                    # Index events into Vector DB
+                    rag_db.add_log_events(filename, regular_events)
+                
+                # Analyze and insert vulnerabilities into DB
+                if vulnerabilities:
+                    analyzer = VulnerabilityAnalyzer()
+                    analyzed_vulns = []
+                    
+                    for vuln in vulnerabilities:
+                        analysis = analyzer.analyze_vulnerability(
+                            vuln["VulnerabilityType"],
+                            vuln["LogMessage"]
+                        )
+                        
+                        vuln["Severity"] = analysis["severity"]
+                        vuln["Solution"] = analysis["solution"]
+                        vuln["ReferenceURL"] = analysis["reference_url"]
+                        analyzed_vulns.append(vuln)
+                    
+                    insert_vulnerability_analysis(analyzed_vulns)
+                    logging.info(f"   🔒 Analyzed {len(analyzed_vulns)} vulnerabilities from {filename}")
+                    
+                    # Index vulnerabilities into Vector DB
+                    rag_db.add_vulnerabilities(filename, analyzed_vulns)
+                    
             except Exception as e:
                 logging.warning(f"   ⚠️ Event extraction failed for {filename}: {e}")
 
