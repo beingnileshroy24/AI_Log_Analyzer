@@ -63,9 +63,29 @@ def init_db():
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_Stored_Filename ON File_Master (Stored_Filename)")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_Status ON File_Master (Status)")
         
+        # Vulnerability_Analysis Table
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS Vulnerability_Analysis (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                FileID TEXT,
+                VulnerabilityType TEXT,
+                LogMessage TEXT,
+                Severity TEXT,
+                Solution TEXT,
+                ReferenceURL TEXT,
+                LoggedOn TEXT,
+                AnalyzedOn TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                CreatedBy TEXT
+            )
+        """)
+        
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_Vuln_FileID ON Vulnerability_Analysis (FileID)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_Vuln_Type ON Vulnerability_Analysis (VulnerabilityType)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_Vuln_Severity ON Vulnerability_Analysis (Severity)")
+        
         conn.commit()
         conn.close()
-        logging.info(f"✅ Database initialized with Log_extraction and File_Master at {DB_PATH}")
+        logging.info(f"✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at {DB_PATH}")
     except Exception as e:
         logging.error(f"❌ Failed to initialize database: {e}")
 
@@ -235,3 +255,80 @@ def get_file_metadata(file_id: str = None, status: str = None, limit: int = 100)
     except Exception as e:
         logging.error(f"❌ Failed to retrieve file metadata: {e}")
         return []
+
+# ==================== Vulnerability_Analysis Functions ====================
+
+def insert_vulnerability_analysis(entries: List[Dict[str, Any]]):
+    """Batch insert vulnerability analysis entries."""
+    if not entries:
+        return
+    
+    try:
+        conn = get_connection()
+        cursor = conn.cursor()
+        
+        query = """
+            INSERT INTO Vulnerability_Analysis (
+                FileID, VulnerabilityType, LogMessage, Severity,
+                Solution, ReferenceURL, LoggedOn, CreatedBy
+            )
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+        """
+        
+        current_user = getpass.getuser()
+        
+        data_to_insert = [
+            (
+                e.get('FileID'),
+                e.get('VulnerabilityType'),
+                e.get('LogMessage'),
+                e.get('Severity'),
+                e.get('Solution'),
+                e.get('ReferenceURL'),
+                e.get('LoggedOn'),
+                current_user
+            )
+            for e in entries
+        ]
+        
+        cursor.executemany(query, data_to_insert)
+        conn.commit()
+        conn.close()
+        logging.info(f"🔒 Saved {len(entries)} vulnerability analyses to database.")
+    except Exception as e:
+        logging.error(f"❌ Failed to save vulnerability analyses: {e}")
+
+def get_vulnerability_analysis(file_id: str = None, vuln_type: str = None, severity: str = None, limit: int = 100):
+    """Retrieve vulnerability analyses with optional filters."""
+    try:
+        conn = get_connection()
+        conn.row_factory = sqlite3.Row
+        cursor = conn.cursor()
+        
+        query = "SELECT * FROM Vulnerability_Analysis WHERE 1=1"
+        params = []
+        
+        if file_id:
+            query += " AND FileID = ?"
+            params.append(file_id)
+            
+        if vuln_type:
+            query += " AND VulnerabilityType = ?"
+            params.append(vuln_type)
+            
+        if severity:
+            query += " AND Severity = ?"
+            params.append(severity)
+            
+        query += " ORDER BY AnalyzedOn DESC LIMIT ?"
+        params.append(limit)
+        
+        cursor.execute(query, params)
+        rows = cursor.fetchall()
+        conn.close()
+        
+        return [dict(row) for row in rows]
+    except Exception as e:
+        logging.error(f"❌ Failed to retrieve vulnerability analyses: {e}")
+        return []
+

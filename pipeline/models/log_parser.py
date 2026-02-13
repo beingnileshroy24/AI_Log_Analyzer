@@ -81,3 +81,42 @@ class LogParser:
             logging.error(f"❌ Error parsing {filename}: {e}")
             
         return events
+    
+    def parse_file_with_vulns(self, filepath: str) -> Dict[str, List[Dict[str, Any]]]:
+        """
+        Parse file and return vulnerabilities and regular events separately.
+        
+        Returns:
+            {
+                "vulnerabilities": [...],  # For Vulnerability_Analysis table
+                "events": [...]            # For Log_extraction table
+            }
+        """
+        all_events = self.parse_file(filepath)
+        
+        vulnerabilities = []
+        regular_events = []
+        
+        for event in all_events:
+            if event.get("LogEntryType") == "Vulnerability":
+                # Extract vulnerability type from LogMessage
+                vuln_type = event["LogMessage"].split("]")[0].replace("[", "").strip()
+                
+                vulnerabilities.append({
+                    "FileID": event["FileID"],
+                    "VulnerabilityType": vuln_type,
+                    "LogMessage": event["LogMessage"],
+                    "LoggedOn": event["LoggedOn"],
+                    # These will be filled by VulnerabilityAnalyzer
+                    "Severity": None,
+                    "Solution": None,
+                    "ReferenceURL": None
+                })
+            else:
+                regular_events.append(event)
+        
+        return {
+            "vulnerabilities": vulnerabilities,
+            "events": regular_events
+        }
+
