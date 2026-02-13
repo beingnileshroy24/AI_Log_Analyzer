@@ -18,7 +18,7 @@ def init_db():
         conn = get_connection()
         cursor = conn.cursor()
         
-        # New Table Schema
+        # Log_extraction Table
         cursor.execute("""
             CREATE TABLE IF NOT EXISTS Log_extraction (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -35,13 +35,37 @@ def init_db():
             )
         """)
         
-        # Index on FileID and LogEntryType
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_FileID ON Log_extraction (FileID)")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_LogEntryType ON Log_extraction (LogEntryType)")
         
+        # File_Master Table
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS File_Master (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                File_ID TEXT UNIQUE,
+                Original_Filename TEXT,
+                Stored_Filename TEXT,
+                Source_Type TEXT,
+                Raw_Storage_Path TEXT,
+                Final_Path TEXT,
+                Category TEXT,
+                Cluster_ID TEXT,
+                Summary TEXT,
+                File_Size_KB REAL,
+                Row_Count INTEGER,
+                Status TEXT,
+                Created_On TIMESTAMP,
+                Created_By TEXT
+            )
+        """)
+        
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_File_ID ON File_Master (File_ID)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_Stored_Filename ON File_Master (Stored_Filename)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_Status ON File_Master (Status)")
+        
         conn.commit()
         conn.close()
-        logging.info(f"✅ Database initialized with Log_extraction at {DB_PATH}")
+        logging.info(f"✅ Database initialized with Log_extraction and File_Master at {DB_PATH}")
     except Exception as e:
         logging.error(f"❌ Failed to initialize database: {e}")
 
@@ -115,4 +139,99 @@ def get_events(file_id: str = None, entry_type: str = None, limit: int = 100):
         return [dict(row) for row in rows]
     except Exception as e:
         logging.error(f"❌ Failed to retrieve events: {e}")
+        return []
+
+# ==================== File_Master Functions ====================
+
+def insert_file_metadata(entry: Dict[str, Any]):
+    """Insert a single file metadata entry into File_Master."""
+    try:
+        conn = get_connection()
+        cursor = conn.cursor()
+        
+        query = """
+            INSERT INTO File_Master (
+                File_ID, Original_Filename, Stored_Filename, Source_Type,
+                Raw_Storage_Path, Final_Path, Category, Cluster_ID, Summary,
+                File_Size_KB, Row_Count, Status, Created_On, Created_By
+            )
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """
+        
+        cursor.execute(query, (
+            entry.get('File_ID'),
+            entry.get('Original_Filename'),
+            entry.get('Stored_Filename'),
+            entry.get('Source_Type'),
+            entry.get('Raw_Storage_Path'),
+            entry.get('Final_Path'),
+            entry.get('Category'),
+            entry.get('Cluster_ID'),
+            entry.get('Summary'),
+            entry.get('File_Size_KB'),
+            entry.get('Row_Count'),
+            entry.get('Status'),
+            entry.get('Created_On'),
+            entry.get('Created_By')
+        ))
+        
+        conn.commit()
+        conn.close()
+        logging.info(f"💾 Inserted file metadata: {entry.get('File_ID')}")
+    except Exception as e:
+        logging.error(f"❌ Failed to insert file metadata: {e}")
+
+def update_file_metadata(stored_filename: str, updates: Dict[str, Any]):
+    """Update file metadata by Stored_Filename."""
+    try:
+        conn = get_connection()
+        cursor = conn.cursor()
+        
+        # Build dynamic UPDATE query
+        set_clauses = []
+        params = []
+        
+        for key, value in updates.items():
+            set_clauses.append(f"{key} = ?")
+            params.append(value)
+        
+        params.append(stored_filename)
+        
+        query = f"UPDATE File_Master SET {', '.join(set_clauses)} WHERE Stored_Filename = ?"
+        
+        cursor.execute(query, params)
+        conn.commit()
+        conn.close()
+        logging.info(f"🔄 Updated file metadata for: {stored_filename}")
+    except Exception as e:
+        logging.error(f"❌ Failed to update file metadata: {e}")
+
+def get_file_metadata(file_id: str = None, status: str = None, limit: int = 100):
+    """Retrieve file metadata with optional filters."""
+    try:
+        conn = get_connection()
+        conn.row_factory = sqlite3.Row
+        cursor = conn.cursor()
+        
+        query = "SELECT * FROM File_Master WHERE 1=1"
+        params = []
+        
+        if file_id:
+            query += " AND File_ID = ?"
+            params.append(file_id)
+            
+        if status:
+            query += " AND Status = ?"
+            params.append(status)
+            
+        query += " ORDER BY Created_On DESC LIMIT ?"
+        params.append(limit)
+        
+        cursor.execute(query, params)
+        rows = cursor.fetchall()
+        conn.close()
+        
+        return [dict(row) for row in rows]
+    except Exception as e:
+        logging.error(f"❌ Failed to retrieve file metadata: {e}")
         return []
