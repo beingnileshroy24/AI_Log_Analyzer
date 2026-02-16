@@ -135,6 +135,17 @@ class UniversalIngestor:
                     else:
                          # For text files, just use the classification
                          file_type = classification_type
+
+                    # 🛡️ VALIDATION: If it's a "log" but confidence is low, verify with keywords
+                    if file_type == "log" and confidence < 0.6:
+                        log_indicators = [
+                            "INFO", "DEBUG", "ERROR", "WARN", "CRITICAL", "Traceback", "Exception", 
+                            "timestamp", "kernel", "level=", "msg=", "time=", "date="
+                        ]
+                        # Check if ANY indicator exists in the first chunk of text
+                        if not any(ind in text_to_classify for ind in log_indicators):
+                            logging.warning(f"   ⚠️ Low confidence log classification ({confidence:.2f}) and NO log keywords found. Reclassifying as 'other_document'.")
+                            file_type = "other_document"
                          
                     logging.info(f"   🎯 Final File type: {file_type}")
                     
