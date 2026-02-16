@@ -3,11 +3,13 @@ import shutil
 import logging
 
 # Directory Configuration
-BASE_DIR = "./pipeline_data"
+# Use absolute path relative to project root
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "pipeline_data"))
 INCOMING_DIR = os.path.join(BASE_DIR, "incoming")
 LOG_DIR = os.path.join(BASE_DIR, "logs")
 PROCESSED_DIR = os.path.join(BASE_DIR, "processed")
 STAGING_DIR = os.path.join(PROCESSED_DIR, "staging")
+CHROMA_DB_PATH = os.path.join(BASE_DIR, "chroma_db")
 
 # Cluster Categories
 CLUSTER_FOLDERS = ["agreement", "app_log", "system_log", "governance_log", "unstructured_log"]

@@ -3,6 +3,7 @@ import chromadb
 from chromadb.config import Settings
 from chromadb.utils import embedding_functions
 from .embedding import EmbeddingEngine
+from ..config.settings import CHROMA_DB_PATH
 import logging
 import uuid
 
@@ -16,7 +17,7 @@ class ChromaEmbeddingWrapper(embedding_functions.EmbeddingFunction):
         return [e.tolist() for e in embeddings]
 
 class RAGVectorDB:
-    def __init__(self, persist_directory="./chroma_db", model_name="sentence-transformers/all-MiniLM-L6-v2"):
+    def __init__(self, persist_directory=CHROMA_DB_PATH, model_name="sentence-transformers/all-MiniLM-L6-v2"):
         logging.info(f"💾 Initializing RAG Vector DB at {persist_directory}")
         self.client = chromadb.PersistentClient(path=persist_directory)
         

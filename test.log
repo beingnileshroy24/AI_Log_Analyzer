@@ -1,0 +1,2 @@
+[2023-10-27 10:00:00] [error] [client 192.168.1.1] Connection refused: database is not responding
+[2023-10-27 10:05:22] [crit] [client 192.168.1.5] Permission denied: /etc/shadow access attempt

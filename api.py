@@ -6,14 +6,15 @@ import os
 import shutil
 import uuid
 import logging
+from datetime import datetime
 from typing import List, Optional
 
 # Import Pipeline Components
 from pipeline.config.settings import (
-    INCOMING_DIR, STAGING_DIR, PROCESSED_DIR, setup_logging
+    INCOMING_DIR, STAGING_DIR, PROCESSED_DIR, setup_logging, setup_directories
 )
 # Ensure directories exist
-os.makedirs(INCOMING_DIR, exist_ok=True)
+setup_directories()
 
 from pipeline.core.ingestor import UniversalIngestor
 try:
@@ -27,6 +28,13 @@ from pipeline.models.vulnerability_scanner import VulnerabilityScanner
 # Setup Logging
 setup_logging()
 logger = logging.getLogger(__name__)
+
+# Initialize Database
+from pipeline.core.database import (
+    init_db, get_connection, insert_file_metadata, 
+    get_file_metadata, get_events
+)
+init_db()
 
 app = FastAPI(title="AI Log Analyzer API", version="1.0.0")
 
@@ -60,6 +68,83 @@ class ChatRequest(BaseModel):
 def read_root():
     return {"status": "online", "service": "AI Log Analyzer API"}
 
+@app.get("/health")
+def health_check():
+    """
+    Health check endpoint for the frontend.
+    """
+    return {"status": "ok"}
+
+# --- AUTHENTICATION & DATABASE ---
+try:
+    from pymongo import MongoClient
+    # Connect to MongoDB (from env or default to Localhost)
+    mongo_uri = os.getenv("MONGO_URI", "mongodb://localhost:27017/")
+    client = MongoClient(mongo_uri)
+    db = client["log_analyzer_db"]
+    users_collection = db["users"]
+    logger.info(f"✅ Connected to MongoDB at {mongo_uri}")
+    MONGO_AVAILABLE = True
+except Exception as e:
+    logger.error(f"❌ MongoDB Connection Failed: {e}")
+    MONGO_AVAILABLE = False
+
+class LoginRequest(BaseModel):
+    username: str
+    password: str
+
+class RegisterRequest(BaseModel):
+    username: str
+    password: str
+    name: str = "User"
+    role: str = "Analyst"
+
+@app.post("/auth/login")
+def login(request: LoginRequest):
+    if not MONGO_AVAILABLE:
+        # Fallback for demo if DB is down
+        if request.username == "admin" and request.password == "admin":
+             return {
+                "token": "demo-token-123",
+                "user": {"name": "Admin User", "role": "Administrator"}
+            }
+        raise HTTPException(status_code=503, detail="Database unavailable")
+
+    user = users_collection.find_one({"username": request.username})
+    
+    if not user:
+        raise HTTPException(status_code=401, detail="Invalid username or password")
+    
+    # In production, use bcrypt.checkpw()
+    if user["password"] != request.password:
+        raise HTTPException(status_code=401, detail="Invalid username or password")
+    
+    return {
+        "token": f"jwt-{uuid.uuid4()}", # Dummy token
+        "user": {
+            "name": user.get("name", "User"),
+            "role": user.get("role", "Analyst")
+        }
+    }
+
+@app.post("/auth/register")
+def register(request: RegisterRequest):
+    if not MONGO_AVAILABLE:
+        raise HTTPException(status_code=503, detail="Database unavailable")
+        
+    if users_collection.find_one({"username": request.username}):
+        raise HTTPException(status_code=400, detail="Username already exists")
+    
+    new_user = {
+        "username": request.username,
+        "password": request.password, # In production, hash this!
+        "name": request.name,
+        "role": request.role
+    }
+    users_collection.insert_one(new_user)
+    return {"message": "User registered successfully"}
+
+
 @app.post("/upload")
 async def upload_file(file: UploadFile = File(...)):
     """
@@ -67,8 +152,9 @@ async def upload_file(file: UploadFile = File(...)):
     """
     try:
         file_id = str(uuid.uuid4())
-        ext = os.path.splitext(file.filename)[1]
-        new_filename = f"{file_id}{ext}"
+        # Sanitize filename to prevent directory traversal or weird characters
+        safe_filename = "".join(c for c in file.filename if c.isalnum() or c in (' ', '.', '_', '-')).strip()
+        new_filename = f"{file_id}_{safe_filename}"
         destination = os.path.join(INCOMING_DIR, new_filename)
         
         with open(destination, "wb") as buffer:
@@ -84,6 +170,21 @@ async def upload_file(file: UploadFile = File(...)):
         
         content, file_type = ingestor.process_file(destination)
         
+        # Save to File_Master for persistent tracking (Task 9)
+        file_metadata = {
+            "File_ID": file_id,
+            "Original_Filename": file.filename,
+            "Stored_Filename": new_filename,
+            "Raw_Storage_Path": destination,
+            "Status": "Staged",
+            "Category": file_type,
+            "Created_On": datetime.now().isoformat(),
+            "Created_By": "System",
+            "File_Size_KB": os.path.getsize(destination) / 1024
+        }
+        
+        insert_file_metadata(file_metadata)
+        
         return {
             "message": "File uploaded successfully",
             "filename": file.filename,
@@ -98,23 +199,49 @@ async def upload_file(file: UploadFile = File(...)):
 @app.get("/files")
 def list_files():
     """
-    List files in the staged and processed directories.
+    List files from the File_Master table (Task 9).
     """
-    files = []
-    
-    # Check Staging (Logs usually go here first after main.py runs, or if we move them)
-    # Since we just uploaded to INCOMING, we should check there too if not processed yet.
-    
-    for folder, label in [(INCOMING_DIR, "Incoming"), (STAGING_DIR, "Staged"), (PROCESSED_DIR, "Processed")]:
-        if os.path.exists(folder):
-            for f in os.listdir(folder):
-                if not f.startswith("."):
-                    files.append({
-                        "filename": f,
-                        "location": label,
-                        "path": os.path.join(folder, f)
-                    })
-    return {"files": files}
+    try:
+        files = get_file_metadata()
+        # Ensure data is JSON serializable and fields match frontend
+        formatted_files = []
+        for f in files:
+            formatted_files.append({
+                "id": f.get("File_ID"),
+                "Original_Filename": f.get("Original_Filename"),
+                "Status": f.get("Status"),
+                "Category": f.get("Category"),
+                "Created_On": f.get("Created_On")
+            })
+        return {"files": formatted_files}
+    except Exception as e:
+        logger.error(f"Failed to list files: {e}")
+        return {"files": []}
+
+@app.get("/files/{file_id}")
+def get_file_info(file_id: str):
+    """
+    Get metadata for a specific file (Task 10).
+    """
+    files = get_file_metadata(file_id=file_id)
+    if not files:
+        raise HTTPException(status_code=404, detail="File metadata not found")
+    return files[0]
+
+@app.get("/files/{file_id}/logs")
+def get_file_logs(file_id: str):
+    """
+    Get extracted log events for a file (Task 10).
+    """
+    try:
+        events = get_events(file_id=file_id)
+        # Map Severity to Priority for the frontend
+        for e in events:
+            e["Priority"] = e.get("Severity", "Medium")
+        return {"logs": events}
+    except Exception as e:
+        logger.error(f"Failed to fetch logs for {file_id}: {e}")
+        return {"logs": []}
 
 @app.post("/chat")
 async def chat_endpoint(request: ChatRequest):
@@ -129,6 +256,22 @@ async def chat_endpoint(request: ChatRequest):
         return {"response": response}
     except Exception as e:
         logger.error(f"Agent error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+class ProcessRequest(BaseModel):
+    mode: str = "large"
+
+@app.post("/process")
+async def trigger_process(request: ProcessRequest, background_tasks: BackgroundTasks):
+    """
+    Trigger the main log processing pipeline.
+    """
+    try:
+        from main import run_pipeline
+        background_tasks.add_task(run_pipeline, mode=request.mode)
+        return {"status": "started", "message": f"Pipeline started in {request.mode} mode."}
+    except Exception as e:
+        logger.error(f"Failed to start pipeline: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.post("/scan")

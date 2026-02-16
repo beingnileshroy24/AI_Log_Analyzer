@@ -69,8 +69,25 @@ def generate_metadata_report(results, file_tracking):
             row_count = len(content.splitlines())
 
         # Entry
+        # Extract UUID from filename if possible
+        import re
+        uuid_match = re.search(r'([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})', stored_filename)
+        
+        file_id = None
+        if uuid_match:
+            file_id = uuid_match.group(1)
+            # Check if this ID already exists in DB (to avoid creating AUDIT- duplicates)
+            existing = get_file_metadata(file_id=file_id)
+            if existing:
+                print(f"🔗 Reusing existing metadata ID: {file_id}")
+                # We skip re-inserting if it exists, or we could update. 
+                # For now, let's just use it as the ID for the entry and rely on insert_file_metadata to handle uniqueness.
+        
+        if not file_id:
+            file_id = f"AUDIT-{datetime.now().strftime('%y%m%d%H%M%S%f')[:12]}"
+
         entry = {
-            'File_ID': f"AUDIT-{datetime.now().strftime('%y%m%d%H%M%S%f')[:12]}",
+            'File_ID': file_id,
             'Original_Filename': original_name,
             'Stored_Filename': stored_filename,
             'Source_Type': source,

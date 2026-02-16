@@ -195,27 +195,46 @@ def run_large_scale_pipeline():
 
         # Index chunks (Iterate over the updates to get the Final_Path)
         logging.info("   Start chunking and indexing full log content...")
+        
+        import re
+        uuid_pattern = re.compile(r'^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})')
+
         for update in updates:
             filename = update["Stored_Filename"]
             file_path = update["Final_Path"]
+            
+            # Extract UUID for DB correlation
+            uuid_match = uuid_pattern.match(filename)
+            db_file_id = uuid_match.group(1) if uuid_match else filename
 
             # 1. Parse and Log Events with Vulnerability Separation
             try:
                 result = parser.parse_file_with_vulns(file_path)
                 vulnerabilities = result["vulnerabilities"]
-                regular_events = result["events"]
+                regular_events = [e for e in result["events"] if e.get("LogEntryType") in ["ERROR", "WARN"]]
                 
                 analyzer = VulnerabilityAnalyzer()
                 events_for_db = []
 
                 # 1a. Process regular events (errors, warnings)
                 if regular_events:
-                    logging.info(f"   🧠 Analyzing {len(regular_events)} regular events from {filename}...")
+                    logging.info(f"   🧠 Analyzing {len(regular_events)} events from {filename}...")
+                    # deduplicate entries before analysis to save API calls
+                    unique_entries = {}
                     for event in regular_events:
+                        key = (event["LogEntryType"], event["LogMessage"][:200]) # Use prefix for grouping
+                        if key not in unique_entries:
+                            unique_entries[key] = event
+                    
+                    logging.info(f"   ⚡ Deduplicated {len(regular_events)} events to {len(unique_entries)} unique incidents")
+                    
+                    for event in unique_entries.values():
                         analysis = analyzer.analyze_log_incident(
                             event["LogEntryType"],
                             event["LogMessage"]
                         )
+                        # Sync back to all events in a real scenario, but for now we insert unique or mapped
+                        event["FileID"] = db_file_id # Use UUID
                         event["Severity"] = analysis["severity"]
                         event["Resolution"] = analysis["solution"]
                         event["ReferenceURL"] = analysis["reference_url"]
@@ -226,6 +245,7 @@ def run_large_scale_pipeline():
                     logging.info(f"   🔒 Analyzing {len(vulnerabilities)} vulnerabilities from {filename}...")
                     analyzed_vulns = []
                     for vuln in vulnerabilities:
+                        vuln["FileID"] = db_file_id # Use UUID
                         analysis = analyzer.analyze_vulnerability(
                             vuln["VulnerabilityType"],
                             vuln["LogMessage"]
@@ -238,7 +258,7 @@ def run_large_scale_pipeline():
                         
                         # Also add to Log_extraction table for unified view
                         events_for_db.append({
-                            "FileID": vuln["FileID"],
+                            "FileID": db_file_id, # Use UUID
                             "LogEntryType": "Vulnerability",
                             "LogMessage": vuln["LogMessage"],
                             "Severity": vuln["Severity"],
@@ -255,7 +275,7 @@ def run_large_scale_pipeline():
                 # 1c. Insert all events into Log_extraction table
                 if events_for_db:
                     insert_log_events(events_for_db)
-                    logging.info(f"   💾 Saved {len(events_for_db)} total events to Log_extraction for {filename}")
+                    logging.info(f"   💾 Saved {len(events_for_db)} events to Log_extraction for {filename}")
                     
                     # Index events into Vector DB
                     rag_db.add_log_events(filename, events_for_db)

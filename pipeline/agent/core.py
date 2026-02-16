@@ -33,14 +33,24 @@ class LogAnalysisAgent:
             if provider == "google":
                  if not os.getenv("GOOGLE_API_KEY"):
                     logging.warning("⚠️ GOOGLE_API_KEY not found. Agent functions may fail.")
-                 return ChatGoogleGenerativeAI(model=model_name, temperature=0)
+                 return ChatGoogleGenerativeAI(
+                     model=model_name, 
+                     temperature=0,
+                     max_retries=3,
+                     request_timeout=60
+                 )
             elif provider == "openai":
                 if not os.getenv("OPENAI_API_KEY"):
                     logging.warning("⚠️ OPENAI_API_KEY not found. Agent functions may fail.")
-                return ChatOpenAI(model=model_name, temperature=0)
+                return ChatOpenAI(model=model_name, temperature=0, request_timeout=60)
             else:
                  # Default to Google
-                 return ChatGoogleGenerativeAI(model="gemini-2.5-flash", temperature=0)
+                 return ChatGoogleGenerativeAI(
+                     model="gemini-2.5-flash", 
+                     temperature=0,
+                     max_retries=3,
+                     request_timeout=60
+                 )
         except Exception as e:
             logging.error(f"❌ Failed to initialize LLM: {e}")
             return None

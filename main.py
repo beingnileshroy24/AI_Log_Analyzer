@@ -72,7 +72,15 @@ def run_pipeline(mode="large"):
 
         # Route based on file type
         ext = os.path.splitext(filename)[1]
-        new_name = f"{uuid.uuid4()}{ext}"
+        
+        # Check if filename already starts with a UUID (from api.py)
+        import re
+        uuid_match = re.match(r'^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})', filename)
+        if uuid_match:
+            new_name = filename # Keep existing name with UUID
+            logging.info(f"🔗 Reusing existing UUID from filename: {new_name}")
+        else:
+            new_name = f"{uuid.uuid4()}{ext}"
         
         if file_type == "log":
             # Log files: move to staging for AI processing

@@ -4,9 +4,10 @@ import os
 import getpass
 from datetime import datetime
 from typing import List, Dict, Any
+from ..config.settings import BASE_DIR
 
 # DB Path
-DB_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "pipeline_data", "logs.db")
+DB_PATH = os.path.join(BASE_DIR, "logs.db")
 
 def get_connection():
     os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
@@ -191,7 +192,7 @@ def insert_file_metadata(entry: Dict[str, Any]):
         cursor = conn.cursor()
         
         query = """
-            INSERT INTO File_Master (
+            INSERT OR IGNORE INTO File_Master (
                 File_ID, Original_Filename, Stored_Filename, Source_Type,
                 Raw_Storage_Path, Final_Path, Category, Cluster_ID, Summary,
                 File_Size_KB, Row_Count, Status, Created_On, Created_By

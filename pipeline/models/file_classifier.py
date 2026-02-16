@@ -49,12 +49,16 @@ class FileTypeClassifier:
         ]
         
         if TRANSFORMERS_AVAILABLE:
-            self._initialize_model()
+            # Lazy load: Model will be loaded only when actually needed
+            self.classifier = None
         else:
             logging.warning("⚠️ Transformers not available. Using fallback classification.")
 
     def _initialize_model(self):
         """Load the Hugging Face model for classification."""
+        if self.classifier:
+            return # Already loaded
+
         try:
             device = 0 if torch.cuda.is_available() else -1
             device_name = "GPU" if device == 0 else "CPU"
@@ -88,12 +92,18 @@ class FileTypeClassifier:
         """
         # 1. Strong Heuristic Override for .log files
         # If it clearly looks like a log and has .log extension, trust it to save compute/error
-        if filename.lower().endswith('.log'):
+        if filename.lower().endswith(('.log', '.txt')):
             # simple check for log keywords to confirm it's not a renamed resume
             log_indicators = ["INFO", "DEBUG", "ERROR", "WARN", "timestamp", "traceback"]
-            if any(ind in content for ind in log_indicators):
+            content_sample = content[:1000].upper()
+            if any(ind in content_sample for ind in log_indicators):
                 logging.info(f"   ⚡ Fast-path: Identified as log based on extension & content")
                 return "log", 1.0
+
+        if TRANSFORMERS_AVAILABLE:
+            # Initialize if not already done, but only if heuristics failed
+            if self.classifier is None:
+                self._initialize_model()
 
         if self.classifier and content:
             return self._classify_with_ai(content)
