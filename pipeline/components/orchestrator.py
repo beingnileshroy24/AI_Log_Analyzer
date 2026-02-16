@@ -205,19 +205,26 @@ def run_large_scale_pipeline():
                 vulnerabilities = result["vulnerabilities"]
                 regular_events = result["events"]
                 
-                # Insert regular events (errors, warnings) into DB
+                analyzer = VulnerabilityAnalyzer()
+                events_for_db = []
+
+                # 1a. Process regular events (errors, warnings)
                 if regular_events:
-                    insert_log_events(regular_events)
-                    logging.info(f"   💾 Extracted {len(regular_events)} events from {filename}")
-                    
-                    # Index events into Vector DB
-                    rag_db.add_log_events(filename, regular_events)
+                    logging.info(f"   🧠 Analyzing {len(regular_events)} regular events from {filename}...")
+                    for event in regular_events:
+                        analysis = analyzer.analyze_log_incident(
+                            event["LogEntryType"],
+                            event["LogMessage"]
+                        )
+                        event["Severity"] = analysis["severity"]
+                        event["Resolution"] = analysis["solution"]
+                        event["ReferenceURL"] = analysis["reference_url"]
+                        events_for_db.append(event)
                 
-                # Analyze and insert vulnerabilities into DB
+                # 1b. Analyze and insert vulnerabilities
                 if vulnerabilities:
-                    analyzer = VulnerabilityAnalyzer()
+                    logging.info(f"   🔒 Analyzing {len(vulnerabilities)} vulnerabilities from {filename}...")
                     analyzed_vulns = []
-                    
                     for vuln in vulnerabilities:
                         analysis = analyzer.analyze_vulnerability(
                             vuln["VulnerabilityType"],
@@ -228,12 +235,30 @@ def run_large_scale_pipeline():
                         vuln["Solution"] = analysis["solution"]
                         vuln["ReferenceURL"] = analysis["reference_url"]
                         analyzed_vulns.append(vuln)
+                        
+                        # Also add to Log_extraction table for unified view
+                        events_for_db.append({
+                            "FileID": vuln["FileID"],
+                            "LogEntryType": "Vulnerability",
+                            "LogMessage": vuln["LogMessage"],
+                            "Severity": vuln["Severity"],
+                            "Resolution": vuln["Solution"],
+                            "ReferenceURL": vuln["ReferenceURL"],
+                            "LoggedOn": vuln["LoggedOn"]
+                        })
                     
+                    # Insert into specialized Vulnerability_Analysis table
                     insert_vulnerability_analysis(analyzed_vulns)
-                    logging.info(f"   🔒 Analyzed {len(analyzed_vulns)} vulnerabilities from {filename}")
-                    
                     # Index vulnerabilities into Vector DB
                     rag_db.add_vulnerabilities(filename, analyzed_vulns)
+
+                # 1c. Insert all events into Log_extraction table
+                if events_for_db:
+                    insert_log_events(events_for_db)
+                    logging.info(f"   💾 Saved {len(events_for_db)} total events to Log_extraction for {filename}")
+                    
+                    # Index events into Vector DB
+                    rag_db.add_log_events(filename, events_for_db)
                     
             except Exception as e:
                 logging.warning(f"   ⚠️ Event extraction failed for {filename}: {e}")

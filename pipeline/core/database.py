@@ -10,7 +10,7 @@ DB_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__)
 
 def get_connection():
     os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
-    return sqlite3.connect(DB_PATH)
+    return sqlite3.connect(DB_PATH, timeout=30.0)
 
 def init_db():
     """Initializes the SQLite database with the Log_extraction table."""
@@ -25,6 +25,7 @@ def init_db():
                 FileID TEXT,
                 LogEntryType TEXT,
                 LogMessage TEXT,
+                Severity TEXT,
                 Resolution TEXT,
                 ReferenceURL TEXT,
                 LoggedOn TEXT,
@@ -83,6 +84,19 @@ def init_db():
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_Vuln_Type ON Vulnerability_Analysis (VulnerabilityType)")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_Vuln_Severity ON Vulnerability_Analysis (Severity)")
         
+        # Resolution_Cache Table (For Deduplication)
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS Resolution_Cache (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                LogSignature TEXT UNIQUE,
+                Severity TEXT,
+                Resolution TEXT,
+                ReferenceURL TEXT,
+                CreatedOn TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        """)
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_LogSignature ON Resolution_Cache (LogSignature)")
+        
         conn.commit()
         conn.close()
         logging.info(f"✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at {DB_PATH}")
@@ -96,16 +110,17 @@ def insert_log_events(events: List[Dict[str, Any]]):
     if not events:
         return
 
+    conn = None
     try:
         conn = get_connection()
         cursor = conn.cursor()
         
         query = """
             INSERT INTO Log_extraction (
-                FileID, LogEntryType, LogMessage, Resolution, ReferenceURL, 
+                FileID, LogEntryType, LogMessage, Severity, Resolution, ReferenceURL, 
                 LoggedOn, CreatedBy, UpdatedBy
             )
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
         """
         
         current_user = getpass.getuser()
@@ -115,6 +130,7 @@ def insert_log_events(events: List[Dict[str, Any]]):
                 e.get("FileID"),
                 e.get("LogEntryType"),
                 e.get("LogMessage"),
+                e.get("Severity", "Medium"),
                 e.get("Resolution", None),
                 e.get("ReferenceURL", None),
                 e.get("LoggedOn"), # Original timestamp from log
@@ -126,13 +142,16 @@ def insert_log_events(events: List[Dict[str, Any]]):
         
         cursor.executemany(query, data_to_insert)
         conn.commit()
-        conn.close()
         logging.info(f"💾 Saved {len(events)} events to Log_extraction.")
     except Exception as e:
         logging.error(f"❌ Failed to save events to database: {e}")
+    finally:
+        if conn:
+            conn.close()
 
 def get_events(file_id: str = None, entry_type: str = None, limit: int = 100):
     """Retrieve events with optional filters."""
+    conn = None
     try:
         conn = get_connection()
         conn.row_factory = sqlite3.Row
@@ -154,17 +173,19 @@ def get_events(file_id: str = None, entry_type: str = None, limit: int = 100):
         
         cursor.execute(query, params)
         rows = cursor.fetchall()
-        conn.close()
-        
         return [dict(row) for row in rows]
     except Exception as e:
         logging.error(f"❌ Failed to retrieve events: {e}")
         return []
+    finally:
+        if conn:
+            conn.close()
 
 # ==================== File_Master Functions ====================
 
 def insert_file_metadata(entry: Dict[str, Any]):
     """Insert a single file metadata entry into File_Master."""
+    conn = None
     try:
         conn = get_connection()
         cursor = conn.cursor()
@@ -196,13 +217,17 @@ def insert_file_metadata(entry: Dict[str, Any]):
         ))
         
         conn.commit()
-        conn.close()
         logging.info(f"💾 Inserted file metadata: {entry.get('File_ID')}")
     except Exception as e:
         logging.error(f"❌ Failed to insert file metadata: {e}")
+        # Allow retry logic upstream or just log it
+    finally:
+        if conn:
+            conn.close()
 
 def update_file_metadata(stored_filename: str, updates: Dict[str, Any]):
     """Update file metadata by Stored_Filename."""
+    conn = None
     try:
         conn = get_connection()
         cursor = conn.cursor()
@@ -221,13 +246,16 @@ def update_file_metadata(stored_filename: str, updates: Dict[str, Any]):
         
         cursor.execute(query, params)
         conn.commit()
-        conn.close()
         logging.info(f"🔄 Updated file metadata for: {stored_filename}")
     except Exception as e:
         logging.error(f"❌ Failed to update file metadata: {e}")
+    finally:
+        if conn:
+            conn.close()
 
 def get_file_metadata(file_id: str = None, status: str = None, limit: int = 100):
     """Retrieve file metadata with optional filters."""
+    conn = None
     try:
         conn = get_connection()
         conn.row_factory = sqlite3.Row
@@ -249,12 +277,13 @@ def get_file_metadata(file_id: str = None, status: str = None, limit: int = 100)
         
         cursor.execute(query, params)
         rows = cursor.fetchall()
-        conn.close()
-        
         return [dict(row) for row in rows]
     except Exception as e:
         logging.error(f"❌ Failed to retrieve file metadata: {e}")
         return []
+    finally:
+        if conn:
+            conn.close()
 
 # ==================== Vulnerability_Analysis Functions ====================
 
@@ -263,6 +292,7 @@ def insert_vulnerability_analysis(entries: List[Dict[str, Any]]):
     if not entries:
         return
     
+    conn = None
     try:
         conn = get_connection()
         cursor = conn.cursor()
@@ -293,13 +323,16 @@ def insert_vulnerability_analysis(entries: List[Dict[str, Any]]):
         
         cursor.executemany(query, data_to_insert)
         conn.commit()
-        conn.close()
         logging.info(f"🔒 Saved {len(entries)} vulnerability analyses to database.")
     except Exception as e:
         logging.error(f"❌ Failed to save vulnerability analyses: {e}")
+    finally:
+        if conn:
+            conn.close()
 
 def get_vulnerability_analysis(file_id: str = None, vuln_type: str = None, severity: str = None, limit: int = 100):
     """Retrieve vulnerability analyses with optional filters."""
+    conn = None
     try:
         conn = get_connection()
         conn.row_factory = sqlite3.Row
@@ -325,10 +358,56 @@ def get_vulnerability_analysis(file_id: str = None, vuln_type: str = None, sever
         
         cursor.execute(query, params)
         rows = cursor.fetchall()
-        conn.close()
-        
         return [dict(row) for row in rows]
     except Exception as e:
         logging.error(f"❌ Failed to retrieve vulnerability analyses: {e}")
         return []
+    finally:
+        if conn:
+            conn.close()
+
+# ==================== Resolution Cache Functions ====================
+
+def get_resolution_from_cache(log_signature: str):
+    """Retrieve cached resolution for a log signature."""
+    conn = None
+    try:
+        conn = get_connection()
+        cursor = conn.cursor()
+        
+        cursor.execute("SELECT Severity, Resolution, ReferenceURL FROM Resolution_Cache WHERE LogSignature = ?", (log_signature,))
+        row = cursor.fetchone()
+        
+        if row:
+            return {
+                "severity": row[0],
+                "solution": row[1],
+                "reference_url": row[2]
+            }
+        return None
+    except Exception as e:
+        logging.error(f"❌ Cache lookup failed: {e}")
+        return None
+    finally:
+        if conn:
+            conn.close()
+
+def cache_resolution(log_signature: str, severity: str, resolution: str, reference_url: str):
+    """Store resolution in cache."""
+    conn = None
+    try:
+        conn = get_connection()
+        cursor = conn.cursor()
+        
+        cursor.execute("""
+            INSERT OR IGNORE INTO Resolution_Cache (LogSignature, Severity, Resolution, ReferenceURL)
+            VALUES (?, ?, ?, ?)
+        """, (log_signature, severity, resolution, reference_url))
+        
+        conn.commit()
+    except Exception as e:
+        logging.error(f"❌ Failed to cache resolution: {e}")
+    finally:
+        if conn:
+            conn.close()
 

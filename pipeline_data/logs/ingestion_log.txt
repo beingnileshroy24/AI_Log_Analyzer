@@ -1561,3 +1561,265 @@ For further information visit https://errors.pydantic.dev/2.12/u/import-error
 2026-02-12 15:57:22,964 - INFO - 📊 Processed 4 log files in LARGE-SCALE mode.
 2026-02-12 15:57:22,964 - INFO - ✅ Classified and stored 1 documents:
 2026-02-12 15:57:22,964 - INFO -    • 1695a84b-9d9d-4e18-b154-8f9934868cec.pdf → other_document/
+2026-02-16 13:11:10,503 - INFO - 🚀 Pipeline started in 'large' mode
+2026-02-16 13:11:10,515 - INFO - ✅ Ingested CSV: 6e543cfb-470a-4c6f-ab83-6ae900b526ea.csv
+2026-02-16 13:11:10,551 - INFO - 🤖 Loading file classifier: facebook/bart-large-mnli on CPU...
+2026-02-16 13:12:31,662 - INFO - ✅ File classifier loaded successfully on CPU
+2026-02-16 13:12:31,662 - INFO - ✅ File classifier initialized
+2026-02-16 13:12:39,587 - INFO -    📋 Classified as: other_document (confidence: 0.21)
+2026-02-16 13:12:39,587 - INFO -    ⚡ Fast-path: CSV columns indicate Log content
+2026-02-16 13:12:39,587 - INFO -    🎯 Final File type: log
+2026-02-16 13:12:39,587 - INFO - ✅ Log file moved to staging: 01ed5a1c-8dd1-4cde-819e-3495d022073c.csv
+2026-02-16 13:12:39,715 - INFO - ✅ Parsed PDF: 371a1226-9ef9-4b5d-845b-2ecb1d0f8ea7.pdf
+2026-02-16 13:12:47,852 - INFO -    📋 Classified as: other_document (confidence: 0.25)
+2026-02-16 13:12:47,852 - INFO -    🎯 Final File type: other_document
+2026-02-16 13:12:47,852 - INFO - 📄 Document moved to other_document/ folder: f5f2c497-aadc-4b61-bb7d-6df4728a4149.pdf
+2026-02-16 13:12:47,853 - INFO - ✅ Read text file: 4550b021-8c97-4fd0-ad99-14fb4134afbb.log
+2026-02-16 13:12:58,771 - INFO -    📋 Classified as: log (confidence: 0.18)
+2026-02-16 13:12:58,771 - INFO -    🎯 Final File type: log
+2026-02-16 13:12:58,772 - INFO - ✅ Log file moved to staging: 6ba69ecf-def9-4faf-a75b-9f1305d8df63.log
+2026-02-16 13:12:59,058 - INFO - ✅ Ingested CSV: b0e8f4a7-215a-4039-b859-89e16f9156da.csv
+2026-02-16 13:13:14,651 - INFO -    📋 Classified as: other_document (confidence: 0.11)
+2026-02-16 13:13:14,651 - INFO -    ⚡ Fast-path: CSV columns indicate Log content
+2026-02-16 13:13:14,651 - INFO -    🎯 Final File type: log
+2026-02-16 13:13:14,651 - INFO - ✅ Log file moved to staging: cad5ffb3-91f2-4816-9e27-2550c63335d6.csv
+2026-02-16 13:13:14,658 - INFO - 💾 Inserted file metadata: AUDIT-260128114525
+2026-02-16 13:13:14,658 - ERROR - ❌ Failed to insert file metadata: UNIQUE constraint failed: File_Master.File_ID
+2026-02-16 13:13:19,778 - ERROR - ❌ Failed to insert file metadata: database is locked
+2026-02-16 13:13:24,901 - ERROR - ❌ Failed to insert file metadata: database is locked
+2026-02-16 13:13:30,014 - ERROR - ❌ Failed to insert file metadata: database is locked
+2026-02-16 13:13:35,149 - ERROR - ❌ Failed to insert file metadata: database is locked
+2026-02-16 13:16:28,774 - INFO - 🚀 Pipeline started in 'large' mode
+2026-02-16 13:16:28,783 - INFO - ✅ Ingested CSV: 01ed5a1c-8dd1-4cde-819e-3495d022073c.csv
+2026-02-16 13:16:28,816 - INFO - 🤖 Loading file classifier: facebook/bart-large-mnli on CPU...
+2026-02-16 13:17:23,961 - INFO - ✅ File classifier loaded successfully on CPU
+2026-02-16 13:17:23,961 - INFO - ✅ File classifier initialized
+2026-02-16 13:17:31,718 - INFO -    📋 Classified as: other_document (confidence: 0.21)
+2026-02-16 13:17:31,718 - INFO -    ⚡ Fast-path: CSV columns indicate Log content
+2026-02-16 13:17:31,718 - INFO -    🎯 Final File type: log
+2026-02-16 13:17:31,719 - INFO - ✅ Log file moved to staging: eb125264-c4b6-45b3-a641-aeada0d2b22c.csv
+2026-02-16 13:17:32,010 - INFO - ✅ Ingested CSV: cad5ffb3-91f2-4816-9e27-2550c63335d6.csv
+2026-02-16 13:17:47,261 - INFO -    📋 Classified as: other_document (confidence: 0.11)
+2026-02-16 13:17:47,261 - INFO -    ⚡ Fast-path: CSV columns indicate Log content
+2026-02-16 13:17:47,261 - INFO -    🎯 Final File type: log
+2026-02-16 13:17:47,261 - INFO - ✅ Log file moved to staging: 9cb1bd2f-88e3-42f3-9811-922858744d99.csv
+2026-02-16 13:17:47,262 - INFO - ✅ Read text file: 6ba69ecf-def9-4faf-a75b-9f1305d8df63.log
+2026-02-16 13:17:57,884 - INFO -    📋 Classified as: log (confidence: 0.18)
+2026-02-16 13:17:57,885 - INFO -    🎯 Final File type: log
+2026-02-16 13:17:57,885 - INFO - ✅ Log file moved to staging: 112737ab-d085-48b4-8e94-44bade8012e3.log
+2026-02-16 13:17:57,890 - ERROR - ❌ Failed to insert file metadata: UNIQUE constraint failed: File_Master.File_ID
+2026-02-16 13:17:57,890 - ERROR - ❌ Failed to insert file metadata: UNIQUE constraint failed: File_Master.File_ID
+2026-02-16 13:17:57,890 - ERROR - ❌ Failed to insert file metadata: UNIQUE constraint failed: File_Master.File_ID
+2026-02-16 13:17:57,890 - ERROR - ❌ Failed to insert file metadata: UNIQUE constraint failed: File_Master.File_ID
+2026-02-16 13:17:57,891 - ERROR - ❌ Failed to insert file metadata: UNIQUE constraint failed: File_Master.File_ID
+2026-02-16 13:17:57,892 - INFO - 💾 Inserted file metadata: AUDIT-260128124535
+2026-02-16 13:17:57,892 - ERROR - ❌ Failed to insert file metadata: UNIQUE constraint failed: File_Master.File_ID
+2026-02-16 13:17:57,892 - ERROR - ❌ Failed to insert file metadata: UNIQUE constraint failed: File_Master.File_ID
+2026-02-16 13:17:57,893 - INFO - 💾 Inserted file metadata: AUDIT-260130112726
+2026-02-16 13:17:57,893 - ERROR - ❌ Failed to insert file metadata: UNIQUE constraint failed: File_Master.File_ID
+2026-02-16 13:17:57,893 - ERROR - ❌ Failed to insert file metadata: UNIQUE constraint failed: File_Master.File_ID
+2026-02-16 13:17:57,894 - ERROR - ❌ Failed to insert file metadata: UNIQUE constraint failed: File_Master.File_ID
+2026-02-16 13:17:57,894 - INFO - 💾 Inserted file metadata: AUDIT-260210120201
+2026-02-16 13:17:57,894 - ERROR - ❌ Failed to insert file metadata: UNIQUE constraint failed: File_Master.File_ID
+2026-02-16 13:17:57,894 - ERROR - ❌ Failed to insert file metadata: UNIQUE constraint failed: File_Master.File_ID
+2026-02-16 13:17:57,895 - ERROR - ❌ Failed to insert file metadata: UNIQUE constraint failed: File_Master.File_ID
+2026-02-16 13:17:57,895 - ERROR - ❌ Failed to insert file metadata: UNIQUE constraint failed: File_Master.File_ID
+2026-02-16 13:17:57,895 - INFO - 💾 Inserted file metadata: AUDIT-260212154202
+2026-02-16 13:17:57,896 - ERROR - ❌ Failed to insert file metadata: UNIQUE constraint failed: File_Master.File_ID
+2026-02-16 13:17:57,896 - ERROR - ❌ Failed to insert file metadata: UNIQUE constraint failed: File_Master.File_ID
+2026-02-16 13:17:57,896 - ERROR - ❌ Failed to insert file metadata: UNIQUE constraint failed: File_Master.File_ID
+2026-02-16 13:17:57,896 - ERROR - ❌ Failed to insert file metadata: UNIQUE constraint failed: File_Master.File_ID
+2026-02-16 13:17:57,897 - INFO - 💾 Inserted file metadata: AUDIT-260216131757
+2026-02-16 13:17:57,897 - ERROR - ❌ Failed to insert file metadata: UNIQUE constraint failed: File_Master.File_ID
+2026-02-16 13:17:57,897 - ERROR - ❌ Failed to insert file metadata: UNIQUE constraint failed: File_Master.File_ID
+2026-02-16 13:17:57,897 - INFO - 🧠 Processing 3 log files through AI pipeline...
+2026-02-16 13:17:57,897 - INFO - 🚀 STARTING LARGE SCALE PIPELINE (Summarization + Sorting)
+2026-02-16 13:17:57,897 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
+2026-02-16 13:17:57,898 - INFO - Initializing Optimized Keyword Summarizer (MMR) with: sentence-transformers/all-MiniLM-L6-v2
+2026-02-16 13:17:57,898 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-16 13:17:57,974 - INFO - Use pytorch device_name: mps
+2026-02-16 13:17:57,974 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-16 13:18:02,107 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-16 13:18:02,107 - INFO - 🧠 Summarizing 3 files using parallel processing...
+2026-02-16 13:18:02,107 - INFO - ✅ Read text file: 112737ab-d085-48b4-8e94-44bade8012e3.log
+2026-02-16 13:18:02,107 - INFO - ✅ File classifier initialized
+2026-02-16 13:18:02,115 - INFO - ✅ Ingested CSV: eb125264-c4b6-45b3-a641-aeada0d2b22c.csv
+2026-02-16 13:18:02,403 - INFO - ✅ Ingested CSV: 9cb1bd2f-88e3-42f3-9811-922858744d99.csv
+2026-02-16 13:18:14,071 - INFO -    📋 Classified as: other_document (confidence: 0.21)
+2026-02-16 13:18:14,071 - INFO -    ⚡ Fast-path: CSV columns indicate Log content
+2026-02-16 13:18:14,071 - INFO -    🎯 Final File type: log
+2026-02-16 13:18:14,071 - INFO - ✅ Summarizer received content of type: <class 'pandas.core.frame.DataFrame'>
+2026-02-16 13:18:15,722 - INFO - ✅ Extracted Keywords: Total Entries: 16007. Keywords: table columns, time url, process php, chart min, 19 profile, sample ...
+2026-02-16 13:18:22,760 - INFO -    📋 Classified as: log (confidence: 0.18)
+2026-02-16 13:18:22,760 - INFO -    🎯 Final File type: log
+2026-02-16 13:18:22,761 - INFO - ✅ Summarizer received content of type: <class 'str'>
+2026-02-16 13:18:24,021 - INFO - ✅ Extracted Keywords: Total Entries: 2000. Keywords: notice jk2_init, child workerenv, scoreboard slot, error state, httpd...
+2026-02-16 13:18:27,126 - INFO -    📋 Classified as: other_document (confidence: 0.11)
+2026-02-16 13:18:27,126 - INFO -    ⚡ Fast-path: CSV columns indicate Log content
+2026-02-16 13:18:27,126 - INFO -    🎯 Final File type: log
+2026-02-16 13:18:27,126 - INFO - ✅ Summarizer received content of type: <class 'pandas.core.frame.DataFrame'>
+2026-02-16 13:18:27,973 - INFO - ✅ Extracted Keywords: Total Entries: 158184. Keywords: error svchost, 1mkmtvpm logging, tiledatalayer database, country re...
+2026-02-16 13:18:27,984 - INFO - 📐 Generating Embeddings for 3 files...
+2026-02-16 13:18:28,271 - INFO - 📂 Organizing files into final categories...
+2026-02-16 13:18:28,272 - INFO -    👉 Moved 112737ab-d085-48b4-8e94-44bade8012e3.log -> app_log/
+2026-02-16 13:18:28,272 - INFO -    👉 Moved eb125264-c4b6-45b3-a641-aeada0d2b22c.csv -> app_log/
+2026-02-16 13:18:28,272 - INFO -    👉 Moved 9cb1bd2f-88e3-42f3-9811-922858744d99.csv -> system_log/
+2026-02-16 13:18:28,275 - INFO - ✅ Cluster Report Saved: ./pipeline_data/processed/file_level_clusters.csv
+2026-02-16 13:18:28,439 - INFO - 💾 Initializing RAG Vector DB at ./chroma_db
+2026-02-16 13:18:28,451 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-02-16 13:18:28,555 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-16 13:18:28,835 - INFO -    📋 Indexed metadata into Vector DB for 112737ab-d085-48b4-8e94-44bade8012e3.log
+2026-02-16 13:18:29,059 - INFO -    📋 Indexed metadata into Vector DB for eb125264-c4b6-45b3-a641-aeada0d2b22c.csv
+2026-02-16 13:18:29,193 - INFO -    📋 Indexed metadata into Vector DB for 9cb1bd2f-88e3-42f3-9811-922858744d99.csv
+2026-02-16 13:18:29,193 - INFO - ✅ File metadata indexed into Vector DB
+2026-02-16 13:18:29,193 - INFO - 🧠 Indexing files into RAG Vector Store...
+2026-02-16 13:18:29,193 - INFO - 💾 Initializing RAG Vector DB at ./chroma_db
+2026-02-16 13:18:29,194 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-16 13:18:29,304 - INFO -    Indexed summary for 112737ab-d085-48b4-8e94-44bade8012e3.log
+2026-02-16 13:18:29,387 - INFO -    Indexed summary for eb125264-c4b6-45b3-a641-aeada0d2b22c.csv
+2026-02-16 13:18:29,532 - INFO -    Indexed summary for 9cb1bd2f-88e3-42f3-9811-922858744d99.csv
+2026-02-16 13:18:29,532 - INFO -    Start chunking and indexing full log content...
+2026-02-16 13:18:29,576 - INFO -    🧠 Analyzing 595 regular events from 112737ab-d085-48b4-8e94-44bade8012e3.log...
+2026-02-16 13:18:53,935 - INFO - 📦 Using DB cached solution for incident: ERROR:[Sun Dec 04 04:51:18 2005] [error] mod_jk ch...
+2026-02-16 13:18:53,936 - INFO - 📦 Using DB cached solution for incident: ERROR:[Sun Dec 04 04:51:18 2005] [error] mod_jk ch...
+2026-02-16 13:19:34,073 - INFO - 📦 Using DB cached solution for incident: ERROR:[Sun Dec 04 04:52:15 2005] [error] mod_jk ch...
+2026-02-16 13:21:51,799 - INFO - 🚀 Pipeline started in 'large' mode
+2026-02-16 13:21:51,799 - INFO - ✅ Read text file: 112737ab-d085-48b4-8e94-44bade8012e3.log
+2026-02-16 13:21:51,831 - INFO - 🤖 Loading file classifier: facebook/bart-large-mnli on CPU...
+2026-02-16 13:21:54,979 - INFO - ✅ File classifier loaded successfully on CPU
+2026-02-16 13:21:54,979 - INFO - ✅ File classifier initialized
+2026-02-16 13:22:08,576 - INFO -    📋 Classified as: log (confidence: 0.18)
+2026-02-16 13:22:08,576 - INFO -    🎯 Final File type: log
+2026-02-16 13:22:08,576 - INFO - ✅ Log file moved to staging: bde1c177-c01d-4a54-b051-4161dc39175f.log
+2026-02-16 13:22:08,581 - INFO - 💾 Inserted file metadata: AUDIT-260216132208
+2026-02-16 13:22:08,581 - INFO - 🧠 Processing 1 log files through AI pipeline...
+2026-02-16 13:22:08,582 - INFO - 🚀 STARTING LARGE SCALE PIPELINE (Summarization + Sorting)
+2026-02-16 13:22:08,582 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
+2026-02-16 13:22:08,582 - INFO - Initializing Optimized Keyword Summarizer (MMR) with: sentence-transformers/all-MiniLM-L6-v2
+2026-02-16 13:22:08,582 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-16 13:22:08,601 - INFO - Use pytorch device_name: mps
+2026-02-16 13:22:08,601 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-16 13:22:12,425 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-16 13:22:12,425 - INFO - 🧠 Summarizing single file: bde1c177-c01d-4a54-b051-4161dc39175f.log
+2026-02-16 13:22:12,425 - INFO - ✅ Read text file: bde1c177-c01d-4a54-b051-4161dc39175f.log
+2026-02-16 13:22:12,425 - INFO - ✅ File classifier initialized
+2026-02-16 13:22:23,414 - INFO -    📋 Classified as: log (confidence: 0.18)
+2026-02-16 13:22:23,415 - INFO -    🎯 Final File type: log
+2026-02-16 13:22:23,415 - INFO - ✅ Summarizer received content of type: <class 'str'>
+2026-02-16 13:22:23,849 - INFO - ✅ Extracted Keywords: Total Entries: 2000. Keywords: notice jk2_init, child workerenv, scoreboard slot, error state, httpd...
+2026-02-16 13:22:23,850 - INFO - 📐 Generating Embeddings for 1 files...
+2026-02-16 13:22:23,873 - INFO - 📂 Organizing files into final categories...
+2026-02-16 13:22:23,876 - INFO -    👉 Moved bde1c177-c01d-4a54-b051-4161dc39175f.log -> app_log/
+2026-02-16 13:22:23,878 - INFO - ✅ Cluster Report Saved: ./pipeline_data/processed/file_level_clusters.csv
+2026-02-16 13:22:24,029 - INFO - 💾 Initializing RAG Vector DB at ./chroma_db
+2026-02-16 13:22:24,039 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-02-16 13:22:24,104 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-16 13:22:24,174 - INFO -    📋 Indexed metadata into Vector DB for bde1c177-c01d-4a54-b051-4161dc39175f.log
+2026-02-16 13:22:24,174 - INFO - ✅ File metadata indexed into Vector DB
+2026-02-16 13:22:24,174 - INFO - 🧠 Indexing files into RAG Vector Store...
+2026-02-16 13:22:24,174 - INFO - 💾 Initializing RAG Vector DB at ./chroma_db
+2026-02-16 13:22:24,175 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-16 13:22:24,195 - INFO -    Indexed summary for bde1c177-c01d-4a54-b051-4161dc39175f.log
+2026-02-16 13:22:24,195 - INFO -    Start chunking and indexing full log content...
+2026-02-16 13:22:24,249 - INFO -    🧠 Analyzing 595 regular events from bde1c177-c01d-4a54-b051-4161dc39175f.log...
+2026-02-16 13:22:24,250 - INFO - 📦 Using DB cached solution for incident: ERROR:[Sun Dec 04 04:47:44 2005] [error] mod_jk ch...
+2026-02-16 13:22:24,250 - INFO - 📦 Using DB cached solution for incident: ERROR:[Sun Dec 04 04:51:18 2005] [error] mod_jk ch...
+2026-02-16 13:22:24,250 - INFO - 📦 Using DB cached solution for incident: ERROR:[Sun Dec 04 04:51:18 2005] [error] mod_jk ch...
+2026-02-16 13:22:24,250 - INFO - 📦 Using DB cached solution for incident: ERROR:[Sun Dec 04 04:51:18 2005] [error] mod_jk ch...
+2026-02-16 13:22:24,250 - INFO - 📦 Using DB cached solution for incident: ERROR:[Sun Dec 04 04:51:55 2005] [error] mod_jk ch...
+2026-02-16 13:22:24,251 - INFO - 📦 Using DB cached solution for incident: ERROR:[Sun Dec 04 04:52:15 2005] [error] mod_jk ch...
+2026-02-16 13:22:24,251 - INFO - 📦 Using DB cached solution for incident: ERROR:[Sun Dec 04 04:52:15 2005] [error] mod_jk ch...
+2026-02-16 13:22:24,251 - INFO - 📦 Using DB cached solution for incident: ERROR:[Sun Dec 04 04:52:15 2005] [error] mod_jk ch...
+2026-02-16 13:23:35,213 - INFO - 📦 Using DB cached solution for incident: ERROR:[Sun Dec 04 04:54:18 2005] [error] mod_jk ch...
+2026-02-16 13:23:44,469 - INFO - 📦 Using DB cached solution for incident: ERROR:[Sun Dec 04 04:54:18 2005] [error] mod_jk ch...
+2026-02-16 13:23:44,768 - WARNING - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
+Please retry in 15.444640486s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 20
+}
+, retry_delay {
+  seconds: 15
+}
+].
+2026-02-16 13:23:47,073 - WARNING - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 4.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
+Please retry in 13.138167635s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 20
+}
+, retry_delay {
+  seconds: 13
+}
+].
+2026-02-16 13:23:51,375 - WARNING - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 8.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
+Please retry in 8.835620411s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 20
+}
+, retry_delay {
+  seconds: 8
+}
+].
+2026-02-16 13:23:59,690 - WARNING - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 16.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
+Please retry in 530.56368ms. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 20
+}
+, retry_delay {
+}
+].

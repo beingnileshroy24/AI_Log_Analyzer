@@ -7,6 +7,7 @@ sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
 from pipeline.core.database import init_db, insert_log_events, get_events
 from pipeline.models.log_parser import LogParser
+from pipeline.models.vulnerability_analyzer import VulnerabilityAnalyzer
 
 # Setup Logging
 logging.basicConfig(level=logging.INFO)
@@ -36,10 +37,23 @@ def run_test():
         print("\nParsing file...")
         parser = LogParser()
         events = parser.parse_file(dummy_file)
-        
         print(f"✅ Extracted {len(events)} events.")
+        
+        # 3.5 Analyze incidents with LLM
+        print("\nAnalyzing incidents with LLM...")
+        analyzer = VulnerabilityAnalyzer()
         for e in events:
-            print(f"   - [{e['LogEntryType']}] {e['LogMessage'][:50]}...")
+            if e['LogEntryType'] == 'Vulnerability':
+                # Simplified check for test
+                vuln_type = "SQL Injection (SQLi)" if "SQL" in e['LogMessage'] else "Brute Force / Auth Failure"
+                analysis = analyzer.analyze_vulnerability(vuln_type, e['LogMessage'])
+            else:
+                analysis = analyzer.analyze_log_incident(e['LogEntryType'], e['LogMessage'])
+            
+            e['Severity'] = analysis['severity']
+            e['Resolution'] = analysis['solution']
+            e['ReferenceURL'] = analysis['reference_url']
+            print(f"   - [{e['LogEntryType']}] Severity: {e['Severity']}, Res: {e['Resolution'][:30]}...")
             
         # 4. Insert into DB
         print("\nInserting into DB...")
@@ -58,8 +72,17 @@ def run_test():
         vulns = [e for e in stored_events if e['LogEntryType'] == 'Vulnerability']
         errors = [e for e in stored_events if e['LogEntryType'] == 'ERROR']
         
-        print(f"   Found {len(vulns)} Vulnerabilities (Expected >= 2 approx)")
-        print(f"   Found {len(errors)} Errors (Expected >= 1)")
+        print(f"   Found {len(vulns)} Vulnerabilities")
+        print(f"   Found {len(errors)} Errors")
+        
+        # Check if Resolution is present
+        resolutions = [e for e in stored_events if e['Resolution'] is not None and e['Resolution'] != ""]
+        print(f"   Found {len(resolutions)} events with Resolutions.")
+        
+        if len(resolutions) > 0:
+            print("✅ Resolution storage verified.")
+        else:
+            print("❌ No resolutions found in DB.")
 
     finally:
         if os.path.exists(dummy_file):
