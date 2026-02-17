@@ -1,0 +1,21 @@
+Timestamp,Level,Message
+2024-03-20 10:00:01,INFO,System initialized successfully.
+2024-03-20 10:00:05,INFO,Connect database to pool.
+2024-03-20 10:00:12,ERROR,Connection timeout: database unreachable at 192.168.1.50.
+2024-03-20 10:00:15,INFO,Retrying connection in 5s.
+2024-03-20 10:00:20,INFO,Connection established.
+2024-03-20 10:00:25,INFO,User logged in: admin.
+2024-03-20 10:01:02,INFO,Processing batch ID: 4567.
+2024-03-20 10:01:10,ERROR,File not found exception: /var/data/input_01.csv.
+2024-03-20 10:01:15,INFO,Waiting for user input.
+2024-03-20 10:01:45,INFO,Health check passed.
+2024-03-20 10:02:10,INFO,API Request: GET /api/v1/status.
+2024-03-20 10:02:15,INFO,Request finished in 45ms.
+2024-03-20 10:02:30,INFO,Periodic cleanup started.
+2024-03-20 10:02:35,INFO,Cleanup finished: 120 temporary files removed.
+2024-03-20 10:03:01,INFO,Monitoring CPU usage: 12%.
+2024-03-20 10:03:15,ERROR,Memory limit reached: process killed by OOM killer.
+2024-03-20 10:03:45,INFO,Process restarted.
+2024-03-20 10:04:01,INFO,Syncing with secondary node.
+2024-03-20 10:04:10,INFO,Sync completed.
+2024-03-20 10:04:30,INFO,Service stable.
