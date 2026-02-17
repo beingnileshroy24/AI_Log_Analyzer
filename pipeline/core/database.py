@@ -412,3 +412,34 @@ def cache_resolution(log_signature: str, severity: str, resolution: str, referen
         if conn:
             conn.close()
 
+# ==================== Deletion Function ====================
+
+def delete_file_data(file_id: str):
+    """Delete all database records related to a File ID."""
+    conn = None
+    try:
+        conn = get_connection()
+        cursor = conn.cursor()
+        
+        # 1. Delete from Log_extraction
+        cursor.execute("DELETE FROM Log_extraction WHERE FileID = ?", (file_id,))
+        logs_deleted = cursor.rowcount
+        
+        # 2. Delete from Vulnerability_Analysis
+        cursor.execute("DELETE FROM Vulnerability_Analysis WHERE FileID = ?", (file_id,))
+        vulns_deleted = cursor.rowcount
+        
+        # 3. Delete from File_Master
+        cursor.execute("DELETE FROM File_Master WHERE File_ID = ?", (file_id,))
+        files_deleted = cursor.rowcount
+        
+        conn.commit()
+        logging.info(f"🗑️ Deleted File metadata ({files_deleted}), Logs ({logs_deleted}), Vulns ({vulns_deleted}) for ID: {file_id}")
+        return True
+    except Exception as e:
+        logging.error(f"❌ Failed to delete file data for {file_id}: {e}")
+        return False
+    finally:
+        if conn:
+            conn.close()
+

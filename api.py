@@ -33,7 +33,7 @@ logger = logging.getLogger(__name__)
 # Initialize Database
 from pipeline.core.database import (
     init_db, get_connection, insert_file_metadata, 
-    get_file_metadata, get_events
+    get_file_metadata, get_events, delete_file_data
 )
 init_db()
 
@@ -336,6 +336,41 @@ def trigger_scan():
         }
 
     except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.delete("/files/{file_id}")
+async def delete_file(file_id: str):
+    try:
+        # Get file metadata
+        files = get_file_metadata(file_id=file_id)
+        if not files:
+            raise HTTPException(status_code=404, detail="File not found")
+        
+        file_data = files[0]
+        file_path = file_data.get("Raw_Storage_Path")
+        
+        # Delete from disk
+        if file_path and os.path.exists(file_path):
+            try:
+                os.remove(file_path)
+                logger.info(f"🗑️ Deleted file from disk: {file_path}")
+            except Exception as e:
+                logger.error(f"❌ Failed to delete file from disk: {e}")
+                # We proceed to delete metadata anyway
+
+        # Delete from DB
+        success = delete_file_data(file_id)
+        
+        if success:
+            return JSONResponse(content={"message": "File and logs deleted successfully"}, status_code=200)
+        else:
+            raise HTTPException(status_code=500, detail="Failed to delete file data")
+            
+    except HTTPException as e:
+        raise e
+    except Exception as e:
+        logger.error(f"❌ Delete failed: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
 if __name__ == "__main__":

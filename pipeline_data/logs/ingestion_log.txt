@@ -691,3 +691,44 @@ Please retry in 14.936433536s. [links {
 2026-02-17 16:41:22,906 - INFO - ✅ RAG Indexing Complete
 2026-02-17 16:41:22,907 - INFO - 🔄 Updated file metadata for: 01346c58-ce3e-4179-a164-6a07dcf4291f_test.log
 2026-02-17 16:41:22,907 - INFO - 📊 Processed 1 log files in LARGE-SCALE mode.
+2026-02-17 16:54:56,798 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
+2026-02-17 16:54:56,799 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
+2026-02-17 16:54:56,807 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-02-17 16:54:56,853 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-17 16:54:56,913 - INFO - Use pytorch device_name: mps
+2026-02-17 16:54:56,914 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-17 16:55:00,828 - INFO - 🤖 Agent initialized successfully.
+2026-02-17 16:55:01,085 - INFO - ✅ Connected to MongoDB at mongodb+srv://nileshroy_db_user:Nexu696969@biriyani.f9ghawi.mongodb.net/
+2026-02-17 17:07:49,410 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
+2026-02-17 17:07:49,411 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
+2026-02-17 17:07:49,420 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-02-17 17:07:49,450 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-17 17:07:49,471 - INFO - Use pytorch device_name: mps
+2026-02-17 17:07:49,472 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-17 17:07:59,573 - WARNING - '(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 29cbc409-36bb-412d-9bda-ae45edb759d5)')' thrown while requesting HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/./modules.json
+2026-02-17 17:07:59,573 - WARNING - Retrying in 1s [Retry 1/5].
+2026-02-17 17:08:14,762 - INFO - 🤖 Agent initialized successfully.
+2026-02-17 17:08:15,059 - INFO - ✅ Connected to MongoDB at mongodb+srv://nileshroy_db_user:Nexu696969@biriyani.f9ghawi.mongodb.net/
+2026-02-17 17:08:51,534 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
+2026-02-17 17:08:51,534 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
+2026-02-17 17:08:51,543 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-02-17 17:08:51,575 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-17 17:08:51,592 - INFO - Use pytorch device_name: mps
+2026-02-17 17:08:51,592 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-17 17:09:13,282 - WARNING - '(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 91a29109-3990-46bd-91a8-2304b8ae46c9)')' thrown while requesting HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json
+2026-02-17 17:09:13,282 - WARNING - Retrying in 1s [Retry 1/5].
+2026-02-17 17:09:18,462 - INFO - 🤖 Agent initialized successfully.
+2026-02-17 17:09:18,465 - INFO - Backing off send_request(...) for 0.2s (requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='us.i.posthog.com', port=443): Read timed out. (read timeout=15))
+2026-02-17 17:09:18,718 - INFO - ✅ Connected to MongoDB at mongodb+srv://nileshroy_db_user:Nexu696969@biriyani.f9ghawi.mongodb.net/
+2026-02-17 17:09:43,433 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
+2026-02-17 17:09:43,434 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
+2026-02-17 17:09:43,442 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-02-17 17:09:43,473 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-17 17:09:43,488 - INFO - Use pytorch device_name: mps
+2026-02-17 17:09:43,488 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-17 17:10:27,267 - INFO - 🤖 Agent initialized successfully.
+2026-02-17 17:10:27,589 - INFO - ✅ Connected to MongoDB at mongodb+srv://nileshroy_db_user:Nexu696969@biriyani.f9ghawi.mongodb.net/
+2026-02-17 17:11:59,132 - INFO - 🗑️ Deleted File metadata (1), Logs (0), Vulns (0) for ID: 140a4876-89bc-438b-b7c2-9f563d0a3de8
+2026-02-17 17:12:01,247 - INFO - 🗑️ Deleted File metadata (1), Logs (0), Vulns (0) for ID: ca92be9c-5810-4a04-a942-778b8c99b7c7
+2026-02-17 17:12:03,201 - INFO - 🗑️ Deleted File metadata (1), Logs (0), Vulns (0) for ID: AUDIT-260217111639
+2026-02-17 17:13:27,234 - INFO - 🗑️ Deleted File metadata (1), Logs (1), Vulns (0) for ID: 01346c58-ce3e-4179-a164-6a07dcf4291f
