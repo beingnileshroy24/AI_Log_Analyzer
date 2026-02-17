@@ -11,7 +11,8 @@ from typing import List, Optional
 
 # Import Pipeline Components
 from pipeline.config.settings import (
-    INCOMING_DIR, STAGING_DIR, PROCESSED_DIR, setup_logging, setup_directories
+    INCOMING_DIR, STAGING_DIR, PROCESSED_DIR, CLUSTER_FOLDERS, DOCUMENT_TYPES,
+    setup_logging, setup_directories
 )
 # Ensure directories exist
 setup_directories()
@@ -282,15 +283,27 @@ def trigger_scan():
     try:
         # Reuse the logic from agent's scan tool or calls scanner directly
         results = []
-        scan_dirs = [PROCESSED_DIR, STAGING_DIR]
+        # STAGING_DIR is inside PROCESSED_DIR, so just scan PROCESSED_DIR
+        scan_dirs = [PROCESSED_DIR]
         
+        # Define directories to exclude (non-log files)
+        excluded_dirs = list(DOCUMENT_TYPES.keys()) + ["structured_data", "other_document"]
+
         count = 0
         issues = 0
         
         for directory in scan_dirs:
             if not os.path.exists(directory): continue
             
-            for root, _, files_list in os.walk(directory):
+            for root, dirs, files_list in os.walk(directory):
+                # Filter directories to skip non-log folders
+                # We modify 'dirs' in-place to prevent os.walk from entering them
+                dirs[:] = [d for d in dirs if d not in excluded_dirs]
+                
+                # Double check: if we are somehow IN an excluded directory (e.g. root was one), skip
+                if any(ex in root for ex in excluded_dirs):
+                    continue
+
                 for file in files_list:
                     if file.startswith('.'): continue
                     path = os.path.join(root, file)
@@ -308,10 +321,18 @@ def trigger_scan():
                     except Exception:
                         pass
                         
+        # Flatten results for frontend consumption
+        flat_findings = []
+        for res in results:
+            filename = res["file"]
+            for f in res["findings"]:
+                f["file"] = filename
+                flat_findings.append(f)
+
         return {
             "message": f"Scan complete. Scanned {count} files.",
             "issues_found": issues,
-            "results": results
+            "findings": flat_findings
         }
 
     except Exception as e:

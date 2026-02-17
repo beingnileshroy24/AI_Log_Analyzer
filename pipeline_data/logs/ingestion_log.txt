@@ -30,3 +30,664 @@
 2026-02-16 19:58:12,753 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
 2026-02-16 19:58:19,980 - INFO - 🤖 Agent initialized successfully.
 2026-02-16 19:58:20,225 - INFO - ✅ Connected to MongoDB at mongodb+srv://nileshroy_db_user:Nexu696969@biriyani.f9ghawi.mongodb.net/
+2026-02-17 11:09:59,251 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
+2026-02-17 11:09:59,251 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
+2026-02-17 11:09:59,260 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-02-17 11:09:59,318 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-17 11:09:59,367 - INFO - Use pytorch device_name: mps
+2026-02-17 11:09:59,367 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-17 11:10:03,390 - INFO - 🤖 Agent initialized successfully.
+2026-02-17 11:10:03,641 - INFO - ✅ Connected to MongoDB at mongodb+srv://nileshroy_db_user:Nexu696969@biriyani.f9ghawi.mongodb.net/
+2026-02-17 11:10:36,052 - INFO - ✅ File uploaded: Apache_2k.log -> /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/incoming/ca92be9c-5810-4a04-a942-778b8c99b7c7_Apache_2k.log
+2026-02-17 11:10:36,053 - INFO - ✅ Read text file: ca92be9c-5810-4a04-a942-778b8c99b7c7_Apache_2k.log
+2026-02-17 11:10:36,100 - INFO - ✅ File classifier initialized
+2026-02-17 11:10:36,100 - INFO -    ⚡ Fast-path: Identified as log based on extension & content
+2026-02-17 11:10:36,100 - INFO -    🎯 Final File type: log
+2026-02-17 11:10:36,102 - INFO - 💾 Inserted file metadata: ca92be9c-5810-4a04-a942-778b8c99b7c7
+2026-02-17 11:10:38,195 - INFO - 🚀 Pipeline started in 'large' mode
+2026-02-17 11:10:38,195 - INFO - ✅ Read text file: ca92be9c-5810-4a04-a942-778b8c99b7c7_Apache_2k.log
+2026-02-17 11:10:38,195 - INFO - ✅ File classifier initialized
+2026-02-17 11:10:38,195 - INFO -    ⚡ Fast-path: Identified as log based on extension & content
+2026-02-17 11:10:38,195 - INFO -    🎯 Final File type: log
+2026-02-17 11:10:38,195 - INFO - 🔗 Reusing existing UUID from filename: ca92be9c-5810-4a04-a942-778b8c99b7c7_Apache_2k.log
+2026-02-17 11:10:38,195 - INFO - ✅ Log file moved to staging: ca92be9c-5810-4a04-a942-778b8c99b7c7_Apache_2k.log
+2026-02-17 11:10:38,196 - INFO - 💾 Inserted file metadata: ca92be9c-5810-4a04-a942-778b8c99b7c7
+2026-02-17 11:10:38,196 - INFO - 🧠 Processing 1 log files through AI pipeline...
+2026-02-17 11:10:38,196 - INFO - 🚀 STARTING LARGE SCALE PIPELINE (Summarization + Sorting)
+2026-02-17 11:10:38,196 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
+2026-02-17 11:10:38,196 - INFO - Initializing Optimized Keyword Summarizer (MMR) with: sentence-transformers/all-MiniLM-L6-v2
+2026-02-17 11:10:38,196 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-17 11:10:38,196 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-17 11:10:38,196 - INFO - 🧠 Summarizing single file: ca92be9c-5810-4a04-a942-778b8c99b7c7_Apache_2k.log
+2026-02-17 11:10:38,196 - INFO - ✅ Read text file: ca92be9c-5810-4a04-a942-778b8c99b7c7_Apache_2k.log
+2026-02-17 11:10:38,196 - INFO - ✅ File classifier initialized
+2026-02-17 11:10:38,196 - INFO -    ⚡ Fast-path: Identified as log based on extension & content
+2026-02-17 11:10:38,196 - INFO -    🎯 Final File type: log
+2026-02-17 11:10:38,197 - INFO - ✅ Summarizer received content of type: <class 'str'>
+2026-02-17 11:10:38,881 - INFO - ✅ Extracted Keywords: Total Entries: 2000. Keywords: notice jk2_init, child workerenv, scoreboard slot, error state, httpd...
+2026-02-17 11:10:38,881 - INFO - 📐 Generating Embeddings for 1 files...
+2026-02-17 11:10:38,903 - INFO - 📂 Organizing files into final categories...
+2026-02-17 11:10:38,906 - INFO -    👉 Moved ca92be9c-5810-4a04-a942-778b8c99b7c7_Apache_2k.log -> app_log/
+2026-02-17 11:10:38,908 - INFO - ✅ Cluster Report Saved: /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/processed/file_level_clusters.csv
+2026-02-17 11:10:38,909 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
+2026-02-17 11:10:38,910 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-17 11:10:38,955 - INFO -    📋 Indexed metadata into Vector DB for ca92be9c-5810-4a04-a942-778b8c99b7c7_Apache_2k.log
+2026-02-17 11:10:38,955 - INFO - ✅ File metadata indexed into Vector DB
+2026-02-17 11:10:38,955 - INFO - 🧠 Indexing files into RAG Vector Store...
+2026-02-17 11:10:38,955 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
+2026-02-17 11:10:38,956 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-17 11:10:38,967 - INFO -    Indexed summary for ca92be9c-5810-4a04-a942-778b8c99b7c7_Apache_2k.log
+2026-02-17 11:10:38,967 - INFO -    Start chunking and indexing full log content...
+2026-02-17 11:10:38,990 - INFO -    🧠 Analyzing 595 events from ca92be9c-5810-4a04-a942-778b8c99b7c7_Apache_2k.log...
+2026-02-17 11:10:38,990 - INFO -    ⚡ Deduplicated 595 events to 378 unique incidents
+2026-02-17 11:11:38,997 - WARNING - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised DeadlineExceeded: 504 Deadline Exceeded.
+2026-02-17 11:11:55,627 - WARNING - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 4.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
+Please retry in 4.622166525s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 20
+}
+, retry_delay {
+  seconds: 4
+}
+].
+2026-02-17 11:12:00,042 - ERROR - ❌ LLM incident analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
+Please retry in 257.148783ms. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 20
+}
+, retry_delay {
+}
+]
+2026-02-17 11:12:00,405 - WARNING - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
+Please retry in 59.843144894s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 20
+}
+, retry_delay {
+  seconds: 59
+}
+].
+2026-02-17 11:12:02,805 - WARNING - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 4.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
+Please retry in 57.481847678s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 20
+}
+, retry_delay {
+  seconds: 57
+}
+].
+2026-02-17 11:12:07,210 - ERROR - ❌ LLM incident analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
+Please retry in 53.073833921s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 20
+}
+, retry_delay {
+  seconds: 53
+}
+]
+2026-02-17 11:12:07,565 - WARNING - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
+Please retry in 52.676458412s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 20
+}
+, retry_delay {
+  seconds: 52
+}
+].
+2026-02-17 11:12:09,922 - WARNING - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 4.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
+Please retry in 50.309405244s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 20
+}
+, retry_delay {
+  seconds: 50
+}
+].
+2026-02-17 11:12:14,251 - ERROR - ❌ LLM incident analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
+Please retry in 45.968853635s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 20
+}
+, retry_delay {
+  seconds: 45
+}
+]
+2026-02-17 11:12:14,594 - WARNING - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
+Please retry in 45.642689364s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 20
+}
+, retry_delay {
+  seconds: 45
+}
+].
+2026-02-17 11:12:16,994 - WARNING - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 4.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
+Please retry in 43.287439147s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 20
+}
+, retry_delay {
+  seconds: 43
+}
+].
+2026-02-17 11:12:21,347 - ERROR - ❌ LLM incident analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
+Please retry in 38.892502997s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 20
+}
+, retry_delay {
+  seconds: 38
+}
+]
+2026-02-17 11:12:21,690 - WARNING - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
+Please retry in 38.544744554s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 20
+}
+, retry_delay {
+  seconds: 38
+}
+].
+2026-02-17 11:12:24,045 - WARNING - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 4.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
+Please retry in 36.196608754s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 20
+}
+, retry_delay {
+  seconds: 36
+}
+].
+2026-02-17 11:12:28,372 - ERROR - ❌ LLM incident analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
+Please retry in 31.848493276s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 20
+}
+, retry_delay {
+  seconds: 31
+}
+]
+2026-02-17 11:12:28,734 - WARNING - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
+Please retry in 31.511456821s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 20
+}
+, retry_delay {
+  seconds: 31
+}
+].
+2026-02-17 11:12:31,068 - WARNING - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 4.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
+Please retry in 29.161192675s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 20
+}
+, retry_delay {
+  seconds: 29
+}
+].
+2026-02-17 11:12:35,471 - ERROR - ❌ LLM incident analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
+Please retry in 24.821911875s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 20
+}
+, retry_delay {
+  seconds: 24
+}
+]
+2026-02-17 11:12:35,804 - WARNING - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
+Please retry in 24.421803237s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 20
+}
+, retry_delay {
+  seconds: 24
+}
+].
+2026-02-17 11:12:38,151 - WARNING - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 4.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
+Please retry in 22.083034938s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 20
+}
+, retry_delay {
+  seconds: 22
+}
+].
+2026-02-17 11:12:42,494 - ERROR - ❌ LLM incident analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
+Please retry in 17.743647106s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 20
+}
+, retry_delay {
+  seconds: 17
+}
+]
+2026-02-17 11:12:42,947 - WARNING - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
+Please retry in 17.393916761s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 20
+}
+, retry_delay {
+  seconds: 17
+}
+].
+2026-02-17 11:12:45,305 - WARNING - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 4.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
+Please retry in 14.936433536s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 20
+}
+, retry_delay {
+  seconds: 14
+}
+].
+2026-02-17 11:13:42,295 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
+2026-02-17 11:13:42,295 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
+2026-02-17 11:13:42,303 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-02-17 11:13:42,333 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-17 11:13:42,345 - INFO - Use pytorch device_name: mps
+2026-02-17 11:13:42,345 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-17 11:13:46,393 - INFO - 🤖 Agent initialized successfully.
+2026-02-17 11:13:46,703 - INFO - ✅ Connected to MongoDB at mongodb+srv://nileshroy_db_user:Nexu696969@biriyani.f9ghawi.mongodb.net/
+2026-02-17 11:14:01,504 - INFO - ✅ File uploaded: Best Biryani Delivery Restaurants in Bengaluru _ Order Online.pdf -> /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/incoming/140a4876-89bc-438b-b7c2-9f563d0a3de8_Best Biryani Delivery Restaurants in Bengaluru _ Order Online.pdf
+2026-02-17 11:14:02,125 - INFO - ✅ Parsed PDF: 140a4876-89bc-438b-b7c2-9f563d0a3de8_Best Biryani Delivery Restaurants in Bengaluru _ Order Online.pdf
+2026-02-17 11:14:02,146 - INFO - ✅ File classifier initialized
+2026-02-17 11:14:02,146 - INFO - 🤖 Loading file classifier: facebook/bart-large-mnli on CPU...
+2026-02-17 11:14:03,185 - INFO - ✅ File classifier loaded successfully on CPU
+2026-02-17 11:14:17,315 - INFO -    📋 Classified as: log (confidence: 0.16)
+2026-02-17 11:14:17,315 - WARNING -    ⚠️ Low confidence log classification (0.16) and NO log keywords found. Reclassifying as 'other_document'.
+2026-02-17 11:14:17,315 - INFO -    🎯 Final File type: other_document
+2026-02-17 11:14:17,317 - INFO - 💾 Inserted file metadata: 140a4876-89bc-438b-b7c2-9f563d0a3de8
+2026-02-17 11:16:26,301 - INFO - 🚀 Pipeline started in 'large' mode
+2026-02-17 11:16:27,055 - INFO - ✅ Parsed PDF: 140a4876-89bc-438b-b7c2-9f563d0a3de8_Best Biryani Delivery Restaurants in Bengaluru _ Order Online.pdf
+2026-02-17 11:16:27,057 - INFO - ✅ File classifier initialized
+2026-02-17 11:16:39,028 - INFO -    📋 Classified as: log (confidence: 0.16)
+2026-02-17 11:16:39,029 - WARNING -    ⚠️ Low confidence log classification (0.16) and NO log keywords found. Reclassifying as 'other_document'.
+2026-02-17 11:16:39,029 - INFO -    🎯 Final File type: other_document
+2026-02-17 11:16:39,029 - INFO - 🔗 Reusing existing UUID from filename: 140a4876-89bc-438b-b7c2-9f563d0a3de8_Best Biryani Delivery Restaurants in Bengaluru _ Order Online.pdf
+2026-02-17 11:16:39,029 - INFO - 📄 Document moved to other_document/ folder: 140a4876-89bc-438b-b7c2-9f563d0a3de8_Best Biryani Delivery Restaurants in Bengaluru _ Order Online.pdf
+2026-02-17 11:16:39,031 - INFO - 💾 Inserted file metadata: AUDIT-260217111639
+2026-02-17 11:16:39,031 - INFO - ℹ️ No log files to process through AI pipeline.
+2026-02-17 11:16:39,031 - INFO - ✅ Classified and stored 1 documents:
+2026-02-17 11:16:39,031 - INFO -    • 140a4876-89bc-438b-b7c2-9f563d0a3de8_Best Biryani Delivery Restaurants in Bengaluru _ Order Online.pdf → other_document/
+2026-02-17 16:31:48,911 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
+2026-02-17 16:31:48,912 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
+2026-02-17 16:31:48,920 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-02-17 16:31:48,994 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-17 16:31:49,049 - INFO - Use pytorch device_name: mps
+2026-02-17 16:31:49,050 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-17 16:31:52,915 - INFO - 🤖 Agent initialized successfully.
+2026-02-17 16:31:53,245 - INFO - ✅ Connected to MongoDB at mongodb+srv://nileshroy_db_user:Nexu696969@biriyani.f9ghawi.mongodb.net/
+2026-02-17 16:32:01,202 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
+2026-02-17 16:32:01,203 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
+2026-02-17 16:32:01,211 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-02-17 16:32:01,242 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-17 16:32:01,255 - INFO - Use pytorch device_name: mps
+2026-02-17 16:32:01,255 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-17 16:32:05,201 - INFO - 🤖 Agent initialized successfully.
+2026-02-17 16:32:05,568 - INFO - ✅ Connected to MongoDB at mongodb+srv://nileshroy_db_user:Nexu696969@biriyani.f9ghawi.mongodb.net/
+2026-02-17 16:32:44,428 - INFO - ✅ No vulnerabilities found in /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/processed/file_level_clusters.csv
+2026-02-17 16:32:54,447 - WARNING - ⚠️ Found 1973 potential vulnerabilities in /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/processed/other_document/140a4876-89bc-438b-b7c2-9f563d0a3de8_Best Biryani Delivery Restaurants in Bengaluru _ Order Online.pdf
+2026-02-17 16:38:05,156 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
+2026-02-17 16:38:05,156 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
+2026-02-17 16:38:05,165 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-02-17 16:38:05,243 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-17 16:38:05,262 - INFO - Use pytorch device_name: mps
+2026-02-17 16:38:05,262 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-17 16:38:10,340 - INFO - 🤖 Agent initialized successfully.
+2026-02-17 16:38:10,589 - INFO - ✅ Connected to MongoDB at mongodb+srv://nileshroy_db_user:Nexu696969@biriyani.f9ghawi.mongodb.net/
+2026-02-17 16:41:08,036 - INFO - ✅ File uploaded: test.log -> /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/incoming/01346c58-ce3e-4179-a164-6a07dcf4291f_test.log
+2026-02-17 16:41:08,037 - INFO - ✅ Read text file: 01346c58-ce3e-4179-a164-6a07dcf4291f_test.log
+2026-02-17 16:41:08,091 - INFO - ✅ File classifier initialized
+2026-02-17 16:41:08,091 - INFO -    ⚡ Fast-path: Identified as log based on extension & content
+2026-02-17 16:41:08,091 - INFO -    🎯 Final File type: log
+2026-02-17 16:41:08,094 - INFO - 💾 Inserted file metadata: 01346c58-ce3e-4179-a164-6a07dcf4291f
+2026-02-17 16:41:09,464 - INFO - 🚀 Pipeline started in 'large' mode
+2026-02-17 16:41:09,464 - INFO - ✅ Read text file: 01346c58-ce3e-4179-a164-6a07dcf4291f_test.log
+2026-02-17 16:41:09,464 - INFO - ✅ File classifier initialized
+2026-02-17 16:41:09,464 - INFO -    ⚡ Fast-path: Identified as log based on extension & content
+2026-02-17 16:41:09,464 - INFO -    🎯 Final File type: log
+2026-02-17 16:41:09,464 - INFO - 🔗 Reusing existing UUID from filename: 01346c58-ce3e-4179-a164-6a07dcf4291f_test.log
+2026-02-17 16:41:09,465 - INFO - ✅ Log file moved to staging: 01346c58-ce3e-4179-a164-6a07dcf4291f_test.log
+2026-02-17 16:41:09,465 - INFO - 💾 Inserted file metadata: 01346c58-ce3e-4179-a164-6a07dcf4291f
+2026-02-17 16:41:09,465 - INFO - 🧠 Processing 1 log files through AI pipeline...
+2026-02-17 16:41:09,465 - INFO - 🚀 STARTING LARGE SCALE PIPELINE (Summarization + Sorting)
+2026-02-17 16:41:09,466 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
+2026-02-17 16:41:09,466 - INFO - Initializing Optimized Keyword Summarizer (MMR) with: sentence-transformers/all-MiniLM-L6-v2
+2026-02-17 16:41:09,466 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-17 16:41:09,466 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-17 16:41:09,466 - INFO - 🧠 Summarizing single file: 01346c58-ce3e-4179-a164-6a07dcf4291f_test.log
+2026-02-17 16:41:09,466 - INFO - ✅ Read text file: 01346c58-ce3e-4179-a164-6a07dcf4291f_test.log
+2026-02-17 16:41:09,466 - INFO - ✅ File classifier initialized
+2026-02-17 16:41:09,466 - INFO -    ⚡ Fast-path: Identified as log based on extension & content
+2026-02-17 16:41:09,466 - INFO -    🎯 Final File type: log
+2026-02-17 16:41:09,466 - INFO - ✅ Summarizer received content of type: <class 'str'>
+2026-02-17 16:41:10,041 - INFO - ✅ Extracted Keywords: Total Entries: 2. Keywords: refused database, shadow access, crit client, 168 connection, access att...
+2026-02-17 16:41:10,042 - INFO - 📐 Generating Embeddings for 1 files...
+2026-02-17 16:41:10,068 - INFO - 📂 Organizing files into final categories...
+2026-02-17 16:41:10,072 - INFO -    👉 Moved 01346c58-ce3e-4179-a164-6a07dcf4291f_test.log -> governance_log/
+2026-02-17 16:41:10,076 - INFO - ✅ Cluster Report Saved: /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/processed/file_level_clusters.csv
+2026-02-17 16:41:10,076 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
+2026-02-17 16:41:10,078 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-17 16:41:10,122 - INFO -    📋 Indexed metadata into Vector DB for 01346c58-ce3e-4179-a164-6a07dcf4291f_test.log
+2026-02-17 16:41:10,122 - INFO - ✅ File metadata indexed into Vector DB
+2026-02-17 16:41:10,122 - INFO - 🧠 Indexing files into RAG Vector Store...
+2026-02-17 16:41:10,122 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
+2026-02-17 16:41:10,123 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-17 16:41:10,141 - INFO -    Indexed summary for 01346c58-ce3e-4179-a164-6a07dcf4291f_test.log
+2026-02-17 16:41:10,141 - INFO -    Start chunking and indexing full log content...
+2026-02-17 16:41:10,144 - INFO -    🧠 Analyzing 1 events from 01346c58-ce3e-4179-a164-6a07dcf4291f_test.log...
+2026-02-17 16:41:10,144 - INFO -    ⚡ Deduplicated 1 events to 1 unique incidents
+2026-02-17 16:41:22,792 - INFO - 💾 Saved 1 events to Log_extraction.
+2026-02-17 16:41:22,792 - INFO -    💾 Saved 1 events to Log_extraction for 01346c58-ce3e-4179-a164-6a07dcf4291f_test.log
+2026-02-17 16:41:22,889 - INFO -    📊 Indexed 1 events into Vector DB for 01346c58-ce3e-4179-a164-6a07dcf4291f_test.log
+2026-02-17 16:41:22,906 - INFO -    Indexed batch 1 (1 chunks) for 01346c58-ce3e-4179-a164-6a07dcf4291f_test.log
+2026-02-17 16:41:22,906 - INFO -    Indexed total 1 chunks for 01346c58-ce3e-4179-a164-6a07dcf4291f_test.log
+2026-02-17 16:41:22,906 - INFO - ✅ RAG Indexing Complete
+2026-02-17 16:41:22,907 - INFO - 🔄 Updated file metadata for: 01346c58-ce3e-4179-a164-6a07dcf4291f_test.log
+2026-02-17 16:41:22,907 - INFO - 📊 Processed 1 log files in LARGE-SCALE mode.
