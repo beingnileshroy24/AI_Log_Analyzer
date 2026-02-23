@@ -1027,3 +1027,35 @@ Please retry in 14.936433536s. [links {
 2026-02-23 12:52:58,186 - INFO - ✅ RAG Indexing Complete
 2026-02-23 12:52:58,186 - INFO - 🔄 Updated file metadata for: b62b2325-735f-4815-ad1c-f567dbcb053c_sample_test.log
 2026-02-23 12:52:58,186 - INFO - 📊 Processed 1 log files in LARGE-SCALE mode.
+2026-02-23 13:40:32,969 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
+2026-02-23 13:40:32,970 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
+2026-02-23 13:40:32,978 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-02-23 13:40:33,007 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-23 13:40:33,023 - INFO - Use pytorch device_name: mps
+2026-02-23 13:40:33,023 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-23 13:40:36,951 - INFO - 🤖 Agent initialized successfully.
+2026-02-23 13:40:37,203 - INFO - ✅ Connected to MongoDB at mongodb+srv://nileshroy_db_user:Nexu696969@biriyani.f9ghawi.mongodb.net/
+2026-02-23 13:41:11,138 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
+2026-02-23 13:41:11,138 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
+2026-02-23 13:41:11,146 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-02-23 13:41:11,175 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-23 13:41:11,188 - INFO - Use pytorch device_name: mps
+2026-02-23 13:41:11,188 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-23 13:41:14,933 - INFO - 🤖 Agent initialized successfully.
+2026-02-23 13:41:15,241 - INFO - ✅ Connected to MongoDB at mongodb+srv://nileshroy_db_user:Nexu696969@biriyani.f9ghawi.mongodb.net/
+2026-02-23 13:41:31,834 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
+2026-02-23 13:41:31,834 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
+2026-02-23 13:41:31,842 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-02-23 13:41:31,871 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-23 13:41:31,884 - INFO - Use pytorch device_name: mps
+2026-02-23 13:41:31,884 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-23 13:41:41,443 - INFO - 🤖 Agent initialized successfully.
+2026-02-23 13:41:41,762 - INFO - ✅ Connected to MongoDB at mongodb+srv://nileshroy_db_user:Nexu696969@biriyani.f9ghawi.mongodb.net/
+2026-02-23 13:41:51,939 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
+2026-02-23 13:41:51,940 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
+2026-02-23 13:41:51,947 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-02-23 13:41:51,977 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-23 13:41:51,991 - INFO - Use pytorch device_name: mps
+2026-02-23 13:41:51,991 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-23 13:41:56,128 - INFO - 🤖 Agent initialized successfully.
+2026-02-23 13:41:56,414 - INFO - ✅ Connected to MongoDB at mongodb+srv://nileshroy_db_user:Nexu696969@biriyani.f9ghawi.mongodb.net/

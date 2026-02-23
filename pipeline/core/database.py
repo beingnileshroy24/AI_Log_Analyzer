@@ -28,6 +28,7 @@ def init_db():
                 LogMessage TEXT,
                 Severity TEXT,
                 Resolution TEXT,
+                ResolutionSummary TEXT,
                 ReferenceURL TEXT,
                 LoggedOn TEXT,
                 CreatedBy TEXT,
@@ -36,6 +37,12 @@ def init_db():
                 UpdatedOn TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             )
         """)
+        
+        # Add ResolutionSummary to existing Log_extraction table
+        try:
+            cursor.execute("ALTER TABLE Log_extraction ADD COLUMN ResolutionSummary TEXT")
+        except sqlite3.OperationalError:
+            pass
         
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_FileID ON Log_extraction (FileID)")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_LogEntryType ON Log_extraction (LogEntryType)")
@@ -74,12 +81,19 @@ def init_db():
                 LogMessage TEXT,
                 Severity TEXT,
                 Solution TEXT,
+                ResolutionSummary TEXT,
                 ReferenceURL TEXT,
                 LoggedOn TEXT,
                 AnalyzedOn TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                 CreatedBy TEXT
             )
         """)
+        
+        # Add ResolutionSummary to existing Vulnerability_Analysis table
+        try:
+            cursor.execute("ALTER TABLE Vulnerability_Analysis ADD COLUMN ResolutionSummary TEXT")
+        except sqlite3.OperationalError:
+            pass
         
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_Vuln_FileID ON Vulnerability_Analysis (FileID)")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_Vuln_Type ON Vulnerability_Analysis (VulnerabilityType)")
@@ -92,10 +106,18 @@ def init_db():
                 LogSignature TEXT UNIQUE,
                 Severity TEXT,
                 Resolution TEXT,
+                ResolutionSummary TEXT,
                 ReferenceURL TEXT,
                 CreatedOn TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             )
         """)
+        
+        # Add ResolutionSummary to existing Resolution_Cache table
+        try:
+            cursor.execute("ALTER TABLE Resolution_Cache ADD COLUMN ResolutionSummary TEXT")
+        except sqlite3.OperationalError:
+            pass
+            
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_LogSignature ON Resolution_Cache (LogSignature)")
         
         conn.commit()
@@ -118,10 +140,10 @@ def insert_log_events(events: List[Dict[str, Any]]):
         
         query = """
             INSERT INTO Log_extraction (
-                FileID, LogEntryType, LogMessage, Severity, Resolution, ReferenceURL, 
+                FileID, LogEntryType, LogMessage, Severity, Resolution, ResolutionSummary, ReferenceURL, 
                 LoggedOn, CreatedBy, UpdatedBy
             )
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """
         
         current_user = getpass.getuser()
@@ -133,6 +155,7 @@ def insert_log_events(events: List[Dict[str, Any]]):
                 e.get("LogMessage"),
                 e.get("Severity", "Medium"),
                 e.get("Resolution", None),
+                e.get("ResolutionSummary", None),
                 e.get("ReferenceURL", None),
                 e.get("LoggedOn"), # Original timestamp from log
                 current_user,      # CreatedBy
@@ -301,9 +324,9 @@ def insert_vulnerability_analysis(entries: List[Dict[str, Any]]):
         query = """
             INSERT INTO Vulnerability_Analysis (
                 FileID, VulnerabilityType, LogMessage, Severity,
-                Solution, ReferenceURL, LoggedOn, CreatedBy
+                Solution, ResolutionSummary, ReferenceURL, LoggedOn, CreatedBy
             )
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
         """
         
         current_user = getpass.getuser()
@@ -315,6 +338,7 @@ def insert_vulnerability_analysis(entries: List[Dict[str, Any]]):
                 e.get('LogMessage'),
                 e.get('Severity'),
                 e.get('Solution'),
+                e.get('ResolutionSummary'),
                 e.get('ReferenceURL'),
                 e.get('LoggedOn'),
                 current_user
@@ -376,14 +400,15 @@ def get_resolution_from_cache(log_signature: str):
         conn = get_connection()
         cursor = conn.cursor()
         
-        cursor.execute("SELECT Severity, Resolution, ReferenceURL FROM Resolution_Cache WHERE LogSignature = ?", (log_signature,))
+        cursor.execute("SELECT Severity, Resolution, ResolutionSummary, ReferenceURL FROM Resolution_Cache WHERE LogSignature = ?", (log_signature,))
         row = cursor.fetchone()
         
         if row:
             return {
                 "severity": row[0],
                 "solution": row[1],
-                "reference_url": row[2]
+                "summary": row[2],
+                "reference_url": row[3]
             }
         return None
     except Exception as e:
@@ -393,7 +418,7 @@ def get_resolution_from_cache(log_signature: str):
         if conn:
             conn.close()
 
-def cache_resolution(log_signature: str, severity: str, resolution: str, reference_url: str):
+def cache_resolution(log_signature: str, severity: str, resolution: str, summary: str, reference_url: str):
     """Store resolution in cache."""
     conn = None
     try:
@@ -401,9 +426,9 @@ def cache_resolution(log_signature: str, severity: str, resolution: str, referen
         cursor = conn.cursor()
         
         cursor.execute("""
-            INSERT OR IGNORE INTO Resolution_Cache (LogSignature, Severity, Resolution, ReferenceURL)
-            VALUES (?, ?, ?, ?)
-        """, (log_signature, severity, resolution, reference_url))
+            INSERT OR IGNORE INTO Resolution_Cache (LogSignature, Severity, Resolution, ResolutionSummary, ReferenceURL)
+            VALUES (?, ?, ?, ?, ?)
+        """, (log_signature, severity, resolution, summary, reference_url))
         
         conn.commit()
     except Exception as e:

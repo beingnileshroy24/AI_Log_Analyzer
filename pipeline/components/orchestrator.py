@@ -237,6 +237,7 @@ def run_large_scale_pipeline():
                         event["FileID"] = db_file_id # Use UUID
                         event["Severity"] = analysis["severity"]
                         event["Resolution"] = analysis["solution"]
+                        event["ResolutionSummary"] = analysis.get("summary", "")
                         event["ReferenceURL"] = analysis["reference_url"]
                         events_for_db.append(event)
                 
@@ -253,6 +254,7 @@ def run_large_scale_pipeline():
                         
                         vuln["Severity"] = analysis["severity"]
                         vuln["Solution"] = analysis["solution"]
+                        vuln["ResolutionSummary"] = analysis.get("summary", "")
                         vuln["ReferenceURL"] = analysis["reference_url"]
                         analyzed_vulns.append(vuln)
                         
@@ -263,6 +265,7 @@ def run_large_scale_pipeline():
                             "LogMessage": vuln["LogMessage"],
                             "Severity": vuln["Severity"],
                             "Resolution": vuln["Solution"],
+                            "ResolutionSummary": vuln.get("ResolutionSummary", ""),
                             "ReferenceURL": vuln["ReferenceURL"],
                             "LoggedOn": vuln["LoggedOn"]
                         })
