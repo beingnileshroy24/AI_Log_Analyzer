@@ -17,7 +17,7 @@ from ..models.vulnerability_scanner import VulnerabilityScanner
 from ..config.settings import PROCESSED_DIR, DOCUMENT_TYPES
 
 class LogAnalysisAgent:
-    def __init__(self, model_provider="google", model_name="gemini-2.5-flash"):
+    def __init__(self, model_provider="ollama", model_name="gemma3"):
         self.rag_db = RAGVectorDB()
         self.llm = self._setup_llm(model_provider, model_name)
         
@@ -30,7 +30,11 @@ class LogAnalysisAgent:
 
     def _setup_llm(self, provider, model_name):
         try:
-            if provider == "google":
+            if provider == "ollama":
+                from langchain_ollama import ChatOllama
+                logging.info(f"🦙 Using Ollama with model: {model_name}")
+                return ChatOllama(model=model_name, temperature=0)
+            elif provider == "google":
                  if not os.getenv("GOOGLE_API_KEY"):
                     logging.warning("⚠️ GOOGLE_API_KEY not found. Agent functions may fail.")
                  return ChatGoogleGenerativeAI(
@@ -44,13 +48,10 @@ class LogAnalysisAgent:
                     logging.warning("⚠️ OPENAI_API_KEY not found. Agent functions may fail.")
                 return ChatOpenAI(model=model_name, temperature=0, request_timeout=60)
             else:
-                 # Default to Google
-                 return ChatGoogleGenerativeAI(
-                     model="gemini-2.5-flash", 
-                     temperature=0,
-                     max_retries=3,
-                     request_timeout=60
-                 )
+                # Default fallback to Ollama
+                from langchain_ollama import ChatOllama
+                logging.info("🦙 Unknown provider, defaulting to Ollama gemma3")
+                return ChatOllama(model="gemma3", temperature=0)
         except Exception as e:
             logging.error(f"❌ Failed to initialize LLM: {e}")
             return None
@@ -205,21 +206,73 @@ class LogAnalysisAgent:
             
         return "\n".join(report)
 
+    def run_simple(self, user_input):
+        """
+        Simple RAG-based chat for Ollama models that don't support tool calling.
+        Fetches context from vector DB and injects it directly into the prompt.
+        """
+        if not self.llm:
+            return "Error: LLM not initialized."
+        try:
+            # 1. Retrieve relevant context from RAG vector DB
+            context_parts = []
+
+            # Search summaries
+            try:
+                summary_results = self.rag_db.query_summaries(user_input, n_results=3)
+                if summary_results['documents'] and summary_results['documents'][0]:
+                    context_parts.append("=== Log File Summaries ===")
+                    for i, doc in enumerate(summary_results['documents'][0]):
+                        meta = summary_results['metadatas'][0][i]
+                        fname = meta.get('filename', 'Unknown')
+                        context_parts.append(f"File: {fname}\nSummary: {doc}")
+            except Exception:
+                pass
+
+            # Search detailed chunks
+            try:
+                chunk_results = self.rag_db.query_chunks(user_input, n_results=3)
+                if chunk_results['documents'] and chunk_results['documents'][0]:
+                    context_parts.append("=== Relevant Log Details ===")
+                    for i, doc in enumerate(chunk_results['documents'][0]):
+                        meta = chunk_results['metadatas'][0][i]
+                        fname = meta.get('filename', 'Unknown')
+                        context_parts.append(f"File: {fname}\nContent: {doc}")
+            except Exception:
+                pass
+
+            context = "\n\n".join(context_parts) if context_parts else "No log data indexed yet."
+
+            # 2. Build prompt with context
+            prompt = f"""You are an AI Log Analyzer assistant. Use the following log context to answer the user's question.
+
+{context}
+
+User Question: {user_input}
+
+Answer based on the log context above. If the context doesn't contain enough information, say so."""
+
+            # 3. Call LLM directly (no tool calling)
+            response = self.llm.invoke(prompt)
+            return response.content
+
+        except Exception as e:
+            return f"Agent Error: {e}"
+
     def run(self, user_input):
         if not self.llm:
-            return "Error: LLM not initialized. Please check API keys."
+            return "Error: LLM not initialized. Please check that Ollama is running."
         try:
-            # LangGraph execution
+            # Use simple RAG mode for Ollama (no tool calling support)
+            if isinstance(self.llm, object) and "ChatOllama" in type(self.llm).__name__:
+                return self.run_simple(user_input)
+
+            # LangGraph ReAct agent for Google/OpenAI (supports tool calling)
             config = {"configurable": {"thread_id": self.thread_id}}
             inputs = {"messages": [("user", user_input)]}
-            
-            # Helper to stream or get final state. invoke returns final state.
             response = self.agent_executor.invoke(inputs, config=config)
-            
-            # Response is the state dict. 'messages' contains the conversation.
-            # Get the last message which should be AIMessage
             last_message = response["messages"][-1]
             return last_message.content
-            
+
         except Exception as e:
             return f"Agent Error: {e}"

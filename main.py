@@ -175,15 +175,28 @@ if __name__ == "__main__":
         try:
             from pipeline.agent.core import LogAnalysisAgent
             
-            # Default to Google
-            provider = "google"
-            model = "gemini-2.5-flash"
+            # Default to Ollama/Gemma3 - no API key required
+            provider = "ollama"
+            model = "gemma3"
             
-            # Simple CLI argument parsing for provider override (e.g. "python main.py agent --openai")
-            if "--openai" in sys.argv:
+            # Optional overrides via CLI flags
+            if "--google" in sys.argv:
+                provider = "google"
+                model = "gemini-2.5-flash"
+                print(f"🔍 Switching provider to Google Gemini ({model})")
+            elif "--openai" in sys.argv:
                 provider = "openai"
                 model = "gpt-4o-mini"
                 print(f"🔄 Switching provider to OpenAI ({model})")
+            elif "--ollama" in sys.argv:
+                provider = "ollama"
+                model = "gemma3"
+                # Allow custom model: python main.py agent --ollama gemma3:12b
+                for i, arg in enumerate(sys.argv):
+                    if arg == "--ollama" and i + 1 < len(sys.argv) and not sys.argv[i+1].startswith('-'):
+                        model = sys.argv[i + 1]
+            
+            print(f"🦙 Starting Agent with provider: {provider}, model: {model}")
 
             agent = LogAnalysisAgent(model_provider=provider, model_name=model) 
             

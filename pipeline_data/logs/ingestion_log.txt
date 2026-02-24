@@ -1,1288 +1,335 @@
-2026-02-16 19:57:11,837 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
-2026-02-16 19:57:11,837 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
-2026-02-16 19:57:11,847 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
-2026-02-16 19:57:11,881 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-16 19:57:11,896 - INFO - Use pytorch device_name: mps
-2026-02-16 19:57:11,896 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-16 19:57:23,786 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
-2026-02-16 19:57:23,786 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
-2026-02-16 19:57:23,794 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
-2026-02-16 19:57:23,825 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-16 19:57:23,839 - INFO - Use pytorch device_name: mps
-2026-02-16 19:57:23,839 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-16 19:57:43,938 - INFO - 🤖 Agent initialized successfully.
-2026-02-16 19:57:44,225 - INFO - ✅ Connected to MongoDB at mongodb+srv://nileshroy_db_user:Nexu696969@biriyani.f9ghawi.mongodb.net/
-2026-02-16 19:57:44,742 - INFO - 🤖 Agent initialized successfully.
-2026-02-16 19:57:44,928 - INFO - ✅ Connected to MongoDB at mongodb+srv://nileshroy_db_user:Nexu696969@biriyani.f9ghawi.mongodb.net/
-2026-02-16 19:57:48,625 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
-2026-02-16 19:57:48,626 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
-2026-02-16 19:57:48,634 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
-2026-02-16 19:57:48,664 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-16 19:57:48,677 - INFO - Use pytorch device_name: mps
-2026-02-16 19:57:48,677 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-16 19:57:52,977 - INFO - 🤖 Agent initialized successfully.
-2026-02-16 19:57:53,138 - INFO - ✅ Connected to MongoDB at mongodb+srv://nileshroy_db_user:Nexu696969@biriyani.f9ghawi.mongodb.net/
-2026-02-16 19:58:12,700 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
-2026-02-16 19:58:12,700 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
-2026-02-16 19:58:12,709 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
-2026-02-16 19:58:12,739 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-16 19:58:12,753 - INFO - Use pytorch device_name: mps
-2026-02-16 19:58:12,753 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-16 19:58:19,980 - INFO - 🤖 Agent initialized successfully.
-2026-02-16 19:58:20,225 - INFO - ✅ Connected to MongoDB at mongodb+srv://nileshroy_db_user:Nexu696969@biriyani.f9ghawi.mongodb.net/
-2026-02-17 11:09:59,251 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
-2026-02-17 11:09:59,251 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
-2026-02-17 11:09:59,260 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
-2026-02-17 11:09:59,318 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-17 11:09:59,367 - INFO - Use pytorch device_name: mps
-2026-02-17 11:09:59,367 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-17 11:10:03,390 - INFO - 🤖 Agent initialized successfully.
-2026-02-17 11:10:03,641 - INFO - ✅ Connected to MongoDB at mongodb+srv://nileshroy_db_user:Nexu696969@biriyani.f9ghawi.mongodb.net/
-2026-02-17 11:10:36,052 - INFO - ✅ File uploaded: Apache_2k.log -> /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/incoming/ca92be9c-5810-4a04-a942-778b8c99b7c7_Apache_2k.log
-2026-02-17 11:10:36,053 - INFO - ✅ Read text file: ca92be9c-5810-4a04-a942-778b8c99b7c7_Apache_2k.log
-2026-02-17 11:10:36,100 - INFO - ✅ File classifier initialized
-2026-02-17 11:10:36,100 - INFO -    ⚡ Fast-path: Identified as log based on extension & content
-2026-02-17 11:10:36,100 - INFO -    🎯 Final File type: log
-2026-02-17 11:10:36,102 - INFO - 💾 Inserted file metadata: ca92be9c-5810-4a04-a942-778b8c99b7c7
-2026-02-17 11:10:38,195 - INFO - 🚀 Pipeline started in 'large' mode
-2026-02-17 11:10:38,195 - INFO - ✅ Read text file: ca92be9c-5810-4a04-a942-778b8c99b7c7_Apache_2k.log
-2026-02-17 11:10:38,195 - INFO - ✅ File classifier initialized
-2026-02-17 11:10:38,195 - INFO -    ⚡ Fast-path: Identified as log based on extension & content
-2026-02-17 11:10:38,195 - INFO -    🎯 Final File type: log
-2026-02-17 11:10:38,195 - INFO - 🔗 Reusing existing UUID from filename: ca92be9c-5810-4a04-a942-778b8c99b7c7_Apache_2k.log
-2026-02-17 11:10:38,195 - INFO - ✅ Log file moved to staging: ca92be9c-5810-4a04-a942-778b8c99b7c7_Apache_2k.log
-2026-02-17 11:10:38,196 - INFO - 💾 Inserted file metadata: ca92be9c-5810-4a04-a942-778b8c99b7c7
-2026-02-17 11:10:38,196 - INFO - 🧠 Processing 1 log files through AI pipeline...
-2026-02-17 11:10:38,196 - INFO - 🚀 STARTING LARGE SCALE PIPELINE (Summarization + Sorting)
-2026-02-17 11:10:38,196 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
-2026-02-17 11:10:38,196 - INFO - Initializing Optimized Keyword Summarizer (MMR) with: sentence-transformers/all-MiniLM-L6-v2
-2026-02-17 11:10:38,196 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-17 11:10:38,196 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-17 11:10:38,196 - INFO - 🧠 Summarizing single file: ca92be9c-5810-4a04-a942-778b8c99b7c7_Apache_2k.log
-2026-02-17 11:10:38,196 - INFO - ✅ Read text file: ca92be9c-5810-4a04-a942-778b8c99b7c7_Apache_2k.log
-2026-02-17 11:10:38,196 - INFO - ✅ File classifier initialized
-2026-02-17 11:10:38,196 - INFO -    ⚡ Fast-path: Identified as log based on extension & content
-2026-02-17 11:10:38,196 - INFO -    🎯 Final File type: log
-2026-02-17 11:10:38,197 - INFO - ✅ Summarizer received content of type: <class 'str'>
-2026-02-17 11:10:38,881 - INFO - ✅ Extracted Keywords: Total Entries: 2000. Keywords: notice jk2_init, child workerenv, scoreboard slot, error state, httpd...
-2026-02-17 11:10:38,881 - INFO - 📐 Generating Embeddings for 1 files...
-2026-02-17 11:10:38,903 - INFO - 📂 Organizing files into final categories...
-2026-02-17 11:10:38,906 - INFO -    👉 Moved ca92be9c-5810-4a04-a942-778b8c99b7c7_Apache_2k.log -> app_log/
-2026-02-17 11:10:38,908 - INFO - ✅ Cluster Report Saved: /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/processed/file_level_clusters.csv
-2026-02-17 11:10:38,909 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
-2026-02-17 11:10:38,910 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-17 11:10:38,955 - INFO -    📋 Indexed metadata into Vector DB for ca92be9c-5810-4a04-a942-778b8c99b7c7_Apache_2k.log
-2026-02-17 11:10:38,955 - INFO - ✅ File metadata indexed into Vector DB
-2026-02-17 11:10:38,955 - INFO - 🧠 Indexing files into RAG Vector Store...
-2026-02-17 11:10:38,955 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
-2026-02-17 11:10:38,956 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-17 11:10:38,967 - INFO -    Indexed summary for ca92be9c-5810-4a04-a942-778b8c99b7c7_Apache_2k.log
-2026-02-17 11:10:38,967 - INFO -    Start chunking and indexing full log content...
-2026-02-17 11:10:38,990 - INFO -    🧠 Analyzing 595 events from ca92be9c-5810-4a04-a942-778b8c99b7c7_Apache_2k.log...
-2026-02-17 11:10:38,990 - INFO -    ⚡ Deduplicated 595 events to 378 unique incidents
-2026-02-17 11:11:38,997 - WARNING - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised DeadlineExceeded: 504 Deadline Exceeded.
-2026-02-17 11:11:55,627 - WARNING - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 4.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
-Please retry in 4.622166525s. [links {
-  description: "Learn more about Gemini API quotas"
-  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
-}
-, violations {
-  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
-  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
-  quota_dimensions {
-    key: "model"
-    value: "gemini-2.5-flash"
-  }
-  quota_dimensions {
-    key: "location"
-    value: "global"
-  }
-  quota_value: 20
-}
-, retry_delay {
-  seconds: 4
-}
-].
-2026-02-17 11:12:00,042 - ERROR - ❌ LLM incident analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
-Please retry in 257.148783ms. [links {
-  description: "Learn more about Gemini API quotas"
-  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
-}
-, violations {
-  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
-  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
-  quota_dimensions {
-    key: "model"
-    value: "gemini-2.5-flash"
-  }
-  quota_dimensions {
-    key: "location"
-    value: "global"
-  }
-  quota_value: 20
-}
-, retry_delay {
-}
-]
-2026-02-17 11:12:00,405 - WARNING - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
-Please retry in 59.843144894s. [links {
-  description: "Learn more about Gemini API quotas"
-  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
-}
-, violations {
-  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
-  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
-  quota_dimensions {
-    key: "model"
-    value: "gemini-2.5-flash"
-  }
-  quota_dimensions {
-    key: "location"
-    value: "global"
-  }
-  quota_value: 20
-}
-, retry_delay {
-  seconds: 59
-}
-].
-2026-02-17 11:12:02,805 - WARNING - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 4.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
-Please retry in 57.481847678s. [links {
-  description: "Learn more about Gemini API quotas"
-  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
-}
-, violations {
-  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
-  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
-  quota_dimensions {
-    key: "model"
-    value: "gemini-2.5-flash"
-  }
-  quota_dimensions {
-    key: "location"
-    value: "global"
-  }
-  quota_value: 20
-}
-, retry_delay {
-  seconds: 57
-}
-].
-2026-02-17 11:12:07,210 - ERROR - ❌ LLM incident analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
-Please retry in 53.073833921s. [links {
-  description: "Learn more about Gemini API quotas"
-  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
-}
-, violations {
-  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
-  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
-  quota_dimensions {
-    key: "model"
-    value: "gemini-2.5-flash"
-  }
-  quota_dimensions {
-    key: "location"
-    value: "global"
-  }
-  quota_value: 20
-}
-, retry_delay {
-  seconds: 53
-}
-]
-2026-02-17 11:12:07,565 - WARNING - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
-Please retry in 52.676458412s. [links {
-  description: "Learn more about Gemini API quotas"
-  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
-}
-, violations {
-  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
-  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
-  quota_dimensions {
-    key: "model"
-    value: "gemini-2.5-flash"
-  }
-  quota_dimensions {
-    key: "location"
-    value: "global"
-  }
-  quota_value: 20
-}
-, retry_delay {
-  seconds: 52
-}
-].
-2026-02-17 11:12:09,922 - WARNING - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 4.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
-Please retry in 50.309405244s. [links {
-  description: "Learn more about Gemini API quotas"
-  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
-}
-, violations {
-  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
-  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
-  quota_dimensions {
-    key: "model"
-    value: "gemini-2.5-flash"
-  }
-  quota_dimensions {
-    key: "location"
-    value: "global"
-  }
-  quota_value: 20
-}
-, retry_delay {
-  seconds: 50
-}
-].
-2026-02-17 11:12:14,251 - ERROR - ❌ LLM incident analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
-Please retry in 45.968853635s. [links {
-  description: "Learn more about Gemini API quotas"
-  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
-}
-, violations {
-  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
-  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
-  quota_dimensions {
-    key: "model"
-    value: "gemini-2.5-flash"
-  }
-  quota_dimensions {
-    key: "location"
-    value: "global"
-  }
-  quota_value: 20
-}
-, retry_delay {
-  seconds: 45
-}
-]
-2026-02-17 11:12:14,594 - WARNING - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
-Please retry in 45.642689364s. [links {
-  description: "Learn more about Gemini API quotas"
-  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
-}
-, violations {
-  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
-  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
-  quota_dimensions {
-    key: "model"
-    value: "gemini-2.5-flash"
-  }
-  quota_dimensions {
-    key: "location"
-    value: "global"
-  }
-  quota_value: 20
-}
-, retry_delay {
-  seconds: 45
-}
-].
-2026-02-17 11:12:16,994 - WARNING - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 4.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
-Please retry in 43.287439147s. [links {
-  description: "Learn more about Gemini API quotas"
-  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
-}
-, violations {
-  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
-  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
-  quota_dimensions {
-    key: "model"
-    value: "gemini-2.5-flash"
-  }
-  quota_dimensions {
-    key: "location"
-    value: "global"
-  }
-  quota_value: 20
-}
-, retry_delay {
-  seconds: 43
-}
-].
-2026-02-17 11:12:21,347 - ERROR - ❌ LLM incident analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
-Please retry in 38.892502997s. [links {
-  description: "Learn more about Gemini API quotas"
-  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
-}
-, violations {
-  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
-  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
-  quota_dimensions {
-    key: "model"
-    value: "gemini-2.5-flash"
-  }
-  quota_dimensions {
-    key: "location"
-    value: "global"
-  }
-  quota_value: 20
-}
-, retry_delay {
-  seconds: 38
-}
-]
-2026-02-17 11:12:21,690 - WARNING - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
-Please retry in 38.544744554s. [links {
-  description: "Learn more about Gemini API quotas"
-  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
-}
-, violations {
-  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
-  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
-  quota_dimensions {
-    key: "model"
-    value: "gemini-2.5-flash"
-  }
-  quota_dimensions {
-    key: "location"
-    value: "global"
-  }
-  quota_value: 20
-}
-, retry_delay {
-  seconds: 38
-}
-].
-2026-02-17 11:12:24,045 - WARNING - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 4.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
-Please retry in 36.196608754s. [links {
-  description: "Learn more about Gemini API quotas"
-  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
-}
-, violations {
-  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
-  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
-  quota_dimensions {
-    key: "model"
-    value: "gemini-2.5-flash"
-  }
-  quota_dimensions {
-    key: "location"
-    value: "global"
-  }
-  quota_value: 20
-}
-, retry_delay {
-  seconds: 36
-}
-].
-2026-02-17 11:12:28,372 - ERROR - ❌ LLM incident analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
-Please retry in 31.848493276s. [links {
-  description: "Learn more about Gemini API quotas"
-  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
-}
-, violations {
-  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
-  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
-  quota_dimensions {
-    key: "model"
-    value: "gemini-2.5-flash"
-  }
-  quota_dimensions {
-    key: "location"
-    value: "global"
-  }
-  quota_value: 20
-}
-, retry_delay {
-  seconds: 31
-}
-]
-2026-02-17 11:12:28,734 - WARNING - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
-Please retry in 31.511456821s. [links {
-  description: "Learn more about Gemini API quotas"
-  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
-}
-, violations {
-  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
-  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
-  quota_dimensions {
-    key: "model"
-    value: "gemini-2.5-flash"
-  }
-  quota_dimensions {
-    key: "location"
-    value: "global"
-  }
-  quota_value: 20
-}
-, retry_delay {
-  seconds: 31
-}
-].
-2026-02-17 11:12:31,068 - WARNING - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 4.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
-Please retry in 29.161192675s. [links {
-  description: "Learn more about Gemini API quotas"
-  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
-}
-, violations {
-  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
-  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
-  quota_dimensions {
-    key: "model"
-    value: "gemini-2.5-flash"
-  }
-  quota_dimensions {
-    key: "location"
-    value: "global"
-  }
-  quota_value: 20
-}
-, retry_delay {
-  seconds: 29
-}
-].
-2026-02-17 11:12:35,471 - ERROR - ❌ LLM incident analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
-Please retry in 24.821911875s. [links {
-  description: "Learn more about Gemini API quotas"
-  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
-}
-, violations {
-  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
-  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
-  quota_dimensions {
-    key: "model"
-    value: "gemini-2.5-flash"
-  }
-  quota_dimensions {
-    key: "location"
-    value: "global"
-  }
-  quota_value: 20
-}
-, retry_delay {
-  seconds: 24
-}
-]
-2026-02-17 11:12:35,804 - WARNING - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
-Please retry in 24.421803237s. [links {
-  description: "Learn more about Gemini API quotas"
-  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
-}
-, violations {
-  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
-  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
-  quota_dimensions {
-    key: "model"
-    value: "gemini-2.5-flash"
-  }
-  quota_dimensions {
-    key: "location"
-    value: "global"
-  }
-  quota_value: 20
-}
-, retry_delay {
-  seconds: 24
-}
-].
-2026-02-17 11:12:38,151 - WARNING - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 4.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
-Please retry in 22.083034938s. [links {
-  description: "Learn more about Gemini API quotas"
-  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
-}
-, violations {
-  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
-  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
-  quota_dimensions {
-    key: "model"
-    value: "gemini-2.5-flash"
-  }
-  quota_dimensions {
-    key: "location"
-    value: "global"
-  }
-  quota_value: 20
-}
-, retry_delay {
-  seconds: 22
-}
-].
-2026-02-17 11:12:42,494 - ERROR - ❌ LLM incident analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
-Please retry in 17.743647106s. [links {
-  description: "Learn more about Gemini API quotas"
-  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
-}
-, violations {
-  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
-  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
-  quota_dimensions {
-    key: "model"
-    value: "gemini-2.5-flash"
-  }
-  quota_dimensions {
-    key: "location"
-    value: "global"
-  }
-  quota_value: 20
-}
-, retry_delay {
-  seconds: 17
-}
-]
-2026-02-17 11:12:42,947 - WARNING - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
-Please retry in 17.393916761s. [links {
-  description: "Learn more about Gemini API quotas"
-  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
-}
-, violations {
-  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
-  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
-  quota_dimensions {
-    key: "model"
-    value: "gemini-2.5-flash"
-  }
-  quota_dimensions {
-    key: "location"
-    value: "global"
-  }
-  quota_value: 20
-}
-, retry_delay {
-  seconds: 17
-}
-].
-2026-02-17 11:12:45,305 - WARNING - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 4.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
-Please retry in 14.936433536s. [links {
-  description: "Learn more about Gemini API quotas"
-  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
-}
-, violations {
-  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
-  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
-  quota_dimensions {
-    key: "model"
-    value: "gemini-2.5-flash"
-  }
-  quota_dimensions {
-    key: "location"
-    value: "global"
-  }
-  quota_value: 20
-}
-, retry_delay {
-  seconds: 14
-}
-].
-2026-02-17 11:13:42,295 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
-2026-02-17 11:13:42,295 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
-2026-02-17 11:13:42,303 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
-2026-02-17 11:13:42,333 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-17 11:13:42,345 - INFO - Use pytorch device_name: mps
-2026-02-17 11:13:42,345 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-17 11:13:46,393 - INFO - 🤖 Agent initialized successfully.
-2026-02-17 11:13:46,703 - INFO - ✅ Connected to MongoDB at mongodb+srv://nileshroy_db_user:Nexu696969@biriyani.f9ghawi.mongodb.net/
-2026-02-17 11:14:01,504 - INFO - ✅ File uploaded: Best Biryani Delivery Restaurants in Bengaluru _ Order Online.pdf -> /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/incoming/140a4876-89bc-438b-b7c2-9f563d0a3de8_Best Biryani Delivery Restaurants in Bengaluru _ Order Online.pdf
-2026-02-17 11:14:02,125 - INFO - ✅ Parsed PDF: 140a4876-89bc-438b-b7c2-9f563d0a3de8_Best Biryani Delivery Restaurants in Bengaluru _ Order Online.pdf
-2026-02-17 11:14:02,146 - INFO - ✅ File classifier initialized
-2026-02-17 11:14:02,146 - INFO - 🤖 Loading file classifier: facebook/bart-large-mnli on CPU...
-2026-02-17 11:14:03,185 - INFO - ✅ File classifier loaded successfully on CPU
-2026-02-17 11:14:17,315 - INFO -    📋 Classified as: log (confidence: 0.16)
-2026-02-17 11:14:17,315 - WARNING -    ⚠️ Low confidence log classification (0.16) and NO log keywords found. Reclassifying as 'other_document'.
-2026-02-17 11:14:17,315 - INFO -    🎯 Final File type: other_document
-2026-02-17 11:14:17,317 - INFO - 💾 Inserted file metadata: 140a4876-89bc-438b-b7c2-9f563d0a3de8
-2026-02-17 11:16:26,301 - INFO - 🚀 Pipeline started in 'large' mode
-2026-02-17 11:16:27,055 - INFO - ✅ Parsed PDF: 140a4876-89bc-438b-b7c2-9f563d0a3de8_Best Biryani Delivery Restaurants in Bengaluru _ Order Online.pdf
-2026-02-17 11:16:27,057 - INFO - ✅ File classifier initialized
-2026-02-17 11:16:39,028 - INFO -    📋 Classified as: log (confidence: 0.16)
-2026-02-17 11:16:39,029 - WARNING -    ⚠️ Low confidence log classification (0.16) and NO log keywords found. Reclassifying as 'other_document'.
-2026-02-17 11:16:39,029 - INFO -    🎯 Final File type: other_document
-2026-02-17 11:16:39,029 - INFO - 🔗 Reusing existing UUID from filename: 140a4876-89bc-438b-b7c2-9f563d0a3de8_Best Biryani Delivery Restaurants in Bengaluru _ Order Online.pdf
-2026-02-17 11:16:39,029 - INFO - 📄 Document moved to other_document/ folder: 140a4876-89bc-438b-b7c2-9f563d0a3de8_Best Biryani Delivery Restaurants in Bengaluru _ Order Online.pdf
-2026-02-17 11:16:39,031 - INFO - 💾 Inserted file metadata: AUDIT-260217111639
-2026-02-17 11:16:39,031 - INFO - ℹ️ No log files to process through AI pipeline.
-2026-02-17 11:16:39,031 - INFO - ✅ Classified and stored 1 documents:
-2026-02-17 11:16:39,031 - INFO -    • 140a4876-89bc-438b-b7c2-9f563d0a3de8_Best Biryani Delivery Restaurants in Bengaluru _ Order Online.pdf → other_document/
-2026-02-17 16:31:48,911 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
-2026-02-17 16:31:48,912 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
-2026-02-17 16:31:48,920 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
-2026-02-17 16:31:48,994 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-17 16:31:49,049 - INFO - Use pytorch device_name: mps
-2026-02-17 16:31:49,050 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-17 16:31:52,915 - INFO - 🤖 Agent initialized successfully.
-2026-02-17 16:31:53,245 - INFO - ✅ Connected to MongoDB at mongodb+srv://nileshroy_db_user:Nexu696969@biriyani.f9ghawi.mongodb.net/
-2026-02-17 16:32:01,202 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
-2026-02-17 16:32:01,203 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
-2026-02-17 16:32:01,211 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
-2026-02-17 16:32:01,242 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-17 16:32:01,255 - INFO - Use pytorch device_name: mps
-2026-02-17 16:32:01,255 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-17 16:32:05,201 - INFO - 🤖 Agent initialized successfully.
-2026-02-17 16:32:05,568 - INFO - ✅ Connected to MongoDB at mongodb+srv://nileshroy_db_user:Nexu696969@biriyani.f9ghawi.mongodb.net/
-2026-02-17 16:32:44,428 - INFO - ✅ No vulnerabilities found in /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/processed/file_level_clusters.csv
-2026-02-17 16:32:54,447 - WARNING - ⚠️ Found 1973 potential vulnerabilities in /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/processed/other_document/140a4876-89bc-438b-b7c2-9f563d0a3de8_Best Biryani Delivery Restaurants in Bengaluru _ Order Online.pdf
-2026-02-17 16:38:05,156 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
-2026-02-17 16:38:05,156 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
-2026-02-17 16:38:05,165 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
-2026-02-17 16:38:05,243 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-17 16:38:05,262 - INFO - Use pytorch device_name: mps
-2026-02-17 16:38:05,262 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-17 16:38:10,340 - INFO - 🤖 Agent initialized successfully.
-2026-02-17 16:38:10,589 - INFO - ✅ Connected to MongoDB at mongodb+srv://nileshroy_db_user:Nexu696969@biriyani.f9ghawi.mongodb.net/
-2026-02-17 16:41:08,036 - INFO - ✅ File uploaded: test.log -> /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/incoming/01346c58-ce3e-4179-a164-6a07dcf4291f_test.log
-2026-02-17 16:41:08,037 - INFO - ✅ Read text file: 01346c58-ce3e-4179-a164-6a07dcf4291f_test.log
-2026-02-17 16:41:08,091 - INFO - ✅ File classifier initialized
-2026-02-17 16:41:08,091 - INFO -    ⚡ Fast-path: Identified as log based on extension & content
-2026-02-17 16:41:08,091 - INFO -    🎯 Final File type: log
-2026-02-17 16:41:08,094 - INFO - 💾 Inserted file metadata: 01346c58-ce3e-4179-a164-6a07dcf4291f
-2026-02-17 16:41:09,464 - INFO - 🚀 Pipeline started in 'large' mode
-2026-02-17 16:41:09,464 - INFO - ✅ Read text file: 01346c58-ce3e-4179-a164-6a07dcf4291f_test.log
-2026-02-17 16:41:09,464 - INFO - ✅ File classifier initialized
-2026-02-17 16:41:09,464 - INFO -    ⚡ Fast-path: Identified as log based on extension & content
-2026-02-17 16:41:09,464 - INFO -    🎯 Final File type: log
-2026-02-17 16:41:09,464 - INFO - 🔗 Reusing existing UUID from filename: 01346c58-ce3e-4179-a164-6a07dcf4291f_test.log
-2026-02-17 16:41:09,465 - INFO - ✅ Log file moved to staging: 01346c58-ce3e-4179-a164-6a07dcf4291f_test.log
-2026-02-17 16:41:09,465 - INFO - 💾 Inserted file metadata: 01346c58-ce3e-4179-a164-6a07dcf4291f
-2026-02-17 16:41:09,465 - INFO - 🧠 Processing 1 log files through AI pipeline...
-2026-02-17 16:41:09,465 - INFO - 🚀 STARTING LARGE SCALE PIPELINE (Summarization + Sorting)
-2026-02-17 16:41:09,466 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
-2026-02-17 16:41:09,466 - INFO - Initializing Optimized Keyword Summarizer (MMR) with: sentence-transformers/all-MiniLM-L6-v2
-2026-02-17 16:41:09,466 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-17 16:41:09,466 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-17 16:41:09,466 - INFO - 🧠 Summarizing single file: 01346c58-ce3e-4179-a164-6a07dcf4291f_test.log
-2026-02-17 16:41:09,466 - INFO - ✅ Read text file: 01346c58-ce3e-4179-a164-6a07dcf4291f_test.log
-2026-02-17 16:41:09,466 - INFO - ✅ File classifier initialized
-2026-02-17 16:41:09,466 - INFO -    ⚡ Fast-path: Identified as log based on extension & content
-2026-02-17 16:41:09,466 - INFO -    🎯 Final File type: log
-2026-02-17 16:41:09,466 - INFO - ✅ Summarizer received content of type: <class 'str'>
-2026-02-17 16:41:10,041 - INFO - ✅ Extracted Keywords: Total Entries: 2. Keywords: refused database, shadow access, crit client, 168 connection, access att...
-2026-02-17 16:41:10,042 - INFO - 📐 Generating Embeddings for 1 files...
-2026-02-17 16:41:10,068 - INFO - 📂 Organizing files into final categories...
-2026-02-17 16:41:10,072 - INFO -    👉 Moved 01346c58-ce3e-4179-a164-6a07dcf4291f_test.log -> governance_log/
-2026-02-17 16:41:10,076 - INFO - ✅ Cluster Report Saved: /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/processed/file_level_clusters.csv
-2026-02-17 16:41:10,076 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
-2026-02-17 16:41:10,078 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-17 16:41:10,122 - INFO -    📋 Indexed metadata into Vector DB for 01346c58-ce3e-4179-a164-6a07dcf4291f_test.log
-2026-02-17 16:41:10,122 - INFO - ✅ File metadata indexed into Vector DB
-2026-02-17 16:41:10,122 - INFO - 🧠 Indexing files into RAG Vector Store...
-2026-02-17 16:41:10,122 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
-2026-02-17 16:41:10,123 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-17 16:41:10,141 - INFO -    Indexed summary for 01346c58-ce3e-4179-a164-6a07dcf4291f_test.log
-2026-02-17 16:41:10,141 - INFO -    Start chunking and indexing full log content...
-2026-02-17 16:41:10,144 - INFO -    🧠 Analyzing 1 events from 01346c58-ce3e-4179-a164-6a07dcf4291f_test.log...
-2026-02-17 16:41:10,144 - INFO -    ⚡ Deduplicated 1 events to 1 unique incidents
-2026-02-17 16:41:22,792 - INFO - 💾 Saved 1 events to Log_extraction.
-2026-02-17 16:41:22,792 - INFO -    💾 Saved 1 events to Log_extraction for 01346c58-ce3e-4179-a164-6a07dcf4291f_test.log
-2026-02-17 16:41:22,889 - INFO -    📊 Indexed 1 events into Vector DB for 01346c58-ce3e-4179-a164-6a07dcf4291f_test.log
-2026-02-17 16:41:22,906 - INFO -    Indexed batch 1 (1 chunks) for 01346c58-ce3e-4179-a164-6a07dcf4291f_test.log
-2026-02-17 16:41:22,906 - INFO -    Indexed total 1 chunks for 01346c58-ce3e-4179-a164-6a07dcf4291f_test.log
-2026-02-17 16:41:22,906 - INFO - ✅ RAG Indexing Complete
-2026-02-17 16:41:22,907 - INFO - 🔄 Updated file metadata for: 01346c58-ce3e-4179-a164-6a07dcf4291f_test.log
-2026-02-17 16:41:22,907 - INFO - 📊 Processed 1 log files in LARGE-SCALE mode.
-2026-02-17 16:54:56,798 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
-2026-02-17 16:54:56,799 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
-2026-02-17 16:54:56,807 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
-2026-02-17 16:54:56,853 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-17 16:54:56,913 - INFO - Use pytorch device_name: mps
-2026-02-17 16:54:56,914 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-17 16:55:00,828 - INFO - 🤖 Agent initialized successfully.
-2026-02-17 16:55:01,085 - INFO - ✅ Connected to MongoDB at mongodb+srv://nileshroy_db_user:Nexu696969@biriyani.f9ghawi.mongodb.net/
-2026-02-17 17:07:49,410 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
-2026-02-17 17:07:49,411 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
-2026-02-17 17:07:49,420 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
-2026-02-17 17:07:49,450 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-17 17:07:49,471 - INFO - Use pytorch device_name: mps
-2026-02-17 17:07:49,472 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-17 17:07:59,573 - WARNING - '(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 29cbc409-36bb-412d-9bda-ae45edb759d5)')' thrown while requesting HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/./modules.json
-2026-02-17 17:07:59,573 - WARNING - Retrying in 1s [Retry 1/5].
-2026-02-17 17:08:14,762 - INFO - 🤖 Agent initialized successfully.
-2026-02-17 17:08:15,059 - INFO - ✅ Connected to MongoDB at mongodb+srv://nileshroy_db_user:Nexu696969@biriyani.f9ghawi.mongodb.net/
-2026-02-17 17:08:51,534 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
-2026-02-17 17:08:51,534 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
-2026-02-17 17:08:51,543 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
-2026-02-17 17:08:51,575 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-17 17:08:51,592 - INFO - Use pytorch device_name: mps
-2026-02-17 17:08:51,592 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-17 17:09:13,282 - WARNING - '(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 91a29109-3990-46bd-91a8-2304b8ae46c9)')' thrown while requesting HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json
-2026-02-17 17:09:13,282 - WARNING - Retrying in 1s [Retry 1/5].
-2026-02-17 17:09:18,462 - INFO - 🤖 Agent initialized successfully.
-2026-02-17 17:09:18,465 - INFO - Backing off send_request(...) for 0.2s (requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='us.i.posthog.com', port=443): Read timed out. (read timeout=15))
-2026-02-17 17:09:18,718 - INFO - ✅ Connected to MongoDB at mongodb+srv://nileshroy_db_user:Nexu696969@biriyani.f9ghawi.mongodb.net/
-2026-02-17 17:09:43,433 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
-2026-02-17 17:09:43,434 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
-2026-02-17 17:09:43,442 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
-2026-02-17 17:09:43,473 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-17 17:09:43,488 - INFO - Use pytorch device_name: mps
-2026-02-17 17:09:43,488 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-17 17:10:27,267 - INFO - 🤖 Agent initialized successfully.
-2026-02-17 17:10:27,589 - INFO - ✅ Connected to MongoDB at mongodb+srv://nileshroy_db_user:Nexu696969@biriyani.f9ghawi.mongodb.net/
-2026-02-17 17:11:59,132 - INFO - 🗑️ Deleted File metadata (1), Logs (0), Vulns (0) for ID: 140a4876-89bc-438b-b7c2-9f563d0a3de8
-2026-02-17 17:12:01,247 - INFO - 🗑️ Deleted File metadata (1), Logs (0), Vulns (0) for ID: ca92be9c-5810-4a04-a942-778b8c99b7c7
-2026-02-17 17:12:03,201 - INFO - 🗑️ Deleted File metadata (1), Logs (0), Vulns (0) for ID: AUDIT-260217111639
-2026-02-17 17:13:27,234 - INFO - 🗑️ Deleted File metadata (1), Logs (1), Vulns (0) for ID: 01346c58-ce3e-4179-a164-6a07dcf4291f
-2026-02-17 17:16:58,560 - INFO - ✅ File uploaded: sample_test.log -> /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/incoming/a2ee8270-eddc-4306-809b-ab7137e5ab35_sample_test.log
-2026-02-17 17:16:58,561 - INFO - ✅ Read text file: a2ee8270-eddc-4306-809b-ab7137e5ab35_sample_test.log
-2026-02-17 17:16:58,612 - INFO - ✅ File classifier initialized
-2026-02-17 17:16:58,612 - INFO -    ⚡ Fast-path: Identified as log based on extension & content
-2026-02-17 17:16:58,612 - INFO -    🎯 Final File type: log
-2026-02-17 17:16:58,615 - INFO - 💾 Inserted file metadata: a2ee8270-eddc-4306-809b-ab7137e5ab35
-2026-02-17 17:17:01,179 - INFO - 🚀 Pipeline started in 'large' mode
-2026-02-17 17:17:01,179 - INFO - ✅ Read text file: a2ee8270-eddc-4306-809b-ab7137e5ab35_sample_test.log
-2026-02-17 17:17:01,179 - INFO - ✅ File classifier initialized
-2026-02-17 17:17:01,179 - INFO -    ⚡ Fast-path: Identified as log based on extension & content
-2026-02-17 17:17:01,179 - INFO -    🎯 Final File type: log
-2026-02-17 17:17:01,179 - INFO - 🔗 Reusing existing UUID from filename: a2ee8270-eddc-4306-809b-ab7137e5ab35_sample_test.log
-2026-02-17 17:17:01,179 - INFO - ✅ Log file moved to staging: a2ee8270-eddc-4306-809b-ab7137e5ab35_sample_test.log
-2026-02-17 17:17:01,180 - INFO - 💾 Inserted file metadata: a2ee8270-eddc-4306-809b-ab7137e5ab35
-2026-02-17 17:17:01,180 - INFO - 🧠 Processing 1 log files through AI pipeline...
-2026-02-17 17:17:01,180 - INFO - 🚀 STARTING LARGE SCALE PIPELINE (Summarization + Sorting)
-2026-02-17 17:17:01,180 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
-2026-02-17 17:17:01,181 - INFO - Initializing Optimized Keyword Summarizer (MMR) with: sentence-transformers/all-MiniLM-L6-v2
-2026-02-17 17:17:01,181 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-17 17:17:01,181 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-17 17:17:01,181 - INFO - 🧠 Summarizing single file: a2ee8270-eddc-4306-809b-ab7137e5ab35_sample_test.log
-2026-02-17 17:17:01,181 - INFO - ✅ Read text file: a2ee8270-eddc-4306-809b-ab7137e5ab35_sample_test.log
-2026-02-17 17:17:01,181 - INFO - ✅ File classifier initialized
-2026-02-17 17:17:01,181 - INFO -    ⚡ Fast-path: Identified as log based on extension & content
-2026-02-17 17:17:01,181 - INFO -    🎯 Final File type: log
-2026-02-17 17:17:01,181 - INFO - ✅ Summarizer received content of type: <class 'str'>
-2026-02-17 17:17:01,734 - INFO - ✅ Extracted Keywords: Total Entries: 20. Keywords: connection timeout, info api, input_01 csv, database pool, process kill...
-2026-02-17 17:17:01,734 - INFO - 📐 Generating Embeddings for 1 files...
-2026-02-17 17:17:01,758 - INFO - 📂 Organizing files into final categories...
-2026-02-17 17:17:01,762 - INFO -    👉 Moved a2ee8270-eddc-4306-809b-ab7137e5ab35_sample_test.log -> system_log/
-2026-02-17 17:17:01,766 - INFO - ✅ Cluster Report Saved: /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/processed/file_level_clusters.csv
-2026-02-17 17:17:01,766 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
-2026-02-17 17:17:01,768 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-17 17:17:01,805 - INFO -    📋 Indexed metadata into Vector DB for a2ee8270-eddc-4306-809b-ab7137e5ab35_sample_test.log
-2026-02-17 17:17:01,805 - INFO - ✅ File metadata indexed into Vector DB
-2026-02-17 17:17:01,805 - INFO - 🧠 Indexing files into RAG Vector Store...
-2026-02-17 17:17:01,805 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
-2026-02-17 17:17:01,806 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-17 17:17:01,817 - INFO -    Indexed summary for a2ee8270-eddc-4306-809b-ab7137e5ab35_sample_test.log
-2026-02-17 17:17:01,817 - INFO -    Start chunking and indexing full log content...
-2026-02-17 17:17:01,822 - INFO -    🧠 Analyzing 3 events from a2ee8270-eddc-4306-809b-ab7137e5ab35_sample_test.log...
-2026-02-17 17:17:01,822 - INFO -    ⚡ Deduplicated 3 events to 3 unique incidents
-2026-02-17 17:17:37,748 - INFO - 💾 Saved 3 events to Log_extraction.
-2026-02-17 17:17:37,748 - INFO -    💾 Saved 3 events to Log_extraction for a2ee8270-eddc-4306-809b-ab7137e5ab35_sample_test.log
-2026-02-17 17:17:38,258 - INFO -    📊 Indexed 3 events into Vector DB for a2ee8270-eddc-4306-809b-ab7137e5ab35_sample_test.log
-2026-02-17 17:17:38,324 - INFO -    Indexed batch 1 (2 chunks) for a2ee8270-eddc-4306-809b-ab7137e5ab35_sample_test.log
-2026-02-17 17:17:38,324 - INFO -    Indexed total 2 chunks for a2ee8270-eddc-4306-809b-ab7137e5ab35_sample_test.log
-2026-02-17 17:17:38,324 - INFO - ✅ RAG Indexing Complete
-2026-02-17 17:17:38,326 - INFO - 🔄 Updated file metadata for: a2ee8270-eddc-4306-809b-ab7137e5ab35_sample_test.log
-2026-02-17 17:17:38,326 - INFO - 📊 Processed 1 log files in LARGE-SCALE mode.
-2026-02-17 17:18:59,097 - INFO - 🗑️ Deleted File metadata (1), Logs (3), Vulns (0) for ID: a2ee8270-eddc-4306-809b-ab7137e5ab35
-2026-02-17 17:19:08,011 - INFO - ✅ File uploaded: sample_test.csv -> /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/incoming/5dc99407-a53a-4426-8530-8d6dcfd505a7_sample_test.csv
-2026-02-17 17:19:08,019 - INFO - ✅ Ingested CSV: 5dc99407-a53a-4426-8530-8d6dcfd505a7_sample_test.csv
-2026-02-17 17:19:08,023 - INFO - 🤖 Loading file classifier: facebook/bart-large-mnli on CPU...
-2026-02-17 17:19:09,082 - INFO - ✅ File classifier loaded successfully on CPU
-2026-02-17 17:19:16,570 - INFO -    📋 Classified as: log (confidence: 0.29)
-2026-02-17 17:19:16,570 - INFO -    ⚡ Fast-path: CSV columns indicate Log content
-2026-02-17 17:19:16,570 - INFO -    🎯 Final File type: log
-2026-02-17 17:19:16,573 - INFO - 💾 Inserted file metadata: 5dc99407-a53a-4426-8530-8d6dcfd505a7
-2026-02-17 17:19:43,001 - INFO - 🚀 Pipeline started in 'large' mode
-2026-02-17 17:19:43,010 - INFO - ✅ Ingested CSV: 5dc99407-a53a-4426-8530-8d6dcfd505a7_sample_test.csv
-2026-02-17 17:19:43,010 - INFO - ✅ File classifier initialized
-2026-02-17 17:19:47,671 - INFO -    📋 Classified as: log (confidence: 0.29)
-2026-02-17 17:19:47,671 - INFO -    ⚡ Fast-path: CSV columns indicate Log content
-2026-02-17 17:19:47,671 - INFO -    🎯 Final File type: log
-2026-02-17 17:19:47,671 - INFO - 🔗 Reusing existing UUID from filename: 5dc99407-a53a-4426-8530-8d6dcfd505a7_sample_test.csv
-2026-02-17 17:19:47,671 - INFO - ✅ Log file moved to staging: 5dc99407-a53a-4426-8530-8d6dcfd505a7_sample_test.csv
-2026-02-17 17:19:47,673 - INFO - 💾 Inserted file metadata: 5dc99407-a53a-4426-8530-8d6dcfd505a7
-2026-02-17 17:19:47,673 - INFO - 🧠 Processing 1 log files through AI pipeline...
-2026-02-17 17:19:47,673 - INFO - 🚀 STARTING LARGE SCALE PIPELINE (Summarization + Sorting)
-2026-02-17 17:19:47,673 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
-2026-02-17 17:19:47,674 - INFO - Initializing Optimized Keyword Summarizer (MMR) with: sentence-transformers/all-MiniLM-L6-v2
-2026-02-17 17:19:47,674 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-17 17:19:47,674 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-17 17:19:47,674 - INFO - 🧠 Summarizing single file: 5dc99407-a53a-4426-8530-8d6dcfd505a7_sample_test.csv
-2026-02-17 17:19:47,674 - INFO - ✅ Ingested CSV: 5dc99407-a53a-4426-8530-8d6dcfd505a7_sample_test.csv
-2026-02-17 17:19:47,674 - INFO - ✅ File classifier initialized
-2026-02-17 17:19:52,141 - INFO -    📋 Classified as: log (confidence: 0.29)
-2026-02-17 17:19:52,142 - INFO -    ⚡ Fast-path: CSV columns indicate Log content
-2026-02-17 17:19:52,142 - INFO -    🎯 Final File type: log
-2026-02-17 17:19:52,142 - INFO - ✅ Summarizer received content of type: <class 'pandas.core.frame.DataFrame'>
-2026-02-17 17:19:52,423 - INFO - ✅ Extracted Keywords: Total Entries: 20. Keywords: timeout database, input_01 csv, error connection, info health, processi...
-2026-02-17 17:19:52,423 - INFO - 📐 Generating Embeddings for 1 files...
-2026-02-17 17:19:52,440 - INFO - 📂 Organizing files into final categories...
-2026-02-17 17:19:52,441 - INFO -    👉 Moved 5dc99407-a53a-4426-8530-8d6dcfd505a7_sample_test.csv -> app_log/
-2026-02-17 17:19:52,442 - INFO - ✅ Cluster Report Saved: /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/processed/file_level_clusters.csv
-2026-02-17 17:19:52,442 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
-2026-02-17 17:19:52,460 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-17 17:19:52,513 - INFO -    📋 Indexed metadata into Vector DB for 5dc99407-a53a-4426-8530-8d6dcfd505a7_sample_test.csv
-2026-02-17 17:19:52,513 - INFO - ✅ File metadata indexed into Vector DB
-2026-02-17 17:19:52,513 - INFO - 🧠 Indexing files into RAG Vector Store...
-2026-02-17 17:19:52,513 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
-2026-02-17 17:19:52,524 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-17 17:19:52,551 - INFO -    Indexed summary for 5dc99407-a53a-4426-8530-8d6dcfd505a7_sample_test.csv
-2026-02-17 17:19:52,551 - INFO -    Start chunking and indexing full log content...
-2026-02-17 17:19:52,568 - INFO -    🧠 Analyzing 3 events from 5dc99407-a53a-4426-8530-8d6dcfd505a7_sample_test.csv...
-2026-02-17 17:19:52,568 - INFO -    ⚡ Deduplicated 3 events to 3 unique incidents
-2026-02-17 17:20:24,341 - INFO - 💾 Saved 3 events to Log_extraction.
-2026-02-17 17:20:24,342 - INFO -    💾 Saved 3 events to Log_extraction for 5dc99407-a53a-4426-8530-8d6dcfd505a7_sample_test.csv
-2026-02-17 17:20:24,539 - INFO -    📊 Indexed 3 events into Vector DB for 5dc99407-a53a-4426-8530-8d6dcfd505a7_sample_test.csv
-2026-02-17 17:20:24,572 - INFO -    Indexed batch 1 (2 chunks) for 5dc99407-a53a-4426-8530-8d6dcfd505a7_sample_test.csv
-2026-02-17 17:20:24,572 - INFO -    Indexed total 2 chunks for 5dc99407-a53a-4426-8530-8d6dcfd505a7_sample_test.csv
-2026-02-17 17:20:24,573 - INFO - ✅ RAG Indexing Complete
-2026-02-17 17:20:24,576 - INFO - 🔄 Updated file metadata for: 5dc99407-a53a-4426-8530-8d6dcfd505a7_sample_test.csv
-2026-02-17 17:20:24,576 - INFO - 📊 Processed 1 log files in LARGE-SCALE mode.
-2026-02-17 17:22:19,241 - INFO - Backing off send_request(...) for 0.5s (requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='us.i.posthog.com', port=443): Read timed out. (read timeout=15))
-2026-02-20 13:29:17,111 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
-2026-02-20 13:29:17,112 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
-2026-02-20 13:29:17,120 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
-2026-02-20 13:29:17,496 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-20 13:29:17,548 - INFO - Use pytorch device_name: mps
-2026-02-20 13:29:17,548 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-20 13:29:22,924 - INFO - 🤖 Agent initialized successfully.
-2026-02-20 13:29:23,495 - INFO - ✅ Connected to MongoDB at mongodb+srv://nileshroy_db_user:Nexu696969@biriyani.f9ghawi.mongodb.net/
-2026-02-20 13:37:38,288 - INFO - ✅ File uploaded: sample_test.csv -> /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/incoming/b7236161-b8e3-414b-a6dd-c8541b4264aa_sample_test.csv
-2026-02-20 13:37:38,316 - INFO - ✅ Ingested CSV: b7236161-b8e3-414b-a6dd-c8541b4264aa_sample_test.csv
-2026-02-20 13:37:38,374 - INFO - ✅ File classifier initialized
-2026-02-20 13:37:38,382 - INFO - 🤖 Loading file classifier: facebook/bart-large-mnli on CPU...
-2026-02-20 13:37:39,727 - INFO - ✅ File classifier loaded successfully on CPU
-2026-02-20 13:37:47,563 - INFO -    📋 Classified as: log (confidence: 0.29)
-2026-02-20 13:37:47,564 - INFO -    ⚡ Fast-path: CSV columns indicate Log content
-2026-02-20 13:37:47,564 - INFO -    🎯 Final File type: log
-2026-02-20 13:37:47,566 - INFO - 💾 Inserted file metadata: b7236161-b8e3-414b-a6dd-c8541b4264aa
-2026-02-20 13:37:59,746 - INFO - 🚀 Pipeline started in 'large' mode
-2026-02-20 13:37:59,752 - INFO - ✅ Ingested CSV: b7236161-b8e3-414b-a6dd-c8541b4264aa_sample_test.csv
-2026-02-20 13:37:59,752 - INFO - ✅ File classifier initialized
-2026-02-20 13:38:04,534 - INFO -    📋 Classified as: log (confidence: 0.29)
-2026-02-20 13:38:04,535 - INFO -    ⚡ Fast-path: CSV columns indicate Log content
-2026-02-20 13:38:04,535 - INFO -    🎯 Final File type: log
-2026-02-20 13:38:04,535 - INFO - 🔗 Reusing existing UUID from filename: b7236161-b8e3-414b-a6dd-c8541b4264aa_sample_test.csv
-2026-02-20 13:38:04,535 - INFO - ✅ Log file moved to staging: b7236161-b8e3-414b-a6dd-c8541b4264aa_sample_test.csv
-2026-02-20 13:38:04,537 - INFO - 💾 Inserted file metadata: b7236161-b8e3-414b-a6dd-c8541b4264aa
-2026-02-20 13:38:04,537 - INFO - 🧠 Processing 1 log files through AI pipeline...
-2026-02-20 13:38:04,537 - INFO - 🚀 STARTING LARGE SCALE PIPELINE (Summarization + Sorting)
-2026-02-20 13:38:04,537 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
-2026-02-20 13:38:04,538 - INFO - Initializing Optimized Keyword Summarizer (MMR) with: sentence-transformers/all-MiniLM-L6-v2
-2026-02-20 13:38:04,538 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-20 13:38:04,538 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-20 13:38:04,538 - INFO - 🧠 Summarizing single file: b7236161-b8e3-414b-a6dd-c8541b4264aa_sample_test.csv
-2026-02-20 13:38:04,538 - INFO - ✅ Ingested CSV: b7236161-b8e3-414b-a6dd-c8541b4264aa_sample_test.csv
-2026-02-20 13:38:04,538 - INFO - ✅ File classifier initialized
-2026-02-20 13:38:09,099 - INFO -    📋 Classified as: log (confidence: 0.29)
-2026-02-20 13:38:09,099 - INFO -    ⚡ Fast-path: CSV columns indicate Log content
-2026-02-20 13:38:09,099 - INFO -    🎯 Final File type: log
-2026-02-20 13:38:09,099 - INFO - ✅ Summarizer received content of type: <class 'pandas.core.frame.DataFrame'>
-2026-02-20 13:38:09,666 - INFO - ✅ Extracted Keywords: Total Entries: 20. Keywords: timeout database, input_01 csv, error connection, info health, processi...
-2026-02-20 13:38:09,666 - INFO - 📐 Generating Embeddings for 1 files...
-2026-02-20 13:38:09,705 - INFO - 📂 Organizing files into final categories...
-2026-02-20 13:38:09,707 - INFO -    👉 Moved b7236161-b8e3-414b-a6dd-c8541b4264aa_sample_test.csv -> app_log/
-2026-02-20 13:38:09,708 - INFO - ✅ Cluster Report Saved: /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/processed/file_level_clusters.csv
-2026-02-20 13:38:09,708 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
-2026-02-20 13:38:09,727 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-20 13:38:09,812 - INFO -    📋 Indexed metadata into Vector DB for b7236161-b8e3-414b-a6dd-c8541b4264aa_sample_test.csv
-2026-02-20 13:38:09,812 - INFO - ✅ File metadata indexed into Vector DB
-2026-02-20 13:38:09,812 - INFO - 🧠 Indexing files into RAG Vector Store...
-2026-02-20 13:38:09,812 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
-2026-02-20 13:38:09,813 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-20 13:38:09,838 - INFO -    Indexed summary for b7236161-b8e3-414b-a6dd-c8541b4264aa_sample_test.csv
-2026-02-20 13:38:09,838 - INFO -    Start chunking and indexing full log content...
-2026-02-20 13:38:09,852 - INFO -    🧠 Analyzing 3 events from b7236161-b8e3-414b-a6dd-c8541b4264aa_sample_test.csv...
-2026-02-20 13:38:09,852 - INFO -    ⚡ Deduplicated 3 events to 3 unique incidents
-2026-02-20 13:38:09,852 - INFO - 📦 Using DB cached solution for incident: ERROR:2024-03-20 10:00:12,ERROR,Connection timeout...
-2026-02-20 13:38:09,852 - INFO - 📦 Using DB cached solution for incident: ERROR:2024-03-20 10:01:10,ERROR,File not found exc...
-2026-02-20 13:38:09,852 - INFO - 📦 Using DB cached solution for incident: ERROR:2024-03-20 10:03:15,ERROR,Memory limit reach...
-2026-02-20 13:38:09,853 - INFO - 💾 Saved 3 events to Log_extraction.
-2026-02-20 13:38:09,853 - INFO -    💾 Saved 3 events to Log_extraction for b7236161-b8e3-414b-a6dd-c8541b4264aa_sample_test.csv
-2026-02-20 13:38:09,907 - INFO -    📊 Indexed 3 events into Vector DB for b7236161-b8e3-414b-a6dd-c8541b4264aa_sample_test.csv
-2026-02-20 13:38:10,006 - INFO -    Indexed batch 1 (2 chunks) for b7236161-b8e3-414b-a6dd-c8541b4264aa_sample_test.csv
-2026-02-20 13:38:10,006 - INFO -    Indexed total 2 chunks for b7236161-b8e3-414b-a6dd-c8541b4264aa_sample_test.csv
-2026-02-20 13:38:10,006 - INFO - ✅ RAG Indexing Complete
-2026-02-20 13:38:10,008 - INFO - 🔄 Updated file metadata for: b7236161-b8e3-414b-a6dd-c8541b4264aa_sample_test.csv
-2026-02-20 13:38:10,008 - INFO - 📊 Processed 1 log files in LARGE-SCALE mode.
-2026-02-20 13:39:45,454 - INFO - ✅ File uploaded: Best Biryani Delivery Restaurants in Bengaluru _ Order Online.pdf -> /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/incoming/c8a1ac9d-f234-4129-afaf-36f0f16d6472_Best Biryani Delivery Restaurants in Bengaluru _ Order Online.pdf
-2026-02-20 13:39:46,269 - INFO - ✅ Parsed PDF: c8a1ac9d-f234-4129-afaf-36f0f16d6472_Best Biryani Delivery Restaurants in Bengaluru _ Order Online.pdf
-2026-02-20 13:39:59,788 - INFO -    📋 Classified as: log (confidence: 0.16)
-2026-02-20 13:39:59,790 - WARNING -    ⚠️ Low confidence log classification (0.16) and NO log keywords found. Reclassifying as 'other_document'.
-2026-02-20 13:39:59,790 - INFO -    🎯 Final File type: other_document
-2026-02-20 13:39:59,793 - INFO - 💾 Inserted file metadata: c8a1ac9d-f234-4129-afaf-36f0f16d6472
-2026-02-20 13:40:13,555 - INFO - 🚀 Pipeline started in 'large' mode
-2026-02-20 13:40:14,394 - INFO - ✅ Parsed PDF: c8a1ac9d-f234-4129-afaf-36f0f16d6472_Best Biryani Delivery Restaurants in Bengaluru _ Order Online.pdf
-2026-02-20 13:40:14,394 - INFO - ✅ File classifier initialized
-2026-02-20 13:40:27,332 - INFO -    📋 Classified as: log (confidence: 0.16)
-2026-02-20 13:40:27,332 - WARNING -    ⚠️ Low confidence log classification (0.16) and NO log keywords found. Reclassifying as 'other_document'.
-2026-02-20 13:40:27,332 - INFO -    🎯 Final File type: other_document
-2026-02-20 13:40:27,332 - INFO - 🔗 Reusing existing UUID from filename: c8a1ac9d-f234-4129-afaf-36f0f16d6472_Best Biryani Delivery Restaurants in Bengaluru _ Order Online.pdf
-2026-02-20 13:40:27,334 - INFO - 📄 Document moved to other_document/ folder: c8a1ac9d-f234-4129-afaf-36f0f16d6472_Best Biryani Delivery Restaurants in Bengaluru _ Order Online.pdf
-2026-02-20 13:40:27,336 - INFO - 💾 Inserted file metadata: AUDIT-260220134027
-2026-02-20 13:40:27,336 - INFO - ℹ️ No log files to process through AI pipeline.
-2026-02-20 13:40:27,336 - INFO - ✅ Classified and stored 1 documents:
-2026-02-20 13:40:27,336 - INFO -    • c8a1ac9d-f234-4129-afaf-36f0f16d6472_Best Biryani Delivery Restaurants in Bengaluru _ Order Online.pdf → other_document/
-2026-02-23 12:20:12,598 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
-2026-02-23 12:20:12,599 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
-2026-02-23 12:20:12,607 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
-2026-02-23 12:20:12,674 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-23 12:20:12,723 - INFO - Use pytorch device_name: mps
-2026-02-23 12:20:12,724 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-23 12:20:16,896 - INFO - 🤖 Agent initialized successfully.
-2026-02-23 12:20:17,168 - INFO - ✅ Connected to MongoDB at mongodb+srv://nileshroy_db_user:Nexu696969@biriyani.f9ghawi.mongodb.net/
-2026-02-23 12:35:14,545 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
-2026-02-23 12:35:14,546 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
-2026-02-23 12:35:14,553 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
-2026-02-23 12:35:14,619 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-23 12:35:14,674 - INFO - Use pytorch device_name: mps
-2026-02-23 12:35:14,674 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-23 12:35:18,551 - INFO - 🤖 Agent initialized successfully.
-2026-02-23 12:35:18,790 - INFO - ✅ Connected to MongoDB at mongodb+srv://nileshroy_db_user:Nexu696969@biriyani.f9ghawi.mongodb.net/
-2026-02-23 12:35:31,830 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
-2026-02-23 12:35:31,830 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
-2026-02-23 12:35:31,838 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
-2026-02-23 12:35:31,870 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-23 12:35:31,884 - INFO - Use pytorch device_name: mps
-2026-02-23 12:35:31,884 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-23 12:35:35,794 - INFO - 🤖 Agent initialized successfully.
-2026-02-23 12:35:36,146 - INFO - ✅ Connected to MongoDB at mongodb+srv://nileshroy_db_user:Nexu696969@biriyani.f9ghawi.mongodb.net/
-2026-02-23 12:35:40,065 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
-2026-02-23 12:35:40,066 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
-2026-02-23 12:35:40,070 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
-2026-02-23 12:35:40,099 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-23 12:35:40,111 - INFO - Use pytorch device_name: mps
-2026-02-23 12:35:40,111 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-23 12:35:43,843 - INFO - 🤖 Agent initialized successfully.
-2026-02-23 12:35:44,111 - INFO - ✅ Connected to MongoDB at mongodb+srv://nileshroy_db_user:Nexu696969@biriyani.f9ghawi.mongodb.net/
-2026-02-23 12:35:47,827 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
-2026-02-23 12:35:47,827 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
-2026-02-23 12:35:47,832 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
-2026-02-23 12:35:47,862 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-23 12:35:47,875 - INFO - Use pytorch device_name: mps
-2026-02-23 12:35:47,875 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-23 12:35:51,857 - INFO - 🤖 Agent initialized successfully.
-2026-02-23 12:35:52,072 - INFO - ✅ Connected to MongoDB at mongodb+srv://nileshroy_db_user:Nexu696969@biriyani.f9ghawi.mongodb.net/
-2026-02-23 12:45:23,699 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
-2026-02-23 12:45:23,700 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
-2026-02-23 12:45:23,708 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
-2026-02-23 12:45:23,738 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-23 12:45:23,756 - INFO - Use pytorch device_name: mps
-2026-02-23 12:45:23,757 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-23 12:45:36,984 - INFO - 🤖 Agent initialized successfully.
-2026-02-23 12:45:37,259 - INFO - ✅ Connected to MongoDB at mongodb+srv://nileshroy_db_user:Nexu696969@biriyani.f9ghawi.mongodb.net/
-2026-02-23 12:51:05,773 - INFO - 🗑️ Deleted File metadata (1), Logs (0), Vulns (0) for ID: c8a1ac9d-f234-4129-afaf-36f0f16d6472
-2026-02-23 12:51:07,166 - INFO - 🗑️ Deleted File metadata (1), Logs (3), Vulns (0) for ID: b7236161-b8e3-414b-a6dd-c8541b4264aa
-2026-02-23 12:51:08,634 - INFO - 🗑️ Deleted File metadata (1), Logs (0), Vulns (0) for ID: AUDIT-260220134027
-2026-02-23 12:51:10,200 - INFO - 🗑️ Deleted File metadata (1), Logs (3), Vulns (0) for ID: 5dc99407-a53a-4426-8530-8d6dcfd505a7
-2026-02-23 12:52:55,919 - INFO - ✅ File uploaded: sample_test.log -> /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/incoming/b62b2325-735f-4815-ad1c-f567dbcb053c_sample_test.log
-2026-02-23 12:52:55,921 - INFO - ✅ Read text file: b62b2325-735f-4815-ad1c-f567dbcb053c_sample_test.log
-2026-02-23 12:52:55,983 - INFO - ✅ File classifier initialized
-2026-02-23 12:52:55,983 - INFO -    ⚡ Fast-path: Identified as log based on extension & content
-2026-02-23 12:52:55,983 - INFO -    🎯 Final File type: log
-2026-02-23 12:52:55,985 - INFO - 💾 Inserted file metadata: b62b2325-735f-4815-ad1c-f567dbcb053c
-2026-02-23 12:52:57,374 - INFO - 🚀 Pipeline started in 'large' mode
-2026-02-23 12:52:57,374 - INFO - ✅ Read text file: b62b2325-735f-4815-ad1c-f567dbcb053c_sample_test.log
-2026-02-23 12:52:57,374 - INFO - ✅ File classifier initialized
-2026-02-23 12:52:57,374 - INFO -    ⚡ Fast-path: Identified as log based on extension & content
-2026-02-23 12:52:57,374 - INFO -    🎯 Final File type: log
-2026-02-23 12:52:57,374 - INFO - 🔗 Reusing existing UUID from filename: b62b2325-735f-4815-ad1c-f567dbcb053c_sample_test.log
-2026-02-23 12:52:57,374 - INFO - ✅ Log file moved to staging: b62b2325-735f-4815-ad1c-f567dbcb053c_sample_test.log
-2026-02-23 12:52:57,375 - INFO - 💾 Inserted file metadata: b62b2325-735f-4815-ad1c-f567dbcb053c
-2026-02-23 12:52:57,375 - INFO - 🧠 Processing 1 log files through AI pipeline...
-2026-02-23 12:52:57,375 - INFO - 🚀 STARTING LARGE SCALE PIPELINE (Summarization + Sorting)
-2026-02-23 12:52:57,376 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
-2026-02-23 12:52:57,376 - INFO - Initializing Optimized Keyword Summarizer (MMR) with: sentence-transformers/all-MiniLM-L6-v2
-2026-02-23 12:52:57,376 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-23 12:52:57,376 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-23 12:52:57,376 - INFO - 🧠 Summarizing single file: b62b2325-735f-4815-ad1c-f567dbcb053c_sample_test.log
-2026-02-23 12:52:57,376 - INFO - ✅ Read text file: b62b2325-735f-4815-ad1c-f567dbcb053c_sample_test.log
-2026-02-23 12:52:57,376 - INFO - ✅ File classifier initialized
-2026-02-23 12:52:57,376 - INFO -    ⚡ Fast-path: Identified as log based on extension & content
-2026-02-23 12:52:57,376 - INFO -    🎯 Final File type: log
-2026-02-23 12:52:57,376 - INFO - ✅ Summarizer received content of type: <class 'str'>
-2026-02-23 12:52:57,980 - INFO - ✅ Extracted Keywords: Total Entries: 20. Keywords: connection timeout, info api, input_01 csv, database pool, process kill...
-2026-02-23 12:52:57,980 - INFO - 📐 Generating Embeddings for 1 files...
-2026-02-23 12:52:58,007 - INFO - 📂 Organizing files into final categories...
-2026-02-23 12:52:58,011 - INFO -    👉 Moved b62b2325-735f-4815-ad1c-f567dbcb053c_sample_test.log -> system_log/
-2026-02-23 12:52:58,017 - INFO - ✅ Cluster Report Saved: /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/processed/file_level_clusters.csv
-2026-02-23 12:52:58,017 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
-2026-02-23 12:52:58,019 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-23 12:52:58,071 - INFO -    📋 Indexed metadata into Vector DB for b62b2325-735f-4815-ad1c-f567dbcb053c_sample_test.log
-2026-02-23 12:52:58,071 - INFO - ✅ File metadata indexed into Vector DB
-2026-02-23 12:52:58,071 - INFO - 🧠 Indexing files into RAG Vector Store...
-2026-02-23 12:52:58,071 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
-2026-02-23 12:52:58,072 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-23 12:52:58,087 - INFO -    Indexed summary for b62b2325-735f-4815-ad1c-f567dbcb053c_sample_test.log
-2026-02-23 12:52:58,088 - INFO -    Start chunking and indexing full log content...
-2026-02-23 12:52:58,090 - INFO -    🧠 Analyzing 3 events from b62b2325-735f-4815-ad1c-f567dbcb053c_sample_test.log...
-2026-02-23 12:52:58,090 - INFO -    ⚡ Deduplicated 3 events to 3 unique incidents
-2026-02-23 12:52:58,091 - INFO - 📦 Using DB cached solution for incident: ERROR:[2024-03-20 10:00:12] ERROR Connection timeo...
-2026-02-23 12:52:58,091 - INFO - 📦 Using DB cached solution for incident: ERROR:[2024-03-20 10:01:10] ERROR File not found e...
-2026-02-23 12:52:58,091 - INFO - 📦 Using DB cached solution for incident: ERROR:[2024-03-20 10:03:15] ERROR Memory limit rea...
-2026-02-23 12:52:58,091 - INFO - 💾 Saved 3 events to Log_extraction.
-2026-02-23 12:52:58,091 - INFO -    💾 Saved 3 events to Log_extraction for b62b2325-735f-4815-ad1c-f567dbcb053c_sample_test.log
-2026-02-23 12:52:58,133 - INFO -    📊 Indexed 3 events into Vector DB for b62b2325-735f-4815-ad1c-f567dbcb053c_sample_test.log
-2026-02-23 12:52:58,186 - INFO -    Indexed batch 1 (2 chunks) for b62b2325-735f-4815-ad1c-f567dbcb053c_sample_test.log
-2026-02-23 12:52:58,186 - INFO -    Indexed total 2 chunks for b62b2325-735f-4815-ad1c-f567dbcb053c_sample_test.log
-2026-02-23 12:52:58,186 - INFO - ✅ RAG Indexing Complete
-2026-02-23 12:52:58,186 - INFO - 🔄 Updated file metadata for: b62b2325-735f-4815-ad1c-f567dbcb053c_sample_test.log
-2026-02-23 12:52:58,186 - INFO - 📊 Processed 1 log files in LARGE-SCALE mode.
-2026-02-23 13:40:32,969 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
-2026-02-23 13:40:32,970 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
-2026-02-23 13:40:32,978 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
-2026-02-23 13:40:33,007 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-23 13:40:33,023 - INFO - Use pytorch device_name: mps
-2026-02-23 13:40:33,023 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-23 13:40:36,951 - INFO - 🤖 Agent initialized successfully.
-2026-02-23 13:40:37,203 - INFO - ✅ Connected to MongoDB at mongodb+srv://nileshroy_db_user:Nexu696969@biriyani.f9ghawi.mongodb.net/
-2026-02-23 13:41:11,138 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
-2026-02-23 13:41:11,138 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
-2026-02-23 13:41:11,146 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
-2026-02-23 13:41:11,175 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-23 13:41:11,188 - INFO - Use pytorch device_name: mps
-2026-02-23 13:41:11,188 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-23 13:41:14,933 - INFO - 🤖 Agent initialized successfully.
-2026-02-23 13:41:15,241 - INFO - ✅ Connected to MongoDB at mongodb+srv://nileshroy_db_user:Nexu696969@biriyani.f9ghawi.mongodb.net/
-2026-02-23 13:41:31,834 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
-2026-02-23 13:41:31,834 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
-2026-02-23 13:41:31,842 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
-2026-02-23 13:41:31,871 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-23 13:41:31,884 - INFO - Use pytorch device_name: mps
-2026-02-23 13:41:31,884 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-23 13:41:41,443 - INFO - 🤖 Agent initialized successfully.
-2026-02-23 13:41:41,762 - INFO - ✅ Connected to MongoDB at mongodb+srv://nileshroy_db_user:Nexu696969@biriyani.f9ghawi.mongodb.net/
-2026-02-23 13:41:51,939 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
-2026-02-23 13:41:51,940 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
-2026-02-23 13:41:51,947 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
-2026-02-23 13:41:51,977 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-23 13:41:51,991 - INFO - Use pytorch device_name: mps
-2026-02-23 13:41:51,991 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-23 13:41:56,128 - INFO - 🤖 Agent initialized successfully.
-2026-02-23 13:41:56,414 - INFO - ✅ Connected to MongoDB at mongodb+srv://nileshroy_db_user:Nexu696969@biriyani.f9ghawi.mongodb.net/
-2026-02-23 15:02:33,840 - INFO - 🗑️ Deleted File metadata (1), Logs (3), Vulns (0) for ID: b62b2325-735f-4815-ad1c-f567dbcb053c
-2026-02-23 15:02:59,074 - INFO - ✅ File uploaded: sample_test.log -> /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/incoming/1e4f490a-84bb-4205-bb2a-c731ddf85046_sample_test.log
-2026-02-23 15:02:59,075 - INFO - ✅ Read text file: 1e4f490a-84bb-4205-bb2a-c731ddf85046_sample_test.log
-2026-02-23 15:02:59,134 - INFO - ✅ File classifier initialized
-2026-02-23 15:02:59,134 - INFO -    ⚡ Fast-path: Identified as log based on extension & content
-2026-02-23 15:02:59,134 - INFO -    🎯 Final File type: log
-2026-02-23 15:02:59,137 - INFO - 💾 Inserted file metadata: 1e4f490a-84bb-4205-bb2a-c731ddf85046
-2026-02-23 15:03:00,900 - INFO - 🚀 Pipeline started in 'large' mode
-2026-02-23 15:03:00,900 - INFO - ✅ Read text file: 1e4f490a-84bb-4205-bb2a-c731ddf85046_sample_test.log
-2026-02-23 15:03:00,900 - INFO - ✅ File classifier initialized
-2026-02-23 15:03:00,900 - INFO -    ⚡ Fast-path: Identified as log based on extension & content
-2026-02-23 15:03:00,900 - INFO -    🎯 Final File type: log
-2026-02-23 15:03:00,901 - INFO - 🔗 Reusing existing UUID from filename: 1e4f490a-84bb-4205-bb2a-c731ddf85046_sample_test.log
-2026-02-23 15:03:00,901 - INFO - ✅ Log file moved to staging: 1e4f490a-84bb-4205-bb2a-c731ddf85046_sample_test.log
-2026-02-23 15:03:00,902 - INFO - 💾 Inserted file metadata: 1e4f490a-84bb-4205-bb2a-c731ddf85046
-2026-02-23 15:03:00,902 - INFO - 🧠 Processing 1 log files through AI pipeline...
-2026-02-23 15:03:00,902 - INFO - 🚀 STARTING LARGE SCALE PIPELINE (Summarization + Sorting)
-2026-02-23 15:03:00,902 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
-2026-02-23 15:03:00,902 - INFO - Initializing Optimized Keyword Summarizer (MMR) with: sentence-transformers/all-MiniLM-L6-v2
-2026-02-23 15:03:00,902 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-23 15:03:00,902 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-23 15:03:00,902 - INFO - 🧠 Summarizing single file: 1e4f490a-84bb-4205-bb2a-c731ddf85046_sample_test.log
-2026-02-23 15:03:00,902 - INFO - ✅ Read text file: 1e4f490a-84bb-4205-bb2a-c731ddf85046_sample_test.log
-2026-02-23 15:03:00,902 - INFO - ✅ File classifier initialized
-2026-02-23 15:03:00,902 - INFO -    ⚡ Fast-path: Identified as log based on extension & content
-2026-02-23 15:03:00,902 - INFO -    🎯 Final File type: log
-2026-02-23 15:03:00,902 - INFO - ✅ Summarizer received content of type: <class 'str'>
-2026-02-23 15:03:01,363 - INFO - ✅ Extracted Keywords: Total Entries: 20. Keywords: connection timeout, info api, input_01 csv, database pool, process kill...
-2026-02-23 15:03:01,363 - INFO - 📐 Generating Embeddings for 1 files...
-2026-02-23 15:03:01,407 - INFO - 📂 Organizing files into final categories...
-2026-02-23 15:03:01,414 - INFO -    👉 Moved 1e4f490a-84bb-4205-bb2a-c731ddf85046_sample_test.log -> system_log/
-2026-02-23 15:03:01,419 - INFO - ✅ Cluster Report Saved: /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/processed/file_level_clusters.csv
-2026-02-23 15:03:01,419 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
-2026-02-23 15:03:01,424 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-23 15:03:01,488 - INFO -    📋 Indexed metadata into Vector DB for 1e4f490a-84bb-4205-bb2a-c731ddf85046_sample_test.log
-2026-02-23 15:03:01,488 - INFO - ✅ File metadata indexed into Vector DB
-2026-02-23 15:03:01,488 - INFO - 🧠 Indexing files into RAG Vector Store...
-2026-02-23 15:03:01,488 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
-2026-02-23 15:03:01,489 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-23 15:03:01,507 - INFO -    Indexed summary for 1e4f490a-84bb-4205-bb2a-c731ddf85046_sample_test.log
-2026-02-23 15:03:01,507 - INFO -    Start chunking and indexing full log content...
-2026-02-23 15:03:01,523 - INFO -    🧠 Analyzing 3 events from 1e4f490a-84bb-4205-bb2a-c731ddf85046_sample_test.log...
-2026-02-23 15:03:01,523 - INFO -    ⚡ Deduplicated 3 events to 3 unique incidents
-2026-02-23 15:03:01,524 - INFO - 📦 Using DB cached solution for incident: ERROR:[2024-03-20 10:00:12] ERROR Connection timeo...
-2026-02-23 15:03:01,524 - INFO - 📦 Using DB cached solution for incident: ERROR:[2024-03-20 10:01:10] ERROR File not found e...
-2026-02-23 15:03:01,524 - INFO - 📦 Using DB cached solution for incident: ERROR:[2024-03-20 10:03:15] ERROR Memory limit rea...
-2026-02-23 15:03:01,525 - INFO - 💾 Saved 3 events to Log_extraction.
-2026-02-23 15:03:01,525 - INFO -    💾 Saved 3 events to Log_extraction for 1e4f490a-84bb-4205-bb2a-c731ddf85046_sample_test.log
-2026-02-23 15:03:01,562 - INFO -    📊 Indexed 3 events into Vector DB for 1e4f490a-84bb-4205-bb2a-c731ddf85046_sample_test.log
-2026-02-23 15:03:01,616 - INFO -    Indexed batch 1 (2 chunks) for 1e4f490a-84bb-4205-bb2a-c731ddf85046_sample_test.log
-2026-02-23 15:03:01,616 - INFO -    Indexed total 2 chunks for 1e4f490a-84bb-4205-bb2a-c731ddf85046_sample_test.log
-2026-02-23 15:03:01,616 - INFO - ✅ RAG Indexing Complete
-2026-02-23 15:03:01,617 - INFO - 🔄 Updated file metadata for: 1e4f490a-84bb-4205-bb2a-c731ddf85046_sample_test.log
-2026-02-23 15:03:01,617 - INFO - 📊 Processed 1 log files in LARGE-SCALE mode.
-2026-02-23 15:23:30,996 - INFO - ✅ File uploaded: sample_50_events.log -> /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/incoming/cdea0ae0-2cc0-436e-af9f-29b61c0b8af5_sample_50_events.log
-2026-02-23 15:23:30,998 - INFO - ✅ Read text file: cdea0ae0-2cc0-436e-af9f-29b61c0b8af5_sample_50_events.log
-2026-02-23 15:23:30,998 - INFO -    ⚡ Fast-path: Identified as log based on extension & content
-2026-02-23 15:23:30,998 - INFO -    🎯 Final File type: log
-2026-02-23 15:23:31,001 - INFO - 💾 Inserted file metadata: cdea0ae0-2cc0-436e-af9f-29b61c0b8af5
-2026-02-23 15:23:37,683 - INFO - 🚀 Pipeline started in 'large' mode
-2026-02-23 15:23:37,686 - INFO - ✅ Read text file: cdea0ae0-2cc0-436e-af9f-29b61c0b8af5_sample_50_events.log
-2026-02-23 15:23:37,686 - INFO - ✅ File classifier initialized
-2026-02-23 15:23:37,686 - INFO -    ⚡ Fast-path: Identified as log based on extension & content
-2026-02-23 15:23:37,686 - INFO -    🎯 Final File type: log
-2026-02-23 15:23:37,686 - INFO - 🔗 Reusing existing UUID from filename: cdea0ae0-2cc0-436e-af9f-29b61c0b8af5_sample_50_events.log
-2026-02-23 15:23:37,687 - INFO - ✅ Log file moved to staging: cdea0ae0-2cc0-436e-af9f-29b61c0b8af5_sample_50_events.log
-2026-02-23 15:23:37,690 - INFO - 💾 Inserted file metadata: cdea0ae0-2cc0-436e-af9f-29b61c0b8af5
-2026-02-23 15:23:37,691 - INFO - 🧠 Processing 1 log files through AI pipeline...
-2026-02-23 15:23:37,691 - INFO - 🚀 STARTING LARGE SCALE PIPELINE (Summarization + Sorting)
-2026-02-23 15:23:37,692 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
-2026-02-23 15:23:37,692 - INFO - Initializing Optimized Keyword Summarizer (MMR) with: sentence-transformers/all-MiniLM-L6-v2
-2026-02-23 15:23:37,692 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-23 15:23:37,693 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-23 15:23:37,693 - INFO - 🧠 Summarizing single file: cdea0ae0-2cc0-436e-af9f-29b61c0b8af5_sample_50_events.log
-2026-02-23 15:23:37,693 - INFO - ✅ Read text file: cdea0ae0-2cc0-436e-af9f-29b61c0b8af5_sample_50_events.log
-2026-02-23 15:23:37,693 - INFO - ✅ File classifier initialized
-2026-02-23 15:23:37,693 - INFO -    ⚡ Fast-path: Identified as log based on extension & content
-2026-02-23 15:23:37,693 - INFO -    🎯 Final File type: log
-2026-02-23 15:23:37,693 - INFO - ✅ Summarizer received content of type: <class 'str'>
-2026-02-23 15:23:38,249 - INFO - ✅ Extracted Keywords: Total Entries: 50. Keywords: memory usage, node worker, unauthorized sql, 25z error, started process...
-2026-02-23 15:23:38,249 - INFO - 📐 Generating Embeddings for 1 files...
-2026-02-23 15:23:38,274 - INFO - 📂 Organizing files into final categories...
-2026-02-23 15:23:38,275 - INFO -    👉 Moved cdea0ae0-2cc0-436e-af9f-29b61c0b8af5_sample_50_events.log -> app_log/
-2026-02-23 15:23:38,276 - INFO - ✅ Cluster Report Saved: /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/processed/file_level_clusters.csv
-2026-02-23 15:23:38,276 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
-2026-02-23 15:23:38,280 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-23 15:23:38,321 - INFO -    📋 Indexed metadata into Vector DB for cdea0ae0-2cc0-436e-af9f-29b61c0b8af5_sample_50_events.log
-2026-02-23 15:23:38,321 - INFO - ✅ File metadata indexed into Vector DB
-2026-02-23 15:23:38,321 - INFO - 🧠 Indexing files into RAG Vector Store...
-2026-02-23 15:23:38,321 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
-2026-02-23 15:23:38,322 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-23 15:23:38,332 - INFO -    Indexed summary for cdea0ae0-2cc0-436e-af9f-29b61c0b8af5_sample_50_events.log
-2026-02-23 15:23:38,333 - INFO -    Start chunking and indexing full log content...
-2026-02-23 15:23:38,338 - INFO -    🧠 Analyzing 16 events from cdea0ae0-2cc0-436e-af9f-29b61c0b8af5_sample_50_events.log...
-2026-02-23 15:23:38,338 - INFO -    ⚡ Deduplicated 16 events to 16 unique incidents
-2026-02-23 15:24:33,753 - WARNING - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash
-Please retry in 26.499543165s. [links {
-  description: "Learn more about Gemini API quotas"
-  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
-}
-, violations {
-  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
-  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
-  quota_dimensions {
-    key: "model"
-    value: "gemini-2.5-flash"
-  }
-  quota_dimensions {
-    key: "location"
-    value: "global"
-  }
-  quota_value: 5
-}
-, retry_delay {
-  seconds: 26
-}
-].
-2026-02-23 15:24:36,115 - WARNING - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 4.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash
-Please retry in 24.133177947s. [links {
-  description: "Learn more about Gemini API quotas"
-  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
-}
-, violations {
-  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
-  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
-  quota_dimensions {
-    key: "model"
-    value: "gemini-2.5-flash"
-  }
-  quota_dimensions {
-    key: "location"
-    value: "global"
-  }
-  quota_value: 5
-}
-, retry_delay {
-  seconds: 24
-}
-].
-2026-02-23 15:25:00,058 - WARNING - ⚠️ Failed to parse LLM response: Invalid control character at: line 4 column 270 (char 492)
-2026-02-23 15:25:14,333 - ERROR - ❌ Failed to cache resolution: Error binding parameter 3: type 'list' is not supported
-2026-02-23 15:26:07,297 - INFO -    🔒 Analyzing 2 vulnerabilities from cdea0ae0-2cc0-436e-af9f-29b61c0b8af5_sample_50_events.log...
-2026-02-23 15:26:13,180 - INFO - 🤖 Generated LLM solution for SQL Injection (SQLi)
-2026-02-23 15:26:19,350 - INFO - 🤖 Generated LLM solution for Cross-Site Scripting (XSS)
-2026-02-23 15:26:19,352 - INFO - 🔒 Saved 2 vulnerability analyses to database.
-2026-02-23 15:26:19,644 - INFO -    🔒 Indexed 2 vulnerabilities into Vector DB for cdea0ae0-2cc0-436e-af9f-29b61c0b8af5_sample_50_events.log
-2026-02-23 15:26:19,645 - ERROR - ❌ Failed to save events to database: Error binding parameter 5: type 'list' is not supported
-2026-02-23 15:26:19,645 - INFO -    💾 Saved 18 events to Log_extraction for cdea0ae0-2cc0-436e-af9f-29b61c0b8af5_sample_50_events.log
-2026-02-23 15:26:19,799 - INFO -    📊 Indexed 18 events into Vector DB for cdea0ae0-2cc0-436e-af9f-29b61c0b8af5_sample_50_events.log
-2026-02-23 15:26:19,888 - INFO -    Indexed batch 1 (5 chunks) for cdea0ae0-2cc0-436e-af9f-29b61c0b8af5_sample_50_events.log
-2026-02-23 15:26:19,888 - INFO -    Indexed total 5 chunks for cdea0ae0-2cc0-436e-af9f-29b61c0b8af5_sample_50_events.log
-2026-02-23 15:26:19,888 - INFO - ✅ RAG Indexing Complete
-2026-02-23 15:26:19,889 - INFO - 🔄 Updated file metadata for: cdea0ae0-2cc0-436e-af9f-29b61c0b8af5_sample_50_events.log
-2026-02-23 15:26:19,889 - INFO - 📊 Processed 1 log files in LARGE-SCALE mode.
-2026-02-23 15:27:08,997 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
-2026-02-23 15:27:08,998 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
-2026-02-23 15:27:09,006 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
-2026-02-23 15:27:09,048 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-23 15:27:09,106 - INFO - Use pytorch device_name: mps
-2026-02-23 15:27:09,106 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-23 15:27:27,721 - INFO - 🤖 Agent initialized successfully.
-2026-02-23 15:27:27,967 - INFO - ✅ Connected to MongoDB at mongodb+srv://nileshroy_db_user:Nexu696969@biriyani.f9ghawi.mongodb.net/
-2026-02-23 15:28:11,624 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
-2026-02-23 15:28:11,624 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
-2026-02-23 15:28:11,635 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
-2026-02-23 15:28:11,710 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-23 15:28:11,726 - INFO - Use pytorch device_name: mps
-2026-02-23 15:28:11,726 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-23 15:28:15,868 - INFO - 🤖 Agent initialized successfully.
-2026-02-23 15:28:16,119 - INFO - ✅ Connected to MongoDB at mongodb+srv://nileshroy_db_user:Nexu696969@biriyani.f9ghawi.mongodb.net/
-2026-02-23 15:28:24,712 - INFO - 🗑️ Deleted File metadata (1), Logs (0), Vulns (2) for ID: cdea0ae0-2cc0-436e-af9f-29b61c0b8af5
-2026-02-23 15:28:26,521 - INFO - 🗑️ Deleted File metadata (1), Logs (3), Vulns (0) for ID: 1e4f490a-84bb-4205-bb2a-c731ddf85046
-2026-02-23 15:28:44,210 - INFO - ✅ File uploaded: sample_test.log -> /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/incoming/2bca9ee8-df16-480c-b370-2ee727ec75ca_sample_test.log
-2026-02-23 15:28:44,211 - INFO - ✅ Read text file: 2bca9ee8-df16-480c-b370-2ee727ec75ca_sample_test.log
-2026-02-23 15:28:44,257 - INFO - ✅ File classifier initialized
-2026-02-23 15:28:44,257 - INFO -    ⚡ Fast-path: Identified as log based on extension & content
-2026-02-23 15:28:44,257 - INFO -    🎯 Final File type: log
-2026-02-23 15:28:44,259 - INFO - 💾 Inserted file metadata: 2bca9ee8-df16-480c-b370-2ee727ec75ca
-2026-02-23 15:28:45,730 - INFO - 🚀 Pipeline started in 'large' mode
-2026-02-23 15:28:45,730 - INFO - ✅ Read text file: 2bca9ee8-df16-480c-b370-2ee727ec75ca_sample_test.log
-2026-02-23 15:28:45,730 - INFO - ✅ File classifier initialized
-2026-02-23 15:28:45,730 - INFO -    ⚡ Fast-path: Identified as log based on extension & content
-2026-02-23 15:28:45,730 - INFO -    🎯 Final File type: log
-2026-02-23 15:28:45,730 - INFO - 🔗 Reusing existing UUID from filename: 2bca9ee8-df16-480c-b370-2ee727ec75ca_sample_test.log
-2026-02-23 15:28:45,730 - INFO - ✅ Log file moved to staging: 2bca9ee8-df16-480c-b370-2ee727ec75ca_sample_test.log
-2026-02-23 15:28:45,731 - INFO - 💾 Inserted file metadata: 2bca9ee8-df16-480c-b370-2ee727ec75ca
-2026-02-23 15:28:45,731 - INFO - 🧠 Processing 1 log files through AI pipeline...
-2026-02-23 15:28:45,731 - INFO - 🚀 STARTING LARGE SCALE PIPELINE (Summarization + Sorting)
-2026-02-23 15:28:45,731 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
-2026-02-23 15:28:45,731 - INFO - Initializing Optimized Keyword Summarizer (MMR) with: sentence-transformers/all-MiniLM-L6-v2
-2026-02-23 15:28:45,731 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-23 15:28:45,731 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-23 15:28:45,731 - INFO - 🧠 Summarizing single file: 2bca9ee8-df16-480c-b370-2ee727ec75ca_sample_test.log
-2026-02-23 15:28:45,731 - INFO - ✅ Read text file: 2bca9ee8-df16-480c-b370-2ee727ec75ca_sample_test.log
-2026-02-23 15:28:45,731 - INFO - ✅ File classifier initialized
-2026-02-23 15:28:45,731 - INFO -    ⚡ Fast-path: Identified as log based on extension & content
-2026-02-23 15:28:45,731 - INFO -    🎯 Final File type: log
-2026-02-23 15:28:45,731 - INFO - ✅ Summarizer received content of type: <class 'str'>
-2026-02-23 15:28:46,232 - INFO - ✅ Extracted Keywords: Total Entries: 20. Keywords: connection timeout, info api, input_01 csv, database pool, process kill...
-2026-02-23 15:28:46,232 - INFO - 📐 Generating Embeddings for 1 files...
-2026-02-23 15:28:46,254 - INFO - 📂 Organizing files into final categories...
-2026-02-23 15:28:46,256 - INFO -    👉 Moved 2bca9ee8-df16-480c-b370-2ee727ec75ca_sample_test.log -> system_log/
-2026-02-23 15:28:46,260 - INFO - ✅ Cluster Report Saved: /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/processed/file_level_clusters.csv
-2026-02-23 15:28:46,260 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
-2026-02-23 15:28:46,263 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-23 15:28:46,305 - INFO -    📋 Indexed metadata into Vector DB for 2bca9ee8-df16-480c-b370-2ee727ec75ca_sample_test.log
-2026-02-23 15:28:46,305 - INFO - ✅ File metadata indexed into Vector DB
-2026-02-23 15:28:46,305 - INFO - 🧠 Indexing files into RAG Vector Store...
-2026-02-23 15:28:46,305 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
-2026-02-23 15:28:46,306 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2026-02-23 15:28:46,319 - INFO -    Indexed summary for 2bca9ee8-df16-480c-b370-2ee727ec75ca_sample_test.log
-2026-02-23 15:28:46,319 - INFO -    Start chunking and indexing full log content...
-2026-02-23 15:28:46,324 - INFO -    🧠 Analyzing 3 events from 2bca9ee8-df16-480c-b370-2ee727ec75ca_sample_test.log...
-2026-02-23 15:28:46,324 - INFO -    ⚡ Deduplicated 3 events to 3 unique incidents
-2026-02-23 15:28:46,325 - INFO - 📦 Using DB cached solution for incident: ERROR:[2024-03-20 10:00:12] ERROR Connection timeo...
-2026-02-23 15:28:46,325 - INFO - 📦 Using DB cached solution for incident: ERROR:[2024-03-20 10:01:10] ERROR File not found e...
-2026-02-23 15:28:46,325 - INFO - 📦 Using DB cached solution for incident: ERROR:[2024-03-20 10:03:15] ERROR Memory limit rea...
-2026-02-23 15:28:46,326 - INFO - 💾 Saved 3 events to Log_extraction.
-2026-02-23 15:28:46,326 - INFO -    💾 Saved 3 events to Log_extraction for 2bca9ee8-df16-480c-b370-2ee727ec75ca_sample_test.log
-2026-02-23 15:28:46,365 - INFO -    📊 Indexed 3 events into Vector DB for 2bca9ee8-df16-480c-b370-2ee727ec75ca_sample_test.log
-2026-02-23 15:28:46,418 - INFO -    Indexed batch 1 (2 chunks) for 2bca9ee8-df16-480c-b370-2ee727ec75ca_sample_test.log
-2026-02-23 15:28:46,418 - INFO -    Indexed total 2 chunks for 2bca9ee8-df16-480c-b370-2ee727ec75ca_sample_test.log
-2026-02-23 15:28:46,418 - INFO - ✅ RAG Indexing Complete
-2026-02-23 15:28:46,419 - INFO - 🔄 Updated file metadata for: 2bca9ee8-df16-480c-b370-2ee727ec75ca_sample_test.log
-2026-02-23 15:28:46,419 - INFO - 📊 Processed 1 log files in LARGE-SCALE mode.
+2026-02-24 16:32:59,934 - INFO - 🚀 Pipeline started in 'large' mode
+2026-02-24 16:32:59,934 - INFO - ✅ Read text file: 4d161086-53e0-43b1-9883-ad30a22b5807_sample_50_events.log
+2026-02-24 16:32:59,934 - INFO - ✅ File classifier initialized
+2026-02-24 16:32:59,934 - INFO -    ⚡ Fast-path: Identified as log based on extension & content
+2026-02-24 16:32:59,934 - INFO -    🎯 Final File type: log
+2026-02-24 16:32:59,934 - INFO - 🔗 Reusing existing UUID from filename: 4d161086-53e0-43b1-9883-ad30a22b5807_sample_50_events.log
+2026-02-24 16:32:59,935 - INFO - ✅ Log file moved to staging: 4d161086-53e0-43b1-9883-ad30a22b5807_sample_50_events.log
+2026-02-24 16:32:59,935 - ERROR - ❌ Failed to retrieve file metadata: no such table: File_Master
+2026-02-24 16:32:59,936 - ERROR - ❌ Failed to insert file metadata: no such table: File_Master
+2026-02-24 16:32:59,936 - INFO - 🧠 Processing 1 log files through AI pipeline...
+2026-02-24 16:32:59,936 - INFO - 🚀 STARTING LARGE SCALE PIPELINE (Summarization + Sorting)
+2026-02-24 16:32:59,947 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
+2026-02-24 16:32:59,947 - INFO - Initializing Optimized Keyword Summarizer (MMR) with: sentence-transformers/all-MiniLM-L6-v2
+2026-02-24 16:32:59,947 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-24 16:32:59,947 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-24 16:32:59,947 - INFO - 🧠 Summarizing single file: 4d161086-53e0-43b1-9883-ad30a22b5807_sample_50_events.log
+2026-02-24 16:32:59,947 - INFO - ✅ Read text file: 4d161086-53e0-43b1-9883-ad30a22b5807_sample_50_events.log
+2026-02-24 16:32:59,947 - INFO - ✅ File classifier initialized
+2026-02-24 16:32:59,947 - INFO -    ⚡ Fast-path: Identified as log based on extension & content
+2026-02-24 16:32:59,947 - INFO -    🎯 Final File type: log
+2026-02-24 16:32:59,947 - INFO - ✅ Summarizer received content of type: <class 'str'>
+2026-02-24 16:33:00,273 - INFO - ✅ Extracted Keywords: Total Entries: 50. Keywords: memory usage, node worker, unauthorized sql, 25z error, started process...
+2026-02-24 16:33:00,274 - INFO - 📐 Generating Embeddings for 1 files...
+2026-02-24 16:33:00,286 - INFO - 📂 Organizing files into final categories...
+2026-02-24 16:33:00,286 - INFO -    👉 Moved 4d161086-53e0-43b1-9883-ad30a22b5807_sample_50_events.log -> app_log/
+2026-02-24 16:33:00,287 - INFO - ✅ Cluster Report Saved: /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/processed/file_level_clusters.csv
+2026-02-24 16:33:00,287 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
+2026-02-24 16:33:00,289 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-24 16:33:00,326 - ERROR - ❌ Failed to index metadata for 4d161086-53e0-43b1-9883-ad30a22b5807_sample_50_events.log: Query error: Database error: error returned from database: (code: 1032) attempt to write a readonly database
+2026-02-24 16:33:00,327 - INFO - ✅ File metadata indexed into Vector DB
+2026-02-24 16:33:00,327 - INFO - 🧠 Indexing files into RAG Vector Store...
+2026-02-24 16:33:00,327 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
+2026-02-24 16:33:00,327 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-24 16:33:00,336 - ERROR - ❌ Failed to index summary for 4d161086-53e0-43b1-9883-ad30a22b5807_sample_50_events.log: Query error: Database error: error returned from database: (code: 1032) attempt to write a readonly database
+2026-02-24 16:33:00,336 - INFO -    Start chunking and indexing full log content...
+2026-02-24 16:33:00,336 - INFO - 🦙 Using Ollama with model: gemma3 for vulnerability analysis
+2026-02-24 16:33:00,345 - INFO -    🧠 Analyzing 16 events from 4d161086-53e0-43b1-9883-ad30a22b5807_sample_50_events.log...
+2026-02-24 16:33:00,345 - INFO -    ⚡ Deduplicated 16 events to 16 unique incidents
+2026-02-24 16:33:04,322 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-24 16:33:16,357 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-24 16:33:29,238 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-24 16:33:39,253 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-24 16:33:51,323 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-24 16:34:02,873 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-24 16:34:12,373 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-24 16:34:23,800 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-24 16:34:36,137 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-24 16:34:45,706 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-24 16:34:57,733 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-24 16:35:07,924 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-24 16:35:19,408 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-24 16:35:33,083 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-24 16:35:43,255 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-24 16:35:57,897 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-24 16:36:10,047 - INFO -    🔒 Analyzing 2 vulnerabilities from 4d161086-53e0-43b1-9883-ad30a22b5807_sample_50_events.log...
+2026-02-24 16:36:11,317 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-24 16:36:22,205 - INFO - 🤖 Generated LLM solution for SQL Injection (SQLi)
+2026-02-24 16:36:23,271 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-24 16:36:36,812 - WARNING - ⚠️ Failed to parse LLM response: Expecting ',' delimiter: line 4 column 252 (char 603)
+2026-02-24 16:36:36,815 - INFO - 🤖 Generated LLM solution for Cross-Site Scripting (XSS)
+2026-02-24 16:36:36,817 - INFO - 🔒 Saved 2 vulnerability analyses to database.
+2026-02-24 16:36:37,257 - ERROR - ❌ Failed to index vulnerabilities for 4d161086-53e0-43b1-9883-ad30a22b5807_sample_50_events.log: Query error: Database error: error returned from database: (code: 1032) attempt to write a readonly database
+2026-02-24 16:36:37,258 - INFO - 💾 Saved 18 events to Log_extraction.
+2026-02-24 16:36:37,258 - INFO -    💾 Saved 18 events to Log_extraction for 4d161086-53e0-43b1-9883-ad30a22b5807_sample_50_events.log
+2026-02-24 16:36:37,292 - ERROR - ❌ Failed to index events for 4d161086-53e0-43b1-9883-ad30a22b5807_sample_50_events.log: Query error: Database error: error returned from database: (code: 1032) attempt to write a readonly database
+2026-02-24 16:36:37,331 - ERROR - ❌ Failed to index chunks for 4d161086-53e0-43b1-9883-ad30a22b5807_sample_50_events.log: Query error: Database error: error returned from database: (code: 1032) attempt to write a readonly database
+2026-02-24 16:36:37,331 - INFO - ✅ RAG Indexing Complete
+2026-02-24 16:36:37,332 - INFO - 🔄 Updated file metadata for: 4d161086-53e0-43b1-9883-ad30a22b5807_sample_50_events.log
+2026-02-24 16:36:37,332 - INFO - 📊 Processed 1 log files in LARGE-SCALE mode.
+2026-02-24 16:41:19,212 - INFO - ✅ File uploaded: sample_50_events.log -> /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/incoming/1a0d948c-872f-4dc8-a699-f1091e3001f7_sample_50_events.log
+2026-02-24 16:41:19,213 - INFO - ✅ Read text file: 1a0d948c-872f-4dc8-a699-f1091e3001f7_sample_50_events.log
+2026-02-24 16:41:19,213 - INFO -    ⚡ Fast-path: Identified as log based on extension & content
+2026-02-24 16:41:19,214 - INFO -    🎯 Final File type: log
+2026-02-24 16:41:19,216 - INFO - 💾 Inserted file metadata: 1a0d948c-872f-4dc8-a699-f1091e3001f7
+2026-02-24 16:41:20,400 - INFO - 🚀 Pipeline started in 'large' mode
+2026-02-24 16:41:20,401 - INFO - ✅ Read text file: 1a0d948c-872f-4dc8-a699-f1091e3001f7_sample_50_events.log
+2026-02-24 16:41:20,402 - INFO - ✅ File classifier initialized
+2026-02-24 16:41:20,402 - INFO -    ⚡ Fast-path: Identified as log based on extension & content
+2026-02-24 16:41:20,402 - INFO -    🎯 Final File type: log
+2026-02-24 16:41:20,402 - INFO - 🔗 Reusing existing UUID from filename: 1a0d948c-872f-4dc8-a699-f1091e3001f7_sample_50_events.log
+2026-02-24 16:41:20,403 - INFO - ✅ Log file moved to staging: 1a0d948c-872f-4dc8-a699-f1091e3001f7_sample_50_events.log
+2026-02-24 16:41:20,409 - INFO - 💾 Inserted file metadata: 1a0d948c-872f-4dc8-a699-f1091e3001f7
+2026-02-24 16:41:20,409 - INFO - 🧠 Processing 1 log files through AI pipeline...
+2026-02-24 16:41:20,410 - INFO - 🚀 STARTING LARGE SCALE PIPELINE (Summarization + Sorting)
+2026-02-24 16:41:20,411 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
+2026-02-24 16:41:20,411 - INFO - Initializing Optimized Keyword Summarizer (MMR) with: sentence-transformers/all-MiniLM-L6-v2
+2026-02-24 16:41:20,411 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-24 16:41:20,412 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-24 16:41:20,412 - INFO - 🧠 Summarizing single file: 1a0d948c-872f-4dc8-a699-f1091e3001f7_sample_50_events.log
+2026-02-24 16:41:20,412 - INFO - ✅ Read text file: 1a0d948c-872f-4dc8-a699-f1091e3001f7_sample_50_events.log
+2026-02-24 16:41:20,412 - INFO - ✅ File classifier initialized
+2026-02-24 16:41:20,412 - INFO -    ⚡ Fast-path: Identified as log based on extension & content
+2026-02-24 16:41:20,412 - INFO -    🎯 Final File type: log
+2026-02-24 16:41:20,412 - INFO - ✅ Summarizer received content of type: <class 'str'>
+2026-02-24 16:41:20,958 - INFO - ✅ Extracted Keywords: Total Entries: 50. Keywords: memory usage, node worker, unauthorized sql, 25z error, started process...
+2026-02-24 16:41:20,958 - INFO - 📐 Generating Embeddings for 1 files...
+2026-02-24 16:41:20,971 - INFO - 📂 Organizing files into final categories...
+2026-02-24 16:41:20,975 - INFO -    👉 Moved 1a0d948c-872f-4dc8-a699-f1091e3001f7_sample_50_events.log -> app_log/
+2026-02-24 16:41:20,977 - INFO - ✅ Cluster Report Saved: /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/processed/file_level_clusters.csv
+2026-02-24 16:41:20,977 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
+2026-02-24 16:41:20,984 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-24 16:41:21,025 - ERROR - ❌ Failed to index metadata for 1a0d948c-872f-4dc8-a699-f1091e3001f7_sample_50_events.log: Query error: Database error: error returned from database: (code: 1032) attempt to write a readonly database
+2026-02-24 16:41:21,025 - INFO - ✅ File metadata indexed into Vector DB
+2026-02-24 16:41:21,025 - INFO - 🧠 Indexing files into RAG Vector Store...
+2026-02-24 16:41:21,025 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/chroma_db
+2026-02-24 16:41:21,026 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-24 16:41:21,037 - ERROR - ❌ Failed to index summary for 1a0d948c-872f-4dc8-a699-f1091e3001f7_sample_50_events.log: Query error: Database error: error returned from database: (code: 1032) attempt to write a readonly database
+2026-02-24 16:41:21,037 - INFO -    Start chunking and indexing full log content...
+2026-02-24 16:41:21,037 - INFO - 🦙 Using Ollama with model: gemma3 for vulnerability analysis
+2026-02-24 16:41:21,055 - INFO -    🧠 Analyzing 16 events from 1a0d948c-872f-4dc8-a699-f1091e3001f7_sample_50_events.log...
+2026-02-24 16:41:21,055 - INFO -    ⚡ Deduplicated 16 events to 16 unique incidents
+2026-02-24 16:41:22,328 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-24 16:41:34,527 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-24 16:41:36,902 - INFO - Backing off send_request(...) for 0.2s (requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='us.i.posthog.com', port=443): Read timed out. (read timeout=15))
+2026-02-24 16:41:48,232 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-24 16:41:58,715 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-24 16:42:07,935 - INFO - Backing off send_request(...) for 0.5s (requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='us.i.posthog.com', port=443): Read timed out. (read timeout=15))
+2026-02-24 16:42:13,171 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-24 16:59:34,161 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
+2026-02-24 16:59:34,162 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/chroma_db
+2026-02-24 16:59:34,172 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-02-24 16:59:34,344 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-24 16:59:34,375 - INFO - Use pytorch device_name: mps
+2026-02-24 16:59:34,375 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-24 16:59:38,224 - INFO - 🦙 Using Ollama with model: gemma3
+2026-02-24 16:59:38,258 - INFO - 🦙 Agent initialized with Ollama (gemma3) - no API key needed.
+2026-02-24 16:59:38,582 - INFO - ✅ Connected to MongoDB at mongodb+srv://nileshroy_db_user:Nexu696969@biriyani.f9ghawi.mongodb.net/
+2026-02-24 17:01:56,025 - INFO - ✅ File uploaded: sample_50_events.log -> /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/incoming/2be902d6-8081-421f-9f51-0dd6fc824660_sample_50_events.log
+2026-02-24 17:01:56,025 - INFO - ✅ Read text file: 2be902d6-8081-421f-9f51-0dd6fc824660_sample_50_events.log
+2026-02-24 17:01:56,076 - INFO - ✅ File classifier initialized
+2026-02-24 17:01:56,076 - INFO -    ⚡ Fast-path: Identified as log based on extension & content
+2026-02-24 17:01:56,076 - INFO -    🎯 Final File type: log
+2026-02-24 17:01:56,078 - INFO - 💾 Inserted file metadata: 2be902d6-8081-421f-9f51-0dd6fc824660
+2026-02-24 17:01:57,153 - INFO - 🚀 Pipeline started in 'large' mode
+2026-02-24 17:01:57,154 - INFO - ✅ Read text file: 2be902d6-8081-421f-9f51-0dd6fc824660_sample_50_events.log
+2026-02-24 17:01:57,154 - INFO - ✅ File classifier initialized
+2026-02-24 17:01:57,154 - INFO -    ⚡ Fast-path: Identified as log based on extension & content
+2026-02-24 17:01:57,154 - INFO -    🎯 Final File type: log
+2026-02-24 17:01:57,154 - INFO - 🔗 Reusing existing UUID from filename: 2be902d6-8081-421f-9f51-0dd6fc824660_sample_50_events.log
+2026-02-24 17:01:57,154 - INFO - ✅ Log file moved to staging: 2be902d6-8081-421f-9f51-0dd6fc824660_sample_50_events.log
+2026-02-24 17:01:57,155 - INFO - 💾 Inserted file metadata: 2be902d6-8081-421f-9f51-0dd6fc824660
+2026-02-24 17:01:57,155 - INFO - 🧠 Processing 1 log files through AI pipeline...
+2026-02-24 17:01:57,155 - INFO - 🚀 STARTING LARGE SCALE PIPELINE (Summarization + Sorting)
+2026-02-24 17:01:57,155 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
+2026-02-24 17:01:57,155 - INFO - Initializing Optimized Keyword Summarizer (MMR) with: sentence-transformers/all-MiniLM-L6-v2
+2026-02-24 17:01:57,156 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-24 17:01:57,156 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-24 17:01:57,156 - INFO - 🧠 Summarizing single file: 2be902d6-8081-421f-9f51-0dd6fc824660_sample_50_events.log
+2026-02-24 17:01:57,156 - INFO - ✅ Read text file: 2be902d6-8081-421f-9f51-0dd6fc824660_sample_50_events.log
+2026-02-24 17:01:57,156 - INFO - ✅ File classifier initialized
+2026-02-24 17:01:57,156 - INFO -    ⚡ Fast-path: Identified as log based on extension & content
+2026-02-24 17:01:57,156 - INFO -    🎯 Final File type: log
+2026-02-24 17:01:57,156 - INFO - ✅ Summarizer received content of type: <class 'str'>
+2026-02-24 17:01:58,016 - INFO - ✅ Extracted Keywords: Total Entries: 50. Keywords: memory usage, node worker, unauthorized sql, 25z error, started process...
+2026-02-24 17:01:58,016 - INFO - 📐 Generating Embeddings for 1 files...
+2026-02-24 17:01:58,053 - INFO - 📂 Organizing files into final categories...
+2026-02-24 17:01:58,058 - INFO -    👉 Moved 2be902d6-8081-421f-9f51-0dd6fc824660_sample_50_events.log -> app_log/
+2026-02-24 17:01:58,063 - INFO - ✅ Cluster Report Saved: /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/processed/file_level_clusters.csv
+2026-02-24 17:01:58,063 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/chroma_db
+2026-02-24 17:01:58,066 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-24 17:01:58,141 - INFO -    📋 Indexed metadata into Vector DB for 2be902d6-8081-421f-9f51-0dd6fc824660_sample_50_events.log
+2026-02-24 17:01:58,141 - INFO - ✅ File metadata indexed into Vector DB
+2026-02-24 17:01:58,141 - INFO - 🧠 Indexing files into RAG Vector Store...
+2026-02-24 17:01:58,141 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/chroma_db
+2026-02-24 17:01:58,142 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-24 17:01:58,159 - INFO -    Indexed summary for 2be902d6-8081-421f-9f51-0dd6fc824660_sample_50_events.log
+2026-02-24 17:01:58,159 - INFO -    Start chunking and indexing full log content...
+2026-02-24 17:01:58,159 - INFO - 🦙 Using Ollama with model: gemma3 for vulnerability analysis
+2026-02-24 17:01:58,168 - INFO -    🧠 Analyzing 16 events from 2be902d6-8081-421f-9f51-0dd6fc824660_sample_50_events.log...
+2026-02-24 17:01:58,168 - INFO -    ⚡ Deduplicated 16 events to 16 unique incidents
+2026-02-24 17:01:59,502 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-24 17:02:11,963 - INFO - 📦 Using DB cached solution for incident: ERROR:2026-02-23T10:03:12Z [ERROR] Failed to conne...
+2026-02-24 17:02:12,532 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-24 17:02:23,986 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-24 17:02:37,153 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-24 17:02:51,830 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-24 17:03:03,065 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-24 17:03:17,120 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-24 17:03:31,600 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-24 17:03:39,671 - INFO - 🗑️ Deleted File metadata (1), Logs (0), Vulns (0) for ID: 1a0d948c-872f-4dc8-a699-f1091e3001f7
+2026-02-24 17:03:41,333 - INFO - 🗑️ Deleted File metadata (1), Logs (0), Vulns (0) for ID: 2be902d6-8081-421f-9f51-0dd6fc824660
+2026-02-24 17:03:43,992 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-24 17:04:00,703 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
+2026-02-24 17:04:00,704 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/chroma_db
+2026-02-24 17:04:00,712 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-02-24 17:04:00,744 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-24 17:04:00,758 - INFO - Use pytorch device_name: mps
+2026-02-24 17:04:00,758 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-24 17:04:13,967 - WARNING - '(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 16e864e0-7c71-41a5-9dbe-37c918ae1c96)')' thrown while requesting HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/1_Pooling/config.json
+2026-02-24 17:04:13,968 - WARNING - Retrying in 1s [Retry 1/5].
+2026-02-24 17:04:25,051 - INFO - 🦙 Using Ollama with model: gemma3
+2026-02-24 17:04:25,079 - INFO - 🦙 Agent initialized with Ollama (gemma3) - no API key needed.
+2026-02-24 17:04:25,474 - INFO - ✅ Connected to MongoDB at mongodb+srv://nileshroy_db_user:Nexu696969@biriyani.f9ghawi.mongodb.net/
+2026-02-24 17:04:40,905 - INFO - Backing off send_request(...) for 0.2s (requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='us.i.posthog.com', port=443): Read timed out. (read timeout=15))
+2026-02-24 17:07:05,587 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
+2026-02-24 17:07:05,587 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/chroma_db
+2026-02-24 17:07:05,596 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-02-24 17:07:05,668 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-24 17:07:05,704 - INFO - Use pytorch device_name: mps
+2026-02-24 17:07:05,704 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-24 17:07:28,451 - INFO - 🦙 Using Ollama with model: gemma3
+2026-02-24 17:07:28,478 - INFO - 🦙 Agent initialized with Ollama (gemma3) - no API key needed.
+2026-02-24 17:07:28,743 - INFO - ✅ Connected to MongoDB at mongodb+srv://nileshroy_db_user:Nexu696969@biriyani.f9ghawi.mongodb.net/
+2026-02-24 17:11:43,260 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
+2026-02-24 17:11:43,261 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/chroma_db
+2026-02-24 17:11:43,270 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-02-24 17:11:43,343 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-24 17:11:43,362 - INFO - Use pytorch device_name: mps
+2026-02-24 17:11:43,362 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-24 17:11:47,068 - INFO - 🦙 Using Ollama with model: gemma3
+2026-02-24 17:11:47,094 - INFO - 🦙 Agent initialized with Ollama (gemma3) - no API key needed.
+2026-02-24 17:11:47,294 - INFO - ✅ Connected to MongoDB at mongodb+srv://nileshroy_db_user:Nexu696969@biriyani.f9ghawi.mongodb.net/
+2026-02-24 17:12:06,599 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
+2026-02-24 17:12:06,600 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/chroma_db
+2026-02-24 17:12:06,605 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-02-24 17:12:06,637 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-24 17:12:06,649 - INFO - Use pytorch device_name: mps
+2026-02-24 17:12:06,649 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-24 17:12:10,262 - INFO - 🦙 Using Ollama with model: gemma3
+2026-02-24 17:12:10,289 - INFO - 🦙 Agent initialized with Ollama (gemma3) - no API key needed.
+2026-02-24 17:12:10,496 - INFO - ✅ Connected to MongoDB at mongodb+srv://nileshroy_db_user:Nexu696969@biriyani.f9ghawi.mongodb.net/
+2026-02-24 17:13:58,727 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
+2026-02-24 17:13:58,728 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/chroma_db
+2026-02-24 17:13:58,742 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-02-24 17:13:58,809 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-24 17:13:58,828 - INFO - Use pytorch device_name: mps
+2026-02-24 17:13:58,828 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-24 17:15:29,517 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
+2026-02-24 17:15:29,518 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/chroma_db
+2026-02-24 17:15:29,527 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-02-24 17:15:29,593 - INFO - 💾 Loading pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-24 17:15:29,609 - INFO - Use pytorch device_name: mps
+2026-02-24 17:15:29,609 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-24 17:15:38,622 - INFO - 🦙 Using Ollama with model: gemma3
+2026-02-24 17:15:38,680 - INFO - 🦙 Agent initialized with Ollama (gemma3) - no API key needed.
+2026-02-24 17:15:38,890 - INFO - ✅ Connected to MongoDB at mongodb+srv://nileshroy_db_user:Nexu696969@biriyani.f9ghawi.mongodb.net/
+2026-02-24 17:16:24,049 - INFO - ✅ File uploaded: sample_50_events.log -> /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/incoming/ebde9029-0479-44d0-bd33-89d9ec7780b1_sample_50_events.log
+2026-02-24 17:16:24,050 - INFO - ✅ Read text file: ebde9029-0479-44d0-bd33-89d9ec7780b1_sample_50_events.log
+2026-02-24 17:16:24,088 - INFO - ✅ File classifier initialized
+2026-02-24 17:16:24,088 - INFO -    ⚡ Fast-path: Identified as log based on extension & content
+2026-02-24 17:16:24,089 - INFO -    🎯 Final File type: log
+2026-02-24 17:16:24,090 - INFO - 💾 Inserted file metadata: ebde9029-0479-44d0-bd33-89d9ec7780b1
+2026-02-24 17:16:31,825 - INFO - 🚀 Pipeline started in 'large' mode
+2026-02-24 17:16:31,825 - INFO - ✅ Read text file: ebde9029-0479-44d0-bd33-89d9ec7780b1_sample_50_events.log
+2026-02-24 17:16:31,826 - INFO - ✅ File classifier initialized
+2026-02-24 17:16:31,826 - INFO -    ⚡ Fast-path: Identified as log based on extension & content
+2026-02-24 17:16:31,826 - INFO -    🎯 Final File type: log
+2026-02-24 17:16:31,826 - INFO - 🔗 Reusing existing UUID from filename: ebde9029-0479-44d0-bd33-89d9ec7780b1_sample_50_events.log
+2026-02-24 17:16:31,826 - INFO - ✅ Log file moved to staging: ebde9029-0479-44d0-bd33-89d9ec7780b1_sample_50_events.log
+2026-02-24 17:16:31,827 - INFO - 💾 Inserted file metadata: ebde9029-0479-44d0-bd33-89d9ec7780b1
+2026-02-24 17:16:31,827 - INFO - 🧠 Processing 1 log files through AI pipeline...
+2026-02-24 17:16:31,827 - INFO - 🚀 STARTING LARGE SCALE PIPELINE (Summarization + Sorting)
+2026-02-24 17:16:31,827 - INFO - ✅ Database initialized with Log_extraction, File_Master, and Vulnerability_Analysis at /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/logs.db
+2026-02-24 17:16:31,827 - INFO - Initializing Optimized Keyword Summarizer (MMR) with: sentence-transformers/all-MiniLM-L6-v2
+2026-02-24 17:16:31,827 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-24 17:16:31,827 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-24 17:16:31,828 - INFO - 🧠 Summarizing single file: ebde9029-0479-44d0-bd33-89d9ec7780b1_sample_50_events.log
+2026-02-24 17:16:31,828 - INFO - ✅ Read text file: ebde9029-0479-44d0-bd33-89d9ec7780b1_sample_50_events.log
+2026-02-24 17:16:31,828 - INFO - ✅ File classifier initialized
+2026-02-24 17:16:31,828 - INFO -    ⚡ Fast-path: Identified as log based on extension & content
+2026-02-24 17:16:31,828 - INFO -    🎯 Final File type: log
+2026-02-24 17:16:31,828 - INFO - ✅ Summarizer received content of type: <class 'str'>
+2026-02-24 17:16:32,715 - INFO - ✅ Extracted Keywords: Total Entries: 50. Keywords: memory usage, node worker, unauthorized sql, 25z error, started process...
+2026-02-24 17:16:32,715 - INFO - 📐 Generating Embeddings for 1 files...
+2026-02-24 17:16:32,743 - INFO - 📂 Organizing files into final categories...
+2026-02-24 17:16:32,747 - INFO -    👉 Moved ebde9029-0479-44d0-bd33-89d9ec7780b1_sample_50_events.log -> app_log/
+2026-02-24 17:16:32,751 - INFO - ✅ Cluster Report Saved: /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/processed/file_level_clusters.csv
+2026-02-24 17:16:32,751 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/chroma_db
+2026-02-24 17:16:32,756 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-24 17:16:32,815 - INFO -    📋 Indexed metadata into Vector DB for ebde9029-0479-44d0-bd33-89d9ec7780b1_sample_50_events.log
+2026-02-24 17:16:32,815 - INFO - ✅ File metadata indexed into Vector DB
+2026-02-24 17:16:32,815 - INFO - 🧠 Indexing files into RAG Vector Store...
+2026-02-24 17:16:32,815 - INFO - 💾 Initializing RAG Vector DB at /Users/nileshroy/dev/AI_Log_Analyzer/chroma_db
+2026-02-24 17:16:32,816 - INFO - ♻️  Reusing loaded SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-02-24 17:16:32,833 - INFO -    Indexed summary for ebde9029-0479-44d0-bd33-89d9ec7780b1_sample_50_events.log
+2026-02-24 17:16:32,833 - INFO -    Start chunking and indexing full log content...
+2026-02-24 17:16:32,834 - INFO - 🦙 Using Ollama with model: gemma3 for vulnerability analysis
+2026-02-24 17:16:32,849 - INFO -    🧠 Analyzing 16 events from ebde9029-0479-44d0-bd33-89d9ec7780b1_sample_50_events.log...
+2026-02-24 17:16:32,849 - INFO -    ⚡ Deduplicated 16 events to 16 unique incidents
+2026-02-24 17:16:32,849 - INFO - 📦 Using DB cached solution for incident: WARNING:2026-02-23T10:01:05Z [WARNING] High memory...
+2026-02-24 17:16:32,849 - INFO - 📦 Using DB cached solution for incident: ERROR:2026-02-23T10:03:12Z [ERROR] Failed to conne...
+2026-02-24 17:16:32,850 - INFO - 📦 Using DB cached solution for incident: WARNING:2026-02-23T10:03:14Z [WARNING] Retrying co...
+2026-02-24 17:16:32,850 - INFO - 📦 Using DB cached solution for incident: WARNING:2026-02-23T10:05:25Z [WARNING] Request fir...
+2026-02-24 17:16:32,850 - INFO - 📦 Using DB cached solution for incident: ERROR:2026-02-23T10:07:33Z [ERROR] NullReferenceEx...
+2026-02-24 17:16:32,850 - INFO - 📦 Using DB cached solution for incident: ERROR:2026-02-23T10:07:34Z [INFO] Stack trace capt...
+2026-02-24 17:16:32,850 - INFO - 📦 Using DB cached solution for incident: WARNING:2026-02-23T10:09:45Z [WARNING] Disk space ...
+2026-02-24 17:16:32,850 - INFO - 📦 Using DB cached solution for incident: ERROR:2026-02-23T10:12:35Z [ERROR] Timeout while w...
+2026-02-24 17:16:32,850 - INFO - 📦 Using DB cached solution for incident: WARNING:2026-02-23T10:12:35Z [WARNING] Falling bac...
+2026-02-24 17:16:37,277 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-24 17:16:47,906 - INFO - Backing off send_request(...) for 0.9s (requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='us.i.posthog.com', port=443): Read timed out. (read timeout=15))
+2026-02-24 17:16:49,490 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-24 17:16:59,232 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-24 17:17:10,850 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-24 17:17:27,072 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-24 17:17:39,068 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-24 17:17:55,198 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-24 17:18:04,329 - INFO -    🔒 Analyzing 2 vulnerabilities from ebde9029-0479-44d0-bd33-89d9ec7780b1_sample_50_events.log...
+2026-02-24 17:18:05,273 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-24 17:18:15,303 - INFO - 🤖 Generated LLM solution for SQL Injection (SQLi)
+2026-02-24 17:18:16,337 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-24 17:18:28,744 - WARNING - ⚠️ Failed to parse LLM response: Expecting ',' delimiter: line 4 column 252 (char 603)
+2026-02-24 17:18:28,746 - INFO - 🤖 Generated LLM solution for Cross-Site Scripting (XSS)
+2026-02-24 17:18:28,748 - INFO - 🔒 Saved 2 vulnerability analyses to database.
+2026-02-24 17:18:29,298 - INFO -    🔒 Indexed 2 vulnerabilities into Vector DB for ebde9029-0479-44d0-bd33-89d9ec7780b1_sample_50_events.log
+2026-02-24 17:18:29,301 - INFO - 💾 Saved 18 events to Log_extraction.
+2026-02-24 17:18:29,301 - INFO -    💾 Saved 18 events to Log_extraction for ebde9029-0479-44d0-bd33-89d9ec7780b1_sample_50_events.log
+2026-02-24 17:18:29,392 - INFO -    📊 Indexed 18 events into Vector DB for ebde9029-0479-44d0-bd33-89d9ec7780b1_sample_50_events.log
+2026-02-24 17:18:29,713 - INFO -    Indexed batch 1 (5 chunks) for ebde9029-0479-44d0-bd33-89d9ec7780b1_sample_50_events.log
+2026-02-24 17:18:29,713 - INFO -    Indexed total 5 chunks for ebde9029-0479-44d0-bd33-89d9ec7780b1_sample_50_events.log
+2026-02-24 17:18:29,714 - INFO - ✅ RAG Indexing Complete
+2026-02-24 17:18:29,738 - INFO - 🔄 Updated file metadata for: ebde9029-0479-44d0-bd33-89d9ec7780b1_sample_50_events.log
+2026-02-24 17:18:29,740 - INFO - 📊 Processed 1 log files in LARGE-SCALE mode.
+2026-02-24 17:21:46,799 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-24 17:21:54,861 - INFO - Backing off send_request(...) for 0.6s (requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='us.i.posthog.com', port=443): Read timed out. (read timeout=15))
+2026-02-24 17:35:39,495 - INFO - ✅ No vulnerabilities found in /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/processed/file_level_clusters.csv
+2026-02-24 17:35:39,498 - WARNING - ⚠️ Found 2 potential vulnerabilities in /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/processed/app_log/1a0d948c-872f-4dc8-a699-f1091e3001f7_sample_50_events.log
+2026-02-24 17:35:39,500 - WARNING - ⚠️ Found 2 potential vulnerabilities in /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/processed/app_log/2be902d6-8081-421f-9f51-0dd6fc824660_sample_50_events.log
+2026-02-24 17:35:39,501 - WARNING - ⚠️ Found 2 potential vulnerabilities in /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/processed/app_log/ebde9029-0479-44d0-bd33-89d9ec7780b1_sample_50_events.log
+2026-02-24 17:35:39,503 - WARNING - ⚠️ Found 2 potential vulnerabilities in /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/processed/app_log/4d161086-53e0-43b1-9883-ad30a22b5807_sample_50_events.log
+2026-02-24 17:36:20,403 - INFO - ✅ No vulnerabilities found in /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/processed/file_level_clusters.csv
+2026-02-24 17:36:20,405 - WARNING - ⚠️ Found 2 potential vulnerabilities in /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/processed/app_log/1a0d948c-872f-4dc8-a699-f1091e3001f7_sample_50_events.log
+2026-02-24 17:36:20,407 - WARNING - ⚠️ Found 2 potential vulnerabilities in /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/processed/app_log/2be902d6-8081-421f-9f51-0dd6fc824660_sample_50_events.log
+2026-02-24 17:36:20,409 - WARNING - ⚠️ Found 2 potential vulnerabilities in /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/processed/app_log/ebde9029-0479-44d0-bd33-89d9ec7780b1_sample_50_events.log
+2026-02-24 17:36:20,410 - WARNING - ⚠️ Found 2 potential vulnerabilities in /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/processed/app_log/4d161086-53e0-43b1-9883-ad30a22b5807_sample_50_events.log
+2026-02-24 17:36:47,838 - INFO - ✅ No vulnerabilities found in /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/processed/file_level_clusters.csv
+2026-02-24 17:36:47,841 - WARNING - ⚠️ Found 2 potential vulnerabilities in /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/processed/app_log/1a0d948c-872f-4dc8-a699-f1091e3001f7_sample_50_events.log
+2026-02-24 17:36:47,842 - WARNING - ⚠️ Found 2 potential vulnerabilities in /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/processed/app_log/2be902d6-8081-421f-9f51-0dd6fc824660_sample_50_events.log
+2026-02-24 17:36:47,844 - WARNING - ⚠️ Found 2 potential vulnerabilities in /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/processed/app_log/ebde9029-0479-44d0-bd33-89d9ec7780b1_sample_50_events.log
+2026-02-24 17:36:47,846 - WARNING - ⚠️ Found 2 potential vulnerabilities in /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/processed/app_log/4d161086-53e0-43b1-9883-ad30a22b5807_sample_50_events.log
+2026-02-24 17:36:49,402 - INFO - ✅ No vulnerabilities found in /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/processed/file_level_clusters.csv
+2026-02-24 17:36:49,404 - WARNING - ⚠️ Found 2 potential vulnerabilities in /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/processed/app_log/1a0d948c-872f-4dc8-a699-f1091e3001f7_sample_50_events.log
+2026-02-24 17:36:49,405 - WARNING - ⚠️ Found 2 potential vulnerabilities in /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/processed/app_log/2be902d6-8081-421f-9f51-0dd6fc824660_sample_50_events.log
+2026-02-24 17:36:49,407 - WARNING - ⚠️ Found 2 potential vulnerabilities in /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/processed/app_log/ebde9029-0479-44d0-bd33-89d9ec7780b1_sample_50_events.log
+2026-02-24 17:36:49,408 - WARNING - ⚠️ Found 2 potential vulnerabilities in /Users/nileshroy/dev/AI_Log_Analyzer/pipeline_data/processed/app_log/4d161086-53e0-43b1-9883-ad30a22b5807_sample_50_events.log
+2026-02-24 18:06:23,156 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"

@@ -55,9 +55,9 @@ agent = None
 
 if AGENT_AVAILABLE:
     try:
-        # Initialize with Google provider by default
-        agent = LogAnalysisAgent(model_provider="google")
-        logger.info("🤖 Agent initialized successfully.")
+        # Use Ollama/Gemma3 by default - no API key required
+        agent = LogAnalysisAgent(model_provider="ollama", model_name="gemma3")
+        logger.info("🦙 Agent initialized with Ollama (gemma3) - no API key needed.")
     except Exception as e:
         logger.error(f"❌ Failed to initialize Agent: {e}")
 

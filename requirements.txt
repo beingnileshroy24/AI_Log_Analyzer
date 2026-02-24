@@ -15,12 +15,10 @@ langchain
 langchain-community
 langchain-openai
 langchain-google-genai
+langchain-ollama
 python-dotenv
 pydantic-settings
 langgraph
-fastapi
-uvicorn
-python-multipart
 fastapi
 uvicorn
 python-multipart

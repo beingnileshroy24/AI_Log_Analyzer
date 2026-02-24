@@ -19,7 +19,10 @@ class ChromaEmbeddingWrapper(embedding_functions.EmbeddingFunction):
 class RAGVectorDB:
     def __init__(self, persist_directory=CHROMA_DB_PATH, model_name="sentence-transformers/all-MiniLM-L6-v2"):
         logging.info(f"💾 Initializing RAG Vector DB at {persist_directory}")
-        self.client = chromadb.PersistentClient(path=persist_directory)
+        self.client = chromadb.PersistentClient(
+            path=persist_directory,
+            settings=Settings(anonymized_telemetry=False)
+        )
         
         # Use our existing embedding engine to ensure compatibility with other parts of the pipeline
         self.embedding_engine = EmbeddingEngine(model_name)

@@ -211,7 +211,7 @@ def run_large_scale_pipeline():
             try:
                 result = parser.parse_file_with_vulns(file_path)
                 vulnerabilities = result["vulnerabilities"]
-                regular_events = [e for e in result["events"] if e.get("LogEntryType") in ["ERROR", "WARN"]]
+                regular_events = [e for e in result["events"] if e.get("LogEntryType") in ["ERROR", "WARNING"]]
                 
                 analyzer = VulnerabilityAnalyzer()
                 events_for_db = []

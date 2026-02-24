@@ -82,49 +82,57 @@ AI_Log_Analyzer/
 
 ---
 
+---
+
 ## 🚀 Usage
 
-### 1. Prepare Data
+### 1. Environment Setup (First-time)
 
-Drop your log files or spreadsheets into the `pipeline_data/incoming/` folder.
+Before running anything, ensure your environment is ready:
 
-### 2. Choose Your Mode
+```bash
+# 1. Activate the virtual environment
+source .venv/bin/activate
 
-The AI Log Analyzer supports three primary modes:
+# 2. Install/Update dependencies
+pip install -r requirements.txt
+```
+
+### 2. Start the API Backend (UI Mode)
+
+The backend provides a REST API for the frontend and handles asynchronous processing.
+
+```bash
+# Start the API server
+python api.py
+```
+> [!NOTE]
+> The API will be available at `http://localhost:8000`. You can also run it using uvicorn: `uvicorn api:app --host 0.0.0.0 --port 8000`.
+
+### 3. Start the Processing Pipeline (CLI Mode)
+
+If you prefer using the command line for batch processing, drop your files into `pipeline_data/incoming/` and run:
 
 #### **A. Large Mode (Default)**
-
 *Focus: File-level categorization and sorting.*
-Summarizes entire files and moves them to appropriate category folders.
-
 ```bash
 python main.py large
 ```
 
 #### **B. Small Mode**
-
-*Focus: Line-level pattern detection within files.*
-Clusters individual log lines to find common error patterns or event types across different files.
-
+*Focus: Line-level pattern detection.*
 ```bash
 python main.py small
 ```
 
 #### **C. Agent Mode (RAG)**
-
 *Focus: Interactive Q&A.*
-Chat with your processed logs to find specific errors, summaries, or insights.
-**Note**: You must run "Large Mode" first to index the files.
-
 ```bash
-python main.py agent --openai
+python main.py agent
 ```
 
 #### **D. Scan Mode**
-
 *Focus: Security auditing.*
-Scans processed and staged logs for common vulnerability patterns (SQLi, XSS, etc.) without requiring AI/API interaction.
-
 ```bash
 python main.py scan
 ```

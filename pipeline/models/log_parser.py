@@ -12,7 +12,7 @@ class LogParser:
     # Common patterns for log levels
     LEVEL_PATTERNS = {
         "ERROR": re.compile(r'\b(ERROR|CRITICAL|FATAL|FAIL|FAILED|EXCEPTION)\b', re.IGNORECASE),
-        "WARN": re.compile(r'\b(WARN|WARNING)\b', re.IGNORECASE)
+        "WARNING": re.compile(r'\b(WARN|WARNING)\b', re.IGNORECASE)
     }
     
     # Simple timestamp extractor (YYYY-MM-DD HH:MM:SS)
