@@ -147,55 +147,61 @@ def register(request: RegisterRequest):
 
 
 @app.post("/upload")
-async def upload_file(file: UploadFile = File(...)):
+async def upload_files(files: List[UploadFile]):
     """
-    Upload a file to the ingestion pipeline.
+    Upload multiple files to the ingestion pipeline.
     """
-    try:
-        file_id = str(uuid.uuid4())
-        # Sanitize filename to prevent directory traversal or weird characters
-        safe_filename = "".join(c for c in file.filename if c.isalnum() or c in (' ', '.', '_', '-')).strip()
-        new_filename = f"{file_id}_{safe_filename}"
-        destination = os.path.join(INCOMING_DIR, new_filename)
-        
-        with open(destination, "wb") as buffer:
-            shutil.copyfileobj(file.file, buffer)
+    results = []
+    errors = []
+    
+    for file in files:
+        try:
+            file_id = str(uuid.uuid4())
+            # Sanitize filename to prevent directory traversal or weird characters
+            safe_filename = "".join(c for c in file.filename if c.isalnum() or c in (' ', '.', '_', '-')).strip()
+            new_filename = f"{file_id}_{safe_filename}"
+            destination = os.path.join(INCOMING_DIR, new_filename)
             
-        logger.info(f"✅ File uploaded: {file.filename} -> {destination}")
-        
-        # Trigger Ingestion immediately (or use background task if slow)
-        # For now, we just acknowledge receipt. The main.py pipeline usually processes these.
-        # However, to be useful via API, we might want to trigger `ingestor.process_file` here
-        # or have a background watcher.
-        # Let's run a quick process for this file to classify it.
-        
-        content, file_type = ingestor.process_file(destination)
-        
-        # Save to File_Master for persistent tracking (Task 9)
-        file_metadata = {
-            "File_ID": file_id,
-            "Original_Filename": file.filename,
-            "Stored_Filename": new_filename,
-            "Raw_Storage_Path": destination,
-            "Status": "Staged",
-            "Category": file_type,
-            "Created_On": datetime.now().isoformat(),
-            "Created_By": "System",
-            "File_Size_KB": os.path.getsize(destination) / 1024
-        }
-        
-        insert_file_metadata(file_metadata)
-        
-        return {
-            "message": "File uploaded successfully",
-            "filename": file.filename,
-            "id": file_id,
-            "detected_type": file_type,
-            "path": destination
-        }
-    except Exception as e:
-        logger.error(f"Upload failed: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
+            with open(destination, "wb") as buffer:
+                shutil.copyfileobj(file.file, buffer)
+                
+            logger.info(f"✅ File uploaded: {file.filename} -> {destination}")
+            
+            content, file_type = ingestor.process_file(destination)
+            
+            # Save to File_Master for persistent tracking (Task 9)
+            file_metadata = {
+                "File_ID": file_id,
+                "Original_Filename": file.filename,
+                "Stored_Filename": new_filename,
+                "Raw_Storage_Path": destination,
+                "Status": "Staged",
+                "Category": file_type,
+                "Created_On": datetime.now().isoformat(),
+                "Created_By": "System",
+                "File_Size_KB": os.path.getsize(destination) / 1024
+            }
+            
+            insert_file_metadata(file_metadata)
+            
+            results.append({
+                "message": "File uploaded successfully",
+                "filename": file.filename,
+                "id": file_id,
+                "detected_type": file_type,
+                "path": destination
+            })
+        except Exception as e:
+            logger.error(f"Upload failed for {file.filename}: {e}")
+            errors.append({"filename": file.filename, "error": str(e)})
+
+    if errors and not results:
+        raise HTTPException(status_code=500, detail=f"All uploads failed: {errors}")
+    
+    return {
+        "uploads": results,
+        "errors": errors
+    }
 
 @app.get("/files")
 def list_files():

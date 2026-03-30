@@ -32,23 +32,27 @@ def run_tests():
              print(f"❌ Connection failed: {e}")
              return
 
-        # 3. Test Upload
-        print("\nTesting /upload...")
-        # Create a dummy log file
-        dummy_log = "test_log.txt"
-        with open(dummy_log, "w") as f:
-            f.write("2023-10-27 10:00:00 ERROR Connection failed from 192.168.1.50\n")
+        # 3. Test Multi-file Upload
+        print("\nTesting /upload (Multi-file)...")
+        dummy_log1 = "test_log1.txt"
+        dummy_log2 = "test_log2.txt"
+        with open(dummy_log1, "w") as f: f.write("2023-10-27 10:00:00 ERROR Connection failed\n")
+        with open(dummy_log2, "w") as f: f.write("2023-10-27 10:05:00 INFO User logged in\n")
             
-        with open(dummy_log, "rb") as f:
-            files = {'file': (dummy_log, f)}
-            resp = requests.post(f"{BASE_URL}/upload", files=files)
+        files = [
+            ('files', (dummy_log1, open(dummy_log1, "rb"))),
+            ('files', (dummy_log2, open(dummy_log2, "rb")))
+        ]
+        resp = requests.post(f"{BASE_URL}/upload", files=files)
             
         if resp.status_code == 200:
-            print(f"✅ Upload passed: {resp.json()}")
+            data = resp.json()
+            print(f"✅ Upload passed. Uploaded {len(data.get('uploads', []))} files.")
         else:
             print(f"❌ Upload failed: {resp.text}")
             
-        os.remove(dummy_log)
+        os.remove(dummy_log1)
+        os.remove(dummy_log2)
 
         # 4. Test List Files
         print("\nTesting /files...")
